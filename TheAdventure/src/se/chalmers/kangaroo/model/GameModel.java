@@ -34,9 +34,17 @@ public class GameModel {
 
 	/**
 	 * 
+	 * @return the amount of times the player has died.
+	 */
+	public int getDeathCount(){
+		return deathCount;
+	}
+	/**
+	 * 
 	 * @return the time that has elapsed for the player.
 	 */
 	public int getTime() {
 		return time;
 	}
+
 }
