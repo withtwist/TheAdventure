@@ -1,42 +1,91 @@
 package se.chalmers.kangaroo.model;
 
+/**
+ * This is a class to represent the position. The class will take either two
+ * coordinates or a position in the constructor, and then make a new position to
+ * apply on another object.
+ * 
+ * @author arvidk
+ * 
+ */
+
 public class Position {
 
+	/*
+	 * The x-coordinate with the origo at the top left corner
+	 */
 	private int x;
+
+	/*
+	 * The y-coordinate with origo in the top left corner
+	 */
 	private int y;
-	
-	public Position(Position pos){
-		//TOTO Implement constructor
+
+	/**
+	 * Creates a new position with another position. Makes a deep clone of
+	 * another position so it can be applied on different objects.
+	 * 
+	 * @param pos
+	 */
+	public Position(Position pos) {
+		// TOTO Implement constructor
 	}
-	
-	public Position(int x, int y){
-		//TODO implement constructor
+
+	/**
+	 * Creates a new position with two coordinates. Makes a new position with
+	 * the help of two integers.
+	 * 
+	 * @param x
+	 * @param y
+	 */
+
+	public Position(int x, int y) {
+		// TODO implement constructor
 	}
-	
-	public int getX(){
+
+	/**
+	 * 
+	 * @return the x-coordinate.
+	 */
+	public int getX() {
 		return x;
 	}
-	
-	public int getY(){
+
+	/**
+	 * 
+	 * @return the y-coordinate.
+	 */
+	public int getY() {
 		return y;
 	}
-	
+
 	@Override
-	public String toString(){
+	/**
+	 * The toString-method in Position.
+	 * @return the coordinates as a String.
+	 */
+	public String toString() {
 		return null;
-		//TODO implement toString
+		// TODO implement toString
 	}
 
 	@Override
+	/**
+	 * @return the hashCode of the coordinates as an int.
+	 */
 	public int hashCode() {
-		//TODO fix hashCode
-		return super.hashCode() + x * 7 + y * 11;		
+		// TODO fix hashCode
+		return super.hashCode() * x * 7 * y * 11;
 	}
 
 	@Override
+	/**
+	 * @return a boolean value if two positions are
+	 * equals or not.
+	 */
 	public boolean equals(Object obj) {
-		//TODO fix equals
-		
+		// TODO fix equals
+
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -50,5 +99,5 @@ public class Position {
 			return false;
 		return true;
 	}
-	
+
 }
