@@ -17,7 +17,7 @@ public class Kangaroo implements Movable {
 	 * @param spawnPos
 	 * @return
 	 */
-	Public Kangaroo(Position spawnPos) {
+	public Kangaroo(Position spawnPos) {
 		// TODO
 	}
 
@@ -27,7 +27,8 @@ public class Kangaroo implements Movable {
 	 * @return currentItem
 	 */
 	public Item getItem() {
-		// TODO
+		//TODO
+		return null;
 	}
 
 	/**
