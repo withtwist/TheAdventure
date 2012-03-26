@@ -29,7 +29,7 @@ public abstract class Creature implements Movable{
 	 * @return killable
 	 */
 	public boolean isKillable() {
-		//TODO
+		return killable;
 	}
 	/**
 	 * Moves the creature according to the delta-y nad delta-x.

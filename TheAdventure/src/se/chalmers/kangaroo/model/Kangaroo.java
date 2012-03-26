@@ -1,7 +1,7 @@
 package se.chalmers.kangaroo.model;
 
 /**
- * This class represents the kangaroo controlled by the player.
+ * This class represents the Kangaroo controlled by the player.
  * 
  * @author simonal
  * 
@@ -17,7 +17,7 @@ public class Kangaroo implements Movable {
 	 * @param spawnPos
 	 * @return
 	 */
-	Public Kangaroo(Posiiton spawnPos) {
+	Public Kangaroo(Position spawnPos) {
 		// TODO
 	}
 
