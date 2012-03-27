@@ -28,7 +28,8 @@ public class Position {
 	 * @param pos
 	 */
 	public Position(Position pos) {
-		// TOTO Implement constructor
+		this.x = pos.getX();
+		this.y = pos.getY();
 	}
 
 	/**
@@ -40,7 +41,8 @@ public class Position {
 	 */
 
 	public Position(int x, int y) {
-		// TODO implement constructor
+		this.x = x;
+		this.y = y;
 	}
 
 	/**
@@ -65,8 +67,7 @@ public class Position {
 	 * @return the coordinates as a String.
 	 */
 	public String toString() {
-		return null;
-		// TODO implement toString
+		return "x: " + x +". y: " + y +".";
 	}
 
 	@Override

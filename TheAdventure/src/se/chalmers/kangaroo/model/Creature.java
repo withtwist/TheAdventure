@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.model;
 /**
  * This abstract class represents all the different hostile creatures in the game.
  * @author simonal
+ * @modified by arvidk
  *
  */
 public abstract class Creature implements Movable{
@@ -9,20 +10,22 @@ public abstract class Creature implements Movable{
 	private Position spawnPos;
 	private boolean killable;
 	private Position pos;
+	private Direction direction;
 	/**
 	 * A protected constructor which takes a spawnposition and the direction the creature will be facing.
 	 * @param spawnPos
 	 * @param direction
 	 */
 	protected Creature(Position spawnPos, Direction direction) {
-		//TODO
+		this.spawnPos = spawnPos;
+		this.direction = direction;
 	}
 	/**
 	 * Changes the direction the creature is facing and possible moving.
 	 * @param newDirection
 	 */
 	public void changeDirection(Direction newDirection) {
-		//TODO
+		this.direction = newDirection;
 	}
 	/**
 	 * Returns true of the creature is killable and false if it isnt.
@@ -36,7 +39,7 @@ public abstract class Creature implements Movable{
 	 * @param dy
 	 * @param dx
 	 */
-	public void move(int dy, int dx) {
+	public void move(int dx, int dy) {
 		//TODO
 	}
 
