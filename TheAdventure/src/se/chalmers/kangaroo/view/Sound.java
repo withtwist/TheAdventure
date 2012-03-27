@@ -3,9 +3,9 @@ package se.chalmers.kangaroo.view;
 import java.io.*;
 import javax.sound.sampled.*;
 /**
- * 
+ * A class for playing sound in the background.
  * @author LouwHopley
- *
+ * @modified simonal
  */
 public class Sound implements Runnable
 {
