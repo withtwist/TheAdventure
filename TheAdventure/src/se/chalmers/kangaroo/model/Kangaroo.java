@@ -4,6 +4,7 @@ package se.chalmers.kangaroo.model;
  * This class represents the Kangaroo controlled by the player.
  * 
  * @author simonal
+ * @modified by arvidk
  * 
  */
 public class Kangaroo implements Movable {
@@ -18,7 +19,7 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Kangaroo(Position spawnPos) {
-		// TODO
+		this.pos = spawnPos;
 	}
 
 	/**
@@ -27,8 +28,7 @@ public class Kangaroo implements Movable {
 	 * @return currentItem
 	 */
 	public Item getItem() {
-		//TODO
-		return null;
+		return item;
 	}
 
 	/**
@@ -37,7 +37,11 @@ public class Kangaroo implements Movable {
 	 * @param newItem
 	 */
 	public void setItem(Item newItem) {
-		// TODO
+		if(getItem() != null) {
+			getItem().onDrop();
+		}
+			this.item = newItem;
+			this.item.onPickup();
 	}
 	/**
 	 * Moves the Kangaroo with the specified delta-y and delta-x.
@@ -50,7 +54,7 @@ public class Kangaroo implements Movable {
 	 * @param p
 	 */
 	public void move(Position p) {
-		//TODO
+		this.pos = p;
 	}
 
 	@Override
