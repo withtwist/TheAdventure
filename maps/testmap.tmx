@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="30" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Tiles" tilewidth="16" tileheight="16">
+  <image source="../../../../Dropbox/DesignProjekt19/New folder/Hej/data/tiles.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="33" name="Collision" tilewidth="16" tileheight="16">
+  <image source="../../../../Dropbox/DesignProjekt19/New folder/Hej/data/collision.png" width="80" height="32"/>
+ </tileset>
+ <tileset firstgid="43" name="tile_grass" tilewidth="64" tileheight="64">
+  <image source="../../../../Dropbox/Projekt/gfx/tiles/tile_grass.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="44" name="tile_grass" tilewidth="16" tileheight="16">
+  <image source="../../../../Dropbox/Projekt/gfx/tiles/tile_grass.png" width="64" height="64"/>
+ </tileset>
+ <layer name="collision" width="40" height="30" opacity="0.14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3UyQkAMQxDUbfi/pvMPQQClhcZ9EH3R5ixm5mTjzX5sOTDyvRV/KcV78fuy2y7b/qeb/dNJx/WtO/3fcuH1emL3KjO+8bui8TmuZMPa4tP07T3Dg7fYULAEgAA
+  </data>
+ </layer>
+ <layer name="Grass" width="40" height="30" opacity="0.5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3TSwqAMAyE4d7Ht97/bs6mm5GCFIyt/h8MoYWskqQE4O9GZVJmZanMk1ZlU3blqAxilXaqFaWdAr7A7y/XVvj95Yorn2VU710+y6heAOjZYNX/33r34ARQMp29wBIAAA==
+  </data>
+ </layer>
+</map>
