@@ -1216,7 +1216,7 @@
    <tile gid="33"/>
   </data>
  </layer>
- <layer name="Grass" width="40" height="30" opacity="0.5">
+ <layer name="tiles" width="40" height="30" opacity="0.5">
   <data>
    <tile gid="0"/>
    <tile gid="0"/>
