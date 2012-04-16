@@ -12,8 +12,15 @@ public class Kangaroo implements Movable {
 	private Item item;
 	private Position pos;
 	
-	private int verticalSpeed = 0;
-	private int horizontalSpeed = 0;
+	private double verticalSpeed = 0;
+	private double horizontalSpeed = 0;
+	
+	private Direction direction;
+	
+	private boolean enableDoubleJump;
+	
+	private boolean isJumping = false;
+	private boolean isFalling = false;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -49,7 +56,7 @@ public class Kangaroo implements Movable {
 	/**
 	 * Moves the Kangaroo with the specified delta-y and delta-x.
 	 */
-	public void setPosition(int dx, int dy) {
+	public void setRelativePosition(int dx, int dy) {
 		this.pos = new Position(pos.getX()+dx, pos.getY()+dy);
 	}
 	/**
@@ -60,19 +67,53 @@ public class Kangaroo implements Movable {
 		this.pos = p;
 	}
 	/**
-	 * Sets the Kangaroos horizontal speed to the specified speed.
-	 * @param speed
+	 * Sets the direction that the Kangaroo is moving towards.
+	 * @param d
 	 */
-	public void setVerticalSpeed(int speed) {
-		this.verticalSpeed = speed;
+	public void setDirection(Direction d) {
+		this.direction = d;
 	}
 	/**
-	 * Sets the Kangaroos vertical speed to the specified speed.
-	 * @param speed
+	 * Enables doublejump.
 	 */
-	public void setHorizontalSpeed(int speed) {
-		this.horizontalSpeed = speed;
+	public void enableDoubleJump() {
+		this.enableDoubleJump = true;
 	}
+	/**
+	 * Disables doublejump.
+	 */
+	public void disableDoubleJump() {
+		this.enableDoubleJump = false;
+	}
+	/**
+	 * Makes the Kangaroo jump by setting its vertical speed.
+	 */
+	public void jump() {
+		this.horizontalSpeed = 0.9;
+	}
+
+	public void updateKangaroo() {
+		this.move();
+		
+		if(isFalling) {
+			this.verticalSpeed -= 0.1;
+	
+		} if(direction == Direction.DIRECTION_EAST) {			
+			horizontalSpeed += 0.1;
+			
+		} if(direction == Direction.DIRECTION_WEST) {			
+			horizontalSpeed -= 0.1;
+			
+		} if(direction == Direction.DIRETION_NONE) {
+			if (horizontalSpeed<0) {				
+				horizontalSpeed += 0.1;						
+			} else if (horizontalSpeed>0) {				
+				horizontalSpeed -= 0.1;
+			} 
+
+		}
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -106,7 +147,7 @@ public class Kangaroo implements Movable {
 
 	@Override
 	public void move() {
-		this.setPosition(verticalSpeed, horizontalSpeed);
+		this.setRelativePosition((int)horizontalSpeed, (int)verticalSpeed);
 		
 	}
 
