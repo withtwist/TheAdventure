@@ -19,11 +19,11 @@ public class TileFactory {
 	 * @param c, the id of the tile
 	 * @return the tile created
 	 */
-	public Tile createTile(char c) {
-		if (INTERACTIVE_TILES.contains("" + c)) {
+	public Tile createTile(String s) {
+		if (INTERACTIVE_TILES.contains("" + s)) {
 			return null; // <-interactivetile TODO
 		} else {
-			return new Tile(c);
+			return new Tile(s);
 		}
 	}
 }

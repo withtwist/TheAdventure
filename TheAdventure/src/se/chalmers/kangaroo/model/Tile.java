@@ -9,7 +9,7 @@ package se.chalmers.kangaroo.model;
  */
 public class Tile {
 	static final String COLLIDE_IDS = "ABCDEFG";
-	private final char id;
+	private final String id;
 	private boolean collideable;
 
 	/**
@@ -17,9 +17,9 @@ public class Tile {
 	 * 
 	 * @param a
 	 */
-	public Tile(char a) {
-		this.id = a;
-		collideable = COLLIDE_IDS.contains("" + a);
+	public Tile(String s) {
+		this.id = s;
+		collideable = COLLIDE_IDS.contains("" + s);
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class Tile {
 	 * 
 	 * @return the id of the tile
 	 */
-	public char getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -45,10 +45,10 @@ public class Tile {
 	 */
 	@Override
 	public int hashCode() {
-		return super.hashCode() * 7 * (int) id * 37;
+		return super.hashCode() * 7 * id.hashCode() * 37;
 	}
 	/**
-	 * @return true if the id is the same. 
+	 * @return true if obj is a Tile and the id is the same. 
 	 */
 	@Override
 	public boolean equals(Object obj) {
