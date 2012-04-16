@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.view;
 
 import java.io.*;
 import javax.sound.sampled.*;
+import javax.swing.JOptionPane;
 /**
  * A class for playing sound in the background.
  * @author LouwHopley
@@ -53,7 +54,12 @@ public class Sound implements Runnable
                 {
                         e.printStackTrace();
                 }
-                line.start();
+                if (line != null) {
+                    line.start();                	
+                } else {
+                	JOptionPane.showMessageDialog(null, "Error in sound, call Grubla");
+                }
+
                 int     nBytesRead = 0;
                 byte[]  abData = new byte[128000];
                 while (nBytesRead != -1)

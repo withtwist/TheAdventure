@@ -11,6 +11,9 @@ public class Kangaroo implements Movable {
 
 	private Item item;
 	private Position pos;
+	
+	private int verticalSpeed = 0;
+	private int horizontalSpeed = 0;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -46,15 +49,29 @@ public class Kangaroo implements Movable {
 	/**
 	 * Moves the Kangaroo with the specified delta-y and delta-x.
 	 */
-	public void move(int dy, int dx) {
-		//TODO
+	public void setPosition(int dx, int dy) {
+		this.pos = new Position(pos.getX()+dx, pos.getY()+dy);
 	}
 	/**
 	 * Moves the Kangaroo to the specified position.
 	 * @param p
 	 */
-	public void move(Position p) {
+	public void setPosition(Position p) {
 		this.pos = p;
+	}
+	/**
+	 * Sets the Kangaroos horizontal speed to the specified speed.
+	 * @param speed
+	 */
+	public void setVerticalSpeed(int speed) {
+		this.verticalSpeed = speed;
+	}
+	/**
+	 * Sets the Kangaroos vertical speed to the specified speed.
+	 * @param speed
+	 */
+	public void setHorizontalSpeed(int speed) {
+		this.horizontalSpeed = speed;
 	}
 
 	@Override
@@ -89,7 +106,7 @@ public class Kangaroo implements Movable {
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
+		this.setPosition(verticalSpeed, horizontalSpeed);
 		
 	}
 
