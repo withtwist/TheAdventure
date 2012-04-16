@@ -15,9 +15,9 @@ public class Kangaroo implements Movable {
 	private double verticalSpeed = 0;
 	private double horizontalSpeed = 0;
 	
-	private Direction direction;
+	private Direction direction = Direction.DIRETION_NONE;
 	
-	private boolean enableDoubleJump;
+	private boolean enableDoubleJump = false;
 	
 	private boolean isJumping = false;
 	private boolean isFalling = false;
@@ -89,7 +89,12 @@ public class Kangaroo implements Movable {
 	 * Makes the Kangaroo jump by setting its vertical speed.
 	 */
 	public void jump() {
-		this.horizontalSpeed = 0.9;
+		if(isJumping=false) {
+			this.isJumping = true;
+			this.isFalling = true;
+			this.horizontalSpeed = 0.9;		
+		}
+
 	}
 
 	public void updateKangaroo() {
