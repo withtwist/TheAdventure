@@ -24,21 +24,61 @@ public class GameModel {
 	 * Will keep track of how long the player have played.
 	 */
 	private int time;
+	/*
+	 * Will check if the game is running.
+	 */
+	private boolean isRunning = false;
+
+	/**
+	 * A method to start the game.
+	 */
+	public void start() {
+		isRunning = true;
+		while (isRunning) {
+			this.update();
+		}
+	}
+
+	/**
+	 * Will make it able to pause the game
+	 */
+	public void pause() {
+		if (isRunning = true) {
+			isRunning = false;
+		} else {
+			this.start();
+		}
+	}
+
+	/**
+	 * A method to stop the game, and thereby quit it.
+	 */
+	public void stop() {
+		isRunning = false;
+	}
 
 	/**
 	 * A method to update the game.
 	 */
-	public void update() {
+	private void update() {
 		// TODO implement update
+	}
+
+	/**
+	 * Checkt if a polygon collides with a tile
+	 */
+	private void checkCollition() {
+		// TODO implement checkCollition
 	}
 
 	/**
 	 * 
 	 * @return the amount of times the player has died.
 	 */
-	public int getDeathCount(){
+	public int getDeathCount() {
 		return deathCount;
 	}
+
 	/**
 	 * 
 	 * @return the time that has elapsed for the player.
