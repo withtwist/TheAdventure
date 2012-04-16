@@ -12,9 +12,8 @@ package se.chalmers.kangaroo.model;
 public interface InteractiveObject {
 
 	/**
-	 * This method is used when Kangaroo has triggered the InteractiveObject. It
-	 * will call this method and an action will occur.
+	 * Returns if the InteractiveTile is collideable or not at the moment
 	 */
-	public void onTrigger();
+	public boolean isCollideable(char a);
 
 }
