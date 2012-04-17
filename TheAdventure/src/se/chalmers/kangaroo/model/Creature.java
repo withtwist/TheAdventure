@@ -1,4 +1,7 @@
 package se.chalmers.kangaroo.model;
+
+import java.awt.Polygon;
+
 /**
  * This abstract class represents all the different hostile creatures in the game.
  * @author simonal
@@ -12,6 +15,7 @@ public abstract class Creature implements Movable{
 	private Position pos;
 	private Direction direction;
 	private int speed;
+	private Polygon creaturePoly;
 	/**
 	 * A protected constructor which takes a spawnposition and the direction the creature will be facing.
 	 * @param spawnPos
@@ -34,6 +38,13 @@ public abstract class Creature implements Movable{
 	 */
 	public boolean isKillable() {
 		return killable;
+	}
+	/**
+	 * Returns the specified creatures polygon.
+	 * @return
+	 */
+	public Polygon getPolygon() {
+		return creaturePoly;
 	}
 	/**
 	 * Moves the creature according to what direction it is moving in and its speed.

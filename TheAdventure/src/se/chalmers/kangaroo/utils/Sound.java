@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.view;
+package se.chalmers.kangaroo.utils;
 
 import java.io.*;
 import javax.sound.sampled.*;

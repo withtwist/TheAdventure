@@ -4,8 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.view.GameView;
-import se.chalmers.kangaroo.view.Sound;
 
 public class Main {
 
