@@ -10,7 +10,7 @@ package se.chalmers.kangaroo.model;
  * 
  */
 public class InteractiveTile extends Tile {
-	private boolean collideable;
+	private boolean collidable;
 	private InteractiveObject intObj;
 
 	/**
@@ -28,15 +28,15 @@ public class InteractiveTile extends Tile {
 	public InteractiveTile(String a, InteractiveObject intObj) {
 		super(a);
 		this.intObj = intObj;
-		collideable = intObj.isCollideable(a);
+		collidable = intObj.isCollideable(a);
 	}
 
 	/**
-	 * Method that change the state of collideable. 
+	 * Method that change the state of collidable. 
 	 */
 	public void onTrigger() {
-		super.toggleCollideable();
-		super.changeID();
+		super.toggleCollidable();
+		super.changeId();
 	}
 
 	@Override
