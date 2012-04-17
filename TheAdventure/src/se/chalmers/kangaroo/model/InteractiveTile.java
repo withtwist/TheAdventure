@@ -9,22 +9,7 @@ package se.chalmers.kangaroo.model;
  * @author pavlov
  * 
  */
-// InteractiveTile ska få ett state från en klass som implementerar
-// InteractiveObject
-/**
- * @author Sean
- *
- */
-/**
- * @author Sean
- *
- */
-/**
- * @author Sean
- *
- */
 public class InteractiveTile extends Tile {
-	private final char id;
 	private boolean collideable;
 	private InteractiveObject intObj;
 
@@ -40,44 +25,23 @@ public class InteractiveTile extends Tile {
 	 *            to
 	 * 
 	 */
-	public InteractiveTile(char a, InteractiveObject intObj) {
+	public InteractiveTile(String a, InteractiveObject intObj) {
 		super(a);
-		this.id = a;
 		this.intObj = intObj;
 		collideable = intObj.isCollideable(a);
 	}
 
 	/**
-	 * Method that makes changes when InterObject is triggered. 
+	 * Method that change the state of collideable. 
 	 */
 	public void onTrigger() {
-		// Reminder for myself, how to write this method
-		if (collideable == true) {
-			collideable = false;
-		} else {
-			collideable = true;
-		}
-
-	}
-
-	@Override
-	public boolean isCollidable() {
-		return super.isCollidable();
-	}
-	
-	@Override
-	public char getId() {
-		return super.getId();
+		super.toggleCollideable();
+		super.changeID();
 	}
 
 	@Override
 	public int hashCode() {
 		return super.hashCode() * 19 * (int) id * 47;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
 	}
 
 	@Override
