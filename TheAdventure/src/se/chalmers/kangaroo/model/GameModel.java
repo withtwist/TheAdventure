@@ -32,45 +32,59 @@ public class GameModel {
 	/**
 	 * A method to start the game.
 	 */
-	public void start() {
-		isRunning = true;
-		while (isRunning) {
-			this.update();
-		}
-	}
+//	public void start() {
+//		isRunning = true;
+//		while (isRunning) {
+//			this.update();
+//		}
+//	}
 
 	/**
 	 * Will make it able to pause the game
 	 */
-	public void pause() {
-		if (isRunning = true) {
-			isRunning = false;
-		} else {
-			this.start();
-		}
-	}
+//	public void pause() {
+//		if (isRunning = true) {
+//			isRunning = false;
+//		} else {
+//			this.start();
+//		}
+//	}
 
 	/**
 	 * A method to stop the game, and thereby quit it.
 	 */
-	public void stop() {
-		isRunning = false;
-	}
+//	public void stop() {
+//		isRunning = false;
+//	}
 
 	/**
 	 * A method to update the game.
 	 */
-	private void update() {
+	public void update() {
 		// TODO implement update
 	}
 
 	/**
-	 * Checkt if a polygon collides with a tile
+	 * Checks if a polygon collides with a tile
 	 */
 	private void checkCollition() {
+		//if(kangaroo.getPolygon().intersects(enemy.getPolygon().getBounds2D())){
+			//NOT COMPLETED! Need to check if collision is from above or not!
+			//deathCount++;
+			//restartLevel();
+		//}	
+		
 		// TODO implement checkCollition
 	}
-
+	
+	/**
+	 * Restarts the level.
+	 * Will be usedwhen the kangaroo dies.
+	 */
+	private void restartLevel(){
+		//TODO implement restartLevel
+	}
+	
 	/**
 	 * 
 	 * @return the amount of times the player has died.
