@@ -95,4 +95,8 @@ public class GameMap {
 		return creatures.size();
 	}
 	
+	public Tile getTile(int x, int y){
+		return map[x][y];
+	}
+	
 }
