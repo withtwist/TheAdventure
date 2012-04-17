@@ -8,13 +8,14 @@ public class DoubleJumpItem implements Item {
 
 	@Override
 	public void onPickup(Kangaroo k) {
-		// TODO Auto-generated method stub
+		k.setItem(this);
 		
 	}
 
 	@Override
 	public void onDrop(Kangaroo k) {
 		k.disableDoubleJump();
+		k.setItem(null);
 		
 	}
 
