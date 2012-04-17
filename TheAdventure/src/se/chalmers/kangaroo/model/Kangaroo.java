@@ -24,7 +24,7 @@ public class Kangaroo implements Movable {
 	private boolean isJumping = false;
 	private boolean isFalling = false;
 	
-	private Polygon playerPoly;
+	private Polygon kangarooPoly;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -43,6 +43,13 @@ public class Kangaroo implements Movable {
 	 */
 	public Item getItem() {
 		return item;
+	}
+	/**
+	 * Returns the kangaroos polygon.
+	 * @return
+	 */
+	public Polygon getPolygon() {
+		return kangarooPoly;
 	}
 
 	/**
