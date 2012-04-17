@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.model;
 
+import java.awt.*;
+
 /**
  * A class to represent the model of a platform game.
  * 
@@ -12,6 +14,8 @@ public class GameModel {
 	 * The kangaroo that the player controlls.
 	 */
 	private Kangaroo kangaroo;
+	
+	private Creature creature;
 	/*
 	 * The current level that the player are playing.
 	 */
@@ -68,18 +72,19 @@ public class GameModel {
 	 * Checks if a polygon collides with a tile
 	 */
 	private void checkCollition() {
-		//if(kangaroo.getPolygon().intersects(enemy.getPolygon().getBounds2D())){
-			//NOT COMPLETED! Need to check if collision is from above or not!
-			//deathCount++;
-			//restartLevel();
-		//}	
-		
-		// TODO implement checkCollition
+		if(kangaroo.getPolygon().intersects(creature.getPolygon().getBounds2D())) {
+			if(kangaroo.getVerticalSpeed > 0 && creature.isKillable()){
+				creature.remove();
+			} else {
+				deathCount++;
+				restartLevel();
+			}
+		}
 	}
 	
 	/**
 	 * Restarts the level.
-	 * Will be usedwhen the kangaroo dies.
+	 * Will be used when the kangaroo dies.
 	 */
 	private void restartLevel(){
 		//TODO implement restartLevel
