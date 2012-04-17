@@ -10,7 +10,7 @@ package se.chalmers.kangaroo.model;
 public class Tile {
 	static final String COLLIDE_IDS = "ABCDEFG";
 	private String id;
-	private boolean collideable;
+	private boolean collidable;
 
 	/**
 	 * Creates a tile with the given id.
@@ -19,16 +19,16 @@ public class Tile {
 	 */
 	public Tile(String s) {
 		this.id = s;
-		collideable = COLLIDE_IDS.contains("" + s);
+		collidable = COLLIDE_IDS.contains("" + s);
 	}
 
 	/**
-	 * Returns whether the tile is collideable or not.
+	 * Returns whether the tile is collidable or not.
 	 * 
-	 * @return true if the tile is collideable
+	 * @return true if the tile is collidable
 	 */
 	public boolean isCollidable() {
-		return collideable;
+		return collidable;
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Tile {
 	 * Make it possible for extensions to toggle collidable.
 	 */
 	protected void toggleCollidable(){
-		collideable = !collideable;
+		collidable = !collidable;
 	}
 	/**
 	 * @return an int representing the hashCode
@@ -81,7 +81,7 @@ public class Tile {
 	 */
 	@Override
 	public String toString() {
-		return "Id: " + id + " Collideable: " + collideable;
+		return "Id: " + id + " Collidable: " + collidable;
 	}
 
 }
