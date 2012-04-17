@@ -36,7 +36,7 @@ public class InteractiveTile extends Tile {
 	 */
 	public void onTrigger() {
 		super.toggleCollidable();
-		super.changeId();
+		super.changeId(super.getId());
 	}
 
 	@Override
