@@ -32,7 +32,11 @@ public class GameModel {
 	 * Will check if the game is running.
 	 */
 	private boolean isRunning = false;
-
+	
+	private GameMap gameMap;
+	
+	private Tile tile;
+	
 	/**
 	 * A method to start the game.
 	 */
@@ -72,7 +76,7 @@ public class GameModel {
 	 * Checks if a polygon collides with a tile
 	 */
 	private void checkCollition() {
-		if(kangaroo.getPolygon().intersects(creature.getPolygon().getBounds2D())) {
+		if(kangaroo.getPolygon().getBounds2D().intersects(creature.getPolygon().getBounds2D())) {
 			if(kangaroo.getVerticalSpeed > 0 && creature.isKillable()){
 				creature.remove();
 			} else {
@@ -80,7 +84,13 @@ public class GameModel {
 				restartLevel();
 			}
 		}
+		if(tile.isCollidable &&  kangaroo.getPolygon().getBounds2D().intersects(tile.getPolygon.getBounds2D)) {
+			//Move back kangaroo to the old position
+			
+		}
 	}
+	
+	
 	
 	/**
 	 * Restarts the level.
