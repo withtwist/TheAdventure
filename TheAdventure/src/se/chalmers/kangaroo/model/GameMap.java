@@ -29,6 +29,7 @@ public class GameMap {
 		String[][] tiles = FileToMap.readTmxFileToMap(level);
 		String itemList = "QWERT"; //<-- FROM CONSTANTS TODO:
 		String creatureList = "QWERT"; // -^
+		String iObjectsList = "QWERT"; // --^
 		map = new Tile[tiles.length][tiles[0].length];
 		Factory tf = new Factory();
 		for(int i = 0; i < map.length; i++)
@@ -38,35 +39,59 @@ public class GameMap {
 					items.add(tf.createItem(tiles[i][j]));
 				if( creatureList.contains(tiles[i][j]) )
 					creatures.add(tf.createCreature(tiles[i][j]));
+				if( iObjectsList.contains(tiles[i][j]))
+					iObjects.add(tf.createIObjects(tiles[i][j]));
 			}
 		
 	}
 
 	/**
-	 * A getter for InteractiveObjects currently on the map.
+	 * Returns the i:th interactive object
+	 * Will cast IndexOutOfBoundsException if i > getIObjectSize()
 	 * 
 	 * @return the list of InteractiveObjects
 	 */
-	public List<InteractiveObject> getIObjects() {
-		return iObjects;
+	public InteractiveObject getIObjectAt(int i) {
+		return iObjects.get(i);
+	}
+	/**
+	 * Return the amount of iObjects currently on the map.
+	 * @return the amount
+	 */
+	public int getIObjectSize(){
+		return iObjects.size();
 	}
 
 	/**
-	 * A getter for the items currently on the map.
-	 * 
+	 * Return the i:th item.
+	 * Will cast IndexOutOfBoundsException if i > getItemSize()
 	 * @return a list of the items
 	 */
-	public List<Item> getItems() {
-		return items;
+	public Item getItemAt(int i) {
+		return items.get(i);
 	}
-
 	/**
-	 * A getter for the creatures currently on the map.
-	 * 
+	 * Return the amount of items currently on the map.
+	 * @return the amount of items
+	 */
+	public int getItemSize(){
+		return items.size();
+	}
+	
+	/**
+	 * Return the i:th creature.
+	 * Will cast IndexOutOfBoundsException if i > getCreatureSize()
 	 * @return a list of creatures
 	 */
-	public List<Creature> getCreatures() {
-		return creatures;
+	public Creature getCreatureAt(int i) {
+		return creatures.get(i);
+	}
+	/**
+	 * Return the amount of creatures currently on the map.
+	 * @return the number of creatures
+	 */
+	public int getCreatureSize(){
+		return creatures.size();
 	}
 	
 }

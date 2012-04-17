@@ -50,4 +50,13 @@ public class Factory {
 	public Creature createCreature(String s){
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @param s, the id of the creature
+	 * @return the interactive object created
+	 */
+	public InteractiveObject createIObjects(String s){
+		return null;
+	}
 }
