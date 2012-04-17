@@ -1,9 +1,16 @@
 package se.chalmers.kangaroo.view;
 
 import javax.swing.BoxLayout;
-
+/**
+ * The view of the game.
+ * @author twist3r
+ *
+ */
 public class GameView extends JPanelWithBackground {
-	
+	/**
+	 * The constructor for the GameView.
+	 * @param bgpath
+	 */
 	public GameView(String bgpath) {
 		super(bgpath);
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
