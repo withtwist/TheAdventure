@@ -12,8 +12,8 @@ package se.chalmers.kangaroo.model;
 public interface InteractiveObject {
 
 	/**
-	 * Returns if the InteractiveTile is collideable or not with the input String
+	 * Returns if the InteractiveTile is collidable or not with the input String
 	 */
-	public boolean isCollideable(String a);
+	public boolean isCollidable(int a);
 
 }

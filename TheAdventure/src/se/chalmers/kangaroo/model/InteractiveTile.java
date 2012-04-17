@@ -25,10 +25,10 @@ public class InteractiveTile extends Tile {
 	 *            to
 	 * 
 	 */
-	public InteractiveTile(String a, InteractiveObject intObj) {
+	public InteractiveTile(int a, InteractiveObject intObj) {
 		super(a);
 		this.intObj = intObj;
-		collidable = intObj.isCollideable(a);
+		collidable = intObj.isCollidable(a);
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class InteractiveTile extends Tile {
 
 	@Override
 	public int hashCode() {
-		return super.hashCode() * 19 * (int) id * 47;
+		return super.hashCode() * 19;
 	}
 
 	@Override
