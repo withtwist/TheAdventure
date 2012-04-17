@@ -8,7 +8,7 @@ import se.chalmers.kangaroo.io.FileToMap;
 
 /**
  * This is a class for representing a map. It consists of a matrix of Tiles.
- * 
+ * The map has tiles but also other things; creatures, items and iteractiveobjects
  * @author alburgh
  * 
  */
@@ -27,7 +27,7 @@ public class GameMap {
 	 */
 	public GameMap(String level) {
 		super();
-		String[][] tiles = FileToMap.readTmxFileToMap(level);
+		int[][] tiles = FileToMap.readTmxFileToMap(level);
 		String itemList = "QWERT"; //<-- FROM CONSTANTS TODO:
 		String creatureList = "QWERT"; // -^
 		String iObjectsList = "QWERT"; // --^
@@ -36,11 +36,11 @@ public class GameMap {
 		for(int i = 0; i < map.length; i++)
 			for(int j = 0; j < map[0].length; j++){
 				map[i][j] = tf.createTile((tiles[i][j]));
-				if( itemList.contains(tiles[i][j]) )
+				if( itemList.contains(""+tiles[i][j]) )
 					items.add(tf.createItem(tiles[i][j]));
-				if( creatureList.contains(tiles[i][j]) )
+				if( creatureList.contains(""+tiles[i][j]) )
 					creatures.add(tf.createCreature(tiles[i][j]));
-				if( iObjectsList.contains(tiles[i][j]))
+				if( iObjectsList.contains(""+tiles[i][j]))
 					iObjects.add(tf.createIObjects(tiles[i][j]));
 			}
 		

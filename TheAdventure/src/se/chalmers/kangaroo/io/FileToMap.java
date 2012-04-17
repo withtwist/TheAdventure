@@ -21,11 +21,11 @@ public class FileToMap {
 	 * 
 	 * @param fileName
 	 *            , the filename to the map
-	 * @return null if unsuccessful, otherwise a matrix of Strings where each
-	 *         String is an id.
+	 * @return null if unsuccessful, otherwise a matrix of ints where each
+	 *         int is an id.
 	 */
-	public static String[][] readTmxFileToMap(String fileName) {
-		String[][] tileId = null;
+	public static int[][] readTmxFileToMap(String fileName) {
+		int[][] tileId = null;
 		try {
 			InputStream in = new FileInputStream(fileName);
 			Scanner sc = new Scanner(in);
@@ -36,13 +36,13 @@ public class FileToMap {
 					String[] split = tmp.split("\"");
 					int width = Integer.parseInt(split[3]);
 					int height = Integer.parseInt(split[5]);
-					tileId = new String[width][height];
+					tileId = new int[width][height];
 					sc.nextLine(); // Jump over the <data> line
 					for (int i = 0; i < height; i++) {
 						for (int j = 0; j < width; j++) {
 							String tiles = sc.nextLine().substring(14);
 							tiles = tiles.substring(0, tiles.length() - 3);
-							tileId[j][i] = tiles;
+							tileId[j][i] = Integer.parseInt(tiles);
 						}
 					}
 				}

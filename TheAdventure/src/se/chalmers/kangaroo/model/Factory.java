@@ -16,24 +16,24 @@ public class Factory {
 	/**
 	 * Creates Tiles (or interactiveTiles) based on ID.
 	 * 
-	 * @param s, the id of the tile
+	 * @param i, the id of the tile
 	 * @return the tile created
 	 */
-	public Tile createTile(String s) {
-		if (INTERACTIVE_TILES.contains("" + s)) {
+	public Tile createTile(int i) {
+		if (INTERACTIVE_TILES.contains("" + i)) {
 			return null; // <-interactivetile TODO
 		} else {
-			return new Tile(s);
+			return new Tile(i);
 		}
 	}
 	/**
 	 * Creates different items depending on the ID.
-	 * @param s, the id of the item
+	 * @param i, the id of the item
 	 * @return the item created
 	 */
-	public Item createItem(String s){
-		switch(s){
-		case "1":
+	public Item createItem(int i){
+		switch(i){
+		case 1:
 			//nothing
 		break;
 		default:
@@ -44,19 +44,19 @@ public class Factory {
 	}
 	/**
 	 * Creates different creatures depending on the ID.
-	 * @param s, the id of the creature
+	 * @param i, the id of the creature
 	 * @return the creature created
 	 */
-	public Creature createCreature(String s){
+	public Creature createCreature(int i){
 		return null;
 	}
 	
 	/**
 	 * 
-	 * @param s, the id of the creature
+	 * @param i, the id of the creature
 	 * @return the interactive object created
 	 */
-	public InteractiveObject createIObjects(String s){
+	public InteractiveObject createIObjects(int i){
 		return null;
 	}
 }
