@@ -1,4 +1,4 @@
-package io;
+package se.chalmers.kangaroo.io;
 
 import java.io.FileInputStream;
 import java.io.IOException;

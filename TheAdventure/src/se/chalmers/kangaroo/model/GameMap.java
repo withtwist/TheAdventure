@@ -1,9 +1,10 @@
 package se.chalmers.kangaroo.model;
 
-import io.FileToMap;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import se.chalmers.kangaroo.io.FileToMap;
 
 /**
  * This is a class for representing a map. It consists of a matrix of Tiles.
