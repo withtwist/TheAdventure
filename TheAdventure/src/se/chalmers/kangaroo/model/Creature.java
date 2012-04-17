@@ -11,6 +11,7 @@ public abstract class Creature implements Movable{
 	private boolean killable;
 	private Position pos;
 	private Direction direction;
+	private int speed;
 	/**
 	 * A protected constructor which takes a spawnposition and the direction the creature will be facing.
 	 * @param spawnPos
@@ -35,12 +36,25 @@ public abstract class Creature implements Movable{
 		return killable;
 	}
 	/**
-	 * Moves the creature according to the delta-y nad delta-x.
+	 * Moves the creature according to what direction it is moving in and its speed.
 	 * @param dy
 	 * @param dx
 	 */
-	public void move(int dx, int dy) {
-		//TODO
+	public void move() {
+		//TODO more complex movemethod
+		if(direction==Direction.DIRECTION_EAST) {
+			pos = new Position((int)pos.getX()+speed, pos.getY());
+		} else if(direction==Direction.DIRECTION_WEST) {
+			pos = new Position((int)pos.getX()-speed, pos.getY());
+		}
 	}
+	/**
+	 * Updates the Creature.
+	 */
+	public void updateCreature() {
+		this.move();
+		//TODO write more here
+	}
+	
 
 }

@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.controller;
+package se.chalmers.kangaroo.main;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;

@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.model;
 
+import java.awt.Polygon;
+
 /**
  * This class represents the Kangaroo controlled by the player.
  * 
@@ -21,6 +23,8 @@ public class Kangaroo implements Movable {
 	
 	private boolean isJumping = false;
 	private boolean isFalling = false;
+	
+	private Polygon playerPoly;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -48,10 +52,10 @@ public class Kangaroo implements Movable {
 	 */
 	public void setItem(Item newItem) {
 		if(getItem() != null) {
-			getItem().onDrop();
+			getItem().onDrop(this);
 		}
 			this.item = newItem;
-			this.item.onPickup();
+			this.item.onPickup(this);
 	}
 	/**
 	 * Moves the Kangaroo with the specified delta-y and delta-x.

@@ -7,6 +7,7 @@ package se.chalmers.kangaroo.model;
  * that will be to its advantage.
  * 
  * @author pavlov
+ * @modifiedby simonal
  * 
  */
 public interface Item {
@@ -15,12 +16,16 @@ public interface Item {
 	 * This method is used to perform an action immediately after Kangaroo is
 	 * picking up an item.
 	 */
-	public void onPickup();
+	public void onPickup(Kangaroo k);
 
 	/**
 	 * When the item is no longer in use, this method will deactivate the item
 	 * so you do not have the special abilities left.
 	 */
-	public void onDrop();
+	public void onDrop(Kangaroo k);
+	/**
+	 * Activates the effect on the current item in posession.
+	 */
+	public void onUse(Kangaroo k);
 
 }
