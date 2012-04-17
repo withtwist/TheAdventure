@@ -9,7 +9,7 @@ package se.chalmers.kangaroo.model;
  */
 public class Tile {
 	static final String COLLIDE_IDS = "ABCDEFG";
-	private final String id;
+	private String id;
 	private boolean collideable;
 
 	/**
@@ -39,7 +39,19 @@ public class Tile {
 	public String getId() {
 		return id;
 	}
-
+	/**
+	 * Make it possible for extensions to change ID.
+	 * @param s, the new ID
+	 */
+	protected void changeId(String s){
+		id = s;
+	}
+	/**
+	 * Make it possible for extensions to toggle collidable.
+	 */
+	protected void toggleCollidable(){
+		collideable = !collideable;
+	}
 	/**
 	 * @return an int representing the hashCode
 	 */
