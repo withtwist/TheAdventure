@@ -14,6 +14,8 @@ package se.chalmers.kangaroo.model;
 public class RedBlueButtonInteractiveObject implements InteractiveObject {
 	private boolean isRed;
 	private GameMap gameMap;
+	private static final int redTile = 88;
+	private static final int blueTile = 89;
 	
 	public RedBlueButtonInteractiveObject(boolean isRed, GameMap gameMap){
 		this.isRed = isRed;
@@ -23,9 +25,9 @@ public class RedBlueButtonInteractiveObject implements InteractiveObject {
 	@Override
 	public boolean isCollidable(int a) {
 		// Right now, 88 is the tile-id for the red interactive tile
-		if (a == 88) {
+		if (a == redTile) {
 			return isRed;
-		} else if (a == 89) {
+		} else if (a == blueTile) {
 			return !isRed;
 		} else {
 			return false;
@@ -33,7 +35,15 @@ public class RedBlueButtonInteractiveObject implements InteractiveObject {
 	}
 	
 	public void onCollision(){
-		for(int i = gameMap.getTileHeight(); )
+		int x = gameMap.getTileWidth();
+		int y = gameMap.getTileHeight();
+		for(int i = 0; i <= y; i++){
+			for(int j = 0; j <= x; j++){
+				if(gameMap.getTile(x, y).getId() == redTile || gameMap.getTile(x, y).getId() == blueTile){
+					((InteractiveTile) gameMap.getTile(x, y)).onTrigger();
+				}
+			}
+		}
 	}
 
 }
