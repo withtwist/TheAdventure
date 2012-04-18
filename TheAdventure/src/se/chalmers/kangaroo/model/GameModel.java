@@ -66,6 +66,11 @@ public class GameModel {
 //	public void stop() {
 //		isRunning = false;
 //	}
+	
+	public GameModel() {
+		gameMap = new GameMap("../maps/testmap.tmx");
+		kangaroo = new Kangaroo(new Position(10, 186));
+	}
 
 	/**
 	 * A method to update the game.
