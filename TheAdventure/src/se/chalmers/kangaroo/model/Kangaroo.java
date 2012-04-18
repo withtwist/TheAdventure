@@ -126,7 +126,7 @@ public class Kangaroo implements Movable {
 	 * Makes the Kangaroo jump by setting its vertical speed.
 	 */
 	public void jump() {
-		if(isJumping=false) {
+		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
 			this.verticalSpeed = 1;		
