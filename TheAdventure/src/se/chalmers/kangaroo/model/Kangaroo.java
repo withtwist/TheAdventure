@@ -34,8 +34,9 @@ public class Kangaroo implements Movable {
 	 */
 	public Kangaroo(Position spawnPos) {
 		this.pos = spawnPos;
-		
-		kangarooPoly = new Polygon(new int[]{pos.getX(),pos.getX()+32,pos.getX(),{pos.getX()+32},new int[]{pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64}, 4);
+		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX(),pos.getX()+32};
+		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
+		kangarooPoly = new Polygon(xcords,ycords,4);
 	}
 
 	/**
