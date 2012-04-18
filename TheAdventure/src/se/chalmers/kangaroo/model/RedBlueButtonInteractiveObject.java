@@ -34,6 +34,7 @@ public class RedBlueButtonInteractiveObject implements InteractiveObject {
 		}
 	}
 	
+	@Override
 	public void onCollision(){
 		int x = gameMap.getTileWidth();
 		int y = gameMap.getTileHeight();
