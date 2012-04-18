@@ -86,7 +86,7 @@ public class GameModel {
 				restartLevel();
 			}
 		}
-		if(tile.isCollidable() &&  kangaroo.getPolygon().getBounds2D().intersects(tile.getPolygon.getBounds2D)) {
+		if(tile.isCollidable() &&  kangaroo.getPolygon().getBounds2D().intersects(tile.getPolygon().getBounds2D())) {
 			
 		}
 	}
