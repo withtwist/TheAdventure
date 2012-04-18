@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.model;
 
 import java.awt.*;
+import se.chalmers.kangaroo.constants.*;
 
 /**
  * A class to represent the model of a platform game.
@@ -36,6 +37,7 @@ public class GameModel {
 	private GameMap gameMap;
 	
 	private Tile tile;
+	
 	
 	/**
 	 * A method to start the game.
@@ -77,14 +79,14 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		if(kangaroo.getPolygon().getBounds2D().intersects(creature.getPolygon().getBounds2D())) {
-			if(kangaroo.getVerticalSpeed > 0 && creature.isKillable()){
+			if(kangaroo.getVerticalSpeed() > 0 && creature.isKillable()){
 				creature.remove();
 			} else {
 				deathCount++;
 				restartLevel();
 			}
 		}
-		if(tile.isCollidable &&  kangaroo.getPolygon().getBounds2D().intersects(tile.getPolygon.getBounds2D)) {
+		if(tile.isCollidable() &&  kangaroo.getPolygon().getBounds2D().intersects(tile.getPolygon.getBounds2D)) {
 			//Move back kangaroo to the old position
 			
 		}
