@@ -99,7 +99,7 @@ public class GameMap {
 	}
 	
 	public Tile getTile(int x, int y){
-		return map[y][x];
+		return map[x][y];
 	}
 	
 	public int getTileWidth(){
