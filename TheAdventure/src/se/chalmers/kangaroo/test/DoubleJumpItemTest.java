@@ -21,7 +21,7 @@ public class DoubleJumpItemTest {
 		Kangaroo k = new Kangaroo(new Position(0,0));
 		DoubleJumpItem dji = new DoubleJumpItem();
 		dji.onUse(k);
-		assertTrue(k.doubleJumpEnabled()==true);
+		assertTrue(k.isDoubleJumpEnabled()==true);
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ public class DoubleJumpItemTest {
 		DoubleJumpItem dji = new DoubleJumpItem();
 		k.enableDoubleJump();
 		dji.onDrop(k);
-		assertTrue(k.doubleJumpEnabled()==false);
+		assertTrue(k.isDoubleJumpEnabled()==false);
 	}
 	
 	@Test

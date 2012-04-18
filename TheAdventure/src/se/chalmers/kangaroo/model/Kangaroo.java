@@ -113,7 +113,7 @@ public class Kangaroo implements Movable {
 	public void disableDoubleJump() {
 		this.enableDoubleJump = false;
 	}
-	public boolean doubleJumpEnabled() {
+	public boolean isDoubleJumpEnabled() {
 		return enableDoubleJump;
 	}
 	/**
