@@ -87,7 +87,6 @@ public class GameModel {
 			}
 		}
 		if(tile.isCollidable() &&  kangaroo.getPolygon().getBounds2D().intersects(tile.getPolygon.getBounds2D)) {
-			//Move back kangaroo to the old position
 			
 		}
 	}
