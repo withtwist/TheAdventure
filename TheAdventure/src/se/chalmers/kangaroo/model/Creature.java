@@ -47,6 +47,12 @@ public abstract class Creature implements Movable{
 		return creaturePoly;
 	}
 	/**
+	 * Removes the creature from the game.
+	 */
+	public void remove() {
+		//TODO add code
+	}
+	/**
 	 * Moves the creature according to what direction it is moving in and its speed.
 	 * @param dy
 	 * @param dx
