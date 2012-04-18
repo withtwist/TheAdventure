@@ -61,8 +61,8 @@ public class Kangaroo implements Movable {
 	 * @param newItem
 	 */
 	public void setItem(Item newItem) {
-		if(getItem() != null) {
-			getItem().onDrop(this);
+		if(this.item != null) {
+			this.item.onDrop(this);
 		}
 			this.item = newItem;
 			this.item.onPickup(this);
