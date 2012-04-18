@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.model;
 
+import java.awt.Polygon;
+
 /**
  * A class for representing a tile. Every tile has an ID representing the
  * collidable state.
@@ -11,6 +13,7 @@ public class Tile {
 	static final String COLLIDE_IDS = "ABCDEFG";
 	private int id;
 	private boolean collidable;
+	private Polygon poly;
 
 	/**
 	 * Creates a tile with the given id.
@@ -20,6 +23,9 @@ public class Tile {
 	public Tile(int i) {
 		this.id = i;
 		collidable = COLLIDE_IDS.contains("" + id);
+		int x[] = {1,32,32,1};
+		int y[] = {1,1,32,32};
+		poly = new Polygon( x , y , 4 );
 	}
 
 	/**
@@ -38,6 +44,13 @@ public class Tile {
 	 */
 	public int getId() {
 		return id;
+	}
+	/**
+	 * Returns the polygon representing the size.
+	 * @return the polygon
+	 */
+	public Polygon getPolygon(){
+		return poly;
 	}
 	/**
 	 * Make it possible for extensions to change ID.
