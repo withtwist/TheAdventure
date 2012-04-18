@@ -5,11 +5,14 @@ package se.chalmers.kangaroo.model;
  *
  */
 public class DoubleJumpItem implements Item {
-
+	
+	public DoubleJumpItem() {
+		
+	}
+	
 	@Override
 	public void onPickup(Kangaroo k) {
-		k.setItem(this);
-		
+	//TODO	
 	}
 
 	@Override
