@@ -31,7 +31,10 @@ public class GameMap {
 		String itemList = "QWERT"; //<-- FROM CONSTANTS TODO:
 		String creatureList = "QWERT"; // -^
 		String iObjectsList = "QWERT"; // --^
-		map = new Tile[tiles.length][tiles[0].length];
+		if(tiles != null)
+			map = new Tile[tiles.length][tiles[0].length];
+		else
+			System.out.println("HEJ");
 		Factory tf = new Factory();
 		for(int i = 0; i < map.length; i++)
 			for(int j = 0; j < map[0].length; j++){
@@ -96,7 +99,14 @@ public class GameMap {
 	}
 	
 	public Tile getTile(int x, int y){
-		return map[x][y];
+		return map[y][x];
 	}
 	
+	public int getTileWidth(){
+		return map.length;
+	}
+	
+	public int getTileHeight(){
+		return map[0].length;
+	}
 }

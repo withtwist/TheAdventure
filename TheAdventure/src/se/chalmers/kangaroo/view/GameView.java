@@ -25,21 +25,18 @@ public class GameView extends JPanelWithBackground{
 	
 	@Override
 	public void paint(Graphics g) {
-		for(int i = 0; i < 10; i++)
-			for(int j = 0; j < 20; j++){
-				ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+
-			model.getGameMap().getTile(i, j).getId()+".png");
-				img.paintIcon(null, g, 0, 0);
-			}
+		super.paint(g);
 	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		ImageIcon img = new ImageIcon("../gfx/tiles/tile_" +1+".png");
-		img.paintIcon(null, g, 0, 0);
-		img = new ImageIcon("../gfx/tiles/tile_" +1+".png");
-		img.paintIcon(null, g, 32, 32);
+		for(int i = 0; i < model.getGameMap().getTileHeight(); i++)
+			for(int j = 0; j < model.getGameMap().getTileWidth(); j++){
+				ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+
+			model.getGameMap().getTile(i, j).getId()+".png");
+				img.paintIcon(null, g, j*32, i*32);
+			}
 	}
 
 }
