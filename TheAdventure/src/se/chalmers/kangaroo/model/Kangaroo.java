@@ -87,8 +87,19 @@ public class Kangaroo implements Movable {
 	public void setDirection(Direction d) {
 		this.direction = d;
 	}
+	/**
+	 * Returns the vertical speed of the Kangaroo.
+	 * @return
+	 */
 	public int getVerticalSpeed() {
 		return verticalSpeed;
+	}
+	/**
+	 * Returns the current position of the Kangaroo.
+	 * @return
+	 */
+	public Position getPosition() {
+		return pos;
 	}
 	/**
 	 * Enables doublejump.
@@ -101,6 +112,9 @@ public class Kangaroo implements Movable {
 	 */
 	public void disableDoubleJump() {
 		this.enableDoubleJump = false;
+	}
+	public boolean doubleJumpEnabled() {
+		return enableDoubleJump;
 	}
 	/**
 	 * Makes the Kangaroo jump by setting its vertical speed.
