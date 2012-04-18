@@ -68,6 +68,12 @@ public class Kangaroo implements Movable {
 			this.item.onPickup(this);
 	}
 	/**
+	 * Removes the current item on the kangaroo;
+	 */
+	public void removeItem() {
+		this.item=  null;
+	}
+	/**
 	 * Moves the Kangaroo with the specified delta-y and delta-x.
 	 */
 	public void setRelativePosition(int dx, int dy) {
