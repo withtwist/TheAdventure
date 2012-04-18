@@ -34,6 +34,8 @@ public class Kangaroo implements Movable {
 	 */
 	public Kangaroo(Position spawnPos) {
 		this.pos = spawnPos;
+		
+		kangarooPoly = new Polygon(new int[]{pos.getX(),pos.getX()+32,pos.getX(),{pos.getX()+32},new int[]{pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64}, 4);
 	}
 
 	/**
@@ -114,23 +116,7 @@ public class Kangaroo implements Movable {
 	public void updateKangaroo() {
 		this.move();
 		
-		if(isFalling) {
-			this.verticalSpeed -= 0.1;
-	
-		} if(direction == Direction.DIRECTION_EAST) {			
-			horizontalSpeed += 0.1;
-			
-		} if(direction == Direction.DIRECTION_WEST) {			
-			horizontalSpeed -= 0.1;
-			
-		} if(direction == Direction.DIRETION_NONE) {
-			if (horizontalSpeed<0) {				
-				horizontalSpeed += 0.1;						
-			} else if (horizontalSpeed>0) {				
-				horizontalSpeed -= 0.1;
-			} 
 
-		}
 	}
 	
 
@@ -167,6 +153,24 @@ public class Kangaroo implements Movable {
 	@Override
 	public void move() {
 		this.setRelativePosition((int)horizontalSpeed, (int)verticalSpeed);
+		
+		if(isFalling) {
+			this.verticalSpeed -= 0.1;
+	
+		} if(direction == Direction.DIRECTION_EAST) {			
+			horizontalSpeed += 0.1;
+			
+		} if(direction == Direction.DIRECTION_WEST) {			
+			horizontalSpeed -= 0.1;
+			
+		} if(direction == Direction.DIRETION_NONE) {
+			if (horizontalSpeed<0) {				
+				horizontalSpeed += 0.1;						
+			} else if (horizontalSpeed>0) {				
+				horizontalSpeed -= 0.1;
+			} 
+
+		}
 		
 	}
 
