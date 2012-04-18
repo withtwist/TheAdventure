@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.view;
 
+import java.io.IOException;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SpriteSheet;
 
@@ -10,18 +12,26 @@ import org.newdawn.slick.SpriteSheet;
  */
 public class Animations {
 	
-	private Animation kangarooAnimation = new Animaiton();
+	private Animation kangarooAnimation = new Animation();
 	
 	private Animation crabAnimation = new Animation();
+	
+	private SpriteSheet kangarooSheet;
+	
+	private SpriteSheet crabSheet;
 	/**
 	 * The constructor for animation initializes all the different animations used.
 	 */
 	public Animations() {
-		SpriteSheet kangarooSheet = new SpriteSheet("data/crab_256x32.png",64,32);
-		SpriteSheet crabSheet = new SpriteSheet("crab",64,32);
-	
+		try {
+			kangarooSheet = new SpriteSheet("data/crab_256x32.png",64,32);
+			crabSheet = new SpriteSheet("crab",64,32);
+		} catch (Exception e) {
+			System.out.println("A"+e+"when loading sheets for animation");
+		}
+		System.out.println("Exception when loading sheets for animation");
 		kangarooAnimation.setAutoUpdate(false);
-		crabAnimation.setAutoUpdate(false);
+		crabAnimation.setAutoUpdate(true);
 
 		for (int frame=0;frame<3;frame++) {
 			kangarooAnimation.addFrame(kangarooSheet.getSprite(frame,0), 150);
