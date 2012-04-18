@@ -108,6 +108,22 @@ public class GameModel {
 	public int getDeathCount() {
 		return deathCount;
 	}
+	
+	/**
+	 * 
+	 * @return the kangaroo
+	 */
+	public Kangaroo getKangaroo() {
+		return kangaroo;
+	}
+	
+	/**
+	 * 
+	 * @return the gameMap
+	 */
+	public GameMap getGameMap() {
+		return gameMap;
+	}
 
 	/**
 	 * 
