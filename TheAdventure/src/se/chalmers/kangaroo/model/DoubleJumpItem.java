@@ -15,7 +15,7 @@ public class DoubleJumpItem implements Item {
 	@Override
 	public void onDrop(Kangaroo k) {
 		k.disableDoubleJump();
-		k.setItem(null);
+		k.removeItem();
 		
 	}
 
