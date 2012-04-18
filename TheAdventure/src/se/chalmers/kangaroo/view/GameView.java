@@ -25,12 +25,12 @@ public class GameView extends JPanelWithBackground{
 	
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);
-		ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+1+".png");
-		img.paintIcon(null, g, 0, 0);
-		
-		img = new ImageIcon("../gfx/tiles/tile_" +2+".png");
-		img.paintIcon(null, g, 32, 32);
+		for(int i = 0; i < 10; i++)
+			for(int j = 0; j < 20; j++){
+				ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+
+			model.getGameMap().getTile(i, j).getId()+".png");
+				img.paintIcon(null, g, 0, 0);
+			}
 	}
 	
 	@Override
