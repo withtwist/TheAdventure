@@ -62,7 +62,6 @@ public class GameController implements KeyListener{
 			break;
 			
 		case KeyEvent.VK_LEFT:
-			System.out.println("hej");
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
 			break;
 			

@@ -185,17 +185,16 @@ public class Kangaroo implements Movable {
 	@Override
 	public void move() {
 
-		System.out.println(pos);
 		if(isFalling) {
 			this.verticalSpeed -= 0.1;
 	
 		} if(direction == Direction.DIRECTION_EAST) {			
 			if(Math.abs(horizontalSpeed)<maxSpeed) {
-				horizontalSpeed += 1.5f;
+				horizontalSpeed += 3f;
 			}
 		} if(direction == Direction.DIRECTION_WEST) {			
 			if(Math.abs(horizontalSpeed)<maxSpeed) {
-				horizontalSpeed -= 1.5f;
+				horizontalSpeed -= 3f;
 			}
 			
 		} if(direction == Direction.DIRETION_NONE) {

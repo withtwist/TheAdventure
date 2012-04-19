@@ -31,7 +31,6 @@ public class GameView extends JPanelWithBackground{
 				
 			}
 		Position p = gm.getKangaroo().getPosition();
-		System.out.println(p.getX() +" "+ p.getY());
 		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(null, g, p.getX(), p.getY());
 	}
 }
