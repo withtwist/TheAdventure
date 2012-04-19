@@ -61,7 +61,7 @@ public class GameController implements KeyListener{
 			break;
 			
 		case KeyEvent.VK_X:
-			System.out.println("hej");
+			gm.getKangaroo().jump();
 			break;
 			
 		case KeyEvent.VK_LEFT:

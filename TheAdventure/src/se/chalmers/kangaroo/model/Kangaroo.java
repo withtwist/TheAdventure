@@ -202,6 +202,8 @@ public class Kangaroo implements Movable {
 
 		}
 		
+		direction = Direction.DIRETION_NONE;
+		
 	}
 
 }
