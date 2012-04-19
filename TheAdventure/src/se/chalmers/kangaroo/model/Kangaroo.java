@@ -194,7 +194,8 @@ public class Kangaroo implements Movable {
 			}
 		} if(direction == Direction.DIRECTION_WEST) {			
 			if(Math.abs(horizontalSpeed)<maxSpeed) {
-				horizontalSpeed -= 3f;
+				horizontalSpeed -= 1.5f;
+				System.out.println(horizontalSpeed);
 			}
 			
 		} if(direction == Direction.DIRETION_NONE) {
