@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.model;
 
+import se.chalmers.kangaroo.constants.Constants;
+
 
 /**
  * A class to represent the model of a platform game.
@@ -13,7 +15,10 @@ public class GameModel {
 	 * The kangaroo that the player controlls.
 	 */
 	private Kangaroo kangaroo;
-
+	
+	/*
+	 * A variable to track collition with other creatures.
+	 */
 	private Creature creature;
 	/*
 	 * The current level that the player are playing.
@@ -29,13 +34,23 @@ public class GameModel {
 	private int time;
 	/*
 	 * Will check if the game is running.
+	 * Not sure if we need it.
 	 */
 	private boolean isRunning = false;
-
+	/*
+	 * The gameMap. Makes it able to check
+	 * collition
+	 */
 	private GameMap gameMap;
+	/*
+	 * The tiles. Will make it able to check
+	 * collition
+	 */
 
 	private Tile tile;
-
+	/*
+	 * Avariable to keep track of the kangaroos old position
+	 */
 	private Position oldPos;
 
 	/**
@@ -76,11 +91,17 @@ public class GameModel {
 	 */
 	public void update() {
 		oldPos = kangaroo.getPosition();
+		kangaroo.move();
 //		checkCollition();
 	}
 
 	/**
-	 * Checks if a polygon collides with a tile
+	 * Checks if a polygon collides with a tile or a creature.
+	 * Uses the polygon of the kangaroo and looks if it intersects with
+	 * a creatore or/and a tile. If so, the kangaroo will either kill the
+	 * creature or die.
+	 * If the kangaroo collides with a tile, the kangaroo shall be moved to its
+	 * old position so it looks like it stops at the tile.
 	 */
 	private void checkCollition() {
 
