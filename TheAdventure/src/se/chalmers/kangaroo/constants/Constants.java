@@ -18,5 +18,5 @@ public  class Constants {
 	 */
 	public static final int TILE_IOBJECT_RED = 199;
 	public static final int TILE_IOBJECT_BLUE = 197;
-	
+	public static final String COLLIDE_IDS = "1 2";
 }

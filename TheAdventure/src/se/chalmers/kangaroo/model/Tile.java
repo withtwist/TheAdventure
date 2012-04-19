@@ -2,6 +2,8 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
+import se.chalmers.kangaroo.constants.Constants;
+
 /**
  * A class for representing a tile. Every tile has an ID representing the
  * collidable state.
@@ -10,7 +12,6 @@ import java.awt.Polygon;
  * 
  */
 public class Tile {
-	static final String COLLIDE_IDS = "ABCDEFG";
 	private int id;
 	private boolean collidable;
 	private Polygon poly;
@@ -22,7 +23,7 @@ public class Tile {
 	 */
 	public Tile(int i, int x, int y) {
 		this.id = i;
-		collidable = COLLIDE_IDS.contains("" + id);
+		collidable = Constants.COLLIDE_IDS.contains("" + id);
 		int xRec[] = {x*32+1,x*32+32,x*32+32,x*32+1};
 		int yRec[] = {y*32+1,y*32+1,y*32+32,y*32+32};
 		poly = new Polygon( xRec , yRec , 4 );
