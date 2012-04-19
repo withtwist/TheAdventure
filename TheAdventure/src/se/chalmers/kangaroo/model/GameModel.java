@@ -86,21 +86,31 @@ public class GameModel {
 
 		if (kangaroo.getPolygon().getBounds2D()
 				.intersects(creature.getPolygon().getBounds2D())) {
-			if (kangaroo.getVerticalSpeed() > 0 && creature.isKillable()) {
+			if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
 				creature.remove();
 			} else {
 				deathCount++;
 				restartLevel();
 			}
 		}
-
-		if (tile.isCollidable()
-				&& kangaroo.getPolygon().getBounds2D()
-						.intersects(tile.getPolygon().getBounds2D())) {
-			kangaroo.setPosition(oldPos);
+		Position p = kangaroo.getPosition();
+		int x = p.getX();
+		int y = p.getY();
+		
+		for(int i = 0; i < 2; i++){
+			for(int j = 0; j < 3; j++){
+				tile = gameMap.getTile((x + i) / Constants.TILE_SIZE, (y + i) / Constants.TILE_SIZE);
+				if (tile.isCollidable()
+						&& kangaroo.getPolygon().getBounds2D()
+								.intersects(tile.getPolygon().getBounds2D())) {
+					if(!(oldPos.getX() < (x+i)*Constants.TILE_SIZE == p.getX() > (x+i)*32)){
+						kangaroo.setVerticalSpeed = 0;
+					}
+					kangaroo.setPosition(oldPos);
+				}
+			}
 		}
 	}
-
 	/**
 	 * Restarts the level. Will be used when the kangaroo dies.
 	 */
