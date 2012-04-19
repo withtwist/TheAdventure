@@ -2,7 +2,6 @@ package se.chalmers.kangaroo.model;
 
 import se.chalmers.kangaroo.constants.Constants;
 
-
 /**
  * A class to represent the model of a platform game.
  * 
@@ -15,7 +14,7 @@ public class GameModel {
 	 * The kangaroo that the player controlls.
 	 */
 	private Kangaroo kangaroo;
-	
+
 	/*
 	 * A variable to track collition with other creatures.
 	 */
@@ -33,18 +32,15 @@ public class GameModel {
 	 */
 	private int time;
 	/*
-	 * Will check if the game is running.
-	 * Not sure if we need it.
+	 * Will check if the game is running. Not sure if we need it.
 	 */
 	private boolean isRunning = false;
 	/*
-	 * The gameMap. Makes it able to check
-	 * collition
+	 * The gameMap. Makes it able to check collition
 	 */
 	private GameMap gameMap;
 	/*
-	 * The tiles. Will make it able to check
-	 * collition
+	 * The tiles. Will make it able to check collition
 	 */
 
 	private Tile tile;
@@ -92,39 +88,43 @@ public class GameModel {
 	public void update() {
 		oldPos = kangaroo.getPosition();
 		kangaroo.move();
-//		checkCollition();
+		// checkCollition();
 	}
 
 	/**
-	 * Checks if a polygon collides with a tile or a creature.
-	 * Uses the polygon of the kangaroo and looks if it intersects with
-	 * a creatore or/and a tile. If so, the kangaroo will either kill the
-	 * creature or die.
-	 * If the kangaroo collides with a tile, the kangaroo shall be moved to its
-	 * old position so it looks like it stops at the tile.
+	 * Checks if a polygon collides with a tile or a creature. Uses the polygon
+	 * of the kangaroo and looks if it intersects with a creatore or/and a tile.
+	 * If so, the kangaroo will either kill the creature or die. If the kangaroo
+	 * collides with a tile, the kangaroo shall be moved to its old position so
+	 * it looks like it stops at the tile.
 	 */
 	private void checkCollition() {
-
-		if (kangaroo.getPolygon().getBounds2D()
-				.intersects(creature.getPolygon().getBounds2D())) {
-			if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
-				creature.remove();
-			} else {
-				deathCount++;
-				restartLevel();
+		int nbrOfCreatures = gameMap.getCreatureSize();
+		for (int i = 0; i < nbrOfCreatures; i++) {
+			creature = gameMap.getCreatureAt(i);
+			if (kangaroo.getPolygon().getBounds2D()
+					.intersects(creature.getPolygon().getBounds2D())) {
+				if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
+					creature.remove();
+				} else {
+					deathCount++;
+					restartLevel();
+				}
 			}
 		}
 		Position p = kangaroo.getPosition();
 		int x = p.getX();
 		int y = p.getY();
-		
-		for(int i = 0; i < 2; i++){
-			for(int j = 0; j < 3; j++){
-				tile = gameMap.getTile((x + i) / Constants.TILE_SIZE, (y + i) / Constants.TILE_SIZE);
+
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 3; j++) {
+				tile = gameMap.getTile((x + i) / Constants.TILE_SIZE, (y + i)
+						/ Constants.TILE_SIZE);
 				if (tile.isCollidable()
 						&& kangaroo.getPolygon().getBounds2D()
 								.intersects(tile.getPolygon().getBounds2D())) {
-					if(!(oldPos.getX() < (x+i)*Constants.TILE_SIZE == p.getX() > (x+i)*32)){
+					if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
+							.getX() > (x + i) * Constants.TILE_SIZE)) {
 						kangaroo.setVerticalSpeed = 0;
 					}
 					kangaroo.setPosition(oldPos);
@@ -132,6 +132,7 @@ public class GameModel {
 			}
 		}
 	}
+
 	/**
 	 * Restarts the level. Will be used when the kangaroo dies.
 	 */
