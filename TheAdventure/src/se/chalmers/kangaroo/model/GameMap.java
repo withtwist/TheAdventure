@@ -42,9 +42,9 @@ public class GameMap {
 				if( itemList.contains(""+tiles[i][j]) )
 					items.add(tf.createItem(tiles[i][j]));
 				if( creatureList.contains(""+tiles[i][j]) )
-					creatures.add(tf.createCreature(tiles[i][j]));
+					creatures.add(tf.createCreature(tiles[i][j], new Position(i*32, j*32)));
 				if( iObjectsList.contains(""+tiles[i][j]))
-					iObjects.add(tf.createIObjects(tiles[i][j]));
+					iObjects.add(tf.createIObjects(tiles[i][j], this));
 			}
 		
 	}
