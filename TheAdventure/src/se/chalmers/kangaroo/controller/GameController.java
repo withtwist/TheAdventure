@@ -17,12 +17,15 @@ public class GameController implements KeyListener{
 	private GameModel gm;
 	private GameView gv; 
 	
-	public GameController(GameView view) {
+	public GameController() {
 		
 		gm = new GameModel();
-		gv = view;
-		
+		gv = new GameView("resources/images/background.gif", gm);
 		gv.addKeyListener(this);
+	}
+	
+	public GameView getGameView(){
+		return gv;
 	}
 
 	public void start(){
