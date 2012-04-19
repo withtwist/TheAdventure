@@ -40,11 +40,6 @@ public class GameModel {
 	 */
 	private GameMap gameMap;
 	/*
-	 * The tiles. Will make it able to check collition
-	 */
-
-	private Tile tile;
-	/*
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
@@ -88,7 +83,7 @@ public class GameModel {
 	public void update() {
 		oldPos = kangaroo.getPosition();
 		kangaroo.move();
-		// checkCollition();
+		checkCollition();
 	}
 
 	/**
@@ -100,32 +95,32 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		int nbrOfCreatures = gameMap.getCreatureSize();
-		for (int i = 0; i < nbrOfCreatures; i++) {
-			creature = gameMap.getCreatureAt(i);
-			if (kangaroo.getPolygon().getBounds2D()
-					.intersects(creature.getPolygon().getBounds2D())) {
-				if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
-					creature.remove();
-				} else {
-					deathCount++;
-					restartLevel();
+		if(nbrOfCreatures != 0){
+			for (int i = 0; i < nbrOfCreatures; i++) {
+				if (kangaroo.getPolygon().getBounds2D()
+						.intersects(creature.getPolygon().getBounds2D())) {
+					if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
+						creature.remove();
+					} else {
+						deathCount++;
+						restartLevel();
+					}
 				}
 			}
 		}
 		Position p = kangaroo.getPosition();
-		int x = p.getX();
-		int y = p.getY();
+		int x = p.getX() / Constants.TILE_SIZE;
+		int y = p.getY() / Constants.TILE_SIZE;
 
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 3; j++) {
-				tile = gameMap.getTile((x + i) / Constants.TILE_SIZE, (y + i)
-						/ Constants.TILE_SIZE);
+				Tile tile = gameMap.getTile((x + i), (y + i));
 				if (tile.isCollidable()
 						&& kangaroo.getPolygon().getBounds2D()
 								.intersects(tile.getPolygon().getBounds2D())) {
 					if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
 							.getX() > (x + i) * Constants.TILE_SIZE)) {
-						kangaroo.setVerticalSpeed() = 0;
+						kangaroo.setVerticalSpeed(0f);
 					}
 					kangaroo.setPosition(oldPos);
 				}
