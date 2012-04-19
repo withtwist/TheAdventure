@@ -33,7 +33,7 @@ public abstract class Creature implements Movable{
 		this.direction = newDirection;
 	}
 	/**
-	 * Returns true of the creature is killable and false if it isnt.
+	 * Returns true of the creature is killable and false if it isn't.
 	 * @return killable
 	 */
 	public boolean isKillable() {
