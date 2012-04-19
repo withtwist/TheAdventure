@@ -87,19 +87,25 @@ public class GameModel {
 	}
 
 	/**
-	 * Checks if a polygon collides with a tile or a creature. Uses the polygon
-	 * of the kangaroo and looks if it intersects with a creatore or/and a tile.
-	 * If so, the kangaroo will either kill the creature or die. If the kangaroo
-	 * collides with a tile, the kangaroo shall be moved to its old position so
-	 * it looks like it stops at the tile.
+	 * Checks if a polygon collides with a tile or a creature.
 	 */
 	private void checkCollition() {
+		creatureCollition();
+		kangaroo.setIsFalling(tileCollition());
+	}
+
+	/**
+	 * Uses the polygon of the kangaroo and looks if it intersects with a
+	 * creature. If so, the kangaroo will either kill the creature or die.
+	 */
+	private void creatureCollition() {
 		int nbrOfCreatures = gameMap.getCreatureSize();
-		if(nbrOfCreatures != 0){
+		if (nbrOfCreatures != 0) {
 			for (int i = 0; i < nbrOfCreatures; i++) {
 				if (kangaroo.getPolygon().getBounds2D()
 						.intersects(creature.getPolygon().getBounds2D())) {
-					if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
+					if (creature.isKillable()
+							&& kangaroo.getVerticalSpeed() > 0) {
 						creature.remove();
 					} else {
 						deathCount++;
@@ -108,6 +114,14 @@ public class GameModel {
 				}
 			}
 		}
+	}
+
+	/**
+	 * If the kangaroo collides with a tile, the kangaroo shall be moved to its
+	 * old position so it looks like it stops at the tile. If the kangaroo hits
+	 * the ground its vertical speed shall be resetted.
+	 */
+	private Boolean tileCollition() {
 		Position p = kangaroo.getPosition();
 		int x = p.getX() / Constants.TILE_SIZE;
 		int y = p.getY() / Constants.TILE_SIZE;
@@ -118,14 +132,15 @@ public class GameModel {
 				if (tile.isCollidable()
 						&& kangaroo.getPolygon().getBounds2D()
 								.intersects(tile.getPolygon().getBounds2D())) {
-					if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
+					if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE && p
 							.getX() > (x + i) * Constants.TILE_SIZE)) {
 						kangaroo.setVerticalSpeed(0f);
+						return false;
 					}
-					kangaroo.setPosition(oldPos);
 				}
 			}
 		}
+		return true;
 	}
 
 	/**
