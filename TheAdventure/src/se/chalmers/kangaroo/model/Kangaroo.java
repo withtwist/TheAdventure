@@ -142,7 +142,13 @@ public class Kangaroo implements Movable {
 			this.isFalling = true;
 			this.verticalSpeed = 3f;		
 		}
-
+	}
+	/**
+	 * Sets the variable isFalling.
+	 * @param b
+	 */
+	public void setFalling(Boolean b) {
+		this.isFalling = b;
 	}
 
 	public void updateKangaroo() {
