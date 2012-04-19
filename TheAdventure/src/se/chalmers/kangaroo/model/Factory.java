@@ -21,11 +21,11 @@ public class Factory {
 	 * @param i, the id of the tile
 	 * @return the tile created
 	 */
-	public Tile createTile(int i) {
+	public Tile createTile(int i, int x, int y) {
 		if (INTERACTIVE_TILES.contains("" + i)) {
 			return null; // <-interactivetile TODO
 		} else {
-			return new Tile(i);
+			return new Tile(i, x, y);
 		}
 	}
 	/**

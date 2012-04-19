@@ -20,12 +20,12 @@ public class Tile {
 	 * 
 	 * @param a
 	 */
-	public Tile(int i) {
+	public Tile(int i, int x, int y) {
 		this.id = i;
 		collidable = COLLIDE_IDS.contains("" + id);
-		int x[] = {1,32,32,1};
-		int y[] = {1,1,32,32};
-		poly = new Polygon( x , y , 4 );
+		int xRec[] = {x*32+1,x*32+32,x*32+32,x*32+1};
+		int yRec[] = {y*32+1,y*32+1,y*32+32,y*32+32};
+		poly = new Polygon( xRec , yRec , 4 );
 	}
 
 	/**
