@@ -24,6 +24,8 @@ public class Kangaroo implements Movable {
 	private boolean isJumping = false;
 	private boolean isFalling = false;
 	
+	private boolean ivunerable = false;
+	
 	private Polygon kangarooPoly;
 
 	/**
@@ -99,6 +101,13 @@ public class Kangaroo implements Movable {
 	 */
 	public float getVerticalSpeed() {
 		return verticalSpeed;
+	}
+	/**
+	 * Sets the vertical speed of the Kangaroo.
+	 * @param f
+	 */
+	public void setVerticalSpeed(Float f) {
+		this.verticalSpeed = f;
 	}
 	/**
 	 * Returns the current position of the Kangaroo.
