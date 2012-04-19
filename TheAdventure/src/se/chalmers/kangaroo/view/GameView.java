@@ -28,8 +28,10 @@ public class GameView extends JPanelWithBackground{
 				ImageIcon i = new ImageIcon("../gfx/tiles/tile_"+
 						gm.getGameMap().getTile(x, y).getId()+".png");
 				i.paintIcon(null, g, x*32, y*32);
+				
 			}
 		Position p = gm.getKangaroo().getPosition();
-		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(null, g, p.getX()*32, p.getY()*32);
+		System.out.println(p.getX() +" "+ p.getY());
+		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(null, g, p.getX(), p.getY());
 	}
 }
