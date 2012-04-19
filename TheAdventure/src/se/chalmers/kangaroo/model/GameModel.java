@@ -125,7 +125,7 @@ public class GameModel {
 								.intersects(tile.getPolygon().getBounds2D())) {
 					if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
 							.getX() > (x + i) * Constants.TILE_SIZE)) {
-						kangaroo.setVerticalSpeed = 0;
+						kangaroo.setVerticalSpeed() = 0;
 					}
 					kangaroo.setPosition(oldPos);
 				}
