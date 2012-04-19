@@ -13,4 +13,10 @@ public  class Constants {
 	 */
 	public static final int TILE_SIZE = 32;
 	
+	/*
+	 * Constant to get specific tiles.
+	 */
+	public static final int TILE_IOBJECT_RED = 199;
+	public static final int TILE_IOBJECT_BLUE = 197;
+	
 }

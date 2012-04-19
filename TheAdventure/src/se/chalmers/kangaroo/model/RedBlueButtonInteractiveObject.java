@@ -1,4 +1,5 @@
 package se.chalmers.kangaroo.model;
+import se.chalmers.kangaroo.constants.*;
 
 /**
  * 
@@ -14,8 +15,7 @@ package se.chalmers.kangaroo.model;
 public class RedBlueButtonInteractiveObject implements InteractiveObject {
 	private boolean isRed;
 	private GameMap gameMap;
-	private static final int redTile = 88;
-	private static final int blueTile = 89;
+
 	
 	public RedBlueButtonInteractiveObject(boolean isRed, GameMap gameMap){
 		this.isRed = isRed;
@@ -25,9 +25,9 @@ public class RedBlueButtonInteractiveObject implements InteractiveObject {
 	@Override
 	public boolean isCollidable(int a) {
 		// Right now, 88 is the tile-id for the red interactive tile
-		if (a == redTile) {
+		if (a == Constants.TILE_IOBJECT_RED) {
 			return isRed;
-		} else if (a == blueTile) {
+		} else if (a == Constants.TILE_IOBJECT_BLUE) {
 			return !isRed;
 		} else {
 			return false;
@@ -40,8 +40,11 @@ public class RedBlueButtonInteractiveObject implements InteractiveObject {
 		int y = gameMap.getTileHeight();
 		for(int i = 0; i <= y; i++){
 			for(int j = 0; j <= x; j++){
-				if(gameMap.getTile(x, y).getId() == redTile || gameMap.getTile(x, y).getId() == blueTile){
+				if(gameMap.getTile(x, y).getId() >= Constants.TILE_IOBJECT_BLUE || gameMap.getTile(x, y).getId() <= Constants.TILE_IOBJECT_RED+1){
 					((InteractiveTile) gameMap.getTile(x, y)).onTrigger();
+					if(gameMap.getTile(x, y).getId() >= Constants.TILE_IOBJECT_RED){
+						
+					}
 				}
 			}
 		}
