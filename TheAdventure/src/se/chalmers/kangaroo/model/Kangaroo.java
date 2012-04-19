@@ -14,8 +14,8 @@ public class Kangaroo implements Movable {
 	private Item item;
 	private Position pos;
 	
-	private int verticalSpeed = 0;
-	private int horizontalSpeed = 0;
+	private float verticalSpeed = 0;
+	private float horizontalSpeed = 0;
 	
 	private Direction direction = Direction.DIRETION_NONE;
 	
@@ -97,7 +97,7 @@ public class Kangaroo implements Movable {
 	 * Returns the vertical speed of the Kangaroo.
 	 * @return
 	 */
-	public int getVerticalSpeed() {
+	public float getVerticalSpeed() {
 		return verticalSpeed;
 	}
 	/**
@@ -179,10 +179,10 @@ public class Kangaroo implements Movable {
 			this.verticalSpeed -= 0.1;
 	
 		} if(direction == Direction.DIRECTION_EAST) {			
-			horizontalSpeed += 1;
+			horizontalSpeed += 0.1f;
 			
 		} if(direction == Direction.DIRECTION_WEST) {			
-			horizontalSpeed -= 1;
+			horizontalSpeed -= 0.1f;
 			
 		} if(direction == Direction.DIRETION_NONE) {
 			if (horizontalSpeed<0) {				
