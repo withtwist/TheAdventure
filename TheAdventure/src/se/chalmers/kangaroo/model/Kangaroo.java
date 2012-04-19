@@ -140,7 +140,7 @@ public class Kangaroo implements Movable {
 		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
-			this.verticalSpeed = 1;		
+			this.verticalSpeed = 3f;		
 		}
 
 	}
@@ -184,25 +184,24 @@ public class Kangaroo implements Movable {
 
 	@Override
 	public void move() {
-
-		if(isFalling) {
-			this.verticalSpeed -= 0.1;
 	
-		} if(direction == Direction.DIRECTION_EAST) {			
+		if (isFalling) {
+			verticalSpeed += 0.5f;			
+		}
+		
+		if(direction == Direction.DIRECTION_EAST) {			
 			if(Math.abs(horizontalSpeed)<maxSpeed) {
 				horizontalSpeed += 3f;
 			}
 		} if(direction == Direction.DIRECTION_WEST) {			
 			if(Math.abs(horizontalSpeed)<maxSpeed) {
-				horizontalSpeed -= 1.5f;
-				System.out.println(horizontalSpeed);
+				horizontalSpeed -= 3f;
 			}
-			
 		} if(direction == Direction.DIRETION_NONE) {
 			if (horizontalSpeed<0) {				
-				horizontalSpeed += 0.1f;						
+				horizontalSpeed += 0.5f;						
 			} else if (horizontalSpeed>0) {				
-				horizontalSpeed -= 0.1f;
+				horizontalSpeed -= 0.5f;
 			} 
 
 		}
