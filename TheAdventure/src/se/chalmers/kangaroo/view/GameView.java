@@ -30,6 +30,6 @@ public class GameView extends JPanelWithBackground{
 				i.paintIcon(null, g, x*32, y*32);
 			}
 		Position p = gm.getKangaroo().getPosition();
-		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(null, g, 100, 14*32);
+		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(null, g, p.getX()*32, p.getY()*32);
 	}
 }

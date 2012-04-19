@@ -97,15 +97,28 @@ public class GameMap {
 	public int getCreatureSize(){
 		return creatures.size();
 	}
-	
+	/**
+	 * Returns the tile at the given position
+	 * @param x, position in x-axis, x < getTileWidth()
+	 * @param y, position in y,axis, y < getTileHieght()
+	 * @throws IndexOutOfBoundsException if -^
+	 * @return the tile at the given position
+	 */
 	public Tile getTile(int x, int y){
 		return map[x][y];
 	}
-	
+	/**
+	 * Returns the width of the map in tiles. 
+	 * 
+	 * @return
+	 */
 	public int getTileWidth(){
 		return map.length;
 	}
-	
+	/**
+	 * Returns the height of the map in tiles
+	 * @return
+	 */
 	public int getTileHeight(){
 		return map[0].length;
 	}
