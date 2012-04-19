@@ -26,6 +26,7 @@ public class Main {
 		s.play();
 		jf.setVisible(true);
 		gw.setVisible(true);
+		jf.addKeyListener(gc);
 		gc.start();
 		
 

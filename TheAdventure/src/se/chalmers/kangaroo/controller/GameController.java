@@ -53,7 +53,6 @@ public class GameController implements KeyListener{
 	public void pressedKey(KeyEvent e) {
 		
 		int code = e.getKeyCode();
-		System.out.println(code);
 		switch( code ) {
 		
 		case KeyEvent.VK_UP:
@@ -65,6 +64,7 @@ public class GameController implements KeyListener{
 			break;
 			
 		case KeyEvent.VK_LEFT:
+			System.out.println("hej");
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
 			break;
 			
@@ -97,7 +97,7 @@ public class GameController implements KeyListener{
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		pressedKey(e);
 		
 	}
 
