@@ -28,7 +28,7 @@ public class Main {
 		jf.setVisible(true);
 		gw.setVisible(true);
 		
-		GameController gc = new GameController(new GameModel(), gameview);
+		GameController gc = new GameController(gameview);
 		gc.start();
 		
 

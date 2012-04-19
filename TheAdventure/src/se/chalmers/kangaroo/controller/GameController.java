@@ -17,9 +17,9 @@ public class GameController implements KeyListener{
 	private GameModel gm;
 	private GameView gv; 
 	
-	public GameController(GameModel model, GameView view) {
+	public GameController(GameView view) {
 		
-		gm = model;
+		gm = new GameModel();
 		gv = view;
 		
 		gv.addKeyListener(this);
