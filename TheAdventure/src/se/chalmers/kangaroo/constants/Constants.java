@@ -19,4 +19,7 @@ public  class Constants {
 	public static final int TILE_IOBJECT_RED = 199;
 	public static final int TILE_IOBJECT_BLUE = 197;
 	public static final String COLLIDE_IDS = "1 2";
+	public static final String ITEM_IDS = "81 82";
+	public static final String CREATURE_IDS = "";
+	public static final String IOBJECTS_IDS = "";
 }

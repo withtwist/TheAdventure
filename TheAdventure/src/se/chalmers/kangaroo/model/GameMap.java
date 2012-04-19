@@ -4,6 +4,7 @@ package se.chalmers.kangaroo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.FileToMap;
 
 /**
@@ -28,9 +29,9 @@ public class GameMap {
 	public GameMap(String level) {
 		super();
 		int[][] tiles = FileToMap.readTmxFileToMap(level);
-		String itemList = "QWERT"; //<-- FROM CONSTANTS TODO:
-		String creatureList = "QWERT"; // -^
-		String iObjectsList = "QWERT"; // --^
+		String itemList = Constants.ITEM_IDS;
+		String creatureList = Constants.CREATURE_IDS;
+		String iObjectsList = Constants.IOBJECTS_IDS;
 		if(tiles != null)
 			map = new Tile[tiles.length][tiles[0].length];
 		else
