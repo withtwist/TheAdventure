@@ -43,8 +43,9 @@ public class GameController implements KeyListener{
 							.println("Error, you woke the sleeping bear.. o_O");
 				}
 				gm.update();
-				gv.revalidate();
 				gv.repaint();
+				gv.revalidate();
+
 			}
 		}
 
