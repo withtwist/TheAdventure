@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.test;
+package se.chalmers.kangaroo.model;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
