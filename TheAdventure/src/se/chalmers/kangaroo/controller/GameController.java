@@ -33,19 +33,16 @@ public class GameController implements KeyListener{
 	}
 	
 	class PlayModel implements Runnable{
-		
+		private long lastTime;
 		public void run() {
 			while (true) {
-				try {
-					Thread.sleep(16);
-				} catch (InterruptedException ex) {
-					System.out
-							.println("Error, you woke the sleeping bear.. o_O");
-				}
-				gm.update();
-				gv.repaint();
-				gv.revalidate();
+				if(System.currentTimeMillis()-lastTime>16) {
 
+					gm.update();
+					gv.repaint();
+					gv.revalidate();
+					lastTime = System.currentTimeMillis();
+				}
 			}
 		}
 
@@ -98,7 +95,7 @@ public class GameController implements KeyListener{
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		pressedKey(e);
+		//TODO add nothing here
 		
 	}
 

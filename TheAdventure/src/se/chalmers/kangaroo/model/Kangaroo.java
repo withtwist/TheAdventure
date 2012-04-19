@@ -17,6 +17,8 @@ public class Kangaroo implements Movable {
 	private float verticalSpeed = 0;
 	private float horizontalSpeed = 0;
 	
+	private float maxSpeed = 3f;
+	
 	private Direction direction = Direction.DIRETION_NONE;
 	
 	private boolean enableDoubleJump = false;
@@ -182,25 +184,29 @@ public class Kangaroo implements Movable {
 
 	@Override
 	public void move() {
-		this.setRelativePosition((int)horizontalSpeed, (int)verticalSpeed);
+
 		System.out.println(pos);
 		if(isFalling) {
 			this.verticalSpeed -= 0.1;
 	
 		} if(direction == Direction.DIRECTION_EAST) {			
-			horizontalSpeed += 0.1f;
-			
+			if(Math.abs(horizontalSpeed)<maxSpeed) {
+				horizontalSpeed += 1.5f;
+			}
 		} if(direction == Direction.DIRECTION_WEST) {			
-			horizontalSpeed -= 0.1f;
+			if(Math.abs(horizontalSpeed)<maxSpeed) {
+				horizontalSpeed -= 1.5f;
+			}
 			
 		} if(direction == Direction.DIRETION_NONE) {
 			if (horizontalSpeed<0) {				
-				horizontalSpeed += 0.1;						
+				horizontalSpeed += 0.1f;						
 			} else if (horizontalSpeed>0) {				
-				horizontalSpeed -= 0.1;
+				horizontalSpeed -= 0.1f;
 			} 
 
 		}
+		this.setRelativePosition((int)horizontalSpeed, (int)verticalSpeed);
 		
 		direction = Direction.DIRETION_NONE;
 		
