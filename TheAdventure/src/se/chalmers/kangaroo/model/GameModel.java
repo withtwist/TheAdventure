@@ -91,7 +91,7 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		creatureCollition();
-		kangaroo.setIsFalling(tileCollition());
+		kangaroo.setFalling(tileCollition());
 	}
 
 	/**
