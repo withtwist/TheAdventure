@@ -42,11 +42,17 @@ public class RedBlueButtonInteractiveObject implements InteractiveObject {
 			for(int j = 0; j <= x; j++){
 				if(gameMap.getTile(x, y).getId() >= Constants.TILE_IOBJECT_BLUE || gameMap.getTile(x, y).getId() <= Constants.TILE_IOBJECT_RED+1){
 					((InteractiveTile) gameMap.getTile(x, y)).onTrigger();
-					if(gameMap.getTile(x, y).getId() >= Constants.TILE_IOBJECT_RED){
-						
-					}
 				}
 			}
+		}
+	}
+	
+	@Override
+	public int getChangedId(int currentId){
+		if(currentId % 2 == 0){
+			return currentId-1;
+		}else{
+			return currentId+1;
 		}
 	}
 

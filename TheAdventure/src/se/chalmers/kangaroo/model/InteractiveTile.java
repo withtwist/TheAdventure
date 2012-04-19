@@ -25,8 +25,8 @@ public class InteractiveTile extends Tile {
 	 *            to
 	 * 
 	 */
-	public InteractiveTile(int a, InteractiveObject intObj) {
-		super(a);
+	public InteractiveTile(int a, int x, int y, InteractiveObject intObj) {
+		super(a, x, y);
 		this.intObj = intObj;
 		collidable = intObj.isCollidable(a);
 	}
@@ -36,7 +36,7 @@ public class InteractiveTile extends Tile {
 	 */
 	public void onTrigger() {
 		super.toggleCollidable();
-		super.changeId(super.getId());
+		super.changeId(intObj.getChangedId(super.getId()));
 	}
 
 	@Override
