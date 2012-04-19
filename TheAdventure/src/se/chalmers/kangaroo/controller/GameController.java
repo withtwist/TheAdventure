@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.controller;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.GameModel;
@@ -11,7 +12,7 @@ import se.chalmers.kangaroo.view.GameView;
  * @author simonal
  *
  */
-public class GameController{
+public class GameController implements KeyListener{
 	
 	private GameModel gm;
 	private GameView gv; 
@@ -20,13 +21,16 @@ public class GameController{
 		
 		gm = model;
 		gv = view;
+		
+		gv.addKeyListener(this);
 	}
 
 	public void start(){
 		new PlayModel().run();
 	}
 	
-	class PlayModel implements Runnable {
+	class PlayModel implements Runnable{
+		
 		public void run() {
 			while (true) {
 				try {
@@ -35,18 +39,18 @@ public class GameController{
 					System.out
 							.println("Error, you woke the sleeping bear.. o_O");
 				}
-				
 				gm.update();
 				gv.revalidate();
 				gv.repaint();
 			}
 		}
+
 	}
 	
-	public void isKeyPressed(KeyEvent e) {
+	public void pressedKey(KeyEvent e) {
 		
 		int code = e.getKeyCode();
-		
+		System.out.println(code);
 		switch( code ) {
 		
 		case KeyEvent.VK_UP:
@@ -54,7 +58,7 @@ public class GameController{
 			break;
 			
 		case KeyEvent.VK_X:
-			gm.getKangaroo().jump();
+			System.out.println("hej");
 			break;
 			
 		case KeyEvent.VK_LEFT:
@@ -75,7 +79,26 @@ public class GameController{
 		}
 		
 	}
-	
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		pressedKey(e);
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 	

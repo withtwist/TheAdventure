@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.main;
 
 import javax.swing.JFrame;
 
+import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.view.GameView;
@@ -26,6 +27,9 @@ public class Main {
 		s.play();
 		jf.setVisible(true);
 		gw.setVisible(true);
+		
+		GameController gc = new GameController(new GameModel(), gameview);
+		gc.start();
 		
 
 

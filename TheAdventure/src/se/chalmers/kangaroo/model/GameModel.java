@@ -76,7 +76,7 @@ public class GameModel {
 	 */
 	public void update() {
 		oldPos = kangaroo.getPosition();
-		checkCollition();
+//		checkCollition();
 	}
 
 	/**
