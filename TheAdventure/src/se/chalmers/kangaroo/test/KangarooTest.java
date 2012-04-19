@@ -1,15 +1,17 @@
 package se.chalmers.kangaroo.test;
 
-import static org.junit.Assert.*;
-
-import java.awt.Polygon;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import se.chalmers.kangaroo.model.*;
+
+import se.chalmers.kangaroo.model.DoubleJumpItem;
+import se.chalmers.kangaroo.model.Item;
+import se.chalmers.kangaroo.model.Kangaroo;
+import se.chalmers.kangaroo.model.Position;
 
 public class KangarooTest {
 	

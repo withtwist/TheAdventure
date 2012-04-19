@@ -1,9 +1,7 @@
 package se.chalmers.kangaroo.view;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.border.Border;
 /**
  * A class representing the buttons on the startingmenue.
  * @author twist3r

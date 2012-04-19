@@ -1,7 +1,5 @@
 package se.chalmers.kangaroo.model;
 
-import java.awt.*;
-import se.chalmers.kangaroo.constants.*;
 
 /**
  * A class to represent the model of a platform game.

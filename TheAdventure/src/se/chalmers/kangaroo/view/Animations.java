@@ -1,7 +1,5 @@
 package se.chalmers.kangaroo.view;
 
-import java.io.IOException;
-
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SpriteSheet;
 
