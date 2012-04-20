@@ -56,8 +56,8 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Polygon getPolygon() {
-		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
-		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
+		int[] xcords = {pos.getX(),pos.getX()+31,pos.getX()+31,pos.getX()};
+		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+63,pos.getY()+63};
 		return new Polygon(xcords,ycords,4);
 	}
 
@@ -142,7 +142,7 @@ public class Kangaroo implements Movable {
 		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
-			this.verticalSpeed = 3f;		
+			this.verticalSpeed = -8.1f;		
 		}
 	}
 	/**
@@ -193,16 +193,16 @@ public class Kangaroo implements Movable {
 	@Override
 	public void move() {
 	
-		if (isFalling && Math.abs(verticalSpeed) < 2) {
+		if (verticalSpeed != 0f && Math.abs(verticalSpeed) < 10f) {
 			verticalSpeed += 0.5f;			
 		}
 		
 		if(direction == Direction.DIRECTION_EAST) {			
-			if(Math.abs(horizontalSpeed)<maxSpeed) {
+			if( horizontalSpeed < maxSpeed) {
 				horizontalSpeed += 3f;
 			}
 		} if(direction == Direction.DIRECTION_WEST) {			
-			if(Math.abs(horizontalSpeed)<maxSpeed) {
+			if( horizontalSpeed > -maxSpeed) {
 				horizontalSpeed -= 3f;
 			}
 		} if(direction == Direction.DIRETION_NONE) {
@@ -214,8 +214,7 @@ public class Kangaroo implements Movable {
 
 		}
 		this.setRelativePosition((int)horizontalSpeed, (int)verticalSpeed);
-		
-		direction = Direction.DIRETION_NONE;
+		isJumping = !(verticalSpeed == 0);
 		
 	}
 
