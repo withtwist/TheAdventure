@@ -27,12 +27,12 @@ public class GameView extends JPanelWithBackground {
 			for (int x = drawFrom; x < drawFrom + 32; x++) {
 				ImageIcon i = new ImageIcon("../gfx/tiles/tile_"
 						+ gm.getGameMap().getTile(x, y).getId() + ".png");
-				i.paintIcon(null, g, x * 32, y * 32);
+				i.paintIcon(null, g, x * 32 , y * 32);
 
 			}
 		Position p = gm.getKangaroo().getPosition();
 		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(
-				null, g, p.getX(), p.getY());
+				null, g, p.getX()-32, p.getY()-32);
 	}
 
 	private int getLeftX() {
