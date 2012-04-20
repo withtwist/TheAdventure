@@ -135,16 +135,23 @@ public class GameModel {
 					if (tile.isCollidable()
 							&& !(kangaroo.getPolygon().getBounds2D()
 									.intersects(tile.getPolygon().getBounds2D()))) {
+						kangaroo.setVerticalSpeed(0f);
+						Position pos = new Position(oldPos.getX(), oldPos.getY()-32);
 						kangaroo.setPosition(oldPos);
-						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE && p
-								.getX() > (x + i) * Constants.TILE_SIZE)) {
-							kangaroo.setVerticalSpeed(0f);
-							return false;
-						}
+						return false;
+//						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE && p
+//								.getX() > (x + i) * Constants.TILE_SIZE)) {
+//							kangaroo.setVerticalSpeed(0f);
+//							return false;
+//						}
 					}
 				} catch(ArrayIndexOutOfBoundsException e){
-					System.out.println(e.toString());
-					kangaroo.setPosition(oldPos);
+					if(e.toString().endsWith("-1")){
+						kangaroo.setPosition(oldPos);
+					} else {
+						deathCount++;
+						restartLevel();
+					}
 				}
 			}	
 		}
