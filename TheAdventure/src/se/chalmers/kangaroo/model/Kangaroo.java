@@ -38,8 +38,8 @@ public class Kangaroo implements Movable {
 	 */
 	public Kangaroo(Position spawnPos) {
 		this.pos = spawnPos;
-		int[] xcords = {pos.getX(),pos.getX()+31,pos.getX()+31,pos.getX()};
-		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+63,pos.getY()+63};
+		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
+		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
 		kangarooPoly = new Polygon(xcords,ycords,4);
 	}
 
@@ -56,8 +56,8 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Polygon getPolygon() {
-		int[] xcords = {pos.getX(),pos.getX()+31,pos.getX()+31,pos.getX()};
-		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+63,pos.getY()+63};
+		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
+		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
 		return new Polygon(xcords,ycords,4);
 	}
 
@@ -193,7 +193,7 @@ public class Kangaroo implements Movable {
 	@Override
 	public void move() {
 	
-		if (isFalling) {
+		if (isFalling && Math.abs(verticalSpeed) < 2) {
 			verticalSpeed += 0.5f;			
 		}
 		
