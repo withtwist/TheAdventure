@@ -1,7 +1,5 @@
 package se.chalmers.kangaroo.model;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import se.chalmers.kangaroo.constants.*;
 
 public class OnOffButton implements InteractiveObject {

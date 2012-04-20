@@ -24,4 +24,10 @@ public  class Constants {
 	public static final String ITEM_IDS = "81 82";
 	public static final String CREATURE_IDS = "";
 	public static final String IOBJECTS_IDS = "";
+	
+	/*
+	 * Constants that is used normally.
+	 */
+	public static final double NANO_TO_SECOND = 0.000000001;
+	public static final double NANO_TO_MILLI = 0.000001;
 }
