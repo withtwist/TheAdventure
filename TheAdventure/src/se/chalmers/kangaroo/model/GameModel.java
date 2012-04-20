@@ -136,13 +136,14 @@ public class GameModel {
 									.intersects(tile.getPolygon().getBounds2D()))) {
 						kangaroo.setVerticalSpeed(0f);
 						Position pos = new Position(oldPos.getX(), oldPos.getY()-32);
-						kangaroo.setPosition(oldPos);
-						return false;
-//						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE && p
-//								.getX() > (x + i) * Constants.TILE_SIZE)) {
-//							kangaroo.setVerticalSpeed(0f);
-//							return false;
-//						}
+						kangaroo.setRelativePosition(oldPos.getX(), p.getY());
+						
+						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE && p
+								.getX() > (x + i) * Constants.TILE_SIZE)) {
+							kangaroo.setVerticalSpeed(0f);
+							kangaroo.setRelativePosition(p.getX(), oldPos.getY());
+							return false;
+						}
 					}
 				} catch(ArrayIndexOutOfBoundsException e){
 					if(e.toString().endsWith("-1")){
