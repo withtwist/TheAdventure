@@ -63,7 +63,7 @@ public class Factory {
 	public InteractiveObject createIObjects(int i, GameMap gm){
 		switch(i){
 		case 121:
-			return new RedBlueButtonInteractiveObject(true, gm);
+			return new RedBlueButton(true, gm);
 		default:
 			return null;
 		}

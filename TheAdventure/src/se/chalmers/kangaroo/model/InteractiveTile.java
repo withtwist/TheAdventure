@@ -32,7 +32,7 @@ public class InteractiveTile extends Tile {
 	}
 
 	/**
-	 * Method that change the state of collidable. 
+	 * Method that change the state of collidable.
 	 */
 	public void onTrigger() {
 		super.toggleCollidable();
