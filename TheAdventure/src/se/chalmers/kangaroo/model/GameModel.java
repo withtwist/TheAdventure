@@ -130,10 +130,9 @@ public class GameModel {
 			for (int j = 0; j < 3; j++) {
 				try{
 					Tile tile = gameMap.getTile((x + i), (y + i));
-					System.out.println(kangaroo.getPolygon().getBounds2D()
-							.intersects(tile.getPolygon().getBounds2D()));
+					System.out.println(kangaroo.getVerticalSpeed());
 					if (tile.isCollidable()
-							&& !(kangaroo.getPolygon().getBounds2D()
+							&& (kangaroo.getPolygon().getBounds2D()
 									.intersects(tile.getPolygon().getBounds2D()))) {
 						kangaroo.setVerticalSpeed(0f);
 						Position pos = new Position(oldPos.getX(), oldPos.getY()-32);
