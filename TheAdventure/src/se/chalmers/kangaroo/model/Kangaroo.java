@@ -56,7 +56,9 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Polygon getPolygon() {
-		return kangarooPoly;
+		int[] xcords = {pos.getX(),pos.getX()+31,pos.getX()+31,pos.getX()};
+		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+63,pos.getY()+63};
+		return new Polygon(xcords,ycords,4);
 	}
 
 	/**
