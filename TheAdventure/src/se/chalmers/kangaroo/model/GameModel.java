@@ -135,13 +135,15 @@ public class GameModel {
 							&& (kangaroo.getPolygon().getBounds2D()
 									.intersects(tile.getPolygon().getBounds2D()))) {
 						kangaroo.setVerticalSpeed(0f);
-						Position pos = new Position(oldPos.getX(), oldPos.getY()-32);
-						kangaroo.setRelativePosition(oldPos.getX(), p.getY());
+						Position pos = new Position(oldPos.getX(), p.getY());
+						kangaroo.setPosition(pos);
 						
-						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE && p
+						//Collides with ground
+						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
 								.getX() > (x + i) * Constants.TILE_SIZE)) {
 							kangaroo.setVerticalSpeed(0f);
-							kangaroo.setRelativePosition(p.getX(), oldPos.getY());
+							Position pos2 = new Position(p.getX(), oldPos.getY());
+							kangaroo.setPosition(pos2);
 							return false;
 						}
 					}
