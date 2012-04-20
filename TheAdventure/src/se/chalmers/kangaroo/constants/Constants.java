@@ -16,8 +16,10 @@ public  class Constants {
 	/*
 	 * Constant to get specific tiles.
 	 */
-	public static final int TILE_IOBJECT_RED = 199;
-	public static final int TILE_IOBJECT_BLUE = 197;
+	public static final int TILE_ITILE_RED = 199;
+	public static final int TILE_ITILE_BLUE = 197;
+	public static final int TILE_ITILE_ON = 196;
+	public static final int TILE_INVISIBLE = 42;
 	public static final String COLLIDE_IDS = "1 2";
 	public static final String ITEM_IDS = "81 82";
 	public static final String CREATURE_IDS = "";
