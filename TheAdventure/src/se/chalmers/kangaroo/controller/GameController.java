@@ -11,13 +11,13 @@ import se.chalmers.kangaroo.view.GameView;
  * A class for handling and running the game.
  * 
  * @author simonal
+ * @modifiedby pavlov
  * 
  */
 public class GameController implements KeyListener {
 
 	private GameModel gm;
 	private GameView gv;
-	private CustomKeys ck = new CustomKeys();
 
 	public GameController() {
 
@@ -53,31 +53,27 @@ public class GameController implements KeyListener {
 
 	private void pressedKey(KeyEvent e) {
 		int code = e.getKeyCode();
-		switch (code) {
-
-		case KeyEvent.VK_UP:
+		
+		//Jump
+		if(code == CustomKeys.getJumpKey()){
 			gm.getKangaroo().jump();
-			break;
-
-		case KeyEvent.VK_X:
-			gm.getKangaroo().jump();
-			break;
-
-		case KeyEvent.VK_LEFT:
+		
+		//Left
+		}else if(code == CustomKeys.getLeftKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
-			break;
-
-		case KeyEvent.VK_RIGHT:
+		
+		//Right
+		}else if(code == CustomKeys.getRightKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
-			break;
-		case KeyEvent.VK_C:
+
+		//Item
+		}else if(code == CustomKeys.getItemKey()){
 			if (gm.getKangaroo().getItem() != null) {
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
-			}
-			break;
-		default:
+		
+		}else{
 			// Illegal key
-			break;
+		}
 
 		}
 
