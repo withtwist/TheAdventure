@@ -17,6 +17,7 @@ public class GameController implements KeyListener {
 
 	private GameModel gm;
 	private GameView gv;
+	private CustomKeys ck = new CustomKeys();
 
 	public GameController() {
 
@@ -51,7 +52,6 @@ public class GameController implements KeyListener {
 	}
 
 	private void pressedKey(KeyEvent e) {
-
 		int code = e.getKeyCode();
 		switch (code) {
 
