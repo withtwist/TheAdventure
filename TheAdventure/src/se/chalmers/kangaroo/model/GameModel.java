@@ -128,44 +128,39 @@ public class GameModel {
 
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 3; j++) {
-				try{
+				try {
 					Tile tile = gameMap.getTile((x + j), (y + i));
-					System.out.println(kangaroo.getVerticalSpeed());
+					//System.out.println(kangaroo.getVerticalSpeed());
+//					System.out.println(tile.isCollidable()
+//							&& (kangaroo.getPolygon().getBounds2D()
+//									.intersects(tile.getPolygon().getBounds2D())));
 					if (tile.isCollidable()
 							&& (kangaroo.getPolygon().getBounds2D()
 									.intersects(tile.getPolygon().getBounds2D()))) {
-						kangaroo.setVerticalSpeed(0f);
-						if((int) tile.getPolygon().getBounds2D().getMinX() < p.getX()){
-							Position pos = new Position((int) tile.getPolygon().getBounds2D().getMinX() - 33, p.getY());
-							kangaroo.setPosition(pos);
-						}
-						if((int) tile.getPolygon().getBounds2D().getMaxX() > p.getX()){
-							Position pos = new Position((int) tile.getPolygon().getBounds2D().getMaxX() + 33, p.getY());
-							kangaroo.setPosition(pos);
-						}
-//						Position pos = new Position(oldPos.getX(), p.getY());
-//						kangaroo.setPosition(pos);
 						
-						
-						//Collides with ground
+						Position pos = new Position(oldPos.getX(), p.getY());
+						kangaroo.setPosition(pos);
+
+						// Collides with ground
 						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
 								.getX() > (x + i) * Constants.TILE_SIZE)) {
 							kangaroo.setVerticalSpeed(0f);
-							Position pos2 = new Position(p.getX(), oldPos.getY());
+							Position pos2 = new Position(p.getX(),
+									oldPos.getY());
 							kangaroo.setPosition(pos2);
-							System.out.println("hej");
+							System.out.println("lol");
 							return false;
 						}
 					}
-				} catch(ArrayIndexOutOfBoundsException e){
-					if(e.toString().endsWith("-1")){
+				} catch (ArrayIndexOutOfBoundsException e) {
+					if (e.toString().endsWith("-1")) {
 						kangaroo.setPosition(oldPos);
 					} else {
 						deathCount++;
 						restartLevel();
 					}
 				}
-			}	
+			}
 		}
 		return true;
 	}

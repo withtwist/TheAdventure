@@ -76,7 +76,7 @@ public class Position {
 	 */
 	public int hashCode() {
 		// TODO fix hashCode
-		return super.hashCode() * x * 7 * y * 11;
+		return super.hashCode() * x * 7 + y * 11;
 	}
 
 	@Override
