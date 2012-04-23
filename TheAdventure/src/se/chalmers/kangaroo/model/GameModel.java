@@ -93,7 +93,6 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		creatureCollition();
-		//kangaroo.setFalling();
 		tileCollition();
 	}
 
@@ -125,52 +124,9 @@ public class GameModel {
 	 * the ground its vertical speed shall be resetted.
 	 */
 	private void tileCollition() {
-		Position p = kangaroo.getPosition();
-		int x = p.getX() / Constants.TILE_SIZE;
-		int y = p.getY() / Constants.TILE_SIZE;
-
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 3; j++) {
-				try {
-					Tile tile = gameMap.getTile((x + j), (y + i));
-//					System.out.println(tile.isCollidable()
-//							&& (kangaroo.getPolygon().getBounds2D()
-//									.intersects(tile.getPolygon().getBounds2D())));
-					if (tile.isCollidable()
-							&& (kangaroo.getPolygon().getBounds2D()
-									.intersects(tile.getPolygon().getBounds2D()))) {
-						setBackKangaroo(p, j);
-					}
-				} catch (ArrayIndexOutOfBoundsException e) {
-					if (e.toString().endsWith("-1")) {
-						kangaroo.setPosition(oldPos);
-					} else {
-						deathCount++;
-						restartLevel();
-					}
-				}
-			}
-		}
-	}
-	
-	private void setBackKangaroo(Position p, int j) {
-		int x = p.getX() / Constants.TILE_SIZE;
-		int y = p.getY() / Constants.TILE_SIZE;
-		System.out.println(p.toString());
-		Position pos = new Position(oldPos.getX(), p.getY());
-		System.out.println(pos.toString());
-		kangaroo.setPosition(pos);
 		
-		// Collides with ground
-		if (!(oldPos.getX() < (x + j) * Constants.TILE_SIZE == p
-				.getX() > (x + j) * Constants.TILE_SIZE)) {
-			kangaroo.setVerticalSpeed(0f);
-			Position pos2 = new Position(p.getX(),
-					oldPos.getY());
-			kangaroo.setPosition(pos2);
-			//System.out.println("lol");
-		}
 	}
+
 
 	/**
 	 * Restarts the level. Will be used when the kangaroo dies.
