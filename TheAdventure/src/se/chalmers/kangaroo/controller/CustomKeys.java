@@ -1,7 +1,5 @@
 package se.chalmers.kangaroo.controller;
 
-import java.awt.event.KeyEvent;
-
 import se.chalmers.kangaroo.io.CustomKeysIO;
 
 /**

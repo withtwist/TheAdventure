@@ -1,23 +1,18 @@
 package se.chalmers.kangaroo.io;
 
-import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Writer;
 import java.util.Scanner;
-
-import se.chalmers.kangaroo.controller.CustomKeys;
 
 /**
  * This is a class that will save your custom keys to a file. You will of course
  * be able to load them as well.
  * 
- * @author Henrik
+ * @author alburgh
  * 
  */
 public class CustomKeysIO {
@@ -49,7 +44,7 @@ public class CustomKeysIO {
 	}
 	/**
 	 * Use the KeyEvent.keycodes to set your keys.
-	 * You can then use getKEys to return them.
+	 * You can then use getKeys to return them.
 	 * @param key, the array of key codes. 
 	 */
 	public void setKeys(int[] key) {
@@ -60,9 +55,9 @@ public class CustomKeysIO {
 			}
 			w.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("There is no such file o_O");
+			System.out.println("There is no such file");
 		} catch (IOException e) {
-			System.out.println("Something went wrong with the io");
+			System.out.println("Something went wrong with the io writing");
 		}
 	}
 	/* Used to make sure that the latest version of the keys are returned. */
@@ -76,7 +71,7 @@ public class CustomKeysIO {
 				i++;
 			}
 		} catch (FileNotFoundException e) {
-			System.out.println("No such file exists xD");
+			System.out.println("No such file exists");
 		}
 	}
 
