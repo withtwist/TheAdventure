@@ -33,8 +33,6 @@ public class Kangaroo implements Movable {
 	private boolean ivunerable = false;
 	
 	private Polygon kangarooPoly;
-	
-	private Animation kangarooAnimation;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -43,7 +41,6 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Kangaroo(Position spawnPos) {
-		kangarooAnimation = Animations.getKangarooAnimation();
 		
 		this.pos = spawnPos;
 		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
@@ -166,14 +163,6 @@ public class Kangaroo implements Movable {
 		
 
 	}
-	/**
-	 * Returns the kangaroos animation.
-	 * @return
-	 */
-	public Animation getAnimation() {
-		return kangarooAnimation;
-	}
-	
 
 	@Override
 	public int hashCode() {
