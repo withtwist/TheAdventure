@@ -18,6 +18,8 @@ public class GameController implements KeyListener {
 
 	private GameModel gm;
 	private GameView gv;
+	
+	private CustomKeys ck = CustomKeys.getInstance();
 
 	public GameController() {
 
@@ -55,19 +57,19 @@ public class GameController implements KeyListener {
 		int code = e.getKeyCode();
 		
 		//Jump
-		if(code == CustomKeys.getJumpKey()){
+		if(code == ck.getJumpKey()){
 			gm.getKangaroo().jump();
 		
 		//Left
-		}else if(code == CustomKeys.getLeftKey()){
+		}else if(code == ck.getLeftKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
 		
 		//Right
-		}else if(code == CustomKeys.getRightKey()){
+		}else if(code == ck.getRightKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
 
 		//Item
-		}else if(code == CustomKeys.getItemKey()){
+		}else if(code == ck.getItemKey()){
 			if (gm.getKangaroo().getItem() != null) {
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 		
