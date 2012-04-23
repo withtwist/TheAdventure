@@ -74,7 +74,7 @@ public class GameModel {
 
 	public GameModel() {
 		gameMap = new GameMap("../maps/testmap.tmx");
-		kangaroo = new Kangaroo(new Position(10, 186));
+		kangaroo = new Kangaroo(new Position(20, 186));
 	}
 
 	/**
@@ -91,6 +91,7 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		creatureCollition();
+		System.out.println(tileCollition());
 		kangaroo.setFalling(tileCollition());
 	}
 
@@ -131,9 +132,9 @@ public class GameModel {
 				try {
 					Tile tile = gameMap.getTile((x + j), (y + i));
 					//System.out.println(kangaroo.getVerticalSpeed());
-//					System.out.println(tile.isCollidable()
-//							&& (kangaroo.getPolygon().getBounds2D()
-//									.intersects(tile.getPolygon().getBounds2D())));
+					System.out.println(tile.isCollidable()
+							&& (kangaroo.getPolygon().getBounds2D()
+									.intersects(tile.getPolygon().getBounds2D())));
 					if (tile.isCollidable()
 							&& (kangaroo.getPolygon().getBounds2D()
 									.intersects(tile.getPolygon().getBounds2D()))) {
