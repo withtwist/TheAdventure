@@ -37,6 +37,8 @@ public class Factory {
 		switch(i){
 		case 101:
 			return new DoubleJumpItem();
+		case 102:
+			return new StopTimeItem();
 		default:
 			return null;
 		}
@@ -50,6 +52,8 @@ public class Factory {
 		switch(i){
 		case 81:
 			return new CrabCreature(p, Direction.DIRECTION_WEST);
+		case 82:
+			return new TurtleCreature(p, Direction.DIRECTION_WEST);
 		default:
 			return null;
 		}
@@ -64,6 +68,8 @@ public class Factory {
 		switch(i){
 		case 121:
 			return new RedBlueButton(true, gm);
+		case 122:
+			return new OnOffButton(gm);
 		default:
 			return null;
 		}
