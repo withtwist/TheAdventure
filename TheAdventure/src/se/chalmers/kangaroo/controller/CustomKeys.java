@@ -46,7 +46,7 @@ public class CustomKeys {
 	 * Getter for jump key
 	 * @return the key for jump.
 	 */
-	public static int getJumpKey() {
+	public int getJumpKey() {
 		return jumpKey;
 	}
 
@@ -63,7 +63,7 @@ public class CustomKeys {
 	 * Getter for go left key
 	 * @return the key for go left.
 	 */
-	public static int getLeftKey() {
+	public int getLeftKey() {
 		return leftKey;
 	}
 
@@ -80,7 +80,7 @@ public class CustomKeys {
 	 * Getter for go right key
 	 * @return the key for go right.
 	 */
-	public static int getRightKey() {
+	public int getRightKey() {
 		return rightKey;
 	}
 
@@ -97,7 +97,7 @@ public class CustomKeys {
 	 * Getter for use item key
 	 * @return the key for use item.
 	 */
-	public static int getItemKey() {
+	public int getItemKey() {
 		return itemKey;
 	}
 	
