@@ -2,6 +2,10 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
+import org.newdawn.slick.Animation;
+
+import se.chalmers.kangaroo.view.Animations;
+
 /**
  * This class represents the Kangaroo controlled by the player.
  * 
@@ -29,6 +33,8 @@ public class Kangaroo implements Movable {
 	private boolean ivunerable = false;
 	
 	private Polygon kangarooPoly;
+	
+	private Animation kangarooAnimation;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -37,6 +43,8 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Kangaroo(Position spawnPos) {
+		kangarooAnimation = Animations.getKangarooAnimation();
+		
 		this.pos = spawnPos;
 		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
 		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
@@ -157,6 +165,13 @@ public class Kangaroo implements Movable {
 		this.move();
 		
 
+	}
+	/**
+	 * Returns the kangaroos animation.
+	 * @return
+	 */
+	public Animation getAnimation() {
+		return kangarooAnimation;
 	}
 	
 

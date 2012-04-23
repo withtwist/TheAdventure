@@ -10,9 +10,9 @@ import org.newdawn.slick.SpriteSheet;
  */
 public class Animations {
 	
-	private Animation kangarooAnimation = new Animation();
+	private static Animation kangarooAnimation = new Animation();
 	
-	private Animation crabAnimation = new Animation();
+	private static Animation crabAnimation = new Animation();
 	
 	private SpriteSheet kangarooSheet;
 	
@@ -22,7 +22,7 @@ public class Animations {
 	 */
 	public Animations() {
 		try {
-			kangarooSheet = new SpriteSheet("data/crab_256x32.png",64,32);
+			kangarooSheet = new SpriteSheet("/resources/sheets/kangaroo_58x64_right.png",64,32);
 			crabSheet = new SpriteSheet("crab",64,32);
 		} catch (Exception e) {
 			System.out.println("A"+e+"when loading sheets for animation");
@@ -40,7 +40,7 @@ public class Animations {
 	 * Returns the kangaroos animation.
 	 * @return kangarooAnimation
 	 */
-	public Animation getKangarooAnimation() {
+	public static Animation getKangarooAnimation() {
 		return kangarooAnimation;
 	}
 	/**

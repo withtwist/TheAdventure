@@ -67,7 +67,7 @@ public class GameController implements KeyListener {
 		//Right
 		}else if(code == ck.getRightKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
-
+			gm.getKangaroo().getAnimation().setAutoUpdate(true);
 		//Item
 		}else if(code == ck.getItemKey()){
 			if (gm.getKangaroo().getItem() != null) {
