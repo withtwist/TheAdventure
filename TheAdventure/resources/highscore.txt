@@ -1,0 +1,20 @@
+level1
+GrublA 60000
+Saen 65000
+TwiSta 70000
+KorViD 75000
+level2
+kOrvId 60000
+GrublA 65000
+Saen 70000
+tWisTa 75000
+level3
+TwisTa 60000
+KorvID 65000
+gRUBLA 70000
+sAEn 75000
+level4
+SaeN 60000
+twista 65000
+korvid 70000
+grubla 75000
