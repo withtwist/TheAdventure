@@ -2,9 +2,6 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
-import org.newdawn.slick.Animation;
-
-import se.chalmers.kangaroo.view.Animations;
 
 /**
  * This class represents the Kangaroo controlled by the player.
