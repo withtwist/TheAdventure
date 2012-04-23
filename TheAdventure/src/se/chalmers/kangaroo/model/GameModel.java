@@ -43,6 +43,8 @@ public class GameModel {
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
+	
+	private int jGlobal;
 
 	/**
 	 * A method to start the game.
@@ -91,8 +93,8 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		creatureCollition();
-		System.out.println(tileCollition());
-		kangaroo.setFalling(tileCollition());
+		//kangaroo.setFalling();
+		tileCollition();
 	}
 
 	/**
@@ -122,7 +124,7 @@ public class GameModel {
 	 * old position so it looks like it stops at the tile. If the kangaroo hits
 	 * the ground its vertical speed shall be resetted.
 	 */
-	private Boolean tileCollition() {
+	private void tileCollition() {
 		Position p = kangaroo.getPosition();
 		int x = p.getX() / Constants.TILE_SIZE;
 		int y = p.getY() / Constants.TILE_SIZE;
@@ -131,27 +133,13 @@ public class GameModel {
 			for (int j = 0; j < 3; j++) {
 				try {
 					Tile tile = gameMap.getTile((x + j), (y + i));
-					//System.out.println(kangaroo.getVerticalSpeed());
-					System.out.println(tile.isCollidable()
-							&& (kangaroo.getPolygon().getBounds2D()
-									.intersects(tile.getPolygon().getBounds2D())));
+//					System.out.println(tile.isCollidable()
+//							&& (kangaroo.getPolygon().getBounds2D()
+//									.intersects(tile.getPolygon().getBounds2D())));
 					if (tile.isCollidable()
 							&& (kangaroo.getPolygon().getBounds2D()
 									.intersects(tile.getPolygon().getBounds2D()))) {
-						
-						Position pos = new Position(oldPos.getX(), p.getY());
-						kangaroo.setPosition(pos);
-
-						// Collides with ground
-						if (!(oldPos.getX() < (x + i) * Constants.TILE_SIZE == p
-								.getX() > (x + i) * Constants.TILE_SIZE)) {
-							kangaroo.setVerticalSpeed(0f);
-							Position pos2 = new Position(p.getX(),
-									oldPos.getY());
-							kangaroo.setPosition(pos2);
-							System.out.println("lol");
-							return false;
-						}
+						setBackKangaroo(p, j);
 					}
 				} catch (ArrayIndexOutOfBoundsException e) {
 					if (e.toString().endsWith("-1")) {
@@ -163,7 +151,25 @@ public class GameModel {
 				}
 			}
 		}
-		return true;
+	}
+	
+	private void setBackKangaroo(Position p, int j) {
+		int x = p.getX() / Constants.TILE_SIZE;
+		int y = p.getY() / Constants.TILE_SIZE;
+		System.out.println(p.toString());
+		Position pos = new Position(oldPos.getX(), p.getY());
+		System.out.println(pos.toString());
+		kangaroo.setPosition(pos);
+		
+		// Collides with ground
+		if (!(oldPos.getX() < (x + j) * Constants.TILE_SIZE == p
+				.getX() > (x + j) * Constants.TILE_SIZE)) {
+			kangaroo.setVerticalSpeed(0f);
+			Position pos2 = new Position(p.getX(),
+					oldPos.getY());
+			kangaroo.setPosition(pos2);
+			//System.out.println("lol");
+		}
 	}
 
 	/**
