@@ -22,18 +22,17 @@ public class Animations {
 	 */
 	public Animations() {
 		try {
-			kangarooSheet = new SpriteSheet("/resources/sheets/kangaroo_58x64_right.png",64,32);
-			crabSheet = new SpriteSheet("crab",64,32);
+			kangarooSheet = new SpriteSheet("/resources/sheets/kangaroo_58x64_right.png",57,63);
+			//crabSheet = new SpriteSheet("crab",64,32);
 		} catch (Exception e) {
 			System.out.println("A"+e+"when loading sheets for animation");
 		}
 		System.out.println("Exception when loading sheets for animation");
 		kangarooAnimation.setAutoUpdate(false);
 		crabAnimation.setAutoUpdate(true);
-
 		for (int frame=0;frame<3;frame++) {
-			kangarooAnimation.addFrame(kangarooSheet.getSprite(frame,0), 150);
-			crabAnimation.addFrame(kangarooSheet.getSprite(frame, 0), 150);
+			kangarooAnimation.addFrame(kangarooSheet.getSprite(0,frame), 150);
+			//crabAnimation.addFrame(kangarooSheet.getSprite(0, frame), 150);
 		}
 	}
 	/**
