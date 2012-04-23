@@ -16,7 +16,7 @@ import se.chalmers.kangaroo.model.Position;
 public class GameView extends JPanelWithBackground {
 	private GameModel gm;
 	
-	private Graphics slickGraphics = new Graphics();
+	//private Graphics slickGraphics = new Graphics();
 
 	public GameView(String imagepath, GameModel gm) {
 		super(imagepath);
