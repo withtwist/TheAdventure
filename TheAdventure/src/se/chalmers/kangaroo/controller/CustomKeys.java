@@ -2,6 +2,8 @@ package se.chalmers.kangaroo.controller;
 
 import java.awt.event.KeyEvent;
 
+import se.chalmers.kangaroo.io.CustomKeysIO;
+
 /**
  * This is a singleton that hold the key binding for GameController. it has
  * setters and getters for each function requiring a key-press.
@@ -12,15 +14,14 @@ import java.awt.event.KeyEvent;
 public class CustomKeys {
 	private static CustomKeys instance;
 	static private int jumpKey, leftKey, rightKey, itemKey;
+	private CustomKeysIO io;
 
 	/**
 	 * Sets the default scheme for the control.
 	 */
 	private CustomKeys() {
-		jumpKey = KeyEvent.VK_UP;
-		leftKey = KeyEvent.VK_LEFT;
-		rightKey = KeyEvent.VK_RIGHT;
-		itemKey = KeyEvent.VK_C;
+		io = CustomKeysIO.getInstance();
+		loadFromFile();
 	}
 
 	/**
@@ -40,6 +41,7 @@ public class CustomKeys {
 	 */
 	public void setJumpKey(int jumpKey) {
 		CustomKeys.jumpKey = jumpKey;
+		writeToFile();
 	}
 
 	/**
@@ -56,6 +58,7 @@ public class CustomKeys {
 	 */
 	public void setleftKey(int leftKey) {
 		CustomKeys.leftKey = leftKey;
+		writeToFile();
 	}
 
 	/**
@@ -72,6 +75,7 @@ public class CustomKeys {
 	 */
 	public void setRightKey(int rightKey) {
 		CustomKeys.rightKey = rightKey;
+		writeToFile();
 	}
 
 	/**
@@ -88,6 +92,7 @@ public class CustomKeys {
 	 */
 	public void setItemKey(int itemKey) {
 		CustomKeys.itemKey = itemKey;
+		writeToFile();
 	}
 
 	/**
@@ -96,6 +101,19 @@ public class CustomKeys {
 	 */
 	public static int getItemKey() {
 		return itemKey;
+	}
+	
+	private void writeToFile(){
+		int[] keys = {leftKey, rightKey, jumpKey, itemKey};
+		io.setKeys(keys);
+	}
+	
+	private void loadFromFile(){
+		int[] keys = io.getKeys();
+		leftKey = keys[0];
+		rightKey = keys[1];
+		jumpKey = keys[2];
+		itemKey = keys[3];
 	}
 
 }

@@ -22,9 +22,8 @@ import se.chalmers.kangaroo.controller.CustomKeys;
  */
 public class CustomKeysIO {
 	private static CustomKeysIO instance;
-	private static CustomKeys ck;
 	private static int[] keys = new int[4];
-	private static final String FILE_NAME = "/resources/customkeys.txt";
+	private static final String FILE_NAME = "resources/customkeys.txt";
 
 	/* Private constructor, so only one instance will be created. */
 	private CustomKeysIO() {
@@ -35,14 +34,16 @@ public class CustomKeysIO {
 	 * Returns the only instance of this class.
 	 * @return
 	 */
-	public static CustomKeysIO getInstance() {
+	public static synchronized CustomKeysIO getInstance() {
+		if(instance == null)
+			instance = new CustomKeysIO();
 		return instance;
 	}
 	/**
 	 * Returns the current keys set in the file.
 	 * @return the key codes. 
 	 */
-	public static int[] getKeys() {
+	public int[] getKeys() {
 		loadKeys();
 		return keys;
 	}
@@ -51,12 +52,13 @@ public class CustomKeysIO {
 	 * You can then use getKEys to return them.
 	 * @param key, the array of key codes. 
 	 */
-	public static void setKeys(int[] key) {
+	public void setKeys(int[] key) {
 		try {
 			Writer w = new FileWriter(FILE_NAME);
-			for (int i = 0; i < key.length + 3; i += 2) {
-				w.write(key[i] + "\\n");
+			for (int i = 0; i < key.length; i++) {
+				w.write(key[i] + "\n");
 			}
+			w.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("There is no such file o_O");
 		} catch (IOException e) {
@@ -68,7 +70,6 @@ public class CustomKeysIO {
 		try {
 			InputStream in = new FileInputStream(FILE_NAME);
 			Scanner sc = new Scanner(in);
-			ck = CustomKeys.getInstance();
 			while (sc.hasNext()) {
 				int i = 0;
 				keys[i] = Integer.parseInt(sc.nextLine());

@@ -36,7 +36,7 @@ public class GameView extends JPanelWithBackground {
 				i.paintIcon(null, g, x * 32 , y * 32);
 
 			}
-		slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(), p.getX()-32, p.getY()-32);
+		//slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(), p.getX()-32, p.getY()-32);
 
 		//new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(
 		//		null, g, p.getX()-32, p.getY()-32);
