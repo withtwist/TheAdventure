@@ -9,16 +9,19 @@ import org.newdawn.slick.Graphics;
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.Position;
-
 /**
  * 
  * @author alburgh
  * @modifiedby simonal
  */
+
+
 public class GameView extends JPanelWithBackground {
 	private GameModel gm;
 
+
 	// private Graphics slickGraphics = new Graphics();
+
 
 	public GameView(String imagepath, GameModel gm) {
 		super(imagepath);
@@ -38,6 +41,7 @@ public class GameView extends JPanelWithBackground {
 				i.paintIcon(null, g, (x - drawFrom) * 32, y * 32);
 
 			}
+
 		// slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
 		// p.getX()-32, p.getY()-32);
 		if (drawFrom == 0 || drawFrom == gm.getGameMap().getTileWidth() - 32) {
@@ -52,6 +56,7 @@ public class GameView extends JPanelWithBackground {
 			g.drawPolygon(new Polygon(xs, ys, 4));
 		}
 	}
+
 
 	private int getLeftX() {
 		int kPos = gm.getKangaroo().getPosition().getX() / Constants.TILE_SIZE;
