@@ -19,10 +19,10 @@ public class GameController implements KeyListener {
 	private GameModel gm;
 	private GameView gv;
 	
-	private CustomKeys ck = CustomKeys.getInstance();
+	private CustomKeys ck;
 
 	public GameController() {
-
+		ck = CustomKeys.getInstance();
 		gm = new GameModel();
 		gv = new GameView("resources/images/background.gif", gm);
 		gv.addKeyListener(this);
@@ -57,17 +57,17 @@ public class GameController implements KeyListener {
 		int code = e.getKeyCode();
 		
 		//Jump
-		if(code == ck.getJumpKey()){
+		if(code == KeyEvent.VK_UP){
 			gm.getKangaroo().jump();
 		
 		//Left
-		}else if(code == ck.getLeftKey()){
+		}else if(code == KeyEvent.VK_LEFT){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
 		
 		//Right
-		}else if(code == ck.getRightKey()){
+		}else if(code == KeyEvent.VK_RIGHT){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
-			gm.getKangaroo().getAnimation().setAutoUpdate(true);
+		//	gm.getKangaroo().getAnimation().setAutoUpdate(true);
 		//Item
 		}else if(code == ck.getItemKey()){
 			if (gm.getKangaroo().getItem() != null) {

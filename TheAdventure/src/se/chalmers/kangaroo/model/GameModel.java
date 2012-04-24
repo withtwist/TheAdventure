@@ -6,6 +6,7 @@ import se.chalmers.kangaroo.constants.Constants;
  * A class to represent the model of a platform game.
  * 
  * @author arvidk
+ * @modifiedby simonal
  * 
  */
 public class GameModel {
@@ -76,7 +77,7 @@ public class GameModel {
 
 	public GameModel() {
 		gameMap = new GameMap("../maps/testmap.tmx");
-		kangaroo = new Kangaroo(new Position(20, 186));
+		kangaroo = new Kangaroo(new Position(80, 186));
 	}
 
 	/**
@@ -124,7 +125,15 @@ public class GameModel {
 	 * the ground its vertical speed shall be resetted.
 	 */
 	private void tileCollition() {
-		
+		for(int i=0; i<gameMap.getTileWidth(); i++) {
+			for(int j=0; j<gameMap.getTileHeight(); j++) {
+				if(kangaroo.getPolygon().intersects(gameMap.getTile(i, j).getPolygon().getBounds2D()) && gameMap.getTile(i, j).isCollidable()) {
+					
+					kangaroo.setPosition(oldPos);
+					kangaroo.setVerticalSpeed(0f);
+				}
+			}
+		}
 	}
 
 

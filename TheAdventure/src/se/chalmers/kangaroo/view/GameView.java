@@ -38,8 +38,9 @@ public class GameView extends JPanelWithBackground {
 			}
 		//slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(), p.getX()-32, p.getY()-32);
 
-		//new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(
-		//		null, g, p.getX()-32, p.getY()-32);
+		new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png").paintIcon(
+				null, g, p.getX()-32, p.getY()-32);
+		g.drawPolygon(gm.getKangaroo().getPolygon());
 	}
 
 	private int getLeftX() {
