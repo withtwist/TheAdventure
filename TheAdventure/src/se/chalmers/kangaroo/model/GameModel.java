@@ -126,15 +126,25 @@ public class GameModel {
 	 */
 	private void tileCollition() {
 		for(int i=kangaroo.getPosition().getX()/32; i<(kangaroo.getPosition().getX()/32)+2; i++) {
+			
 			for(int j=kangaroo.getPosition().getY()/32; j<(kangaroo.getPosition().getY()/32)+3; j++) {
+				
 				if(kangaroo.getPolygon().intersects(gameMap.getTile(i, j).getPolygon().getBounds2D()) && gameMap.getTile(i, j).isCollidable()) {					
-					kangaroo.setPosition(oldPos);
-					if(gameMap.getTile(i, j).getPolygon().xpoints.)
-					kangaroo.setVerticalSpeed(0f);
+					if((int)kangaroo.getPolygon().getBounds2D().getMinX()/32 == oldPos.getX()/32 || (int)kangaroo.getPolygon().getBounds2D().getMaxX()/32 == (oldPos.getX()/32)+1) {
+						
+						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(),oldPos.getY()));
+					}
+					if((int)kangaroo.getPolygon().getBounds2D().getMinY()/32 == oldPos.getY()/32 || (int)kangaroo.getPolygon().getBounds2D().getMaxY()/32 == (oldPos.getY()/32)+1) {
+						kangaroo.setVerticalSpeed(0f);
+						kangaroo.setPosition(new Position(oldPos.getX(),kangaroo.getPosition().getY()));
+					}
+
+					}
+
 				}
 			}
 		}
-	}
+	
 
 
 	/**
