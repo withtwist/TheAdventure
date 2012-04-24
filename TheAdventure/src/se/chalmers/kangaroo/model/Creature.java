@@ -10,19 +10,15 @@ import java.awt.Polygon;
  */
 public abstract class Creature implements Movable{
 	
-	private Position spawnPos;
-	private boolean killable;
 	private Position pos;
 	private Direction direction;
 	private int speed;
-	private Polygon creaturePoly;
 	/**
 	 * A protected constructor which takes a spawnposition and the direction the creature will be facing.
 	 * @param spawnPos
 	 * @param direction
 	 */
-	protected Creature(Position spawnPos, Direction direction) {
-		this.spawnPos = spawnPos;
+	protected Creature(Direction direction) {
 		this.direction = direction;
 	}
 	/**
@@ -36,16 +32,12 @@ public abstract class Creature implements Movable{
 	 * Returns true of the creature is killable and false if it isn't.
 	 * @return killable
 	 */
-	public boolean isKillable() {
-		return killable;
-	}
+	public abstract boolean isKillable();
 	/**
 	 * Returns the specified creatures polygon.
 	 * @return
 	 */
-	public Polygon getPolygon() {
-		return creaturePoly;
-	}
+	public abstract Polygon getPolygon();
 	/**
 	 * Removes the creature from the game.
 	 */
