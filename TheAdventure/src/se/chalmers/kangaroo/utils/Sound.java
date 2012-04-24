@@ -29,7 +29,7 @@ public class Sound implements Runnable
     public void run ()
     {
     	while(true) {
-            playSound(fileLocation);
+            //playSound(fileLocation);
     	}
 
     }

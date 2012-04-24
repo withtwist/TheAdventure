@@ -123,6 +123,13 @@ public class Kangaroo implements Movable {
 		return pos;
 	}
 	/**
+	 * Returns the current direction the kangaroo is facing.
+	 * @return
+	 */
+	public Direction getDirection() {
+		return direction;
+	}
+	/**
 	 * Enables doublejump.
 	 */
 	public void enableDoubleJump() {

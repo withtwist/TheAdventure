@@ -130,20 +130,27 @@ public class GameModel {
 			for(int j=kangaroo.getPosition().getY()/32; j<(kangaroo.getPosition().getY()/32)+3; j++) {
 				
 				if(kangaroo.getPolygon().intersects(gameMap.getTile(i, j).getPolygon().getBounds2D()) && gameMap.getTile(i, j).isCollidable()) {					
-					if((int)kangaroo.getPolygon().getBounds2D().getMinX()/32 == oldPos.getX()/32 || (int)kangaroo.getPolygon().getBounds2D().getMaxX()/32 == (oldPos.getX()/32)+1) {
-						
-						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(),oldPos.getY()));
-					}
-					if((int)kangaroo.getPolygon().getBounds2D().getMinY()/32 == oldPos.getY()/32 || (int)kangaroo.getPolygon().getBounds2D().getMaxY()/32 == (oldPos.getY()/32)+1) {
-						kangaroo.setVerticalSpeed(0f);
+
+					if(kangaroo.getPolygon().getBounds2D().getMaxX() > gameMap.getTile(i, j).getPolygon().getBounds2D().getMinX()) {
+							kangaroo.setPosition(new Position(oldPos.getX(),kangaroo.getPosition().getY()));
+							System.out.println(2);
+							
+					if(kangaroo.getPolygon().getBounds2D().getMinX() < gameMap.getTile(i, j).getPolygon().getBounds2D().getMaxX()) {
 						kangaroo.setPosition(new Position(oldPos.getX(),kangaroo.getPosition().getY()));
+						System.out.println(3);
 					}
-
+					if(kangaroo.getPolygon().getBounds2D().getMaxY() >= gameMap.getTile(i, j).getPolygon().getBounds2D().getMinY() ) {
+						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), oldPos.getY()));
+							kangaroo.setVerticalSpeed(0f);
+							System.out.println(1);
 					}
-
+						
+					}
+					
 				}
 			}
 		}
+	}
 	
 
 
