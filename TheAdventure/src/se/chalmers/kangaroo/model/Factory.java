@@ -38,7 +38,7 @@ public class Factory {
 		case 101:
 			return new DoubleJumpItem();
 		case 102:
-			return null; //new StopTimeItem();
+			return new StopTimeItem(5);
 		default:
 			return null;
 		}

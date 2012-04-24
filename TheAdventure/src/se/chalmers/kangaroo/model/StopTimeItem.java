@@ -7,9 +7,8 @@ package se.chalmers.kangaroo.model;
  * 
  */
 public class StopTimeItem implements Item {
-	private Kangaroo k;
 	private int seconds;
-
+	private Kangaroo k; 
 	/**
 	 * The constructor takes a Kangaroo and a time that the time is going to
 	 * stop.
@@ -19,9 +18,8 @@ public class StopTimeItem implements Item {
 	 * @param time
 	 *            is the time that the time is going to stop
 	 */
-	public StopTimeItem(Kangaroo k, int time) {
-		this.k = k;
-		this.seconds = time * 100;
+	public StopTimeItem(int millis) {
+		this.seconds = millis * 1000;
 	}
 
 	/**
@@ -30,6 +28,7 @@ public class StopTimeItem implements Item {
 	 */
 	@Override
 	public void onPickup(Kangaroo k) {
+		this.k = k;
 		Thread stt = new Thread();
 		stt.setDaemon(true);
 		stt.start();
