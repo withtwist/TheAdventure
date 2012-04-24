@@ -125,11 +125,11 @@ public class GameModel {
 	 * the ground its vertical speed shall be resetted.
 	 */
 	private void tileCollition() {
-		for(int i=0; i<gameMap.getTileWidth(); i++) {
-			for(int j=0; j<gameMap.getTileHeight(); j++) {
-				if(kangaroo.getPolygon().intersects(gameMap.getTile(i, j).getPolygon().getBounds2D()) && gameMap.getTile(i, j).isCollidable()) {
-					
+		for(int i=kangaroo.getPosition().getX()/32; i<(kangaroo.getPosition().getX()/32)+2; i++) {
+			for(int j=kangaroo.getPosition().getY()/32; j<(kangaroo.getPosition().getY()/32)+3; j++) {
+				if(kangaroo.getPolygon().intersects(gameMap.getTile(i, j).getPolygon().getBounds2D()) && gameMap.getTile(i, j).isCollidable()) {					
 					kangaroo.setPosition(oldPos);
+					if(gameMap.getTile(i, j).getPolygon().xpoints.)
 					kangaroo.setVerticalSpeed(0f);
 				}
 			}
