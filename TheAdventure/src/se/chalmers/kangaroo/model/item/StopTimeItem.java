@@ -1,4 +1,7 @@
-package se.chalmers.kangaroo.model;
+package se.chalmers.kangaroo.model.item;
+
+import se.chalmers.kangaroo.model.Item;
+import se.chalmers.kangaroo.model.Kangaroo;
 
 /**
  * This item stops the time for a given interval.

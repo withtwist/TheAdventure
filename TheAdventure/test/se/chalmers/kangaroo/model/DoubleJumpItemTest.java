@@ -5,9 +5,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import se.chalmers.kangaroo.model.DoubleJumpItem;
 import se.chalmers.kangaroo.model.Kangaroo;
 import se.chalmers.kangaroo.model.Position;
+import se.chalmers.kangaroo.model.item.DoubleJumpItem;
 
 public class DoubleJumpItemTest {
 

@@ -1,4 +1,8 @@
-package se.chalmers.kangaroo.model;
+package se.chalmers.kangaroo.model.item;
+
+import se.chalmers.kangaroo.model.Item;
+import se.chalmers.kangaroo.model.Kangaroo;
+
 /**
  * The item with the doublejump-effect.
  * @author twist3r

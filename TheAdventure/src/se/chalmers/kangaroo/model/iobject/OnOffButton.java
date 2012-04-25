@@ -1,6 +1,9 @@
-package se.chalmers.kangaroo.model;
+package se.chalmers.kangaroo.model.iobject;
 
 import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.model.GameMap;
+import se.chalmers.kangaroo.model.InteractiveObject;
+import se.chalmers.kangaroo.model.InteractiveTile;
 
 public class OnOffButton implements InteractiveObject {
 	private GameMap gameMap;

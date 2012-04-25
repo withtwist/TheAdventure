@@ -8,10 +8,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import se.chalmers.kangaroo.model.DoubleJumpItem;
 import se.chalmers.kangaroo.model.Item;
 import se.chalmers.kangaroo.model.Kangaroo;
 import se.chalmers.kangaroo.model.Position;
+import se.chalmers.kangaroo.model.item.DoubleJumpItem;
 
 public class KangarooTest {
 	

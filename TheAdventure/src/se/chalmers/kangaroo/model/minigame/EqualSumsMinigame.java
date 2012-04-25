@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.model;
+package se.chalmers.kangaroo.model.minigame;
 
 /**
  * This is the class for a minigame in the game where you have to "push" the
@@ -8,7 +8,7 @@ package se.chalmers.kangaroo.model;
  * @author pavlov
  * 
  */
-public class MiniGameEqualSums {
+public class EqualSumsMinigame {
 	private int nbrArray[][];
 	private int currentPosX;
 	private int currentPosY;
@@ -21,7 +21,7 @@ public class MiniGameEqualSums {
 	 * @param size
 	 *            is the width/row.
 	 */
-	public MiniGameEqualSums(int size) {
+	public EqualSumsMinigame(int size) {
 		this.size = size;
 		nbrArray = new int[size][size];
 		fillArray(size);
