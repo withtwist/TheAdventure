@@ -1,6 +1,8 @@
 package se.chalmers.kangaroo.model;
 
+import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
+import se.chalmers.kangaroo.model.creatures.TurtleCreature;
 import se.chalmers.kangaroo.model.iobject.OnOffButton;
 import se.chalmers.kangaroo.model.iobject.RedBlueButton;
 import se.chalmers.kangaroo.model.item.DoubleJumpItem;
@@ -60,6 +62,8 @@ public class Factory {
 			return new CrabCreature(p, Direction.DIRECTION_WEST);
 		case 82:
 			return new TurtleCreature(p, Direction.DIRECTION_WEST);
+		case 83:
+			return new BlackAndWhiteCreature(p, Direction.DIRECTION_WEST);
 		default:
 			return null;
 		}
