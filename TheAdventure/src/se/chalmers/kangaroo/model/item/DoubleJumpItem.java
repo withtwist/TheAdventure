@@ -5,7 +5,7 @@ import se.chalmers.kangaroo.model.Kangaroo;
 
 /**
  * The item with the doublejump-effect.
- * @author twist3r
+ * @author simonal
  *
  */
 public class DoubleJumpItem implements Item {
@@ -16,7 +16,7 @@ public class DoubleJumpItem implements Item {
 	
 	@Override
 	public void onPickup(Kangaroo k) {
-	//TODO	
+		;
 	}
 
 	@Override

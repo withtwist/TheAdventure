@@ -22,7 +22,7 @@ public class Kangaroo implements Movable {
 	
 	private Direction direction = Direction.DIRETION_NONE;
 	
-	private boolean enableDoubleJump = false;
+	private boolean enableDoubleJump = true;
 	
 	private boolean isJumping = false;
 	private boolean isFalling = false;
@@ -152,6 +152,9 @@ public class Kangaroo implements Movable {
 			this.isJumping = true;
 			this.isFalling = true;
 			this.verticalSpeed = -8.7f;		
+		} else if(enableDoubleJump) {
+			this.verticalSpeed = -8.7f;
+			enableDoubleJump = false;
 		}
 	}
 	/**
