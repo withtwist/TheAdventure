@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.model;
 
+import java.awt.geom.Rectangle2D;
+
 import se.chalmers.kangaroo.constants.Constants;
 
 /**
@@ -95,6 +97,7 @@ public class GameModel {
 	private void checkCollition() {
 		creatureCollition();
 		tileCollition();
+		changeFalling();
 	}
 
 	/**
@@ -137,23 +140,33 @@ public class GameModel {
 					int tileMaxY = (int)tile.getPolygon().getBounds2D().getMaxY();
 					int tileMinY = (int)tile.getPolygon().getBounds2D().getMinY();
 					int kangMinY = (int)kangaroo.getPolygon().getBounds2D().getMinY();
+					int kangMaxY = (int)kangaroo.getPolygon().getBounds2D().getMaxY();
 					if(oldX != x && Math.abs(tileMaxY - kangMinY) > 5){
 						kangaroo.setPosition(new Position(oldPos.getX(), kangaroo.getPosition().getY()));
 					}else if(kangMinY < tileMaxY && kangaroo.getVerticalSpeed() < 0 && kangMinY > tileMinY){
-						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMaxY+1));
+						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMaxY));
 						kangaroo.setVerticalSpeed(0f);
 						kangaroo.setFalling(true);
 					}
 					if(oldY != y && tileMaxY > kangaroo.getPolygon().getBounds2D().getMaxY()&& kangaroo.getVerticalSpeed() > kangaroo.getPolygon().getBounds2D().getMaxY() - tileMinY){
 						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMinY-66));
 						kangaroo.setVerticalSpeed(0f);
+						kangaroo.setFalling(false);
 					}
+		
 				}
 			}
 		}
 	}
 	
-
+	private void changeFalling() {
+		Rectangle2D kangBounds = kangaroo.getPolygon().getBounds2D();
+		if(!gameMap.getTile((int)(kangBounds.getMaxX()/32),(int)(kangBounds.getMaxY()/32)+1).isCollidable()) {
+			kangaroo.setFalling(true);
+		}
+		
+		
+	}
 
 	/**
 	 * Restarts the level. Will be used when the kangaroo dies.

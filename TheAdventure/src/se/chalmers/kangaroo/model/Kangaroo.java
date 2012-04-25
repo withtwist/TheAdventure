@@ -201,7 +201,7 @@ public class Kangaroo implements Movable {
 	@Override
 	public void move() {
 	
-		if (verticalSpeed != 0f && Math.abs(verticalSpeed) < 10f) {
+		if (isFalling && Math.abs(verticalSpeed) < 10f) {
 			verticalSpeed += 0.5f;			
 		}
 		
