@@ -105,7 +105,7 @@ public class MiniGameEqualSums {
 	 */
 	public boolean isSumsEqual() {
 		boolean isRow = true;
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i <= 2; i++) {
 			for (int j = 0; j < size - 1; j++) {
 				if (getSum(j, isRow) != getSum(j + 1, isRow)) {
 					return false;

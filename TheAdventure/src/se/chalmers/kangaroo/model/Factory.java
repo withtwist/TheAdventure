@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.model;
 
+import se.chalmers.kangaroo.model.creatures.CrabCreature;
+
 /**
  * Creates tiles or interactiveTiles depending on ID.
  * 
