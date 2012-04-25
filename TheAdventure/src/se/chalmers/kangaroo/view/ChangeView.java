@@ -7,9 +7,9 @@ import se.chalmers.kangaroo.utils.Sound;
 
 public class ChangeView extends JFrame{
 	
-	private GameController gc = new GameController();;
-	private MenuView mv;
-	private Sound s;
+	
+ 
+	
 	public ChangeView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024,576);
@@ -18,19 +18,17 @@ public class ChangeView extends JFrame{
 	}
 	
 	public void menuView() {
-		int c = 0;
-		s = new Sound("resources/music/menuemusic.wav");
+		Sound s = new Sound("resources/music/menuemusic.wav");
 		s.play();
-		mv = new MenuView("resources/images/background.gif");
+		MenuView mv = new MenuView("resources/images/background.gif");
 		add(mv);
 		mv.revalidate();
 		mv.setVisible(true);
-		c++;
-		System.out.println(c + "menuView");
 	}
 	
 	public void gameView() {
 		int i = 0;
+		GameController gc = new GameController();
 		System.out.println("1");
 		add(gc.getGameView());
 		System.out.println("2");

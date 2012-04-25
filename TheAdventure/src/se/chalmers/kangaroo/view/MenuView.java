@@ -17,7 +17,7 @@ import se.chalmers.kangaroo.controller.GameController;
 public class MenuView extends JPanelWithBackground implements MouseListener {
 	private Menuebutton newGame, highScore, options, exitGame;
 	
-	GameController gc = new GameController();
+	//GameController gc = new GameController();
 	
 	/**
 	 * The constructor for the GameView.

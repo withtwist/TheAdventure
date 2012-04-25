@@ -20,6 +20,7 @@ public class TurtleCreature extends Creature {
 	private Waiter w;
 	private Position pos;
 
+
 	public TurtleCreature(Position spawnPos, Direction direction) {
 		super(direction);
 		pos = spawnPos;
@@ -98,6 +99,7 @@ public class TurtleCreature extends Creature {
 				pos.getY() + 16, pos.getY() + 16, pos.getY() + 32,
 				pos.getY() + 32, pos.getY() + 16, pos.getY() + 16 };
 		return new Polygon(xs, ys, 16);
+
 	}
 
 }

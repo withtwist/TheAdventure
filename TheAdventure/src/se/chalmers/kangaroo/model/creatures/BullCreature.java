@@ -1,6 +1,10 @@
-package se.chalmers.kangaroo.model;
+package se.chalmers.kangaroo.model.creatures;
 
 import java.awt.Polygon;
+
+import se.chalmers.kangaroo.model.Creature;
+import se.chalmers.kangaroo.model.Direction;
+import se.chalmers.kangaroo.model.Position;
 
 /**
  * An enemy in the form of a bull. These creatures has health, so it takes 4
@@ -10,7 +14,8 @@ import java.awt.Polygon;
  * 
  */
 public class BullCreature extends Creature {
-
+	
+	private Position position;
 	private int health;
 	private Polygon bullPolygon;
 
@@ -20,8 +25,9 @@ public class BullCreature extends Creature {
 	 * @param spawnPos
 	 * @param direction
 	 */
-	protected BullCreature(Position spawnPos, Direction direction) {
-		super(spawnPos, direction);
+	public BullCreature(Position spawnPos, Direction direction) {
+		super(direction);
+		this.position = spawnPos;
 		health = 100;
 		int polyX[] = { 0, 14, 14, 20, 20, 44, 44, 50, 50, 64, 64, 54, 54, 10,
 				10, 0 };
