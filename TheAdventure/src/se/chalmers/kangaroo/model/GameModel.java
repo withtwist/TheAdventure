@@ -125,28 +125,29 @@ public class GameModel {
 	 * the ground its vertical speed shall be resetted.
 	 */
 	private void tileCollition() {
-		for(int i=kangaroo.getPosition().getX()/32; i<(kangaroo.getPosition().getX()/32)+2; i++) {
-			
-			for(int j=kangaroo.getPosition().getY()/32; j<(kangaroo.getPosition().getY()/32)+3; j++) {
+		int oldX = oldPos.getX()/Constants.TILE_SIZE;
+		int oldY = oldPos.getY()/Constants.TILE_SIZE;
+		int x = kangaroo.getPosition().getX()/Constants.TILE_SIZE;
+		int y = kangaroo.getPosition().getY()/Constants.TILE_SIZE;
+		for(int i=x; i<x+2; i++) {
+			for(int j=y; j<y+3; j++) {
+				Tile tile = gameMap.getTile(i,j);
 				
-				if(kangaroo.getPolygon().intersects(gameMap.getTile(i, j).getPolygon().getBounds2D()) && gameMap.getTile(i, j).isCollidable()) {					
-
-					if(kangaroo.getPolygon().getBounds2D().getMaxX() > gameMap.getTile(i, j).getPolygon().getBounds2D().getMinX()) {
-							kangaroo.setPosition(new Position(oldPos.getX(),kangaroo.getPosition().getY()));
-							System.out.println(2);
-							
-					if(kangaroo.getPolygon().getBounds2D().getMinX() < gameMap.getTile(i, j).getPolygon().getBounds2D().getMaxX()) {
-						kangaroo.setPosition(new Position(oldPos.getX(),kangaroo.getPosition().getY()));
-						System.out.println(3);
+				if(tile.isCollidable()){
+					int tileMaxY = (int)tile.getPolygon().getBounds2D().getMaxY();
+					int tileMinY = (int)tile.getPolygon().getBounds2D().getMinY();
+					int kangMinY = (int)kangaroo.getPolygon().getBounds2D().getMinY();
+					if(oldX != x && Math.abs(tileMaxY - kangMinY) > 5){
+						kangaroo.setPosition(new Position(oldPos.getX(), kangaroo.getPosition().getY()));
+					}else if(kangMinY < tileMaxY && kangaroo.getVerticalSpeed() < 0 && kangMinY > tileMinY){
+						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMaxY+1));
+						kangaroo.setVerticalSpeed(0f);
+						kangaroo.setFalling(true);
 					}
-					if(kangaroo.getPolygon().getBounds2D().getMaxY() >= gameMap.getTile(i, j).getPolygon().getBounds2D().getMinY() ) {
-						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), oldPos.getY()));
-							kangaroo.setVerticalSpeed(0f);
-							System.out.println(1);
+					if(oldY != y && tileMaxY > kangaroo.getPolygon().getBounds2D().getMaxY()&& kangaroo.getVerticalSpeed() > kangaroo.getPolygon().getBounds2D().getMaxY() - tileMinY){
+						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMinY-66));
+						kangaroo.setVerticalSpeed(0f);
 					}
-						
-					}
-					
 				}
 			}
 		}
