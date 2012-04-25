@@ -151,7 +151,7 @@ public class Kangaroo implements Movable {
 		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
-			this.verticalSpeed = -8.1f;		
+			this.verticalSpeed = -8.7f;		
 		}
 	}
 	/**
