@@ -27,7 +27,7 @@ public class Kangaroo implements Movable {
 	private boolean isJumping = false;
 	private boolean isFalling = false;
 	
-	private boolean ivunerable = false;
+	private boolean immortal = false;
 	
 	private Polygon kangarooPoly;
 
@@ -163,6 +163,20 @@ public class Kangaroo implements Movable {
 	 */
 	public void setFalling(Boolean b) {
 		this.isFalling = b;
+	}
+	/**
+	 * Returns true of the kangaroo is immortal.
+	 * @return
+	 */
+	public boolean isImmortal() {
+		return immortal;
+	}
+	/**
+	 * Sets the kangaroo immortalstatus to either true or false;
+	 * @param b
+	 */
+	public void setImmortal(boolean b) {
+		this.immortal = b;
 	}
 
 	public void updateKangaroo() {
