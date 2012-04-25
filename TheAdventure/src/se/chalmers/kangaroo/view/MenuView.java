@@ -93,7 +93,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		if (e.getSource() == newGame){
 			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
 			System.out.println("New Game");
-			new ChangeView().gameView();
+			//new ChangeView().gameView();
 		}
 		if(e.getSource() == highScore){
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
