@@ -8,6 +8,7 @@ import org.newdawn.slick.SpriteSheet;
 /**
  * A class for handling all the different animations.
  * @author twist3r
+ * @modified by arvidk
  *
  */
 public class Animations {

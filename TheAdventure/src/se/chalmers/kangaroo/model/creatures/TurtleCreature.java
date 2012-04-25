@@ -7,6 +7,13 @@ import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.Position;
 import se.chalmers.kangaroo.utils.Waiter;
 
+/**
+ * An enemy in the form of a turtle. Will go into its shell at random tmes and
+ * will then be impossible to kill.
+ * 
+ * @author Arvid
+ * 
+ */
 public class TurtleCreature extends Creature {
 
 	private boolean inShell = false;
@@ -21,7 +28,7 @@ public class TurtleCreature extends Creature {
 
 	@Override
 	public void updateCreature() {
-		int i = (int) ((11) * Math.random() * 1000);
+		int i = (int) ((6) * Math.random() * 100);
 		if (i == 5)
 			changeState();
 		this.move();
@@ -41,14 +48,14 @@ public class TurtleCreature extends Creature {
 	/**
 	 * A method to make the turtle go into its shell.
 	 */
-	public void goInShell() {
+	private void goInShell() {
 		inShell = true;
 	}
 
 	/**
 	 * A method to make the turtle go out of its shell.
 	 */
-	public void goOutOfShell() {
+	private void goOutOfShell() {
 		inShell = false;
 	}
 

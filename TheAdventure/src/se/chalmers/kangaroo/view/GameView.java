@@ -11,6 +11,7 @@ import se.chalmers.kangaroo.model.Position;
  * 
  * @author alburgh
  * @modifiedby simonal
+ * @modifiedby arvidk
  */
 
 

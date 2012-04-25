@@ -4,11 +4,13 @@ import javax.swing.JFrame;
 
 import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.view.ChangeView;
 import se.chalmers.kangaroo.view.MenuView;
 /**
  * 
  * @author simonal (?)
  * @modifiedby alburgh
+ * @modifiedby arvidk
  *
  */
 public class Main {
@@ -17,21 +19,18 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		JFrame jf = new JFrame();
+		ChangeView cv = new ChangeView();
 
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jf.setSize(1024,576);
-		jf.setResizable(false);
-		MenuView gw = new MenuView("resources/images/background.gif");
-		GameController gc = new GameController();
-		jf.add(gc.getGameView());
-		gw.revalidate();
-		Sound s = new Sound("resources/music/menuemusic.wav");
-		s.play();
-		jf.setVisible(true);
-		gw.setVisible(true);
-		jf.addKeyListener(gc);
-		gc.start();
+		
+		
+//		GameController gc = new GameController();
+//		//jf.add(gc.getGameView());
+		//gw.revalidate();
+		cv.gameView();
+		cv.setVisible(true);
+		//gw.setVisible(true);
+//		cf.addKeyListener(gc);
+		//gc.start();
 		
 
 

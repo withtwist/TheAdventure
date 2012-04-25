@@ -9,6 +9,7 @@ import se.chalmers.kangaroo.model.iobject.RedBlueButton;
 import se.chalmers.kangaroo.model.item.DoubleJumpItem;
 import se.chalmers.kangaroo.model.item.StopTimeItem;
 
+
 /**
  * Creates tiles or interactiveTiles depending on ID.
  * 

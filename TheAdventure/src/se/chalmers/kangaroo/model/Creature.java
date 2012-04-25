@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
+
 /**
  * This abstract class represents all the different hostile creatures in the game.
  * @author simonal
