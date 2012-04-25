@@ -45,13 +45,13 @@ public class GameView extends JPanelWithBackground {
 		// slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
 		// p.getX()-32, p.getY()-32);
 		if (drawFrom == 0 || drawFrom == gm.getGameMap().getTileWidth() - 32) {
-			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
-					.paintIcon(null, g, p.getX(), p.getY());
+//			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
+//					.paintIcon(null, g, p.getX(), p.getY());
 			g.drawPolygon(gm.getKangaroo().getPolygon());
 		} else {
-			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
-					.paintIcon(null, g, 15*32, p.getY());
-			int[] xs = {15*32, 17*32, 17*32, 15*32};
+//			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
+//					.paintIcon(null, g, 15*32, p.getY());
+			int[] xs = {16*32, 17*32, 17*32, 16*32};
 			int[] ys = {p.getY(), p.getY(), p.getY()+63, p.getY()+63};
 			g.drawPolygon(new Polygon(xs, ys, 4));
 		}
