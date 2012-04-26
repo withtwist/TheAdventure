@@ -33,7 +33,7 @@ public class GameView extends JPanelWithBackground {
 
 		int drawFrom = getLeftX();
 		int fixPosition = p.getX()/Constants.TILE_SIZE < 16 || drawFrom == gm.getGameMap().getTileWidth() - 32 ? 0 : p.getX()%32;
-		for (int y = 0; y < gm.getGameMap().getTileHeight(); y++)
+		for (int y = 2; y < gm.getGameMap().getTileHeight(); y++)
 			for (int x = drawFrom; x < drawFrom + 33; x++) {
 				ImageIcon i = new ImageIcon("../gfx/tiles/tile_"
 						+ gm.getGameMap().getTile(x, y).getId() + ".png");
