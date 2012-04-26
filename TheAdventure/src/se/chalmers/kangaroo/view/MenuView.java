@@ -18,13 +18,15 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	private Menuebutton newGame, highScore, options, exitGame;
 	
 	//GameController gc = new GameController();
+	ChangeView cv;
 	
 	/**
 	 * The constructor for the GameView.
 	 * @param bgpath
 	 */
-	public MenuView(String bgpath) {
+	public MenuView(String bgpath, ChangeView cv) {
 		super(bgpath);
+		this.cv = cv;
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(1024,576);
@@ -93,7 +95,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		if (e.getSource() == newGame){
 			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
 			System.out.println("New Game");
-			//new ChangeView().gameView();
+			cv.gameView();
 		}
 		if(e.getSource() == highScore){
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));

@@ -33,7 +33,7 @@ public class GameController implements KeyListener {
 	}
 
 	public void start() {
-		new PlayModel().run();
+		new Thread(new PlayModel()).start();
 	}
 
 	class PlayModel implements Runnable {
