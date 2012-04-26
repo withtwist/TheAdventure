@@ -20,7 +20,6 @@ public class CrabCreature extends Creature {
 	protected CrabCreature(Position pos, Direction direction) {
 		super(direction);
 		this.pos = pos;
-		creaturePoly.npoints = 12;
 
 	}
 
