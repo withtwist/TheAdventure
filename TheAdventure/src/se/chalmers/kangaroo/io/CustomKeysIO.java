@@ -17,12 +17,11 @@ import java.util.Scanner;
  */
 public class CustomKeysIO {
 	private static CustomKeysIO instance;
-	private static int[] keys = new int[4];
+	private static int[] customKeys = new int[4];
 	private static final String FILE_NAME = "resources/customkeys.txt";
 
 	/* Private constructor, so only one instance will be created. */
 	private CustomKeysIO() {
-		loadKeys();
 	}
 
 	/**
@@ -40,7 +39,8 @@ public class CustomKeysIO {
 	 */
 	public int[] getKeys() {
 		loadKeys();
-		return keys;
+		System.out.println(""+customKeys[0]);
+		return customKeys;
 	}
 	/**
 	 * Use the KeyEvent.keycodes to set your keys.
@@ -65,11 +65,14 @@ public class CustomKeysIO {
 		try {
 			InputStream in = new FileInputStream(FILE_NAME);
 			Scanner sc = new Scanner(in);
+			int i = 0;
 			while (sc.hasNext()) {
-				int i = 0;
-				keys[i] = Integer.parseInt(sc.nextLine());
+				customKeys[i] = Integer.parseInt(sc.next());
+				System.out.println(""+customKeys[i]);
 				i++;
 			}
+			
+			sc.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("No such file exists");
 		}
