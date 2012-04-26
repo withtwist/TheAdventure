@@ -41,7 +41,7 @@ public class GameMap {
 			for(int j = 0; j < map[0].length; j++){
 				map[i][j] = tf.createTile((tiles[i][j]), i, j);
 				if( itemList.contains(""+tiles[i][j]) )
-					items.add(tf.createItem(tiles[i][j]));
+					items.add(tf.createItem(tiles[i][j], i, j));
 				if( creatureList.contains(""+tiles[i][j]) )
 					creatures.add(tf.createCreature(tiles[i][j], new Position(i*32, j*32)));
 				if( iObjectsList.contains(""+tiles[i][j]))
@@ -72,8 +72,8 @@ public class GameMap {
 	 * Will cast IndexOutOfBoundsException if i > getItemSize()
 	 * @return a list of the items
 	 */
-	public Item getItemAt(int i) {
-		return items.get(i);
+	public Item getItemAt(int x, int y) {
+		return items.get(x);
 	}
 	/**
 	 * Return the amount of items currently on the map.

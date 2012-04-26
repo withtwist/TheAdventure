@@ -47,12 +47,12 @@ public class Factory {
 	 * @param i, the id of the item
 	 * @return the item created
 	 */
-	public Item createItem(int i){
+	public Item createItem(int i, int x, int y){
 		switch(i){
-		case 188:
-			return new DoubleJumpItem();
+		case 51:
+			return new DoubleJumpItem(x, y);
 		case 102:
-			return new StopTimeItem(5);
+			return new StopTimeItem(5, x, y);
 		default:
 			return null;
 		}

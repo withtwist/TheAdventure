@@ -27,5 +27,7 @@ public interface Item {
 	 * Activates the effect on the current item in posession.
 	 */
 	public void onUse(Kangaroo k);
+	
+	public Position getPosition();
 
 }
