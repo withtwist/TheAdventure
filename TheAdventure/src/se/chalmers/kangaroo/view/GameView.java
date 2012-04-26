@@ -33,11 +33,11 @@ public class GameView extends JPanelWithBackground {
 
 		int drawFrom = getLeftX();
 		int fixPosition = p.getX()/Constants.TILE_SIZE < 16 || drawFrom == gm.getGameMap().getTileWidth() - 32 ? 0 : p.getX()%32;
-		for (int y = 2; y < gm.getGameMap().getTileHeight(); y++)
+		for (int y = 0; y < gm.getGameMap().getTileHeight(); y++)
 			for (int x = drawFrom; x < drawFrom + 33; x++) {
 				ImageIcon i = new ImageIcon("../gfx/tiles/tile_"
 						+ gm.getGameMap().getTile(x, y).getId() + ".png");
-				i.paintIcon(null, g, (x - drawFrom) * 32-fixPosition, y * 32);
+				i.paintIcon(null, g, (x - drawFrom) * 32-fixPosition, (y-2) * 32);
 			}
 
 		// slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
@@ -45,7 +45,10 @@ public class GameView extends JPanelWithBackground {
 		if (drawFrom == 0) {
 //			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
 //					.paintIcon(null, g, p.getX(), p.getY());
-			g.drawPolygon(gm.getKangaroo().getPolygon());
+			int[] xs = {p.getX(), p.getX()+32, p.getX()+32, p.getX()};
+			int[] ys = {p.getY()-64, p.getY()-64, p.getY()-1, p.getY()-1};
+			g.drawPolygon(new Polygon(xs, ys, 4));
+//			g.drawPolygon(gm.getKangaroo().getPolygon());
 		}else if(drawFrom == gm.getGameMap().getTileWidth() - 32){
 			//g.drawPolygon(); tilesize*amountoftiles-k.poly
 		}else {
@@ -53,7 +56,7 @@ public class GameView extends JPanelWithBackground {
 //			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
 //					.paintIcon(null, g, 15*32, p.getY());
 			int[] xs = {16*32, 17*32, 17*32, 16*32};
-			int[] ys = {p.getY(), p.getY(), p.getY()+63, p.getY()+63};
+			int[] ys = {p.getY()-64, p.getY()-64, p.getY()-1, p.getY()-1};
 			g.drawPolygon(new Polygon(xs, ys, 4));
 		}
 	}

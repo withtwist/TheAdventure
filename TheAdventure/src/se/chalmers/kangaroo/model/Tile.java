@@ -23,7 +23,7 @@ public class Tile {
 	 */
 	public Tile(int i, int x, int y) {
 		this.id = i;
-		collidable = Constants.COLLIDE_IDS.contains("" + id);
+		collidable = Constants.COLLIDE_IDS.contains(" " + id + " ");
 		int xRec[] = {x*32+1,x*32+32,x*32+32,x*32+1};
 		int yRec[] = {y*32+1,y*32+1,y*32+32,y*32+32};
 		poly = new Polygon( xRec , yRec , 4 );
