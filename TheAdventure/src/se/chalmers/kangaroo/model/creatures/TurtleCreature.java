@@ -9,19 +9,13 @@ import se.chalmers.kangaroo.utils.Waiter;
 
 public class TurtleCreature extends Creature {
 
-	private Polygon creaturePoly;
 	private boolean inShell = false;
 	private Waiter w;
+	private Position pos;
 
-	protected TurtleCreature(Position spawnPos, Direction direction) {
-		super(spawnPos, direction);
-		creaturePoly.npoints = 12;
-		int polyX[] = { 0, 14, 14, 20, 20, 44, 44, 50, 50, 64, 64, 54, 54, 10,
-				10, 0 };
-		int polyY[] = { 2, 2, 0, 0, 6, 6, 0, 0, 2, 2, 16, 16, 32, 32, 16, 16 };
-		for (int i = 0; i < polyX.length; i++) {
-			creaturePoly.addPoint(polyX[i], polyY[i]);
-		}
+	public TurtleCreature(Position spawnPos, Direction direction) {
+		super(direction);
+		pos = spawnPos;
 		w = new Waiter();
 	}
 
@@ -79,8 +73,24 @@ public class TurtleCreature extends Creature {
 	@Override
 	public void move() {
 		if (!inShell) {
-			super.move();
+			pos = new Position(pos.getX()-2, pos.getY());
 		}
+	}
+
+	@Override
+	public Polygon getPolygon() {
+		int xs[] = { pos.getX() + 0, pos.getX() + 14, pos.getX() + 14,
+				pos.getX() + 20, pos.getX() + 20, pos.getX() + 44,
+				pos.getX() + 44, pos.getX() + 50, pos.getX() + 50,
+				pos.getX() + 64, pos.getX() + 64, pos.getX() + 54,
+				pos.getX() + 54, pos.getX() + 10, pos.getX() + 10,
+				pos.getX() + 0 };
+		int ys[] = { pos.getY() + 2, pos.getY() + 2, pos.getY() + 0,
+				pos.getY() + 0, pos.getY() + 6, pos.getY() + 6, pos.getY() + 0,
+				pos.getY() + 0, pos.getY() + 2, pos.getY() + 2,
+				pos.getY() + 16, pos.getY() + 16, pos.getY() + 32,
+				pos.getY() + 32, pos.getY() + 16, pos.getY() + 16 };
+		return new Polygon(xs, ys, 16);
 	}
 
 }

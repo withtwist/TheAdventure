@@ -17,7 +17,7 @@ public class CrabCreature extends Creature {
 	private Position pos;
 	private Polygon creaturePoly;
 
-	protected CrabCreature(Position pos, Direction direction) {
+	public CrabCreature(Position pos, Direction direction) {
 		super(direction);
 		this.pos = pos;
 
