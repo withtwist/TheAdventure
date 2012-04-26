@@ -1,6 +1,5 @@
 package se.chalmers.kangaroo.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +7,9 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.FileToMap;
 
 /**
- * This is a class for representing a map. It consists of a matrix of Tiles.
- * The map has tiles but also other things; creatures, items and iteractiveobjects
+ * This is a class for representing a map. It consists of a matrix of Tiles. The
+ * map has tiles but also other things; creatures, items and iteractiveobjects
+ * 
  * @author alburgh
  * 
  */
@@ -22,9 +22,8 @@ public class GameMap {
 	private List<Creature> creatures = new ArrayList<Creature>();
 
 	/**
-	 * Creates a GameMap with the level name. 
-	 * The level name should be the path to the file. 
-	 * Creates all tiles along with items and creatures.
+	 * Creates a GameMap with the level name. The level name should be the path
+	 * to the file. Creates all tiles along with items and creatures.
 	 */
 	public GameMap(String level) {
 		super();
@@ -32,95 +31,107 @@ public class GameMap {
 		String itemList = Constants.ITEM_IDS;
 		String creatureList = Constants.CREATURE_IDS;
 		String iObjectsList = Constants.IOBJECTS_IDS;
-		if(tiles != null)
+		if (tiles != null)
 			map = new Tile[tiles.length][tiles[0].length];
 		else
 			System.out.println("HEJ");
 		Factory tf = new Factory();
-		for(int i = 0; i < map.length; i++)
-			for(int j = 0; j < map[0].length; j++){
+		for (int i = 0; i < map.length; i++)
+			for (int j = 0; j < map[0].length; j++) {
 				map[i][j] = tf.createTile((tiles[i][j]), i, j);
-				if( itemList.contains(""+tiles[i][j]) )
+				if (itemList.contains("" + tiles[i][j]))
 					items.add(tf.createItem(tiles[i][j], i, j));
-				if( creatureList.contains(""+tiles[i][j]) )
-					creatures.add(tf.createCreature(tiles[i][j], new Position(i*32, j*32)));
-				if( iObjectsList.contains(""+tiles[i][j]))
+				if (creatureList.contains("" + tiles[i][j]))
+					creatures.add(tf.createCreature(tiles[i][j], new Position(
+							i * 32, j * 32)));
+				if (iObjectsList.contains("" + tiles[i][j]))
 					iObjects.add(tf.createIObjects(tiles[i][j], this));
 			}
-		
+
 	}
 
 	/**
-	 * Returns the i:th interactive object
-	 * Will cast IndexOutOfBoundsException if i > getIObjectSize()
+	 * Returns the i:th interactive object Will cast IndexOutOfBoundsException
+	 * if i > getIObjectSize()
 	 * 
 	 * @return the list of InteractiveObjects
 	 */
 	public InteractiveObject getIObjectAt(int i) {
 		return iObjects.get(i);
 	}
+
 	/**
 	 * Return the amount of iObjects currently on the map.
+	 * 
 	 * @return the amount
 	 */
-	public int getIObjectSize(){
+	public int getIObjectSize() {
 		return iObjects.size();
 	}
 
 	/**
-	 * Return the i:th item.
-	 * Will cast IndexOutOfBoundsException if i > getItemSize()
-	 * @return a list of the items
+	 * Will return an item if there is one at the given position. Else it will
+	 * return null.
+	 * 
+	 * @return item at the position, or null
 	 */
 	public Item getItemAt(int x, int y) {
-		return items.get(x);
+		Position p = new Position(x, y);
+		for (Item i : items)
+			if (i.getPosition().equals(p))
+				return i;
+		return null;
 	}
+
 	/**
-	 * Return the amount of items currently on the map.
-	 * @return the amount of items
-	 */
-	public int getItemSize(){
-		return items.size();
-	}
-	
-	/**
-	 * Return the i:th creature.
-	 * Will cast IndexOutOfBoundsException if i > getCreatureSize()
+	 * Return the i:th creature. Will cast IndexOutOfBoundsException if i >
+	 * getCreatureSize()
+	 * 
 	 * @return a list of creatures
 	 */
 	public Creature getCreatureAt(int i) {
 		return creatures.get(i);
 	}
+
 	/**
 	 * Return the amount of creatures currently on the map.
+	 * 
 	 * @return the number of creatures
 	 */
-	public int getCreatureSize(){
+	public int getCreatureSize() {
 		return creatures.size();
 	}
+
 	/**
 	 * Returns the tile at the given position
-	 * @param x, position in x-axis, x < getTileWidth()
-	 * @param y, position in y,axis, y < getTileHieght()
-	 * @throws IndexOutOfBoundsException if -^
+	 * 
+	 * @param x
+	 *            , position in x-axis, x < getTileWidth()
+	 * @param y
+	 *            , position in y,axis, y < getTileHieght()
+	 * @throws IndexOutOfBoundsException
+	 *             if -^
 	 * @return the tile at the given position
 	 */
-	public Tile getTile(int x, int y){
+	public Tile getTile(int x, int y) {
 		return map[x][y];
 	}
+
 	/**
-	 * Returns the width of the map in tiles. 
+	 * Returns the width of the map in tiles.
 	 * 
 	 * @return
 	 */
-	public int getTileWidth(){
+	public int getTileWidth() {
 		return map.length;
 	}
+
 	/**
 	 * Returns the height of the map in tiles
+	 * 
 	 * @return
 	 */
-	public int getTileHeight(){
+	public int getTileHeight() {
 		return map[0].length;
 	}
 }
