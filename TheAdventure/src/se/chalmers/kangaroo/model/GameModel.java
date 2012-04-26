@@ -78,7 +78,7 @@ public class GameModel {
 	// }
 
 	public GameModel() {
-		gameMap = new GameMap("../maps/testmap.tmx");
+		gameMap = new GameMap("../maps/betamap.tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
 	}
 
