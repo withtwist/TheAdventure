@@ -21,7 +21,7 @@ public class StopTimeItem implements Item {
 	 * @param time
 	 *            is the time that the time is going to stop
 	 */
-	public StopTimeItem(int millis) {
+	public StopTimeItem(int millis, int x, int y) {
 		this.seconds = millis * 1000;
 	}
 
