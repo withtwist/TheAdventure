@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.model.item;
 
 import se.chalmers.kangaroo.model.Item;
 import se.chalmers.kangaroo.model.Kangaroo;
+import se.chalmers.kangaroo.model.Position;
 
 /**
  * The item with the doublejump-effect.
@@ -10,8 +11,10 @@ import se.chalmers.kangaroo.model.Kangaroo;
  */
 public class DoubleJumpItem implements Item {
 	
-	public DoubleJumpItem() {
-		
+	Position pos;
+	
+	public DoubleJumpItem(int x, int y) {
+		this.pos = new Position(x,y);
 	}
 	
 	@Override
@@ -30,6 +33,12 @@ public class DoubleJumpItem implements Item {
 	public void onUse(Kangaroo k) {
 		k.enableDoubleJump();
 		
+	}
+
+	@Override
+	public Position getPosition() {
+		
+		return pos;
 	}
 
 }
