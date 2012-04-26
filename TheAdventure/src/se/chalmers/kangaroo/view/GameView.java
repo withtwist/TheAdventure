@@ -4,8 +4,6 @@ import java.awt.Polygon;
 
 import javax.swing.ImageIcon;
 
-import org.newdawn.slick.Graphics;
-
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.Position;
