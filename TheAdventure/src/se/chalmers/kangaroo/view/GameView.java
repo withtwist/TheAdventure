@@ -34,21 +34,24 @@ public class GameView extends JPanelWithBackground {
 		Position p = gm.getKangaroo().getPosition();
 
 		int drawFrom = getLeftX();
+		int fixPosition = drawFrom == 0 || drawFrom == gm.getGameMap().getTileWidth() - 32 ? 0 : gm.getKangaroo().getPosition().getX()%32;
 		for (int y = 0; y < gm.getGameMap().getTileHeight(); y++)
-			for (int x = drawFrom; x < drawFrom + 32; x++) {
+			for (int x = drawFrom; x < drawFrom + 33; x++) {
 				ImageIcon i = new ImageIcon("../gfx/tiles/tile_"
 						+ gm.getGameMap().getTile(x, y).getId() + ".png");
-				i.paintIcon(null, g, (x - drawFrom) * 32, y * 32);
-
+				i.paintIcon(null, g, (x - drawFrom) * 32-fixPosition, y * 32);
 			}
 
 		// slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
 		// p.getX()-32, p.getY()-32);
-		if (drawFrom == 0 || drawFrom == gm.getGameMap().getTileWidth() - 32) {
+		if (drawFrom == 0) {
 //			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
 //					.paintIcon(null, g, p.getX(), p.getY());
 			g.drawPolygon(gm.getKangaroo().getPolygon());
-		} else {
+		}else if(drawFrom == gm.getGameMap().getTileWidth() - 32){
+			
+		}else {
+		
 //			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
 //					.paintIcon(null, g, 15*32, p.getY());
 			int[] xs = {16*32, 17*32, 17*32, 16*32};
