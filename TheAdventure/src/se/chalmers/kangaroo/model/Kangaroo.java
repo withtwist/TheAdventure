@@ -18,7 +18,7 @@ public class Kangaroo implements Movable {
 	private float verticalSpeed = 0;
 	private float horizontalSpeed = 0;
 	
-	private float maxSpeed = 3f;
+	private float maxSpeed = 6f;
 	
 	private Direction direction = Direction.DIRETION_NONE;
 	
