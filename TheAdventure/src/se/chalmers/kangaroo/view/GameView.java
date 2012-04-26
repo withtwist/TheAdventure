@@ -34,7 +34,7 @@ public class GameView extends JPanelWithBackground {
 		Position p = gm.getKangaroo().getPosition();
 
 		int drawFrom = getLeftX();
-		int fixPosition = drawFrom == 0 || drawFrom == gm.getGameMap().getTileWidth() - 32 ? 0 : gm.getKangaroo().getPosition().getX()%32;
+		int fixPosition = p.getX()/Constants.TILE_SIZE < 16 || drawFrom == gm.getGameMap().getTileWidth() - 32 ? 0 : p.getX()%32;
 		for (int y = 0; y < gm.getGameMap().getTileHeight(); y++)
 			for (int x = drawFrom; x < drawFrom + 33; x++) {
 				ImageIcon i = new ImageIcon("../gfx/tiles/tile_"
@@ -49,7 +49,7 @@ public class GameView extends JPanelWithBackground {
 //					.paintIcon(null, g, p.getX(), p.getY());
 			g.drawPolygon(gm.getKangaroo().getPolygon());
 		}else if(drawFrom == gm.getGameMap().getTileWidth() - 32){
-			
+			//g.drawPolygon(); tilesize*amountoftiles-k.poly
 		}else {
 		
 //			new ImageIcon("../gfx/kangaroo/kangaroo_58x64_right.png")
