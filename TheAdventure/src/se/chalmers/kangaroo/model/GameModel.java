@@ -163,12 +163,32 @@ public class GameModel {
 		}
 	}
 	
+	private void itemCollition() {
+		Rectangle2D kangarooBounds = kangaroo.getPolygon().getBounds2D();
+		
+		if (gameMap.getItemAt((int)kangarooBounds.getMaxX()/32,(int)kangarooBounds.getMaxY()/32) != null) {
+			
+			kangaroo.setItem(gameMap.getItemAt((int)(kangarooBounds.getMaxX()/32),(int)(kangarooBounds.getMaxY()/32)));
+			
+		} else if (gameMap.getItemAt((int)kangarooBounds.getMaxX()/32,(int)kangarooBounds.getMinY()/32) != null) {
+			
+			kangaroo.setItem(gameMap.getItemAt((int)(kangarooBounds.getMaxX()/32),(int)(kangarooBounds.getMinY()/32)));
+			
+		} else if (gameMap.getItemAt((int)kangarooBounds.getMinX()/32,(int)kangarooBounds.getMaxY()/32) != null) {
+			
+			kangaroo.setItem(gameMap.getItemAt((int)(kangarooBounds.getMinX()/32),(int)(kangarooBounds.getMaxY()/32)));
+			
+		} else if (gameMap.getItemAt((int)kangarooBounds.getMinX()/32,(int)kangarooBounds.getMinY()/32) != null) {
+			
+			kangaroo.setItem(gameMap.getItemAt((int)(kangarooBounds.getMinX()/32),(int)(kangarooBounds.getMinY()/32)));
+		}
+	}
+	
 	private void changeFalling() {
 		Rectangle2D kangBounds = kangaroo.getPolygon().getBounds2D();
 		if((!gameMap.getTile((int)(kangBounds.getMaxX()/32),(int)(kangBounds.getMaxY()/32)+1).isCollidable()) && !gameMap.getTile((int)(kangBounds.getMaxX()/32)-1,(int)(kangBounds.getMaxY()/32)+1).isCollidable()) {
 			kangaroo.setFalling(true);
 		}
-		
 		
 	}
 
