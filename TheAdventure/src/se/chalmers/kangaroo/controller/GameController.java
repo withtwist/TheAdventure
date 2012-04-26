@@ -18,7 +18,7 @@ public class GameController implements KeyListener {
 
 	private GameModel gm;
 	private GameView gv;
-	
+
 	private CustomKeys ck;
 
 	public GameController() {
@@ -37,16 +37,19 @@ public class GameController implements KeyListener {
 	}
 
 	class PlayModel implements Runnable {
-		private long lastTime;
+		private long diff;
 
 		public void run() {
 			while (true) {
-				if (System.currentTimeMillis() - lastTime > 16) {
-
-					gm.update();
-					gv.repaint();
-					gv.revalidate();
-					lastTime = System.currentTimeMillis();
+				long time = System.currentTimeMillis();
+				gm.update();
+				gv.repaint();
+				gv.revalidate();
+				try {
+					diff = System.currentTimeMillis() - time;
+					if (diff < 1000 / 60)
+						Thread.sleep(1000 / 60 - diff);
+				} catch (InterruptedException e) {
 				}
 			}
 		}
@@ -55,33 +58,34 @@ public class GameController implements KeyListener {
 
 	private void pressedKey(KeyEvent e) {
 		int code = e.getKeyCode();
-		
-		//Jump
-		if(code == ck.getJumpKey()){
-			gm.getKangaroo().jump();
-		
-		//Left
-		}else if(code == ck.getLeftKey()){
-			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
-		
-		//Right
-		}else if(code == ck.getRightKey()){
-			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
-		}else if(code == ck.getItemKey()){
-			if (gm.getKangaroo().getItem() != null) {
-				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
-		
-		}else{
-			// Illegal key
-		}
 
+		// Jump
+		if (code == ck.getJumpKey()) {
+			gm.getKangaroo().jump();
+
+			// Left
+		} else if (code == ck.getLeftKey()) {
+			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
+
+			// Right
+		} else if (code == ck.getRightKey()) {
+			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
+		} else if (code == ck.getItemKey()) {
+			if (gm.getKangaroo().getItem() != null)
+				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
+
+		} else {
+			// Illegal key
+			System.out.println("" + ck.getLeftKey());
+			System.out.println("" + ck.getRightKey());
+			System.out.println("" + ck.getJumpKey());
 		}
 
 	}
 
 	private void releaseKey(KeyEvent e) {
 		int code = e.getKeyCode();
-		switch(code) {
+		switch (code) {
 		case KeyEvent.VK_LEFT:
 			gm.getKangaroo().setDirection(Direction.DIRETION_NONE);
 			break;
