@@ -1,5 +1,6 @@
 package se.chalmers.kangaroo.model;
 
+import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
@@ -32,7 +33,11 @@ public class Factory {
 	public Tile createTile(int i, int x, int y) {
 		if (INTERACTIVE_TILES.contains("" + i)) {
 			return null; // <-interactivetile TODO
-		} else {
+		}else if(Constants.ITEM_IDS.contains(""+i)){
+			return new Tile(0, x, y);
+		}
+		else {
+		
 			return new Tile(i, x, y);
 		}
 	}
@@ -43,7 +48,7 @@ public class Factory {
 	 */
 	public Item createItem(int i){
 		switch(i){
-		case 101:
+		case 188:
 			return new DoubleJumpItem();
 		case 102:
 			return new StopTimeItem(5);
