@@ -1,14 +1,12 @@
 package se.chalmers.kangaroo.view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-
-import se.chalmers.kangaroo.controller.GameController;
 /**
  * The view of the game.
  * @author twist3r

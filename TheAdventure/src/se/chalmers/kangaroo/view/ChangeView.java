@@ -1,6 +1,8 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.CardLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,7 +10,7 @@ import javax.swing.JPanel;
 import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.utils.Sound;
 
-public class ChangeView extends JFrame {
+public class ChangeView extends JFrame implements KeyListener{
 
 	private JPanel jp;
 	private GameController gc;
@@ -36,6 +38,24 @@ public class ChangeView extends JFrame {
 	public void gameView() {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "gameview");
+		addKeyListener(this);
 		gc.start();
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		gc.keyPressed(e);
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		gc.keyReleased(e);
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		//Do nothing rly	
 	}
 }

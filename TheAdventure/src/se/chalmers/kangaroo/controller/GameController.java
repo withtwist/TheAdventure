@@ -76,9 +76,6 @@ public class GameController implements KeyListener {
 
 		} else {
 			// Illegal key
-			System.out.println("" + ck.getLeftKey());
-			System.out.println("" + ck.getRightKey());
-			System.out.println("" + ck.getJumpKey());
 		}
 
 	}
