@@ -13,12 +13,14 @@ import java.awt.Polygon;
 public class Kangaroo implements Movable {
 
 	private Item item;
+	
 	private Position pos;
+	private Position spawnPos;
 	
 	private float verticalSpeed = 0;
 	private float horizontalSpeed = 0;
 	
-	private float maxSpeed = 6f;
+	private float maxSpeed = 5f;
 	
 	private Direction direction = Direction.DIRETION_NONE;
 	
@@ -40,6 +42,7 @@ public class Kangaroo implements Movable {
 	public Kangaroo(Position spawnPos) {
 		
 		this.pos = spawnPos;
+		this.spawnPos = spawnPos;
 		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
 		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
 		kangarooPoly = new Polygon(xcords,ycords,4);
@@ -128,6 +131,13 @@ public class Kangaroo implements Movable {
 	 */
 	public Direction getDirection() {
 		return direction;
+	}
+	/**
+	 * Returns the spawnposition of the kangaroo.
+	 * @return
+	 */
+	public Position getSpawnPosition() {
+		return spawnPos;
 	}
 	/**
 	 * Enables doublejump.
@@ -224,11 +234,11 @@ public class Kangaroo implements Movable {
 		
 		if(direction == Direction.DIRECTION_EAST) {			
 			if( horizontalSpeed < maxSpeed) {
-				horizontalSpeed += 3f;
+				horizontalSpeed += 0.5f;
 			}
 		} if(direction == Direction.DIRECTION_WEST) {			
 			if( horizontalSpeed > -maxSpeed) {
-				horizontalSpeed -= 3f;
+				horizontalSpeed -= 0.5f;
 			}
 		} if(direction == Direction.DIRETION_NONE) {
 			if (horizontalSpeed<0) {				

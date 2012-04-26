@@ -97,7 +97,11 @@ public class GameModel {
 	private void checkCollition() {
 		//creatureCollition();
 		tileCollition();
-		changeFalling();
+		try {
+			changeFalling();
+		} catch(ArrayIndexOutOfBoundsException e) {
+			restartLevel();
+		}
 	}
 
 	/**
@@ -161,7 +165,7 @@ public class GameModel {
 	
 	private void changeFalling() {
 		Rectangle2D kangBounds = kangaroo.getPolygon().getBounds2D();
-		if(!gameMap.getTile((int)(kangBounds.getMaxX()/32),(int)(kangBounds.getMaxY()/32)+1).isCollidable()) {
+		if((!gameMap.getTile((int)(kangBounds.getMaxX()/32),(int)(kangBounds.getMaxY()/32)+1).isCollidable()) && !gameMap.getTile((int)(kangBounds.getMaxX()/32)-1,(int)(kangBounds.getMaxY()/32)+1).isCollidable()) {
 			kangaroo.setFalling(true);
 		}
 		
@@ -172,7 +176,10 @@ public class GameModel {
 	 * Restarts the level. Will be used when the kangaroo dies.
 	 */
 	private void restartLevel() {
-		// TODO implement restartLevel
+		deathCount++;
+		kangaroo.setPosition(kangaroo.getSpawnPosition());
+		System.out.println("hej");
+		//TODO add code for resetting creatures and items.
 	}
 
 	/**
