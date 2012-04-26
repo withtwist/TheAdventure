@@ -57,15 +57,15 @@ public class GameController implements KeyListener {
 		int code = e.getKeyCode();
 		
 		//Jump
-		if(code == KeyEvent.VK_UP){
+		if(code == ck.getJumpKey()){
 			gm.getKangaroo().jump();
 		
 		//Left
-		}else if(code == KeyEvent.VK_LEFT){
+		}else if(code == ck.getLeftKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
 		
 		//Right
-		}else if(code == KeyEvent.VK_RIGHT){
+		}else if(code == ck.getRightKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
 		}else if(code == ck.getItemKey()){
 			if (gm.getKangaroo().getItem() != null) {
