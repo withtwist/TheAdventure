@@ -95,7 +95,7 @@ public class GameModel {
 	 * Checks if a polygon collides with a tile or a creature.
 	 */
 	private void checkCollition() {
-		creatureCollition();
+		//creatureCollition();
 		tileCollition();
 		changeFalling();
 	}

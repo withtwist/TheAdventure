@@ -39,7 +39,6 @@ public class CustomKeysIO {
 	 */
 	public int[] getKeys() {
 		loadKeys();
-		System.out.println(""+customKeys[0]);
 		return customKeys;
 	}
 	/**
@@ -68,7 +67,6 @@ public class CustomKeysIO {
 			int i = 0;
 			while (sc.hasNext()) {
 				customKeys[i] = Integer.parseInt(sc.next());
-				System.out.println(""+customKeys[i]);
 				i++;
 			}
 			

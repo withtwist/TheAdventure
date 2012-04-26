@@ -33,7 +33,7 @@ public class Factory {
 	public Tile createTile(int i, int x, int y) {
 		if (INTERACTIVE_TILES.contains("" + i)) {
 			return null; // <-interactivetile TODO
-		}else if(Constants.ITEM_IDS.contains(""+i)){
+		}else if(Constants.ITEM_IDS.contains(" "+i+" ")){
 			return new Tile(0, x, y);
 		}
 		else {
