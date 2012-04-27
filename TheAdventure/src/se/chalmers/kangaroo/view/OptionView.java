@@ -9,6 +9,7 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 
 import se.chalmers.kangaroo.controller.CustomKeys;
+import se.chalmers.kangaroo.constants.*;
 
 public class OptionView extends JPanelWithBackground implements ActionListener, KeyListener{
 private boolean isPainted = false;
@@ -22,6 +23,10 @@ private boolean isRightPressed = false;
 private boolean isJumpPressed = false;
 private boolean isItemPressed = false;
 private CustomKeys ck;
+private JPanel mainPanel;
+private JPanel keyGrid;
+//TODO give the variable a proper name
+private JPanel other;
 
 	public OptionView(String imagepath) {
 		super(imagepath);
@@ -31,43 +36,53 @@ private CustomKeys ck;
 	@Override
 	public void paintComponent(java.awt.Graphics g) {
 		super.paintComponent(g);
-		
-		GridLayout grl = new GridLayout(4,2);
-		this.setLayout(grl);
-		grl.setHgap(10);
-		grl.setVgap(20);
-		
-		if(isPainted == false){
-			//Left
 
+		//TODO Ask what to do with the paint-spam
+		if(isPainted == false){
+			mainPanel = new JPanel();
+			mainPanel.setLayout(new BorderLayout());
+			this.add(mainPanel);
+			JPanel cKeys = new JPanel();
+			cKeys.setLayout(new BorderLayout());
+			cKeys.add(new JLabel("CUSTOM KEYS"), BorderLayout.NORTH);
+			keyGrid = new JPanel();
+			keyGrid.setLayout(new GridLayout(4,2));
+			cKeys.add(keyGrid, BorderLayout.SOUTH);
+			mainPanel.add(cKeys, BorderLayout.WEST);
+			mainPanel.add(new JButton("Placeholder"), BorderLayout.EAST);
+			
+			
+			
+			//Left
 			left.addActionListener(this);
-			this.add(left);
+			keyGrid.add(left);
 			
 			JLabel currentLeft = new JLabel("LEFT_KEY");
-			this.add(currentLeft);
+			keyGrid.add(currentLeft);
 			
 			//Right
 			right.addActionListener(this);
-			this.add(right);
+			keyGrid.add(right);
 			
 			JLabel currentRight = new JLabel("RIGHT_KEY");
-			this.add(currentRight);
+			keyGrid.add(currentRight);
 			
 			//Jump
 			jump.addActionListener(this);
-			this.add(jump);
+			keyGrid.add(jump);
 			
 			JLabel currentJump = new JLabel("UP_KEY");
-			this.add(currentJump);
+			keyGrid.add(currentJump);
 			
 			//Item
 			item.addActionListener(this);
-			this.add(item);
+			keyGrid.add(item);
 			
 			JLabel currentItem = new JLabel("C");
-			this.add(currentItem);
+			keyGrid.add(currentItem);
 			isPainted = true;
 		}
+		this.setVisible(true);
 	}
 	
     public void actionPerformed(ActionEvent e){
@@ -96,19 +111,15 @@ private CustomKeys ck;
 
 	@Override
 	public void keyPressed(KeyEvent key) {
-		if(isLeftPressed == true){
 			System.out.println("In da if");
 			System.out.println(ck.getLeftKey());
 			ck.setleftKey(key.getKeyCode());
 			System.out.println(ck.getLeftKey());
-			
-		}
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
 		
 	}
 

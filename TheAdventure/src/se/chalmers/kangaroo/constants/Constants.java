@@ -30,4 +30,10 @@ public  class Constants {
 	 */
 	public static final double NANO_TO_SECOND = 0.000000001;
 	public static final double NANO_TO_MILLI = 0.000001;
+	
+	/*
+	 * Constants for resolution of the game screen
+	 */
+	public static final int RESOLUTION_WIDTH = 1024;
+	public static final int RESOLUTION_HEIGHT = 576;
 }
