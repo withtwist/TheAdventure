@@ -29,6 +29,7 @@ public class GameController implements KeyListener {
 		gv = new GameView("resources/images/background.gif", gm);
 		ov = new OptionView("resources/images/background.gif");
 		gv.addKeyListener(this);
+		ov.addKeyListener(this);
 	}
 
 	public GameView getGameView() {
