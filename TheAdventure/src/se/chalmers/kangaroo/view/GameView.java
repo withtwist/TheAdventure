@@ -65,7 +65,7 @@ public class GameView extends JPanelWithBackground {
 
 	private int getLeftX() {
 		int kPos = gm.getKangaroo().getPosition().getX() / Constants.TILE_SIZE;
-		if (kPos < 16)
+		if (kPos <= 16)
 			return 0;
 		if (gm.getGameMap().getTileWidth() - kPos < 16)
 			return gm.getGameMap().getTileWidth() - 32;
