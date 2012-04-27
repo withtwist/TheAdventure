@@ -3,6 +3,7 @@ package se.chalmers.kangaroo.model;
 import java.awt.geom.Rectangle2D;
 
 import se.chalmers.kangaroo.constants.Constants;
+import se.chalmers.kangaroo.utils.GameTimer;
 
 /**
  * A class to represent the model of a platform game.
@@ -33,7 +34,7 @@ public class GameModel {
 	/*
 	 * Will keep track of how long the player have played.
 	 */
-	private int time;
+	private GameTimer timer;
 	/*
 	 * Will check if the game is running. Not sure if we need it.
 	 */
@@ -80,6 +81,8 @@ public class GameModel {
 	public GameModel() {
 		gameMap = new GameMap("../maps/betamap.tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
+		timer = new GameTimer();
+		timer.start();
 	}
 
 	/**
@@ -221,8 +224,8 @@ public class GameModel {
 	 * 
 	 * @return the time that has elapsed for the player.
 	 */
-	public int getTime() {
-		return time;
+	public long getTime() {
+		return timer.getElapsedNanoTime();
 	}
 
 }
