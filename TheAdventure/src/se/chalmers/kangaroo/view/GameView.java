@@ -40,6 +40,7 @@ public class GameView extends JPanelWithBackground {
 						+ gm.getGameMap().getTile(x, y).getId() + ".png");
 				i.paintIcon(null, g, (x - drawFrom) * 32-fixPosition, (y-2) * 32);
 			}
+		
 
 //		 slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
 //		 p.getX()-32, p.getY()-32);
