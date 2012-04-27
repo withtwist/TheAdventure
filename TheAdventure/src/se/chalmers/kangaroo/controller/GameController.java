@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.view.GameView;
+import se.chalmers.kangaroo.view.OptionView;
 
 /**
  * A class for handling and running the game.
@@ -18,6 +19,7 @@ public class GameController implements KeyListener {
 
 	private GameModel gm;
 	private GameView gv;
+	private OptionView ov;
 
 	private CustomKeys ck;
 
@@ -25,11 +27,16 @@ public class GameController implements KeyListener {
 		ck = CustomKeys.getInstance();
 		gm = new GameModel();
 		gv = new GameView("resources/images/background.gif", gm);
+		ov = new OptionView("resources/images/background.gif");
 		gv.addKeyListener(this);
 	}
 
 	public GameView getGameView() {
 		return gv;
+	}
+	
+	public OptionView getOptionView(){
+		return ov;
 	}
 
 	public void start() {

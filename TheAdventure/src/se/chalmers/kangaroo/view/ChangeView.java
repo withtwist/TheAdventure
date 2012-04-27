@@ -23,6 +23,7 @@ public class ChangeView extends JFrame implements KeyListener{
 		setResizable(false);
 		jp.add(new MenuView("resources/images/background.gif", this) , "menuview");
 		jp.add(gc.getGameView(), "gameview");
+		jp.add(gc.getOptionView(), "optionview");
 		add(jp);
 		setVisible(true);
 		jp.setVisible(true);
@@ -38,6 +39,13 @@ public class ChangeView extends JFrame implements KeyListener{
 	public void gameView() {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "gameview");
+		addKeyListener(this);
+		gc.start();
+	}
+	
+	public void optionView() {
+		CardLayout cl = (CardLayout) jp.getLayout();
+		cl.show(jp, "optionview");
 		addKeyListener(this);
 		gc.start();
 	}

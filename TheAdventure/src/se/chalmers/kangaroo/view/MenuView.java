@@ -102,6 +102,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		if (e.getSource() == options){
 			options.setIcon(new ImageIcon("resources/images/options.png"));
 			System.out.println("Options");
+			cv.optionView();
 		}
 		if(e.getSource() == exitGame){
 			exitGame.setIcon(new ImageIcon("resources/images/exitGame.png"));
