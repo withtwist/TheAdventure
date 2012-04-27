@@ -86,6 +86,21 @@ public class GameMap {
 			
 		return null;
 	}
+	/**
+	 * Return the item at which they are drawn. 
+	 * @param i
+	 * @return
+	 */
+	public Item getItem(int i){
+		return items.get(i);
+	}
+	/**
+	 * The number of items currently on the map. 
+	 * @return
+	 */
+	public int amountOfItems(){
+		return items.size();
+	}
 
 	/**
 	 * Return the i:th creature. Will cast IndexOutOfBoundsException if i >
