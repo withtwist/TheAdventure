@@ -39,7 +39,7 @@ public class GameMap {
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[0].length; j++) {
 				map[i][j] = tf.createTile((tiles[i][j]), i, j);
-				if (itemList.contains("" + tiles[i][j]))
+				if (itemList.contains(" " + tiles[i][j]+" "))
 					items.add(tf.createItem(tiles[i][j], i, j));
 				if (creatureList.contains("" + tiles[i][j]))
 					creatures.add(tf.createCreature(tiles[i][j], new Position(
@@ -77,9 +77,13 @@ public class GameMap {
 	 */
 	public Item getItemAt(int x, int y) {
 		Position p = new Position(x, y);
-		for (Item i : items)
-			if (i.getPosition().equals(p))
-				return i;
+		for(int i = 0; i < items.size(); i++){
+			if (items.get(i).getPosition().equals(p)){
+				return items.remove(i);
+			}
+			
+		}
+			
 		return null;
 	}
 

@@ -19,7 +19,7 @@ public class DoubleJumpItem implements Item {
 	
 	@Override
 	public void onPickup(Kangaroo k) {
-		;
+		k.enableDoubleJump();
 	}
 
 	@Override
@@ -31,13 +31,12 @@ public class DoubleJumpItem implements Item {
 
 	@Override
 	public void onUse(Kangaroo k) {
-		k.enableDoubleJump();
+		//
 		
 	}
 
 	@Override
 	public Position getPosition() {
-		
 		return pos;
 	}
 
