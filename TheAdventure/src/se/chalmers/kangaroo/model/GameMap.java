@@ -22,6 +22,7 @@ public class GameMap {
 	private List<Creature> creatures = new ArrayList<Creature>();
 	
 	private Item[] sItems;
+	private Creature[] sCreatures;
 
 	/**
 	 * Creates a GameMap with the level name. The level name should be the path
@@ -52,7 +53,9 @@ public class GameMap {
 		sItems = new Item[items.size()];
 		for(int i = 0; i < sItems.length;i++)
 			sItems[i] = items.get(i);
-			
+		sCreatures = new Creature[creatures.size()];
+		for(int i = 0; i < sCreatures.length; i++)
+			sCreatures[i] = creatures.get(i);
 	}
 
 	/**
@@ -106,7 +109,9 @@ public class GameMap {
 	public int amountOfItems(){
 		return items.size();
 	}
-	
+	/**
+	 * Will reset the items to the first state. 
+	 */
 	public void resetItems(){
 		items.clear();
 		for(Item i : sItems)
@@ -130,6 +135,14 @@ public class GameMap {
 	 */
 	public int getCreatureSize() {
 		return creatures.size();
+	}
+	/**
+	 * Will reset the creatures to the first state. 
+	 */
+	public void resetCreatures(){
+		creatures.clear();
+		for(Creature c : sCreatures)
+			creatures.add(c);
 	}
 
 	/**
