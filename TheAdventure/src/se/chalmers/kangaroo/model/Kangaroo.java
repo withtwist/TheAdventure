@@ -24,7 +24,7 @@ public class Kangaroo implements Movable {
 	
 	private Direction direction = Direction.DIRETION_NONE;
 	
-	private boolean enableDoubleJump = true;
+	private boolean enableDoubleJump = false;
 	
 	private boolean isJumping = false;
 	private boolean isFalling = false;
