@@ -1,6 +1,8 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -20,7 +22,12 @@ public class ChangeView extends JFrame implements KeyListener{
 		jp = new JPanel(new CardLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 576);
-		setResizable(false);
+		Dimension win = Toolkit.getDefaultToolkit().getScreenSize();
+		int width = getSize().width;
+		int height = getSize().height;
+		int xPos = (win.width-width)/2;
+		int yPos = (win.height-height)/2;
+		setLocation(xPos,yPos);
 		jp.add(new MenuView("resources/images/background.gif", this) , "menuview");
 		jp.add(gc.getGameView(), "gameview");
 		jp.add(gc.getOptionView(), "optionview");
