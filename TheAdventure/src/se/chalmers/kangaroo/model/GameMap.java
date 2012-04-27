@@ -20,6 +20,8 @@ public class GameMap {
 	private List<InteractiveObject> iObjects = new ArrayList<InteractiveObject>();
 	private List<Item> items = new ArrayList<Item>();
 	private List<Creature> creatures = new ArrayList<Creature>();
+	
+	private Item[] sItems;
 
 	/**
 	 * Creates a GameMap with the level name. The level name should be the path
@@ -47,7 +49,10 @@ public class GameMap {
 				if (iObjectsList.contains("" + tiles[i][j]))
 					iObjects.add(tf.createIObjects(tiles[i][j], this));
 			}
-
+		sItems = new Item[items.size()];
+		for(int i = 0; i < sItems.length;i++)
+			sItems[i] = items.get(i);
+			
 	}
 
 	/**
@@ -100,6 +105,12 @@ public class GameMap {
 	 */
 	public int amountOfItems(){
 		return items.size();
+	}
+	
+	public void resetItems(){
+		items.clear();
+		for(Item i : sItems)
+			items.add(i);
 	}
 
 	/**

@@ -192,7 +192,7 @@ public class GameModel {
 	private void restartLevel() {
 		deathCount++;
 		kangaroo.setPosition(kangaroo.getSpawnPosition());
-		System.out.println("hej");
+		gameMap.resetItems();
 		//TODO add code for resetting creatures and items.
 	}
 
