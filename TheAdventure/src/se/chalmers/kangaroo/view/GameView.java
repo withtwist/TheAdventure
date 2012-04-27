@@ -41,7 +41,7 @@ public class GameView extends JPanelWithBackground {
 				i.paintIcon(null, g, (x - drawFrom) * 32-fixPosition, (y-2) * 32);
 			}
 			g.drawString(""+gm.getTime(), 10, 10);
-			g.drawString("Deaths: "+ gm.getDeathCount(), 90, 10);
+			g.drawString("Deaths: "+ gm.getDeathCount(), 100, 10);
 //		 slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
 //		 p.getX()-32, p.getY()-32);
 		if (drawFrom == 0) {
