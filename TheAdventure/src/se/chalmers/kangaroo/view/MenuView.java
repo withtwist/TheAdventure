@@ -42,6 +42,10 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		options.addMouseListener(this);
 		exitGame.addMouseListener(this);
 	}
+	
+	public ChangeView getChangeView(){
+		return cv;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -90,15 +94,18 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == newGame){
 			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
+			//TODO Delete the syso
 			System.out.println("New Game");
 			cv.gameView();
 		}
 		if(e.getSource() == highScore){
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
+			//TODO Delete the syso
 			System.out.println("High Score");
 		}
 		if (e.getSource() == options){
 			options.setIcon(new ImageIcon("resources/images/options.png"));
+			//TODO Delete the syso
 			System.out.println("Options");
 			cv.optionView();
 		}

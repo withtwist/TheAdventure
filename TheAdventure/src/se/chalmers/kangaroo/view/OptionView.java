@@ -5,32 +5,33 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
 import se.chalmers.kangaroo.controller.CustomKeys;
 import se.chalmers.kangaroo.constants.*;
 
-public class OptionView extends JPanelWithBackground implements ActionListener, KeyListener{
-private boolean isPainted = false;
-private int pressedKeyId;
-private JButton left = new JButton("GO LEFT");
-private JButton right = new JButton("GO RIGHT");
-private JButton jump = new JButton("JUMP");
-private JButton item = new JButton("USE ITEM");
-private boolean isLeftPressed = false;
-private boolean isRightPressed = false;
-private boolean isJumpPressed = false;
-private boolean isItemPressed = false;
-private CustomKeys ck;
-private JPanel mainPanel;
-private JPanel keyGrid;
-//TODO give the variable a proper name
-private JPanel other;
+public class OptionView extends JPanelWithBackground implements ActionListener, KeyListener, MouseListener{
+	private boolean isPainted = false;
+	private int pressedKeyId;
+	private JButton left = new JButton("GO LEFT");
+	private JButton right = new JButton("GO RIGHT");
+	private JButton jump = new JButton("JUMP");
+	private JButton item = new JButton("USE ITEM");
+	private CustomKeys ck;
+	private JPanel mainPanel;
+	private JPanel keyGrid;
+	//TODO give the variable a proper name
+	private Menuebutton backToMenu;
+	ChangeView cv;
 
 	public OptionView(String imagepath) {
 		super(imagepath);
 		ck = CustomKeys.getInstance();
+		backToMenu = new Menuebutton("resources/images/backtomenu.png");
+		backToMenu.addMouseListener(this);
 	}
 	
 	@Override
@@ -39,19 +40,46 @@ private JPanel other;
 
 		//TODO Ask what to do with the paint-spam
 		if(isPainted == false){
+		
+			
+			
+			//mainPanel holds everything
 			mainPanel = new JPanel();
 			mainPanel.setLayout(new BorderLayout());
 			this.add(mainPanel);
-			JPanel cKeys = new JPanel();
-			cKeys.setLayout(new BorderLayout());
-			cKeys.add(new JLabel("CUSTOM KEYS"), BorderLayout.NORTH);
+			
+			//header contains the title and a back-button
+			JPanel header = new JPanel();
+			header.setLayout(new BorderLayout());
+			mainPanel.add(header, BorderLayout.NORTH);
+			
+			//backPanel is where the back button is.
+			JPanel backPanel = new JPanel();
+			backPanel.add(backToMenu);
+			header.add(backPanel, BorderLayout.WEST);
+			
+			//titlePanel is where the title is.
+			JPanel titlePanel = new JPanel();
+			JLabel title = new JLabel("<h1>Options</h1>");
+			titlePanel.add(title);
+			header.add(titlePanel, BorderLayout.EAST);
+			
+			//contentPanel is where the rest of the content is
+			JPanel contentPanel = new JPanel();
+			contentPanel.setLayout(new BorderLayout());
+			mainPanel.add(contentPanel, BorderLayout.SOUTH);
+			
+			//ckPanel is where you will be able to customize the keys
+			JPanel ckPanel = new JPanel();
+			ckPanel.setLayout(new BorderLayout());
+			contentPanel.add(ckPanel, BorderLayout.WEST);
+			
+			//it the title of custom keys section
+			ckPanel.add(new JLabel("CUSTOM KEYS"), BorderLayout.NORTH);
+			
+			//keyGrid is where you change the keys
 			keyGrid = new JPanel();
 			keyGrid.setLayout(new GridLayout(4,2));
-			cKeys.add(keyGrid, BorderLayout.SOUTH);
-			mainPanel.add(cKeys, BorderLayout.WEST);
-			mainPanel.add(new JButton("Placeholder"), BorderLayout.EAST);
-			
-			
 			
 			//Left
 			left.addActionListener(this);
@@ -80,7 +108,15 @@ private JPanel other;
 			
 			JLabel currentItem = new JLabel("C");
 			keyGrid.add(currentItem);
+			
+			ckPanel.add(keyGrid, BorderLayout.SOUTH);
+			
+			//a placeholder for upcoming options
+			contentPanel.add(new JButton("Placeholder"), BorderLayout.EAST);
+			
 			isPainted = true;
+			
+			
 		}
 		this.setVisible(true);
 	}
@@ -89,11 +125,6 @@ private JPanel other;
     	Object src = e.getSource();
     	if(src == left){
     		System.out.println("You pressed left.");
-    		
-    		isLeftPressed = true;
-    		isRightPressed = false;
-    		isJumpPressed = false;
-    		isItemPressed = false;
     	
     	}else if(src == right){
     		System.out.println("You pressed right.");
@@ -126,6 +157,46 @@ private JPanel other;
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		if (e.getSource() == backToMenu)
+			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu_onHover.png"));
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		if (e.getSource() == backToMenu){
+			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu.png"));
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		if (e.getSource() == backToMenu){
+			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu_onSelect.png"));
+		}
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		if (e.getSource() == backToMenu){
+			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu.png"));
+			//TODO Delete this syso later
+			System.out.println("Back to menu");
+			cv.menuView();
+		}
 		
 	}
 

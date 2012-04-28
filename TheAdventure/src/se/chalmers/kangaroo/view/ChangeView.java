@@ -31,6 +31,7 @@ public class ChangeView extends JFrame implements KeyListener{
 		jp.add(new MenuView("resources/images/background.gif", this) , "menuview");
 		jp.add(gc.getGameView(), "gameview");
 		jp.add(gc.getOptionView(), "optionview");
+//		jp.add(gc.getMenuView(), "menuview");
 		add(jp);
 		setVisible(true);
 		jp.setVisible(true);
@@ -41,6 +42,8 @@ public class ChangeView extends JFrame implements KeyListener{
 		s.play();
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "menuview");
+		//TODO fix so you can go back to the menu
+//		gc.start();
 	}
 
 	public void gameView() {
