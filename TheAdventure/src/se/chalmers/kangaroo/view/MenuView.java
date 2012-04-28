@@ -102,6 +102,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
 			//TODO Delete the syso
 			System.out.println("High Score");
+			cv.highscoreView();
 		}
 		if (e.getSource() == options){
 			options.setIcon(new ImageIcon("resources/images/options.png"));

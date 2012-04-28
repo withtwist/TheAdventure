@@ -7,6 +7,7 @@ import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.view.ChangeView;
 import se.chalmers.kangaroo.view.GameView;
+import se.chalmers.kangaroo.view.HighscoreView;
 import se.chalmers.kangaroo.view.MenuView;
 import se.chalmers.kangaroo.view.OptionView;
 
@@ -22,6 +23,8 @@ public class GameController implements KeyListener {
 	private GameModel gm;
 	private GameView gv;
 	private OptionView ov;
+	private HighscoreView hv;
+	//TODO fix so you can go back to the menu
 	private MenuView mv;
 
 	private CustomKeys ck;
@@ -31,6 +34,7 @@ public class GameController implements KeyListener {
 		gm = new GameModel();
 		gv = new GameView("resources/images/background.gif", gm);
 		ov = new OptionView("resources/images/background.gif");
+		hv = new HighscoreView("resources/images/background.gif");
 		//TODO fix so you can go back to the menu
 //		mv = new MenuView("resources/images/background.gif", cv);
 		gv.addKeyListener(this);
@@ -43,6 +47,10 @@ public class GameController implements KeyListener {
 	
 	public OptionView getOptionView(){
 		return ov;
+	}
+	
+	public HighscoreView getHighscoreView(){
+		return hv;
 	}
 	
 	//TODO fix so you can go back to the menu
