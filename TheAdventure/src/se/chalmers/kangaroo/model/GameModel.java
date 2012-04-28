@@ -192,8 +192,9 @@ public class GameModel {
 	private void restartLevel() {
 		deathCount++;
 		kangaroo.setPosition(kangaroo.getSpawnPosition());
-		gameMap.resetItems();
-		gameMap.resetCreatures();
+		//TODO Make those two work
+//		gameMap.resetItems();
+//		gameMap.resetCreatures();
 	}
 
 	/**
@@ -224,8 +225,8 @@ public class GameModel {
 	 * 
 	 * @return the time that has elapsed for the player.
 	 */
-	public long getTime() {
-		return timer.getElapsedNanoTime();
+	public double getTime() {
+		return timer.getElapsedTime();
 	}
 
 }
