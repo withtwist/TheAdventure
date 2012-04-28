@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameModel;
+import se.chalmers.kangaroo.model.Item;
 import se.chalmers.kangaroo.model.Position;
 /**
  * 
@@ -42,6 +43,15 @@ public class GameView extends JPanelWithBackground {
 			}
 			g.drawString(""+gm.getTime(), 10, 10);
 			g.drawString("Deaths: "+ gm.getDeathCount(), 100, 10);
+			for(int i = 0; i < gm.getGameMap().amountOfItems(); i++){
+				Item item = gm.getGameMap().getItem(i);
+				if(item.getPosition().getX() > drawFrom && item.getPosition().getX() < drawFrom+32){
+					ImageIcon img = new ImageIcon("../gfx/tiles/tile_51.png");
+					img.paintIcon(null, g, (item.getPosition().getX()-drawFrom)*32-fixPosition, (item.getPosition().getY()-2)*32);
+				}
+					
+					
+			}
 //		 slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
 //		 p.getX()-32, p.getY()-32);
 		if (drawFrom == 0) {
