@@ -112,12 +112,10 @@ public class GameModel {
 	private void iObjectCollition() {
 		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
 		int y = kangaroo.getPosition().getY() / Constants.TILE_SIZE;
-		for (int i = x; i < x + 2; i++) {
-			for (int j = y; j < y + 3; j++) {
-				if(gameMap.getIObjectAt(x, y) != null)
-					gameMap.getIObjectAt(x, y).onCollision();
-			}
-		}
+		for (int i = x; i < x + 2; i++)
+			for (int j = y; j < y + 3; j++) 
+				if(gameMap.getIObjectAt(i, j) != null)
+					gameMap.getIObjectAt(i, j).onCollision();
 	}
 
 	/**

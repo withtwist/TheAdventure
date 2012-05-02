@@ -47,8 +47,10 @@ public class GameMap {
 				if (creatureList.contains("" + tiles[i][j]))
 					creatures.add(tf.createCreature(tiles[i][j], new Position(
 							i * 32, j * 32)));
-				if (iObjectsList.contains(" " + tiles[i][j]+ " "))
-					iObjects.add(tf.createIObjects(i, j, tiles[i][j], this));
+				if (Constants.IOBJECTS_IDS.contains(" "+tiles[i][j]+" ")){
+					iObjects.add(tf.createIObjects(tiles[i][j], i, j, this));
+				}
+					
 			}
 		sItems = new Item[items.size()];
 		for(int i = 0; i < sItems.length;i++)
@@ -66,9 +68,13 @@ public class GameMap {
 	 */
 	public InteractiveObject getIObjectAt(int x, int y) {
 		Position p = new Position(x, y);
-		for(int i = 0; i < iObjects.size(); i++)
+		for(int i = 0; i < iObjects.size(); i++){
 			if (iObjects.get(i).getPosition().equals(p))
 				return iObjects.get(i);
+		}
+			
+			
+				
 		return null;
 	}
 
@@ -79,6 +85,10 @@ public class GameMap {
 	 */
 	public int getIObjectSize() {
 		return iObjects.size();
+	}
+	
+	public InteractiveObject getIObject(int i){
+		return iObjects.get(i);
 	}
 
 	/**

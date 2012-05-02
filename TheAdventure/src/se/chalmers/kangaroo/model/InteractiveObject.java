@@ -33,4 +33,6 @@ public interface InteractiveObject {
 	public int getChangedId(int currentId);
 	
 	public Position getPosition();
+	
+	public int getId();
 }

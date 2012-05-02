@@ -4,12 +4,17 @@ import se.chalmers.kangaroo.constants.*;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveObject;
 import se.chalmers.kangaroo.model.InteractiveTile;
+import se.chalmers.kangaroo.model.Position;
 
 public class OnOffButton implements InteractiveObject {
 	private GameMap gameMap;
+	private Position pos;
+	private int id;
 
-	public OnOffButton(GameMap gameMap) {
+	public OnOffButton(Position p, int id, GameMap gameMap){
 		this.gameMap = gameMap;
+		this.pos = p;
+		this.id = id;
 	}
 
 	@Override
@@ -45,6 +50,16 @@ public class OnOffButton implements InteractiveObject {
 		}else{
 			return Constants.TILE_ITILE_ON;
 		}
+	}
+
+	@Override
+	public Position getPosition() {
+		return pos;
+	}
+
+	@Override
+	public int getId() {
+		return id;
 	}
 
 }

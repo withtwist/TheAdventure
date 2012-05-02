@@ -1,4 +1,5 @@
 package se.chalmers.kangaroo.model.iobject;
+
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveObject;
@@ -17,54 +18,70 @@ import se.chalmers.kangaroo.model.Position;
  * 
  */
 public class RedBlueButton implements InteractiveObject {
-	private boolean isRed;
 	private GameMap gameMap;
 	private Position pos;
+	private boolean sleep;
+	private int id;
 
-	
-	public RedBlueButton(Position p, boolean isRed, GameMap gameMap){
-		this.isRed = isRed;
+	public RedBlueButton(Position p, int id, GameMap gameMap) {
 		this.gameMap = gameMap;
 		this.pos = p;
+		this.sleep = false;
+		this.id = id;
 	}
 
 	@Override
 	public boolean isCollidable(int a) {
-		// Right now, 88 is the tile-id for the red interactive tile
-		if (a == Constants.TILE_ITILE_RED) {
-			return isRed;
-		} else if (a == Constants.TILE_ITILE_BLUE) {
-			return !isRed;
-		} else {
-			return false;
-		}
+		//TODO
+		return true;
 	}
-	
+
 	@Override
-	public void onCollision(){
-		int x = gameMap.getTileWidth();
-		int y = gameMap.getTileHeight();
-		for(int i = 0; i <= y; i++){
-			for(int j = 0; j <= x; j++){
-				if(Constants.INTERACTIVE_TILES_REDBLUE.contains(" "+gameMap.getTile(x, y).getId()+" " )){
-					((InteractiveTile)gameMap.getTile(x, y)).onTrigger();
+	public void onCollision() {
+		if (!sleep) {
+			id = id == 71 ? id+1 : id-1;
+			int x = gameMap.getTileWidth();
+			int y = gameMap.getTileHeight();
+			for (int i = 0; i < y; i++) {
+				for (int j = 0; j < x; j++) {
+					if (Constants.INTERACTIVE_TILES_REDBLUE.contains(" "
+							+ gameMap.getTile(j, i).getId() + " ")) {
+						((InteractiveTile) gameMap.getTile(j, i)).onTrigger();
+					}
 				}
 			}
+			sleep = true;
+			new Thread(){
+				@Override
+				public void run() {
+					try{
+						sleep(600);
+						sleep = false;
+					}catch(InterruptedException e){
+						
+					}
+				};
+			}.start();
 		}
 	}
-	
+
 	@Override
-	public int getChangedId(int currentId){
-		if(currentId % 2 == 0){
-			return currentId-1;
-		}else{
-			return currentId+1;
+	public int getChangedId(int currentId) {
+		if (currentId % 2 == 0) {
+			return currentId - 1;
+		} else {
+			return currentId + 1;
 		}
 	}
-	
+
 	@Override
 	public Position getPosition() {
 		return pos;
+	}
+
+	@Override
+	public int getId() {
+		return id;
 	}
 
 }

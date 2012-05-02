@@ -33,7 +33,9 @@ public class Factory {
 	public Tile createTile(int i, int x, int y) {
 		if (Constants.INTERACTIVE_TILES.contains(" " + i+ " ")) {
 			return new InteractiveTile(i, x, y); 
-		}else if(Constants.ITEM_IDS.contains(" "+i+" ")){
+		}else if(Constants.ITEM_IDS.contains(" "+i+" ")
+				|| Constants.IOBJECTS_IDS.contains(" "+i+" ")){
+			System.out.println(i);
 			return new Tile(0, x, y);
 		}
 		else {
@@ -82,9 +84,9 @@ public class Factory {
 	public InteractiveObject createIObjects(int i, int x, int y, GameMap gm){
 		switch(i){
 		case 71:
-			return new RedBlueButton(new Position(x, y), false, gm);
+			return new RedBlueButton(new Position(x, y), i, gm);
 		case 72:
-			return new RedBlueButton(new Position(x, y), true, gm);
+			return new RedBlueButton(new Position(x, y), i, gm);
 		default:
 			return null;
 		}
