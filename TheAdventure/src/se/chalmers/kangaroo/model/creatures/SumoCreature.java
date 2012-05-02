@@ -25,8 +25,8 @@ public class SumoCreature extends Creature {
 	private boolean isEarthShaking = false;
 	private double verticalSpeed;
 
-	public SumoCreature(Position pos, Direction direction) {
-		super(direction);
+	public SumoCreature(int id, Position pos, Direction direction) {
+		super(id, direction);
 		this.pos = pos;
 	}
 

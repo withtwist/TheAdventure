@@ -25,8 +25,8 @@ public class BullCreature extends Creature {
 	 * @param spawnPos
 	 * @param direction
 	 */
-	public BullCreature(Position spawnPos, Direction direction) {
-		super(direction);
+	public BullCreature(int id, Position spawnPos, Direction direction) {
+		super(id, direction);
 		this.position = spawnPos;
 		health = 100;
 		int polyX[] = { 0, 14, 14, 20, 20, 44, 44, 50, 50, 64, 64, 54, 54, 10,

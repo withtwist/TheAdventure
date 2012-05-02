@@ -17,10 +17,9 @@ public class CrabCreature extends Creature {
 	private Position pos;
 	private Polygon creaturePoly;
 
-	public CrabCreature(Position pos, Direction direction) {
-		super(direction);
+	public CrabCreature(int id, Position pos, Direction direction) {
+		super(id, pos, direction);
 		this.pos = pos;
-
 	}
 
 	@Override

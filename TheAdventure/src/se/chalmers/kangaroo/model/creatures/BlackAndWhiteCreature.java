@@ -11,8 +11,8 @@ public class BlackAndWhiteCreature extends Creature{
 	Position pos;
 	GameTimer timer = new GameTimer();
 	
-	public BlackAndWhiteCreature(Position spawnPos, Direction d){
-		super(d);
+	public BlackAndWhiteCreature(int id ,Position spawnPos, Direction d){
+		super(id, d);
 		this.pos = spawnPos;
 		timer.start();
 	}

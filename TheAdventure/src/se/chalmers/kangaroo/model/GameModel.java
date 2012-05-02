@@ -91,14 +91,21 @@ public class GameModel {
 	public void update() {
 		oldPos = kangaroo.getPosition();
 		kangaroo.move();
+		updateCreatures();
 		checkCollition();
+	}
+
+	private void updateCreatures() {
+		for( int i = 0; i < gameMap.getCreatureSize(); i++){
+			gameMap.getCreatureAt(i).updateCreature();
+		}
 	}
 
 	/**
 	 * Checks if a polygon collides with a tile or a creature.
 	 */
 	private void checkCollition() {
-		// creatureCollition();
+		creatureCollition();
 		itemCollition();
 		tileCollition();
 		iObjectCollition();

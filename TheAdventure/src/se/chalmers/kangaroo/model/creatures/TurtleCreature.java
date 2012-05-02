@@ -21,8 +21,8 @@ public class TurtleCreature extends Creature {
 	private Position pos;
 
 
-	public TurtleCreature(Position spawnPos, Direction direction) {
-		super(direction);
+	public TurtleCreature(int id, Position spawnPos, Direction direction) {
+		super(id, direction);
 		pos = spawnPos;
 		w = new Waiter();
 	}

@@ -36,7 +36,8 @@ public class Factory {
 		if (Constants.INTERACTIVE_TILES.contains(" " + i+ " ")) {
 			return new InteractiveTile(i, x, y); 
 		}else if(Constants.ITEM_IDS.contains(" "+i+" ")
-				|| Constants.IOBJECTS_IDS.contains(" "+i+" ")){
+				|| Constants.IOBJECTS_IDS.contains(" "+i+" ")
+				|| Constants.CREATURE_IDS.contains(" "+i+" ")){
 			System.out.println(i);
 			return new Tile(0, x, y);
 		}
@@ -70,15 +71,15 @@ public class Factory {
 	public Creature createCreature(int i, Position p){
 		switch(i){
 		case 111:
-			return new CrabCreature(p, Direction.DIRECTION_WEST);
+			return new CrabCreature(i, p, Direction.DIRECTION_WEST);
 		case 112:
-			return new TurtleCreature(p, Direction.DIRECTION_WEST);
+			return new TurtleCreature(i, p, Direction.DIRECTION_WEST);
 		case 113:
-			return new BlackAndWhiteCreature(p, Direction.DIRECTION_WEST);
+			return new BlackAndWhiteCreature(i, p, Direction.DIRECTION_WEST);
 		case 114:
-			return new BullCreature(p, Direction.DIRECTION_WEST);
+			return new BullCreature(i, p, Direction.DIRECTION_WEST);
 		case 115:
-			return new SumoCreature(p, Direction.DIRECTION_WEST);
+			return new SumoCreature(i, p, Direction.DIRECTION_WEST);
 		default:
 			return null;
 		}

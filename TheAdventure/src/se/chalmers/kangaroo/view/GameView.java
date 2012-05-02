@@ -5,6 +5,7 @@ import java.awt.Polygon;
 import javax.swing.ImageIcon;
 
 import se.chalmers.kangaroo.constants.Constants;
+import se.chalmers.kangaroo.model.Creature;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.InteractiveObject;
 import se.chalmers.kangaroo.model.Item;
@@ -58,6 +59,14 @@ public class GameView extends JPanelWithBackground {
 				if(io.getPosition().getX() >drawFrom && io.getPosition().getX() < drawFrom+32){
 					ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+io.getId()+".png");
 					img.paintIcon(null, g, (io.getPosition().getX()-drawFrom)*32-fixPosition, (io.getPosition().getY()-2)*32);
+				}
+			}
+			/* Render the creatures */
+			for(int i = 0; i < gm.getGameMap().getCreatureSize(); i++){
+				Creature c = gm.getGameMap().getCreatureAt(i);
+				if(c.getPosition().getX() > drawFrom && c.getPosition().getX() < drawFrom+32){
+					ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+c.getId()+".png");
+					img.paintIcon(null, g, (c.getPosition().getX()-drawFrom)*32-fixPosition, (c.getPosition().getY()-2)*32);
 				}
 			}
 //		 slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),
