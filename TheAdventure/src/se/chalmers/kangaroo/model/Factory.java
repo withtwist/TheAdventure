@@ -17,7 +17,6 @@ import se.chalmers.kangaroo.model.item.StopTimeItem;
  * 
  */
 public class Factory {
-	private static String INTERACTIVE_TILES = "ABCDEFGH"; // TODO: CHANGE
 	/**
 	 * Creates a simple factory.
 	 */
@@ -32,8 +31,8 @@ public class Factory {
 	 * @return the tile created
 	 */
 	public Tile createTile(int i, int x, int y) {
-		if (INTERACTIVE_TILES.contains("" + i)) {
-			return null; // <-interactivetile TODO
+		if (Constants.INTERACTIVE_TILES.contains("" + i)) {
+			return new InteractiveTile(i, x, y); 
 		}else if(Constants.ITEM_IDS.contains(" "+i+" ")){
 			return new Tile(0, x, y);
 		}
@@ -82,10 +81,10 @@ public class Factory {
 	 */
 	public InteractiveObject createIObjects(int i, GameMap gm){
 		switch(i){
-		case 121:
+		case 71:
+			return new RedBlueButton(false, gm);
+		case 72:
 			return new RedBlueButton(true, gm);
-		case 122:
-			return new OnOffButton(gm);
 		default:
 			return null;
 		}

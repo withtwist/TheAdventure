@@ -1,5 +1,5 @@
 package se.chalmers.kangaroo.model.iobject;
-import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveObject;
 import se.chalmers.kangaroo.model.InteractiveTile;
@@ -43,8 +43,8 @@ public class RedBlueButton implements InteractiveObject {
 		int y = gameMap.getTileHeight();
 		for(int i = 0; i <= y; i++){
 			for(int j = 0; j <= x; j++){
-				if(gameMap.getTile(x, y).getId() >= Constants.TILE_ITILE_BLUE || gameMap.getTile(x, y).getId() <= Constants.TILE_ITILE_RED+1){
-					((InteractiveTile) gameMap.getTile(x, y)).onTrigger();
+				if(Constants.INTERACTIVE_TILES_REDBLUE.contains(" "+gameMap.getTile(x, y).getId()+" " )){
+					((InteractiveTile)gameMap.getTile(x, y)).onTrigger();
 				}
 			}
 		}

@@ -11,7 +11,6 @@ package se.chalmers.kangaroo.model;
  */
 public class InteractiveTile extends Tile {
 	private boolean collidable;
-	private InteractiveObject intObj;
 
 	/**
 	 * 
@@ -25,18 +24,18 @@ public class InteractiveTile extends Tile {
 	 *            to
 	 * 
 	 */
-	public InteractiveTile(int a, int x, int y, InteractiveObject intObj) {
-		super(a, x, y);
-		this.intObj = intObj;
-		collidable = intObj.isCollidable(a);
+	public InteractiveTile(int id, int x, int y) {
+		super(id, x, y);
+		collidable = (id % 2 == 1);
 	}
 
 	/**
 	 * Method that change the state of collidable.
 	 */
 	public void onTrigger() {
-		super.toggleCollidable();
-		super.changeId(intObj.getChangedId(super.getId()));
+		int newId = getId() % 2 == 1 ? getId()+1 : getId()-1;
+		changeId(newId);
+		collidable = !collidable;
 	}
 
 	@Override
@@ -47,5 +46,10 @@ public class InteractiveTile extends Tile {
 	@Override
 	public String toString() {
 		return super.toString() + "InteractiveTile";
+	}
+	
+	@Override
+	public boolean isCollidable() {
+		return collidable;
 	}
 }
