@@ -22,7 +22,7 @@ public class TurtleCreature implements Creature {
 	private static final int ID = 112;
 
 
-	public TurtleCreature(int id, Position spawnPos, Direction direction) {
+	public TurtleCreature(Position spawnPos) {
 		pos = spawnPos;
 		w = new Waiter();
 	}

@@ -72,11 +72,11 @@ public class Factory {
 		case 111:
 			return new CrabCreature(i, p, Direction.DIRECTION_WEST);
 		case 112:
-			return new TurtleCreature(i, p, Direction.DIRECTION_WEST);
+			return new TurtleCreature(p);
 		case 113:
 			return new BlackAndWhiteCreature(p);
 		case 114:
-			return new BullCreature(i, p, Direction.DIRECTION_WEST);
+			return new BullCreature(p);
 		case 115:
 			return new SumoCreature(i, p, Direction.DIRECTION_WEST);
 		default:
