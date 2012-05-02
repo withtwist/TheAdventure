@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.model.item;
 
 import se.chalmers.kangaroo.model.Item;
 import se.chalmers.kangaroo.model.Kangaroo;
+import se.chalmers.kangaroo.model.Position;
 
 /**
  * This item stops the time for a given interval.
@@ -12,6 +13,7 @@ import se.chalmers.kangaroo.model.Kangaroo;
 public class StopTimeItem implements Item {
 	private int seconds;
 	private Kangaroo k; 
+	private int id; 
 	/**
 	 * The constructor takes a Kangaroo and a time that the time is going to
 	 * stop.
@@ -21,7 +23,8 @@ public class StopTimeItem implements Item {
 	 * @param time
 	 *            is the time that the time is going to stop
 	 */
-	public StopTimeItem(int millis, int x, int y) {
+	public StopTimeItem(int id, int millis, int x, int y) {
+		this.id = id;
 		this.seconds = millis * 1000;
 	}
 
@@ -76,6 +79,17 @@ public class StopTimeItem implements Item {
 
 		}
 
+	}
+
+	@Override
+	public Position getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getId() {
+		return id;
 	}
 
 }
