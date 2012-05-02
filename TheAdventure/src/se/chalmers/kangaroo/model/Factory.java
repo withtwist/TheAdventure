@@ -2,9 +2,10 @@ package se.chalmers.kangaroo.model;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
+import se.chalmers.kangaroo.model.creatures.BullCreature;
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
+import se.chalmers.kangaroo.model.creatures.SumoCreature;
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
-import se.chalmers.kangaroo.model.iobject.OnOffButton;
 import se.chalmers.kangaroo.model.iobject.RedBlueButton;
 import se.chalmers.kangaroo.model.item.DoubleJumpItem;
 import se.chalmers.kangaroo.model.item.ImmortalItem;
@@ -68,12 +69,16 @@ public class Factory {
 	 */
 	public Creature createCreature(int i, Position p){
 		switch(i){
-		case 81:
+		case 111:
 			return new CrabCreature(p, Direction.DIRECTION_WEST);
-		case 82:
+		case 112:
 			return new TurtleCreature(p, Direction.DIRECTION_WEST);
-		case 83:
+		case 113:
 			return new BlackAndWhiteCreature(p, Direction.DIRECTION_WEST);
+		case 114:
+			return new BullCreature(p, Direction.DIRECTION_WEST);
+		case 115:
+			return new SumoCreature(p, Direction.DIRECTION_WEST);
 		default:
 			return null;
 		}
