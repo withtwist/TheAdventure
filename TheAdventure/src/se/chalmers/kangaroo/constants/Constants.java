@@ -26,8 +26,8 @@ public  class Constants {
 	public static final String ITEM_IDS = " 51 52 53 54 55 56 ";
 	public static final String CREATURE_IDS = " 111 112 113 114 115 ";
 	public static final String IOBJECTS_IDS = " 71 72 ";
-	public static final String INTERACTIVE_TILES = " 91 92 93 94";
-	public static final String INTERACTIVE_TILES_REDBLUE = " 91 92 93 94";
+	public static final String INTERACTIVE_TILES = " 91 92 93 94 ";
+	public static final String INTERACTIVE_TILES_REDBLUE = " 91 92 93 94 ";
 	
 	/*
 	 * Constants that is used normally.

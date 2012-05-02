@@ -47,7 +47,7 @@ public class GameMap {
 				if (creatureList.contains("" + tiles[i][j]))
 					creatures.add(tf.createCreature(tiles[i][j], new Position(
 							i * 32, j * 32)));
-				if (Constants.IOBJECTS_IDS.contains(" "+tiles[i][j]+" ")){
+				if (iObjectsList.contains(" "+tiles[i][j]+" ")){
 					iObjects.add(tf.createIObjects(tiles[i][j], i, j, this));
 				}
 					
