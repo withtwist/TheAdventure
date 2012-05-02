@@ -14,6 +14,8 @@ public class SmurfCreature implements Creature {
 	
 	private Direction currentDir;
 	
+	private int speed = 3;
+	
 	public SmurfCreature(Position spawnPos) {
 		
 		this.currentDir = Direction.DIRECTION_EAST;
@@ -32,7 +34,12 @@ public class SmurfCreature implements Creature {
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
+		if(this.currentDir==Direction.DIRECTION_EAST) {
+			this.currentPos = new Position(currentPos.getX()+speed,currentPos.getY());
+		} else if (this.currentDir == Direction.DIRECTION_WEST) {
+			this.currentPos = new Position(currentPos.getX()-speed,currentPos.getY());
+			
+		}
 		
 	}
 
@@ -44,8 +51,7 @@ public class SmurfCreature implements Creature {
 
 	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 116;
 	}
 
 	@Override
@@ -54,8 +60,12 @@ public class SmurfCreature implements Creature {
 	}
 
 	@Override
-	public void changeDirection(Direction d) {
-		this.currentDir = d;
+	public void changeDirection() {
+		if(this.currentDir == Direction.DIRECTION_EAST) {
+			this.currentDir = Direction.DIRECTION_WEST;
+		} else if (this.currentDir == Direction.DIRECTION_WEST) {
+			this.currentDir = Direction.DIRECTION_EAST;
+		}
 		
 	}
 
