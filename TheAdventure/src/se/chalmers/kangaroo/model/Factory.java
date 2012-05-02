@@ -67,7 +67,7 @@ public class Factory {
 	 * @param i, the id of the creature
 	 * @return the creature created
 	 */
-	public Creature createCreature(Position p){
+	public Creature createCreature(int i, Position p){
 		switch(i){
 		case 111:
 			return new CrabCreature(p);
