@@ -23,18 +23,30 @@ public class HighscoreView extends JPanelWithBackground implements
 		super(imagepath);
 		this.setLayout(new BorderLayout());
 
-		// Headline
-		JPanel titlePanel = new JPanel();
-		title = new JLabel("Highscore - Choose Level");
-		titlePanel.add(title);
-		this.add(titlePanel, BorderLayout.NORTH);
+		//Header
+		JPanel headerPanel = new JPanel();
+		headerPanel.setLayout(new BorderLayout());
+		
+		this.add(headerPanel, BorderLayout.NORTH);
 		this.setMinimumSize(Constants.RESOLUTION);
 		this.setMaximumSize(Constants.RESOLUTION);
 		this.setPreferredSize(Constants.RESOLUTION);
+		
+		//Back-button
+		JPanel backPanel = new JPanel();
+		Menuebutton btm = new Menuebutton("resources/images/backtomenu.png");
+		backPanel.add(btm);
+		headerPanel.add(backPanel, BorderLayout.WEST);
+		
+		//Title
+		JPanel titlePanel = new JPanel();
+		title = new JLabel("<html><body><font size='45'>Highscore - Choose Level</font></body></html>");
+		titlePanel.add(title);
+		headerPanel.add(title, BorderLayout.CENTER);
 
 		int titleHeight = 100;
 
-		title.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
+		headerPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
 		title.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
