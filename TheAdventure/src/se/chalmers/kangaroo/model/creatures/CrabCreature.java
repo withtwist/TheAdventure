@@ -47,18 +47,6 @@ public class CrabCreature implements Creature {
 	}
 
 	@Override
-	public void changeDirection(Direction newDirection) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void remove() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void move() {
 		// TODO Auto-generated method stub
 		
@@ -66,25 +54,30 @@ public class CrabCreature implements Creature {
 
 	@Override
 	public void updateCreature() {
-		// TODO Auto-generated method stub
-		
+		if(direction == Direction.DIRECTION_WEST){
+			pos = new Position(pos.getX()-speed, pos.getY());
+		}else{
+			pos = new Position(pos.getX()+speed, pos.getY());
+		}
 	}
 
 	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
 	@Override
 	public Position getPosition() {
-		// TODO Auto-generated method stub
-		return null;
+		return pos;
 	}
 
 	@Override
 	public void changeDirection() {
-		// TODO Auto-generated method stub
+		if(direction == Direction.DIRECTION_WEST){
+			direction = Direction.DIRECTION_EAST;
+		}else{
+			direction = Direction.DIRECTION_WEST;
+		}
 		
 	}
 }
