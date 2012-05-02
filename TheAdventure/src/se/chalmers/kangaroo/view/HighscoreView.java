@@ -7,6 +7,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import se.chalmers.kangaroo.constants.*;
 
+/**
+ * 
+ * @author pavlov
+ *
+ */
 public class HighscoreView extends JPanelWithBackground implements
 		MouseListener {
 	private JLabel title;
@@ -26,6 +31,7 @@ public class HighscoreView extends JPanelWithBackground implements
 		//Header
 		JPanel headerPanel = new JPanel();
 		headerPanel.setLayout(new BorderLayout());
+		int titleHeight = 100;
 		
 		this.add(headerPanel, BorderLayout.NORTH);
 		this.setMinimumSize(Constants.RESOLUTION);
@@ -33,9 +39,12 @@ public class HighscoreView extends JPanelWithBackground implements
 		this.setPreferredSize(Constants.RESOLUTION);
 		
 		//Back-button
-		JPanel backPanel = new JPanel();
-		Menuebutton btm = new Menuebutton("resources/images/backtomenu.png");
-		backPanel.add(btm);
+		JPanel backPanel = new JPanel(new BorderLayout());
+		Menuebutton btm = new Menuebutton("resources/images/buttons/back.png");
+		backPanel.add(btm, BorderLayout.WEST);
+		backPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
+		backPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
+		backPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
 		headerPanel.add(backPanel, BorderLayout.WEST);
 		
 		//Title
@@ -43,8 +52,6 @@ public class HighscoreView extends JPanelWithBackground implements
 		title = new JLabel("<html><body><font size='45'>Highscore - Choose Level</font></body></html>");
 		titlePanel.add(title);
 		headerPanel.add(title, BorderLayout.CENTER);
-
-		int titleHeight = 100;
 
 		headerPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
@@ -55,14 +62,14 @@ public class HighscoreView extends JPanelWithBackground implements
 
 		// Content
 		JPanel levelPanel = new JPanel();
-		levelPanel.setLayout(new GridLayout(2, 4));
+		levelPanel.setLayout(new GridLayout(2, 5));
 		levelPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				Constants.RESOLUTION_HEIGHT - titleHeight));
 		levelPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				Constants.RESOLUTION_HEIGHT - titleHeight));
 		levelPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				Constants.RESOLUTION_HEIGHT - titleHeight));
-
+		
 		// Level 1
 		lv1 = new Menuebutton("resources/images/levels/level_1.png");
 		lv1.addMouseListener(this);
