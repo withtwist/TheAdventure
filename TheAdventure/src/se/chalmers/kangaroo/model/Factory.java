@@ -51,7 +51,7 @@ public class Factory {
 	public Item createItem(int i, int x, int y){
 		switch(i){
 		case 51:
-			return new DoubleJumpItem(x, y);
+			return new DoubleJumpItem(i, x, y);
 		case 102:
 			return new StopTimeItem(5, x, y);
 		default:

@@ -44,13 +44,15 @@ public class GameView extends JPanelWithBackground {
 			}
 			g.drawString(""+gm.getTime(), 10, 10);
 			g.drawString("Deaths: "+ gm.getDeathCount(), 100, 10);
+			/* Render the tiles */
 			for(int i = 0; i < gm.getGameMap().amountOfItems(); i++){
 				Item item = gm.getGameMap().getItem(i);
 				if(item.getPosition().getX() > drawFrom && item.getPosition().getX() < drawFrom+32){
-					ImageIcon img = new ImageIcon("../gfx/tiles/tile_51.png");
+					ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+item.getId()+".png");
 					img.paintIcon(null, g, (item.getPosition().getX()-drawFrom)*32-fixPosition, (item.getPosition().getY()-2)*32);
 				}	
 			}
+			/* Render the interactive objects */
 			for(int i = 0; i < gm.getGameMap().getIObjectSize(); i++){
 				InteractiveObject io = gm.getGameMap().getIObject(i);
 				if(io.getPosition().getX() >drawFrom && io.getPosition().getX() < drawFrom+32){

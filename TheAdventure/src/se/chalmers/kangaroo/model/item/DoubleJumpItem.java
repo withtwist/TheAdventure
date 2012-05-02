@@ -11,9 +11,11 @@ import se.chalmers.kangaroo.model.Position;
  */
 public class DoubleJumpItem implements Item {
 	
-	Position pos;
+	private Position pos;
+	private int id;
 	
-	public DoubleJumpItem(int x, int y) {
+	public DoubleJumpItem(int id, int x, int y) {
+		this.id = id;
 		this.pos = new Position(x,y);
 	}
 	
@@ -38,6 +40,11 @@ public class DoubleJumpItem implements Item {
 	@Override
 	public Position getPosition() {
 		return pos;
+	}
+
+	@Override
+	public int getId() {
+		return id;
 	}
 
 }

@@ -29,5 +29,7 @@ public interface Item {
 	public void onUse(Kangaroo k);
 	
 	public Position getPosition();
+	
+	public int getId();
 
 }
