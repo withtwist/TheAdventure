@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.constants;
 
+import java.awt.Dimension;
+
 /**
  * A class to keep track of all constants.
  * A class with only public static final variables.
@@ -38,4 +40,5 @@ public  class Constants {
 	 */
 	public static final int RESOLUTION_WIDTH = 1024;
 	public static final int RESOLUTION_HEIGHT = 576;
+	public static final Dimension RESOLUTION = new Dimension(1024, 576);
 }

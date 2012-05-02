@@ -1,10 +1,11 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.*;
+
 import java.awt.event.*;
 
 import javax.swing.*;
-
+import se.chalmers.kangaroo.constants.*;
 public class HighscoreView extends JPanelWithBackground implements MouseListener{
 	private JLabel title;
 	private Menuebutton lv1;
@@ -19,10 +20,22 @@ public class HighscoreView extends JPanelWithBackground implements MouseListener
 		title = new JLabel("Highscore - Choose Level");
 		titlePanel.add(title);
 		this.add(titlePanel, BorderLayout.NORTH);
+		this.setMinimumSize(Constants.RESOLUTION);
+		this.setMaximumSize(Constants.RESOLUTION);
+		this.setPreferredSize(Constants.RESOLUTION);
+		
+		int titleHeight = 100;
+		
+		title.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH, titleHeight));
+		title.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH, titleHeight));
+		title.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH, titleHeight));
 		
 		//Content
 		JPanel levelPanel = new JPanel();
 		levelPanel.setLayout(new GridLayout(2,4));
+		levelPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH, Constants.RESOLUTION_HEIGHT-titleHeight));
+		levelPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH, Constants.RESOLUTION_HEIGHT-titleHeight));
+		levelPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH, Constants.RESOLUTION_HEIGHT-titleHeight));
 		
 		//Level 1
 		lv1 = new Menuebutton("resources/images/levels/level_1.png");
