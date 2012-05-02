@@ -67,10 +67,10 @@ public class Factory {
 	 * @param i, the id of the creature
 	 * @return the creature created
 	 */
-	public Creature createCreature(int i, Position p){
+	public Creature createCreature(Position p){
 		switch(i){
 		case 111:
-			return new CrabCreature(i, p, Direction.DIRECTION_WEST);
+			return new CrabCreature(p);
 		case 112:
 			return new TurtleCreature(p);
 		case 113:
@@ -78,7 +78,7 @@ public class Factory {
 		case 114:
 			return new BullCreature(p);
 		case 115:
-			return new SumoCreature(i, p, Direction.DIRECTION_WEST);
+			return new SumoCreature(p);
 		default:
 			return null;
 		}
