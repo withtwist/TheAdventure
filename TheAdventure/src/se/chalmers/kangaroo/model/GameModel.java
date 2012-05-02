@@ -223,7 +223,7 @@ public class GameModel {
 	/**
 	 * Restarts the level. Will be used when the kangaroo dies.
 	 */
-	private void restartLevel() {
+	public void restartLevel() {
 		deathCount++;
 		kangaroo.setPosition(kangaroo.getSpawnPosition());
 		gameMap.resetItems();

@@ -101,7 +101,8 @@ public class GameController implements KeyListener {
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
 		} else {
-			// Illegal key
+			//If any other keys are pressed, restarts the level.
+			gm.restartLevel();
 		}
 
 	}
