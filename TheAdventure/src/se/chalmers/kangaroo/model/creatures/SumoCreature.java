@@ -16,7 +16,7 @@ import se.chalmers.kangaroo.utils.Waiter;
  * @author pavlov
  * 
  */
-public class SumoCreature extends Creature {
+public class SumoCreature implements Creature {
 	private Position pos;
 	private Polygon creaturePoly;
 	private int speed = 0;
@@ -25,8 +25,8 @@ public class SumoCreature extends Creature {
 	private boolean isEarthShaking = false;
 	private double verticalSpeed;
 
-	public SumoCreature(int id, Position pos, Direction direction) {
-		super(id, direction);
+	public SumoCreature(Position pos) {
+		
 		this.pos = pos;
 	}
 
@@ -117,6 +117,30 @@ public class SumoCreature extends Creature {
 				&& isGroundStomping == false) {
 			groundStomp();
 		}
+	}
+
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Position getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeDirection() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
