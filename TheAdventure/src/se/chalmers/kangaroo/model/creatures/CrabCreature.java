@@ -13,16 +13,14 @@ import se.chalmers.kangaroo.model.Position;
  * 
  */
 public class CrabCreature implements Creature {
-	private int id;
+	private static final int id = 111;
 	private Position pos;
 	private Direction direction;
 	private int speed = 3;
-	private Polygon creaturePoly;
 
-	public CrabCreature(int id, Position pos, Direction direction) {
-		this.id = id;
+	public CrabCreature(Position pos) {
 		this.pos = pos;
-		this.direction = direction;
+		direction = Direction.DIRECTION_WEST;
 	}
 
 	@Override
