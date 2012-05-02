@@ -12,14 +12,17 @@ import se.chalmers.kangaroo.model.Position;
  * @author pavlov
  * 
  */
-public class CrabCreature extends Creature {
-	private int speed = 3;
+public class CrabCreature implements Creature {
+	private int id;
 	private Position pos;
+	private Direction direction;
+	private int speed = 3;
 	private Polygon creaturePoly;
 
 	public CrabCreature(int id, Position pos, Direction direction) {
-		super(id, pos, direction);
+		this.id = id;
 		this.pos = pos;
+		this.direction = direction;
 	}
 
 	@Override
@@ -41,5 +44,47 @@ public class CrabCreature extends Creature {
 				pos.getY() + 16, pos.getY() + 16, pos.getY() + 32,
 				pos.getY() + 32, pos.getY() + 16, pos.getY() + 16 };
 		return new Polygon(polyX, polyY, 16);
+	}
+
+	@Override
+	public void changeDirection(Direction newDirection) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCreature() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Position getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeDirection() {
+		// TODO Auto-generated method stub
+		
 	}
 }
