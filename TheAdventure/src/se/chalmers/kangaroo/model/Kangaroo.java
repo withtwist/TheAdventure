@@ -188,7 +188,13 @@ public class Kangaroo implements Movable {
 	public void setImmortal(boolean b) {
 		this.immortal = b;
 	}
-
+	/**
+	 * Sets the maximum speed of the kangaroo.
+	 * @param f
+	 */
+	public void setMaxSpeed(float f) {
+		maxSpeed = f;
+	}
 	public void updateKangaroo() {
 		this.move();
 		
