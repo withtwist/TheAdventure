@@ -92,8 +92,15 @@ public class GameModel {
 
 	private void updateCreatures() {
 		for( int i = 0; i < gameMap.getCreatureSize(); i++){
-			gameMap.getCreatureAt(i).updateCreature();
+			Creature c = gameMap.getCreatureAt(i);
+			c.updateCreature();
+			Rectangle2D cRect = c.getPolygon().getBounds2D();
+			if(!gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMaxY()/32)+1).isCollidable() || !gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMaxY()/32)+1).isCollidable()) {
+				c.changeDirection();
+			}
+			
 		}
+		
 	}
 
 	/**
