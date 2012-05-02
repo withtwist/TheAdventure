@@ -98,6 +98,7 @@ public class GameModel {
 			if(!gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMaxY()/32)+1).isCollidable() || !gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMaxY()/32)+1).isCollidable()) {
 				c.changeDirection();
 			}
+			//TODO add code for creatures walking into a wall.
 			
 		}
 		
