@@ -11,11 +11,6 @@ import java.awt.Polygon;
  */
 public interface Creature extends Movable{
 	/**
-	 * Changes the direction the creature is facing and possible moving.
-	 * @param newDirection
-	 */
-	public void changeDirection(Direction newDirection);
-	/**
 	 * Returns true of the creature is killable and false if it isn't.
 	 * @return killable
 	 */
@@ -25,10 +20,6 @@ public interface Creature extends Movable{
 	 * @return
 	 */
 	public Polygon getPolygon();
-	/**
-	 * Removes the creature from the game.
-	 */
-	public void remove();
 	/**
 	 * Moves the creature according to what direction it is moving in and its speed.
 	 * @param dy

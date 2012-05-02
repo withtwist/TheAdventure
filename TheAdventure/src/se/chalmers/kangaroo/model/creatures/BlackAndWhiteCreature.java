@@ -7,19 +7,20 @@ import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
 
-public class BlackAndWhiteCreature extends Creature{
-	Position pos;
-	GameTimer timer = new GameTimer();
+public class BlackAndWhiteCreature implements Creature{
+	private Position pos;
+	private GameTimer timer = new GameTimer();
+	private final static int ID = 113;
+	private static final int speed = 7;
+	private Direction direction;
 	
-	public BlackAndWhiteCreature(int id ,Position spawnPos, Direction d){
-		super(id, d);
+	public BlackAndWhiteCreature(Position spawnPos){
 		this.pos = spawnPos;
-		timer.start();
+		this.direction = Direction.DIRECTION_WEST;
 	}
 	/**
 	 * Returns the polygon for this creature.
 	 */
-	@Override
 	public Polygon getPolygon() {
 		int[] xs = {pos.getX(), pos.getX()+31, pos.getX()+31, pos.getX()};
 		int[] ys = {pos.getY(), pos.getY(), pos.getY()+31, pos.getY()+31};
@@ -28,7 +29,6 @@ public class BlackAndWhiteCreature extends Creature{
 	/**
 	 * Return true if the creature is in a killable state.
 	 */
-	@Override
 	public boolean isKillable(){
 		if(timer.getElapsedNanoTime()/ 10000 % 2 == 1)
 			return false;
@@ -64,6 +64,28 @@ public class BlackAndWhiteCreature extends Creature{
 	public String toString() {
 		return "BlackAndWhiteCreature [pos=" + pos + "]";
 	}
-	
-	
+	@Override
+	public void changeDirection() {
+		direction = direction == Direction.DIRECTION_WEST ? Direction.DIRECTION_EAST : Direction.DIRECTION_WEST;
+	}
+	@Override
+	public void move() {
+		if(direction == Direction.DIRECTION_WEST){
+			pos = new Position(pos.getX()-speed, pos.getY());
+		}else{
+			pos = new Position(pos.getX()+speed, pos.getY());
+		}
+	}
+	@Override
+	public void updateCreature() {
+		move();
+	}
+	@Override
+	public int getId() {
+		return ID;
+	}
+	@Override
+	public Position getPosition() {
+		return pos;
+	}
 }

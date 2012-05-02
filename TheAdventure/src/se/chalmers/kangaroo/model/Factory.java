@@ -75,7 +75,7 @@ public class Factory {
 		case 112:
 			return new TurtleCreature(i, p, Direction.DIRECTION_WEST);
 		case 113:
-			return new BlackAndWhiteCreature(i, p, Direction.DIRECTION_WEST);
+			return new BlackAndWhiteCreature(p);
 		case 114:
 			return new BullCreature(i, p, Direction.DIRECTION_WEST);
 		case 115:
