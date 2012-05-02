@@ -14,15 +14,15 @@ import se.chalmers.kangaroo.utils.Waiter;
  * @author Arvid
  * 
  */
-public class TurtleCreature extends Creature {
+public class TurtleCreature implements Creature {
 
 	private boolean inShell = false;
 	private Waiter w;
 	private Position pos;
+	private static final int ID = 112;
 
 
 	public TurtleCreature(int id, Position spawnPos, Direction direction) {
-		super(id, direction);
 		pos = spawnPos;
 		w = new Waiter();
 	}
@@ -100,6 +100,21 @@ public class TurtleCreature extends Creature {
 				pos.getY() + 32, pos.getY() + 16, pos.getY() + 16 };
 		return new Polygon(xs, ys, 16);
 
+	}
+
+	@Override
+	public int getId() {
+		return ID;
+	}
+
+	@Override
+	public Position getPosition() {
+		return pos;
+	}
+
+	@Override
+	public void changeDirection() {
+		//
 	}
 
 }

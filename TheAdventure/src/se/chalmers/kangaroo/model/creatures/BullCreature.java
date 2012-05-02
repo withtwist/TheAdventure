@@ -13,11 +13,12 @@ import se.chalmers.kangaroo.model.Position;
  * @author Arvid
  * 
  */
-public class BullCreature extends Creature {
+public class BullCreature implements Creature {
 	
 	private Position position;
 	private int health;
 	private Polygon bullPolygon;
+	private static final int ID = 114;
 
 	/**
 	 * Creates a bull at the given position and direction.
@@ -25,8 +26,7 @@ public class BullCreature extends Creature {
 	 * @param spawnPos
 	 * @param direction
 	 */
-	public BullCreature(int id, Position spawnPos, Direction direction) {
-		super(id, direction);
+	public BullCreature(Position spawnPos) {
 		this.position = spawnPos;
 		health = 100;
 		int polyX[] = { 0, 14, 14, 20, 20, 44, 44, 50, 50, 64, 64, 54, 54, 10,
@@ -40,26 +40,13 @@ public class BullCreature extends Creature {
 	/**
 	 * Desides if the creature is killable. The bull is.
 	 */
-	@Override
 	public boolean isKillable() {
 		return true;
 	}
 
 	/**
-	 * A method that remove the bulls health. if the bulls health goes below
-	 * zero, it will be removed from the field.
-	 */
-	@Override
-	public void remove() {
-		health = health - 25;
-		if (health >= 0)
-			super.remove();
-	}
-
-	/**
 	 * Returns the polygin of the bull.
 	 */
-	@Override
 	public Polygon getPolygon() {
 		return bullPolygon;
 	}
@@ -115,5 +102,35 @@ public class BullCreature extends Creature {
 	@Override
 	public String toString() {
 		return super.toString() + "health left: " + health;
+	}
+
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCreature() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Position getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void changeDirection() {
+		// TODO Auto-generated method stub
+		
 	}
 }

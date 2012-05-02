@@ -38,7 +38,6 @@ public class Factory {
 		}else if(Constants.ITEM_IDS.contains(" "+i+" ")
 				|| Constants.IOBJECTS_IDS.contains(" "+i+" ")
 				|| Constants.CREATURE_IDS.contains(" "+i+" ")){
-			System.out.println(i);
 			return new Tile(0, x, y);
 		}
 		else {
