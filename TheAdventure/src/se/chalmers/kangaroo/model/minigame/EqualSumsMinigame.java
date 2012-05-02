@@ -23,10 +23,12 @@ public class EqualSumsMinigame {
 	 */
 	public EqualSumsMinigame(int size) {
 		this.size = size;
-		nbrArray = new int[size][size];
+		this.nbrArray = new int[size][size];
 		fillArray(size);
-		for (int i = 0; i < size; i++) {
-			pushColumnRandom(i);
+		while(isSumsEqual() == true){
+			for (int i = 0; i < size; i++) {
+				pushColumnRandom(i);
+			}
 		}
 	}
 
@@ -83,6 +85,7 @@ public class EqualSumsMinigame {
 	 */
 	private void pushColumnRandom(int column) {
 		pushColumn(column, (int) (Math.random() * size) + 1);
+		
 	}
 
 	/**
