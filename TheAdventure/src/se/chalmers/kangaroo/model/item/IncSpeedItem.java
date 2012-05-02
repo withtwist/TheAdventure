@@ -12,7 +12,10 @@ public class IncSpeedItem implements Item, Runnable {
 	
 	private Kangaroo k;
 	
-	public IncSpeedItem(int x, int y) {
+	private int id;
+	
+	public IncSpeedItem(int id, int x, int y) {
+		this.id = id;
 		this.pos = new Position(x,y);
 	}
 	
@@ -46,6 +49,12 @@ public class IncSpeedItem implements Item, Runnable {
 		} catch(InterruptedException e) {}
 		k.setMaxSpeed(10f);
 		
+	}
+
+	@Override
+	public int getId() {
+
+		return id;
 	}
 	
 
