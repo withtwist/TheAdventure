@@ -18,11 +18,6 @@ public class GameModel {
 	 * The kangaroo that the player controlls.
 	 */
 	private Kangaroo kangaroo;
-
-	/*
-	 * A variable to track collition with other creatures.
-	 */
-	private Creature creature;
 	/*
 	 * The current level that the player are playing.
 	 */
@@ -133,11 +128,12 @@ public class GameModel {
 		int nbrOfCreatures = gameMap.getCreatureSize();
 		if (nbrOfCreatures != 0) {
 			for (int i = 0; i < nbrOfCreatures; i++) {
+				Creature creature = gameMap.getCreatureAt(i);
 				if (kangaroo.getPolygon().getBounds2D()
 						.intersects(creature.getPolygon().getBounds2D())) {
 					if (creature.isKillable()
 							&& kangaroo.getVerticalSpeed() > 0) {
-						creature.remove();
+						//remove
 					} else {
 						deathCount++;
 						restartLevel();

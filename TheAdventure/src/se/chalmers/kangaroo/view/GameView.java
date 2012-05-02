@@ -64,9 +64,10 @@ public class GameView extends JPanelWithBackground {
 			/* Render the creatures */
 			for(int i = 0; i < gm.getGameMap().getCreatureSize(); i++){
 				Creature c = gm.getGameMap().getCreatureAt(i);
-				if(c.getPosition().getX() > drawFrom && c.getPosition().getX() < drawFrom+32){
-					ImageIcon img = new ImageIcon("../gfx/tiles/tile_"+c.getId()+".png");
-					img.paintIcon(null, g, (c.getPosition().getX()-drawFrom)*32-fixPosition, (c.getPosition().getY()-2)*32);
+				if(c.getPosition().getX() > drawFrom*32 && c.getPosition().getX() < (drawFrom+32)*32){
+					int[] xs = {p.getX()-drawFrom*32, p.getX()-drawFrom*32+64, p.getX()-drawFrom*32+64, p.getX()-drawFrom*32};
+					int[] ys = {p.getY(), p.getY(), p.getY()+32, p.getY()+32};
+					g.drawPolygon(xs, ys, 4);
 				}
 			}
 //		 slickGraphics.drawAnimation(gm.getKangaroo().getAnimation(),

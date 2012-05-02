@@ -16,7 +16,7 @@ public class CrabCreature implements Creature {
 	private static final int id = 111;
 	private Position pos;
 	private Direction direction;
-	private int speed = 3;
+	private int speed = 1;
 
 	public CrabCreature(Position pos) {
 		this.pos = pos;
