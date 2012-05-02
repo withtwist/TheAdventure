@@ -47,8 +47,8 @@ public class GameMap {
 				if (creatureList.contains("" + tiles[i][j]))
 					creatures.add(tf.createCreature(tiles[i][j], new Position(
 							i * 32, j * 32)));
-				if (iObjectsList.contains("" + tiles[i][j]))
-					iObjects.add(tf.createIObjects(tiles[i][j], this));
+				if (iObjectsList.contains(" " + tiles[i][j]+ " "))
+					iObjects.add(tf.createIObjects(i, j, tiles[i][j], this));
 			}
 		sItems = new Item[items.size()];
 		for(int i = 0; i < sItems.length;i++)
@@ -64,8 +64,12 @@ public class GameMap {
 	 * 
 	 * @return the list of InteractiveObjects
 	 */
-	public InteractiveObject getIObjectAt(int i) {
-		return iObjects.get(i);
+	public InteractiveObject getIObjectAt(int x, int y) {
+		Position p = new Position(x, y);
+		for(int i = 0; i < iObjects.size(); i++)
+			if (iObjects.get(i).getPosition().equals(p))
+				return iObjects.get(i);
+		return null;
 	}
 
 	/**

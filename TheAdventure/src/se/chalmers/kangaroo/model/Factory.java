@@ -31,7 +31,7 @@ public class Factory {
 	 * @return the tile created
 	 */
 	public Tile createTile(int i, int x, int y) {
-		if (Constants.INTERACTIVE_TILES.contains("" + i)) {
+		if (Constants.INTERACTIVE_TILES.contains(" " + i+ " ")) {
 			return new InteractiveTile(i, x, y); 
 		}else if(Constants.ITEM_IDS.contains(" "+i+" ")){
 			return new Tile(0, x, y);
@@ -79,12 +79,12 @@ public class Factory {
 	 * @param i, the id of the creature
 	 * @return the interactive object created
 	 */
-	public InteractiveObject createIObjects(int i, GameMap gm){
+	public InteractiveObject createIObjects(int i, int x, int y, GameMap gm){
 		switch(i){
 		case 71:
-			return new RedBlueButton(false, gm);
+			return new RedBlueButton(new Position(x, y), false, gm);
 		case 72:
-			return new RedBlueButton(true, gm);
+			return new RedBlueButton(new Position(x, y), true, gm);
 		default:
 			return null;
 		}

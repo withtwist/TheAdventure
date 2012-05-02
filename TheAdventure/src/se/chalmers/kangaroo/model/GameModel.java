@@ -47,7 +47,7 @@ public class GameModel {
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
-	
+
 	private int jGlobal;
 
 	/**
@@ -98,13 +98,25 @@ public class GameModel {
 	 * Checks if a polygon collides with a tile or a creature.
 	 */
 	private void checkCollition() {
-		//creatureCollition();
+		// creatureCollition();
 		itemCollition();
 		tileCollition();
+		iObjectCollition();
 		try {
 			changeFalling();
-		} catch(ArrayIndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			restartLevel();
+		}
+	}
+
+	private void iObjectCollition() {
+		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
+		int y = kangaroo.getPosition().getY() / Constants.TILE_SIZE;
+		for (int i = x; i < x + 2; i++) {
+			for (int j = y; j < y + 3; j++) {
+				if(gameMap.getIObjectAt(x, y) != null)
+					gameMap.getIObjectAt(x, y).onCollision();
+			}
 		}
 	}
 
@@ -136,54 +148,71 @@ public class GameModel {
 	 * the ground its vertical speed shall be resetted.
 	 */
 	private void tileCollition() {
-		int oldX = oldPos.getX()/Constants.TILE_SIZE;
-		int oldY = oldPos.getY()/Constants.TILE_SIZE;
-		int x = kangaroo.getPosition().getX()/Constants.TILE_SIZE;
-		int y = kangaroo.getPosition().getY()/Constants.TILE_SIZE;
-		for(int i=x; i<x+2; i++) {
-			for(int j=y; j<y+3; j++) {
-				Tile tile = gameMap.getTile(i,j);
-				
-				if(tile.isCollidable()){
-					int tileMaxY = (int)tile.getPolygon().getBounds2D().getMaxY();
-					int tileMinY = (int)tile.getPolygon().getBounds2D().getMinY();
-					int kangMinY = (int)kangaroo.getPolygon().getBounds2D().getMinY();
-					int kangMaxY = (int)kangaroo.getPolygon().getBounds2D().getMaxY();
-					if(oldX != x && Math.abs(tileMaxY - kangMinY) > 5){
-						kangaroo.setPosition(new Position(oldPos.getX(), kangaroo.getPosition().getY()));
-					}else if(kangMinY < tileMaxY && kangaroo.getVerticalSpeed() < 0 && kangMinY > tileMinY){
-						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMaxY));
+		int oldX = oldPos.getX() / Constants.TILE_SIZE;
+		int oldY = oldPos.getY() / Constants.TILE_SIZE;
+		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
+		int y = kangaroo.getPosition().getY() / Constants.TILE_SIZE;
+		for (int i = x; i < x + 2; i++) {
+			for (int j = y; j < y + 3; j++) {
+				Tile tile = gameMap.getTile(i, j);
+
+				if (tile.isCollidable()) {
+					int tileMaxY = (int) tile.getPolygon().getBounds2D()
+							.getMaxY();
+					int tileMinY = (int) tile.getPolygon().getBounds2D()
+							.getMinY();
+					int kangMinY = (int) kangaroo.getPolygon().getBounds2D()
+							.getMinY();
+					int kangMaxY = (int) kangaroo.getPolygon().getBounds2D()
+							.getMaxY();
+					if (oldX != x && Math.abs(tileMaxY - kangMinY) > 5) {
+						kangaroo.setPosition(new Position(oldPos.getX(),
+								kangaroo.getPosition().getY()));
+					} else if (kangMinY < tileMaxY
+							&& kangaroo.getVerticalSpeed() < 0
+							&& kangMinY > tileMinY) {
+						kangaroo.setPosition(new Position(kangaroo
+								.getPosition().getX(), tileMaxY));
 						kangaroo.setVerticalSpeed(0f);
 						kangaroo.setFalling(true);
 					}
-					if(oldY != y && tileMaxY > kangaroo.getPolygon().getBounds2D().getMaxY()&& kangaroo.getVerticalSpeed() > kangaroo.getPolygon().getBounds2D().getMaxY() - tileMinY){
-						kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), tileMinY-66));
+					if (oldY != y
+							&& tileMaxY > kangaroo.getPolygon().getBounds2D()
+									.getMaxY()
+							&& kangaroo.getVerticalSpeed() > kangaroo
+									.getPolygon().getBounds2D().getMaxY()
+									- tileMinY) {
+						kangaroo.setPosition(new Position(kangaroo
+								.getPosition().getX(), tileMinY - 66));
 						kangaroo.setVerticalSpeed(0f);
 						kangaroo.setFalling(false);
 					}
-		
+
 				}
 			}
 		}
 	}
-	
+
 	private void itemCollition() {
-		int x = kangaroo.getPosition().getX()/Constants.TILE_SIZE;
-		int y = kangaroo.getPosition().getY()/Constants.TILE_SIZE;
-		for(int i=x; i<x+2; i++)
-			for(int j=y; j<y+3; j++) {
+		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
+		int y = kangaroo.getPosition().getY() / Constants.TILE_SIZE;
+		for (int i = x; i < x + 2; i++)
+			for (int j = y; j < y + 3; j++) {
 				Item item = gameMap.getItemAt(i, j);
-				if(item != null)
+				if (item != null)
 					kangaroo.setItem(item);
 			}
 	}
-	
+
 	private void changeFalling() {
 		Rectangle2D kangBounds = kangaroo.getPolygon().getBounds2D();
-		if((!gameMap.getTile((int)(kangBounds.getMaxX()/32),(int)(kangBounds.getMaxY()/32)+1).isCollidable()) && !gameMap.getTile((int)(kangBounds.getMaxX()/32)-1,(int)(kangBounds.getMaxY()/32)+1).isCollidable()) {
+		if ((!gameMap.getTile((int) (kangBounds.getMaxX() / 32),
+				(int) (kangBounds.getMaxY() / 32) + 1).isCollidable())
+				&& !gameMap.getTile((int) (kangBounds.getMaxX() / 32) - 1,
+						(int) (kangBounds.getMaxY() / 32) + 1).isCollidable()) {
 			kangaroo.setFalling(true);
 		}
-		
+
 	}
 
 	/**

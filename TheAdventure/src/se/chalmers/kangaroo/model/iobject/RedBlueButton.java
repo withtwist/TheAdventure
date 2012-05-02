@@ -3,6 +3,7 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveObject;
 import se.chalmers.kangaroo.model.InteractiveTile;
+import se.chalmers.kangaroo.model.Position;
 
 /**
  * 
@@ -18,11 +19,13 @@ import se.chalmers.kangaroo.model.InteractiveTile;
 public class RedBlueButton implements InteractiveObject {
 	private boolean isRed;
 	private GameMap gameMap;
+	private Position pos;
 
 	
-	public RedBlueButton(boolean isRed, GameMap gameMap){
+	public RedBlueButton(Position p, boolean isRed, GameMap gameMap){
 		this.isRed = isRed;
 		this.gameMap = gameMap;
+		this.pos = p;
 	}
 
 	@Override
@@ -57,6 +60,11 @@ public class RedBlueButton implements InteractiveObject {
 		}else{
 			return currentId+1;
 		}
+	}
+	
+	@Override
+	public Position getPosition() {
+		return pos;
 	}
 
 }
