@@ -7,6 +7,7 @@ import se.chalmers.kangaroo.model.creatures.TurtleCreature;
 import se.chalmers.kangaroo.model.iobject.OnOffButton;
 import se.chalmers.kangaroo.model.iobject.RedBlueButton;
 import se.chalmers.kangaroo.model.item.DoubleJumpItem;
+import se.chalmers.kangaroo.model.item.ImmortalItem;
 import se.chalmers.kangaroo.model.item.StopTimeItem;
 
 
@@ -53,7 +54,9 @@ public class Factory {
 		case 51:
 			return new DoubleJumpItem(i, x, y);
 		case 102:
-			return new StopTimeItem(5, x, y);
+			return new StopTimeItem(i, 5, x, y);
+		case 53:
+			return new ImmortalItem(i, x, y);
 		default:
 			return null;
 		}
