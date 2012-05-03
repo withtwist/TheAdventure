@@ -20,6 +20,8 @@ import se.chalmers.kangaroo.model.Position;
 
 public class GameView extends JPanelWithBackground {
 	private GameModel gm;
+	
+	private KangarooAnimation ka;
 
 
 	// private Graphics slickGraphics = new Graphics();
@@ -28,6 +30,7 @@ public class GameView extends JPanelWithBackground {
 	public GameView(String imagepath, GameModel gm) {
 		super(imagepath);
 		this.gm = gm;
+		ka = new KangarooAnimation("resources/sheets/kangaroo_58x64_right.png", 58, 64);
 	}
 
 	@Override
@@ -79,8 +82,11 @@ public class GameView extends JPanelWithBackground {
 			int[] xs = {p.getX(), p.getX()+32, p.getX()+32, p.getX()};
 			int[] ys = {p.getY()-64, p.getY()-64, p.getY()-1, p.getY()-1};
 			g.drawPolygon(new Polygon(xs, ys, 4));
+			ka.drawSprite(g, p.getX(), p.getY());
 		}else if(drawFrom == gm.getGameMap().getTileWidth() - 33){
 			int[] xs = {p.getX()-drawFrom*32, p.getX()+32-drawFrom*32, p.getX()+32-drawFrom*32, p.getX()-drawFrom*32};
+
+
 			int[] ys = {p.getY()-64, p.getY()-64, p.getY()-1, p.getY()-1};
 			g.drawPolygon(new Polygon(xs, ys, 4));
 		}else {
