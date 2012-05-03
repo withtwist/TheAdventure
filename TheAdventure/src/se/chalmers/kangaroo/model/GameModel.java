@@ -84,7 +84,6 @@ public class GameModel {
 	 * A method to update the game.
 	 */
 	public void update() {
-		kangaroo.enableDoubleJump();
 		oldPos = kangaroo.getPosition();
 		kangaroo.move();
 		updateCreatures();
