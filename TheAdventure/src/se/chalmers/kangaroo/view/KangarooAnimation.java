@@ -26,9 +26,11 @@ public class KangarooAnimation implements Animation {
 	}
 	@Override
 	public void drawSprite(Graphics2D g, int x, int y) {
-		
-			g.drawImage(sheet, x, y, x+widthPerFrame, y+widthPerFrame, currentFrame*widthPerFrame, currentFrame*height, (currentFrame*widthPerFrame)+widthPerFrame, (currentFrame*height)+height);
-		
-		
+		if(tick==30) {
+			tick = 0;
+			currentFrame = (currentFrame%3)+1;
+		}
+		g.drawImage(sheet, x, y, x+widthPerFrame, y+widthPerFrame, currentFrame*widthPerFrame, currentFrame*height, (currentFrame*widthPerFrame)+widthPerFrame, (currentFrame*height)+height, null);
+		tick++;
 	}
 }
