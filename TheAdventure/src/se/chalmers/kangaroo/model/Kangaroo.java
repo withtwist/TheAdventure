@@ -224,6 +224,15 @@ public class Kangaroo implements Movable {
 		
 
 	}
+	/**
+	 * Resets the kangaroos position to where it was at the begining and also sets all the speeds to 0.
+	 */
+	public void reset(){
+		this.pos = spawnPos;
+		this.horizontalSpeed = 0f;
+		this.verticalSpeed = 0f;
+		this.isFalling = true;
+	}
 
 	@Override
 	public int hashCode() {
