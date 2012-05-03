@@ -3,18 +3,18 @@ package se.chalmers.kangaroo.constants;
 import java.awt.Dimension;
 
 /**
- * A class to keep track of all constants.
- * A class with only public static final variables.
+ * A class to keep track of all constants. A class with only public static final
+ * variables.
+ * 
  * @author Arvid
- *
+ * 
  */
-public  class Constants {
+public class Constants {
 	/*
-	 * A constant to keep track of the tile size so
-	 * we can check collition.
+	 * A constant to keep track of the tile size so we can check collition.
 	 */
 	public static final int TILE_SIZE = 32;
-	
+
 	/*
 	 * Constant to get specific tiles.
 	 */
@@ -28,13 +28,13 @@ public  class Constants {
 	public static final String IOBJECTS_IDS = " 71 72 ";
 	public static final String INTERACTIVE_TILES = " 91 92 93 94 ";
 	public static final String INTERACTIVE_TILES_REDBLUE = " 91 92 93 94 ";
-	
+
 	/*
 	 * Constants that is used normally.
 	 */
 	public static final double NANO_TO_SECOND = 0.000000001;
 	public static final double NANO_TO_MILLI = 0.000001;
-	
+
 	/*
 	 * Constants for resolution of the game screen.
 	 */

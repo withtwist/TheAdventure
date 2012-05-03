@@ -2,7 +2,6 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
-
 /**
  * This class represents the Kangaroo controlled by the player.
  * 
@@ -13,25 +12,25 @@ import java.awt.Polygon;
 public class Kangaroo implements Movable {
 
 	private Item item;
-	
+
 	private Position pos;
 	private Position spawnPos;
-	
+
 	private float verticalSpeed = 0;
 	private float horizontalSpeed = 0;
-	
+
 	private float maxSpeed = 5f;
-	
+
 	private Direction direction = Direction.DIRECTION_NONE;
-	
+
 	private boolean enableDoubleJump = false;
-	
+
 	private boolean isStillJumping = false;
 	private boolean isJumping = false;
 	private boolean isFalling = false;
-	
+
 	private boolean immortal = false;
-	
+
 	private Polygon kangarooPoly;
 
 	/**
@@ -41,12 +40,14 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Kangaroo(Position spawnPos) {
-		
+
 		this.pos = spawnPos;
 		this.spawnPos = spawnPos;
-		int[] xcords = {pos.getX(),pos.getX()+32,pos.getX()+32,pos.getX()};
-		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+64,pos.getY()+64};
-		kangarooPoly = new Polygon(xcords,ycords,4);
+		int[] xcords = { pos.getX(), pos.getX() + 32, pos.getX() + 32,
+				pos.getX() };
+		int[] ycords = { pos.getY(), pos.getY(), pos.getY() + 64,
+				pos.getY() + 64 };
+		kangarooPoly = new Polygon(xcords, ycords, 4);
 	}
 
 	/**
@@ -57,14 +58,18 @@ public class Kangaroo implements Movable {
 	public Item getItem() {
 		return item;
 	}
+
 	/**
 	 * Returns the kangaroos polygon.
+	 * 
 	 * @return
 	 */
 	public Polygon getPolygon() {
-		int[] xcords = {pos.getX(),pos.getX()+31,pos.getX()+31,pos.getX()};
-		int[] ycords = {pos.getY(),pos.getY(),pos.getY()+63,pos.getY()+63};
-		return new Polygon(xcords,ycords,4);
+		int[] xcords = { pos.getX(), pos.getX() + 31, pos.getX() + 31,
+				pos.getX() };
+		int[] ycords = { pos.getY(), pos.getY(), pos.getY() + 63,
+				pos.getY() + 63 };
+		return new Polygon(xcords, ycords, 4);
 	}
 
 	/**
@@ -73,161 +78,191 @@ public class Kangaroo implements Movable {
 	 * @param newItem
 	 */
 	public void setItem(Item newItem) {
-		if(this.item != null) {
+		if (this.item != null) {
 			this.item.onDrop(this);
 		}
-			this.item = newItem;
-			this.item.onPickup(this);
+		this.item = newItem;
+		this.item.onPickup(this);
 	}
+
 	/**
 	 * Removes the current item on the kangaroo;
 	 */
 	public void removeItem() {
-		this.item=  null;
+		this.item = null;
 	}
+
 	/**
 	 * Moves the Kangaroo with the specified delta-y and delta-x.
 	 */
 	public void setRelativePosition(int dx, int dy) {
-		this.pos = new Position(pos.getX()+dx, pos.getY()+dy);
+		this.pos = new Position(pos.getX() + dx, pos.getY() + dy);
 	}
+
 	/**
 	 * Moves the Kangaroo to the specified position.
+	 * 
 	 * @param p
 	 */
 	public void setPosition(Position p) {
 		this.pos = p;
 	}
+
 	/**
 	 * Sets the direction that the Kangaroo is moving towards.
+	 * 
 	 * @param d
 	 */
 	public void setDirection(Direction d) {
 		this.direction = d;
 	}
+
 	/**
 	 * Returns the vertical speed of the Kangaroo.
+	 * 
 	 * @return
 	 */
 	public float getVerticalSpeed() {
 		return verticalSpeed;
 	}
+
 	/**
 	 * Sets the vertical speed of the Kangaroo.
+	 * 
 	 * @param f
 	 */
 	public void setVerticalSpeed(Float f) {
 		this.verticalSpeed = f;
 	}
+
 	/**
 	 * Returns the current position of the Kangaroo.
+	 * 
 	 * @return
 	 */
 	public Position getPosition() {
 		return pos;
 	}
+
 	/**
 	 * Returns the current direction the kangaroo is facing.
+	 * 
 	 * @return
 	 */
 	public Direction getDirection() {
 		return direction;
 	}
+
 	/**
 	 * Returns the spawnposition of the kangaroo.
+	 * 
 	 * @return
 	 */
 	public Position getSpawnPosition() {
 		return spawnPos;
 	}
+
 	/**
 	 * Enables doublejump.
 	 */
 	public void enableDoubleJump() {
 		this.enableDoubleJump = true;
 	}
+
 	/**
 	 * Disables doublejump.
 	 */
 	public void disableDoubleJump() {
 		this.enableDoubleJump = false;
 	}
+
 	public boolean isDoubleJumpEnabled() {
 		return enableDoubleJump;
 	}
-	
-	public void setStillJumping(boolean isStillJumping){
+
+	public void setStillJumping(boolean isStillJumping) {
 		this.isStillJumping = isStillJumping;
 	}
-	
-	public boolean getStillJumping(){
+
+	public boolean getStillJumping() {
 		return isStillJumping;
 	}
+
 	/**
 	 * Makes the Kangaroo jump by setting its vertical speed.
 	 */
 	public void jump() {
-		if(isJumping==false) {
+		if (isJumping == false) {
 			this.isJumping = true;
 			this.isFalling = true;
-			//TODO Fix so jump is key sensitive
+			// TODO Fix so jump is key sensitive
 			new Thread() {
 				@Override
 				public void start() {
 					try {
-						while(isStillJumping){
+						while (isStillJumping) {
 							verticalSpeed += -0.33f;
-							if(verticalSpeed <= -7.2f){
+							if (verticalSpeed <= -7.2f) {
 								isStillJumping = false;
 							}
 						}
-					}finally{}
+					} finally {
+					}
 				}
 			}.start();
-			
-						
-		} else if(enableDoubleJump) {
+
+		} else if (enableDoubleJump) {
 			this.verticalSpeed = -8.7f;
 			enableDoubleJump = false;
 		}
 	}
+
 	/**
 	 * Sets the variable isFalling.
+	 * 
 	 * @param b
 	 */
 	public void setFalling(Boolean b) {
 		this.isFalling = b;
 	}
+
 	/**
 	 * Returns true of the kangaroo is immortal.
+	 * 
 	 * @return
 	 */
 	public boolean isImmortal() {
 		return immortal;
 	}
+
 	/**
 	 * Sets the kangaroo immortalstatus to either true or false;
+	 * 
 	 * @param b
 	 */
 	public void setImmortal(boolean b) {
 		this.immortal = b;
 	}
+
 	/**
 	 * Sets the maximum speed of the kangaroo.
+	 * 
 	 * @param f
 	 */
 	public void setMaxSpeed(float f) {
 		maxSpeed = f;
 	}
+
 	public void updateKangaroo() {
 		this.move();
-		
 
 	}
+
 	/**
-	 * Resets the kangaroos position to where it was at the begining and also sets all the speeds to 0.
+	 * Resets the kangaroos position to where it was at the begining and also
+	 * sets all the speeds to 0.
 	 */
-	public void reset(){
+	public void reset() {
 		this.pos = spawnPos;
 		this.horizontalSpeed = 0f;
 		this.verticalSpeed = 0f;
@@ -266,30 +301,32 @@ public class Kangaroo implements Movable {
 
 	@Override
 	public void move() {
-	
+
 		if (isFalling && Math.abs(verticalSpeed) < 10f) {
-			verticalSpeed += 0.32f;			
+			verticalSpeed += 0.32f;
 		}
-		
-		if(direction == Direction.DIRECTION_EAST) {			
-			if( horizontalSpeed < maxSpeed) {
+
+		if (direction == Direction.DIRECTION_EAST) {
+			if (horizontalSpeed < maxSpeed) {
 				horizontalSpeed += 0.5f;
 			}
-		} if(direction == Direction.DIRECTION_WEST) {			
-			if( horizontalSpeed > -maxSpeed) {
+		}
+		if (direction == Direction.DIRECTION_WEST) {
+			if (horizontalSpeed > -maxSpeed) {
 				horizontalSpeed -= 0.5f;
 			}
-		} if(direction == Direction.DIRECTION_NONE) {
-			if (horizontalSpeed<0) {				
-				horizontalSpeed += 0.5f;						
-			} else if (horizontalSpeed>0) {				
+		}
+		if (direction == Direction.DIRECTION_NONE) {
+			if (horizontalSpeed < 0) {
+				horizontalSpeed += 0.5f;
+			} else if (horizontalSpeed > 0) {
 				horizontalSpeed -= 0.5f;
-			} 
+			}
 
 		}
-		this.setRelativePosition((int)horizontalSpeed, (int)verticalSpeed);
+		this.setRelativePosition((int) horizontalSpeed, (int) verticalSpeed);
 		isJumping = !(verticalSpeed == 0);
-		
+
 	}
 
 }

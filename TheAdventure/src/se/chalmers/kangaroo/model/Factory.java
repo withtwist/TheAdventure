@@ -11,7 +11,6 @@ import se.chalmers.kangaroo.model.item.DoubleJumpItem;
 import se.chalmers.kangaroo.model.item.ImmortalItem;
 import se.chalmers.kangaroo.model.item.StopTimeItem;
 
-
 /**
  * Creates tiles or interactiveTiles depending on ID.
  * 
@@ -29,29 +28,32 @@ public class Factory {
 	/**
 	 * Creates Tiles (or interactiveTiles) based on ID.
 	 * 
-	 * @param i, the id of the tile
+	 * @param i
+	 *            , the id of the tile
 	 * @return the tile created
 	 */
 	public Tile createTile(int i, int x, int y) {
-		if (Constants.INTERACTIVE_TILES.contains(" " + i+ " ")) {
-			return new InteractiveTile(i, x, y); 
-		}else if(Constants.ITEM_IDS.contains(" "+i+" ")
-				|| Constants.IOBJECTS_IDS.contains(" "+i+" ")
-				|| Constants.CREATURE_IDS.contains(" "+i+" ")){
+		if (Constants.INTERACTIVE_TILES.contains(" " + i + " ")) {
+			return new InteractiveTile(i, x, y);
+		} else if (Constants.ITEM_IDS.contains(" " + i + " ")
+				|| Constants.IOBJECTS_IDS.contains(" " + i + " ")
+				|| Constants.CREATURE_IDS.contains(" " + i + " ")) {
 			return new Tile(0, x, y);
-		}
-		else {
-		
+		} else {
+
 			return new Tile(i, x, y);
 		}
 	}
+
 	/**
 	 * Creates different items depending on the ID.
-	 * @param i, the id of the item
+	 * 
+	 * @param i
+	 *            , the id of the item
 	 * @return the item created
 	 */
-	public Item createItem(int i, int x, int y){
-		switch(i){
+	public Item createItem(int i, int x, int y) {
+		switch (i) {
 		case 51:
 			return new DoubleJumpItem(i, x, y);
 		case 102:
@@ -62,13 +64,16 @@ public class Factory {
 			return null;
 		}
 	}
+
 	/**
 	 * Creates different creatures depending on the ID.
-	 * @param i, the id of the creature
+	 * 
+	 * @param i
+	 *            , the id of the creature
 	 * @return the creature created
 	 */
-	public Creature createCreature(int i, Position p){
-		switch(i){
+	public Creature createCreature(int i, Position p) {
+		switch (i) {
 		case 111:
 			return new CrabCreature(p);
 		case 112:
@@ -83,14 +88,15 @@ public class Factory {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 
-	 * @param i, the id of the creature
+	 * @param i
+	 *            , the id of the creature
 	 * @return the interactive object created
 	 */
-	public InteractiveObject createIObjects(int i, int x, int y, GameMap gm){
-		switch(i){
+	public InteractiveObject createIObjects(int i, int x, int y, GameMap gm) {
+		switch (i) {
 		case 71:
 			return new RedBlueButton(new Position(x, y), i, gm);
 		case 72:

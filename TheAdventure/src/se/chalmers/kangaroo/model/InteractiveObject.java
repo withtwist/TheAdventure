@@ -31,8 +31,8 @@ public interface InteractiveObject {
 	 * @return Returns the new Id that will be used
 	 */
 	public int getChangedId(int currentId);
-	
+
 	public Position getPosition();
-	
+
 	public int getId();
 }

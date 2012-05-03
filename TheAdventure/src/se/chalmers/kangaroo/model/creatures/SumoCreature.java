@@ -25,7 +25,7 @@ public class SumoCreature implements Creature {
 	private double verticalSpeed;
 
 	public SumoCreature(Position pos) {
-		
+
 		this.pos = pos;
 	}
 

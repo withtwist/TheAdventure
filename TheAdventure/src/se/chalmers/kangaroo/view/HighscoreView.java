@@ -11,7 +11,7 @@ import se.chalmers.kangaroo.constants.*;
 /**
  * 
  * @author pavlov
- *
+ * 
  */
 public class HighscoreView extends JPanelWithBackground implements
 		MouseListener {
@@ -33,29 +33,34 @@ public class HighscoreView extends JPanelWithBackground implements
 		back = new Menuebutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
 		this.setLayout(new BorderLayout());
-		
 
-		//Header
+		// Header
 		JPanel headerPanel = new JPanel();
 		headerPanel.setLayout(new BorderLayout());
 		int titleHeight = 100;
-		
+
 		this.add(headerPanel, BorderLayout.NORTH);
 		this.setMinimumSize(Constants.RESOLUTION);
 		this.setMaximumSize(Constants.RESOLUTION);
 		this.setPreferredSize(Constants.RESOLUTION);
-		
-		//Back-button
+
+		// Back-button
 		JPanel backPanel = new JPanel(new BorderLayout());
 		backPanel.add(back, BorderLayout.WEST);
-		backPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
-		backPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
-		backPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
+		backPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				titleHeight));
+		backPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				titleHeight));
+		backPanel.setPreferredSize(new Dimension(
+				Constants.RESOLUTION_WIDTH / 3, titleHeight));
 		headerPanel.add(backPanel, BorderLayout.WEST);
-		
-		//Title
+
+		// Title
 		JPanel titlePanel = new JPanel();
-		title = new JLabel(Constants.TITLE_START + "Highscore - Choose Level</font></body></html>" + Constants.TITLE_END);
+
+		title = new JLabel(
+				"<html><body><font size='45'>Highscore - Choose Level</font></body></html>");
+
 		titlePanel.add(title);
 		headerPanel.add(title, BorderLayout.CENTER);
 
@@ -75,7 +80,7 @@ public class HighscoreView extends JPanelWithBackground implements
 				Constants.RESOLUTION_HEIGHT - titleHeight));
 		levelPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				Constants.RESOLUTION_HEIGHT - titleHeight));
-		
+
 		// Level 1
 		lv1 = new Menuebutton("resources/images/levels/level_1.png");
 		lv1.addMouseListener(this);
@@ -134,36 +139,38 @@ public class HighscoreView extends JPanelWithBackground implements
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == back)
-			back.setIcon(new ImageIcon("resources/images/buttons/back_onHover.png"));
-		
+			back.setIcon(new ImageIcon(
+					"resources/images/buttons/back_onHover.png"));
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == back){
+		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
 		}
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == back){
-			back.setIcon(new ImageIcon("resources/images/buttons/back_onSelect.png"));
+		if (e.getSource() == back) {
+			back.setIcon(new ImageIcon(
+					"resources/images/buttons/back_onSelect.png"));
 			cv.menuView();
 		}
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (e.getSource() == back){
+		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
-			//TODO Delete this syso later
+			// TODO Delete this syso later
 			System.out.println("Back to menu");
 			cv.menuView();
 		}
-		
+
 	}
 
 }

@@ -33,7 +33,7 @@ public class InteractiveTile extends Tile {
 	 * Method that change the state of collidable.
 	 */
 	public void onTrigger() {
-		int newId = getId() % 2 == 1 ? getId()+1 : getId()-1;
+		int newId = getId() % 2 == 1 ? getId() + 1 : getId() - 1;
 		changeId(newId);
 		collidable = !collidable;
 	}
@@ -47,7 +47,7 @@ public class InteractiveTile extends Tile {
 	public String toString() {
 		return super.toString() + "InteractiveTile";
 	}
-	
+
 	@Override
 	public boolean isCollidable() {
 		return collidable;

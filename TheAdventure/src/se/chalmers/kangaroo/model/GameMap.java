@@ -20,7 +20,7 @@ public class GameMap {
 	private List<InteractiveObject> iObjects = new ArrayList<InteractiveObject>();
 	private List<Item> items = new ArrayList<Item>();
 	private List<Creature> creatures = new ArrayList<Creature>();
-	
+
 	private Item[] sItems;
 	private Creature[] sCreatures;
 
@@ -42,21 +42,21 @@ public class GameMap {
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[0].length; j++) {
 				map[i][j] = tf.createTile((tiles[i][j]), i, j);
-				if (itemList.contains(" " + tiles[i][j]+" "))
+				if (itemList.contains(" " + tiles[i][j] + " "))
 					items.add(tf.createItem(tiles[i][j], i, j));
-				if (creatureList.contains(" "+tiles[i][j]+" "))
+				if (creatureList.contains(" " + tiles[i][j] + " "))
 					creatures.add(tf.createCreature(tiles[i][j], new Position(
 							i * 32, j * 32)));
-				if (iObjectsList.contains(" "+tiles[i][j]+" ")){
+				if (iObjectsList.contains(" " + tiles[i][j] + " ")) {
 					iObjects.add(tf.createIObjects(tiles[i][j], i, j, this));
 				}
-					
+
 			}
 		sItems = new Item[items.size()];
-		for(int i = 0; i < sItems.length;i++)
+		for (int i = 0; i < sItems.length; i++)
 			sItems[i] = items.get(i);
 		sCreatures = new Creature[creatures.size()];
-		for(int i = 0; i < sCreatures.length; i++)
+		for (int i = 0; i < sCreatures.length; i++)
 			sCreatures[i] = creatures.get(i);
 	}
 
@@ -68,13 +68,11 @@ public class GameMap {
 	 */
 	public InteractiveObject getIObjectAt(int x, int y) {
 		Position p = new Position(x, y);
-		for(int i = 0; i < iObjects.size(); i++){
+		for (int i = 0; i < iObjects.size(); i++) {
 			if (iObjects.get(i).getPosition().equals(p))
 				return iObjects.get(i);
 		}
-			
-			
-				
+
 		return null;
 	}
 
@@ -86,8 +84,8 @@ public class GameMap {
 	public int getIObjectSize() {
 		return iObjects.size();
 	}
-	
-	public InteractiveObject getIObject(int i){
+
+	public InteractiveObject getIObject(int i) {
 		return iObjects.get(i);
 	}
 
@@ -99,36 +97,41 @@ public class GameMap {
 	 */
 	public Item getItemAt(int x, int y) {
 		Position p = new Position(x, y);
-		for(int i = 0; i < items.size(); i++){
-			if (items.get(i).getPosition().equals(p)){
+		for (int i = 0; i < items.size(); i++) {
+			if (items.get(i).getPosition().equals(p)) {
 				return items.remove(i);
 			}
-			
+
 		}
-			
+
 		return null;
 	}
+
 	/**
-	 * Return the item at which they are drawn. 
+	 * Return the item at which they are drawn.
+	 * 
 	 * @param i
 	 * @return
 	 */
-	public Item getItem(int i){
+	public Item getItem(int i) {
 		return items.get(i);
 	}
+
 	/**
-	 * The number of items currently on the map. 
+	 * The number of items currently on the map.
+	 * 
 	 * @return
 	 */
-	public int amountOfItems(){
+	public int amountOfItems() {
 		return items.size();
 	}
+
 	/**
-	 * Will reset the items to the first state. 
+	 * Will reset the items to the first state.
 	 */
-	public void resetItems(){
+	public void resetItems() {
 		items.clear();
-		for(Item i : sItems)
+		for (Item i : sItems)
 			items.add(i);
 	}
 
@@ -150,19 +153,22 @@ public class GameMap {
 	public int getCreatureSize() {
 		return creatures.size();
 	}
+
 	/**
-	 * Will reset the creatures to the first state. 
+	 * Will reset the creatures to the first state.
 	 */
-	public void resetCreatures(){
+	public void resetCreatures() {
 		creatures.clear();
-		for(Creature c : sCreatures)
+		for (Creature c : sCreatures)
 			creatures.add(c);
 	}
+
 	/**
 	 * Kills and removes the given creature from the map.
+	 * 
 	 * @param c
 	 */
-	public void killCreature(Creature c){
+	public void killCreature(Creature c) {
 		creatures.remove(c);
 	}
 

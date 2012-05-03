@@ -91,16 +91,23 @@ public class GameModel {
 	}
 
 	private void updateCreatures() {
-		for( int i = 0; i < gameMap.getCreatureSize(); i++){
+		for (int i = 0; i < gameMap.getCreatureSize(); i++) {
 			Creature c = gameMap.getCreatureAt(i);
 			Rectangle2D cRect = c.getPolygon().getBounds2D();
-			if(!(gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMinY()/32)+1).isCollidable()) || !(gameMap.getTile((int)(cRect.getMaxX()/32), (int)(cRect.getMinY()/32)+1).isCollidable()) || (gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMinY()/32))).isCollidable() || gameMap.getTile((int)(cRect.getMaxX()/32), (int)(cRect.getMinY()/32)).isCollidable()) {
+			if (!(gameMap.getTile((int) (cRect.getMinX() / 32),
+					(int) (cRect.getMinY() / 32) + 1).isCollidable())
+					|| !(gameMap.getTile((int) (cRect.getMaxX() / 32),
+							(int) (cRect.getMinY() / 32) + 1).isCollidable())
+					|| (gameMap.getTile((int) (cRect.getMinX() / 32),
+							(int) (cRect.getMinY() / 32))).isCollidable()
+					|| gameMap.getTile((int) (cRect.getMaxX() / 32),
+							(int) (cRect.getMinY() / 32)).isCollidable()) {
 				c.changeDirection();
 			}
 			c.updateCreature();
-			
+
 		}
-		
+
 	}
 
 	/**
@@ -122,8 +129,8 @@ public class GameModel {
 		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
 		int y = kangaroo.getPosition().getY() / Constants.TILE_SIZE;
 		for (int i = x; i < x + 2; i++)
-			for (int j = y; j < y + 3; j++) 
-				if(gameMap.getIObjectAt(i, j) != null)
+			for (int j = y; j < y + 3; j++)
+				if (gameMap.getIObjectAt(i, j) != null)
 					gameMap.getIObjectAt(i, j).onCollision();
 	}
 

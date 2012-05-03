@@ -21,7 +21,6 @@ public class TurtleCreature implements Creature {
 	private Position pos;
 	private static final int ID = 112;
 
-
 	public TurtleCreature(Position spawnPos) {
 		pos = spawnPos;
 		w = new Waiter();
@@ -81,7 +80,7 @@ public class TurtleCreature implements Creature {
 	@Override
 	public void move() {
 		if (!inShell) {
-			pos = new Position(pos.getX()-2, pos.getY());
+			pos = new Position(pos.getX() - 2, pos.getY());
 		}
 	}
 

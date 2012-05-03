@@ -117,7 +117,7 @@ public class BullCreature implements Creature {
 	public int getId() {
 		// TODO Auto-generated method stub
 		return 0;
-	} 
+	}
 
 	@Override
 	public Position getPosition() {

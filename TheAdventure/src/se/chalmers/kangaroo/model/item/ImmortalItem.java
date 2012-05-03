@@ -14,10 +14,10 @@ public class ImmortalItem implements Item {
 
 	private Position pos;
 	private Kangaroo kangaroo;
-	private int id; 
+	private int id;
 
 	public ImmortalItem(int id, int x, int y) {
-		this.id = id; 
+		this.id = id;
 		this.pos = new Position(x, y);
 	}
 
@@ -46,9 +46,10 @@ public class ImmortalItem implements Item {
 	public void onUse(Kangaroo k) {
 		k.setImmortal(true);
 
-	/**
-	 * Waits for 5 seconds and then changes the kangaroo to a mere mortal again.
-	 */
+		/**
+		 * Waits for 5 seconds and then changes the kangaroo to a mere mortal
+		 * again.
+		 */
 		new Thread() {
 			@Override
 			public void run() {

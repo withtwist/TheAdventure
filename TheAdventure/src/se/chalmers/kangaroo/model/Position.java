@@ -67,7 +67,7 @@ public class Position {
 	 * @return the coordinates as a String.
 	 */
 	public String toString() {
-		return "x: " + x +". y: " + y +".";
+		return "x: " + x + ". y: " + y + ".";
 	}
 
 	@Override

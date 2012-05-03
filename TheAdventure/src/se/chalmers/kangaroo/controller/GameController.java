@@ -24,7 +24,7 @@ public class GameController implements KeyListener {
 	private GameView gv;
 	private OptionView ov;
 	private HighscoreView hv;
-	//TODO fix so you can go back to the menu
+	// TODO fix so you can go back to the menu
 	private MenuView mv;
 
 	private CustomKeys ck;
@@ -38,8 +38,8 @@ public class GameController implements KeyListener {
 	public GameView getGameView() {
 		return gv;
 	}
-	
-	public MenuView getMenuView(){
+
+	public MenuView getMenuView() {
 		return mv;
 	}
 
@@ -72,7 +72,7 @@ public class GameController implements KeyListener {
 
 		// Jump
 		if (code == ck.getJumpKey()) {
-			if(gm.getKangaroo().getStillJumping() == false){
+			if (gm.getKangaroo().getStillJumping() == false) {
 				gm.getKangaroo().setStillJumping(true);
 				gm.getKangaroo().jump();
 			}
@@ -89,7 +89,7 @@ public class GameController implements KeyListener {
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
 		} else {
-			//If any other keys are pressed, restarts the level.
+			// If any other keys are pressed, restarts the level.
 			gm.restartLevel();
 		}
 
@@ -97,7 +97,7 @@ public class GameController implements KeyListener {
 
 	public void releaseKey(KeyEvent e) {
 		int code = e.getKeyCode();
-		//TODO Fix so jump is key sensitive
+		// TODO Fix so jump is key sensitive
 		if (code == ck.getJumpKey()) {
 			gm.getKangaroo().setStillJumping(false);
 		}

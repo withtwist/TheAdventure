@@ -32,14 +32,14 @@ public class RedBlueButton implements InteractiveObject {
 
 	@Override
 	public boolean isCollidable(int a) {
-		//TODO
+		// TODO
 		return true;
 	}
 
 	@Override
 	public void onCollision() {
 		if (!sleep) {
-			id = id == 71 ? id+1 : id-1;
+			id = id == 71 ? id + 1 : id - 1;
 			int x = gameMap.getTileWidth();
 			int y = gameMap.getTileHeight();
 			for (int i = 0; i < y; i++) {
@@ -51,14 +51,14 @@ public class RedBlueButton implements InteractiveObject {
 				}
 			}
 			sleep = true;
-			new Thread(){
+			new Thread() {
 				@Override
 				public void run() {
-					try{
+					try {
 						sleep(600);
 						sleep = false;
-					}catch(InterruptedException e){
-						
+					} catch (InterruptedException e) {
+
 					}
 				};
 			}.start();

@@ -6,14 +6,15 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 /**
- * This is a class handling the map-files.
- * It is used to take a .tmx file (maybe more in the future) and 
- * make them readable by putting them in a matrix of IDs. 
+ * This is a class handling the map-files. It is used to take a .tmx file (maybe
+ * more in the future) and make them readable by putting them in a matrix of
+ * IDs.
+ * 
  * @author alburgh
- *
+ * 
  */
 public class FileToMap {
-	
+
 	/**
 	 * A method for reading a tmx-file to a matrix of IDs. It is important that
 	 * the layer in the .tmx is called "tiles" and that it is not compressed or
@@ -21,8 +22,8 @@ public class FileToMap {
 	 * 
 	 * @param fileName
 	 *            , the filename to the map
-	 * @return null if unsuccessful, otherwise a matrix of ints where each
-	 *         int is an id.
+	 * @return null if unsuccessful, otherwise a matrix of ints where each int
+	 *         is an id.
 	 */
 	public static int[][] readTmxFileToMap(String fileName) {
 		int[][] tileId = null;

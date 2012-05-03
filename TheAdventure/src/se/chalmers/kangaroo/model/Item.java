@@ -23,13 +23,14 @@ public interface Item {
 	 * so you do not have the special abilities left.
 	 */
 	public void onDrop(Kangaroo k);
+
 	/**
 	 * Activates the effect on the current item in posession.
 	 */
 	public void onUse(Kangaroo k);
-	
+
 	public Position getPosition();
-	
+
 	public int getId();
 
 }

@@ -24,6 +24,7 @@ public class CustomKeys {
 
 	/**
 	 * This is for getting the singleton
+	 * 
 	 * @return the singleton
 	 */
 	public static synchronized CustomKeys getInstance() {
@@ -35,7 +36,9 @@ public class CustomKeys {
 
 	/**
 	 * Sets key binding for jump key.
-	 * @param jumpKey is the key you perform the action jump with.
+	 * 
+	 * @param jumpKey
+	 *            is the key you perform the action jump with.
 	 */
 	public void setJumpKey(int jumpKey) {
 		this.jumpKey = jumpKey;
@@ -44,6 +47,7 @@ public class CustomKeys {
 
 	/**
 	 * Getter for jump key
+	 * 
 	 * @return the key for jump.
 	 */
 	public int getJumpKey() {
@@ -52,7 +56,9 @@ public class CustomKeys {
 
 	/**
 	 * Sets key binding for left key.
-	 * @param leftKey is the key you perform the action go left with.
+	 * 
+	 * @param leftKey
+	 *            is the key you perform the action go left with.
 	 */
 	public void setleftKey(int leftKey) {
 		this.leftKey = leftKey;
@@ -61,6 +67,7 @@ public class CustomKeys {
 
 	/**
 	 * Getter for go left key
+	 * 
 	 * @return the key for go left.
 	 */
 	public int getLeftKey() {
@@ -69,7 +76,9 @@ public class CustomKeys {
 
 	/**
 	 * Sets key binding for right key.
-	 * @param rightKey is the key you perform the action go right with.
+	 * 
+	 * @param rightKey
+	 *            is the key you perform the action go right with.
 	 */
 	public void setRightKey(int rightKey) {
 		this.rightKey = rightKey;
@@ -78,6 +87,7 @@ public class CustomKeys {
 
 	/**
 	 * Getter for go right key
+	 * 
 	 * @return the key for go right.
 	 */
 	public int getRightKey() {
@@ -86,7 +96,9 @@ public class CustomKeys {
 
 	/**
 	 * Sets key binding for item key.
-	 * @param itemKey is the key you perform the action use item with.
+	 * 
+	 * @param itemKey
+	 *            is the key you perform the action use item with.
 	 */
 	public void setItemKey(int itemKey) {
 		this.itemKey = itemKey;
@@ -95,18 +107,19 @@ public class CustomKeys {
 
 	/**
 	 * Getter for use item key
+	 * 
 	 * @return the key for use item.
 	 */
 	public int getItemKey() {
 		return itemKey;
 	}
-	
-	private void writeToFile(){
-		int[] keys = {leftKey, rightKey, jumpKey, itemKey};
+
+	private void writeToFile() {
+		int[] keys = { leftKey, rightKey, jumpKey, itemKey };
 		io.setKeys(keys);
 	}
-	
-	private void loadFromFile(){
+
+	private void loadFromFile() {
 		int[] keys = io.getKeys();
 		leftKey = keys[0];
 		rightKey = keys[1];

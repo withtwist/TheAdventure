@@ -27,25 +27,31 @@ public class CustomKeysIO {
 
 	/**
 	 * Returns the only instance of this class.
+	 * 
 	 * @return
 	 */
 	public static synchronized CustomKeysIO getInstance() {
-		if(instance == null)
+		if (instance == null)
 			instance = new CustomKeysIO();
 		return instance;
 	}
+
 	/**
 	 * Returns the current keys set in the file.
-	 * @return the key codes. 
+	 * 
+	 * @return the key codes.
 	 */
 	public int[] getKeys() {
 		loadKeys();
 		return customKeys;
 	}
+
 	/**
-	 * Use the KeyEvent.keycodes to set your keys.
-	 * You can then use getKeys to return them.
-	 * @param key, the array of key codes. 
+	 * Use the KeyEvent.keycodes to set your keys. You can then use getKeys to
+	 * return them.
+	 * 
+	 * @param key
+	 *            , the array of key codes.
 	 */
 	public void setKeys(int[] key) {
 		try {
@@ -60,6 +66,7 @@ public class CustomKeysIO {
 			System.out.println("Something went wrong with the io writing");
 		}
 	}
+
 	/* Used to make sure that the latest version of the keys are returned. */
 	private static void loadKeys() {
 		try {
@@ -70,7 +77,7 @@ public class CustomKeysIO {
 				customKeys[i] = Integer.parseInt(sc.next());
 				i++;
 			}
-			
+
 			sc.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("No such file exists");

@@ -24,9 +24,9 @@ public class Tile {
 	public Tile(int i, int x, int y) {
 		this.id = i;
 		collidable = Constants.COLLIDE_IDS.contains(" " + id + " ");
-		int xRec[] = {x*32+1,x*32+32,x*32+32,x*32+1};
-		int yRec[] = {y*32+1,y*32+1,y*32+32,y*32+32};
-		poly = new Polygon( xRec , yRec , 4 );
+		int xRec[] = { x * 32 + 1, x * 32 + 32, x * 32 + 32, x * 32 + 1 };
+		int yRec[] = { y * 32 + 1, y * 32 + 1, y * 32 + 32, y * 32 + 32 };
+		poly = new Polygon(xRec, yRec, 4);
 	}
 
 	/**
@@ -46,26 +46,33 @@ public class Tile {
 	public int getId() {
 		return id;
 	}
+
 	/**
 	 * Returns the polygon representing the size.
+	 * 
 	 * @return the polygon
 	 */
-	public Polygon getPolygon(){
+	public Polygon getPolygon() {
 		return poly;
 	}
+
 	/**
 	 * Make it possible for extensions to change ID.
-	 * @param i, the new ID
+	 * 
+	 * @param i
+	 *            , the new ID
 	 */
-	protected void changeId(int i){
+	protected void changeId(int i) {
 		id = i;
 	}
+
 	/**
 	 * Make it possible for extensions to toggle collidable.
 	 */
-	protected void toggleCollidable(){
+	protected void toggleCollidable() {
 		collidable = !collidable;
 	}
+
 	/**
 	 * @return an int representing the hashCode
 	 */
@@ -73,8 +80,9 @@ public class Tile {
 	public int hashCode() {
 		return super.hashCode() * 7 * id * 37;
 	}
+
 	/**
-	 * @return true if obj is a Tile and the id is the same. 
+	 * @return true if obj is a Tile and the id is the same.
 	 */
 	@Override
 	public boolean equals(Object obj) {

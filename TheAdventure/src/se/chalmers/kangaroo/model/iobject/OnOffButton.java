@@ -11,7 +11,7 @@ public class OnOffButton implements InteractiveObject {
 	private Position pos;
 	private int id;
 
-	public OnOffButton(Position p, int id, GameMap gameMap){
+	public OnOffButton(Position p, int id, GameMap gameMap) {
 		this.gameMap = gameMap;
 		this.pos = p;
 		this.id = id;
@@ -45,9 +45,9 @@ public class OnOffButton implements InteractiveObject {
 
 	@Override
 	public int getChangedId(int currentId) {
-		if(currentId == Constants.TILE_ITILE_ON){
+		if (currentId == Constants.TILE_ITILE_ON) {
 			return Constants.TILE_INVISIBLE;
-		}else{
+		} else {
 			return Constants.TILE_ITILE_ON;
 		}
 	}

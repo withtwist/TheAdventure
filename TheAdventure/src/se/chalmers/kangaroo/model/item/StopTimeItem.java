@@ -12,8 +12,9 @@ import se.chalmers.kangaroo.model.Position;
  */
 public class StopTimeItem implements Item {
 	private int seconds;
-	private Kangaroo k; 
-	private int id; 
+	private Kangaroo k;
+	private int id;
+
 	/**
 	 * The constructor takes a Kangaroo and a time that the time is going to
 	 * stop.
@@ -69,12 +70,12 @@ public class StopTimeItem implements Item {
 		@Override
 		public void run() {
 			try {
-				k.getTime().pause();
+				//k.getTime().pause();
 				Thread.sleep(seconds);
 			} catch (InterruptedException e) {
 				System.out.println("Error, interrupted while sleeping.");
 			} finally {
-				k.getTime().unpause();
+				//k.getTime().unpause();
 			}
 
 		}
