@@ -55,11 +55,11 @@ public class HighscoreView extends JPanelWithBackground implements
 		
 		//Title
 		JPanel titlePanel = new JPanel();
-		title = new JLabel("<html><body><font size='45'>Highscore - Choose Level</font></body></html>");
+		title = new JLabel(Constants.TITLE_START + "Highscore - Choose Level</font></body></html>" + Constants.TITLE_END);
 		titlePanel.add(title);
 		headerPanel.add(title, BorderLayout.CENTER);
 
-		headerPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
+		title.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
 		title.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));

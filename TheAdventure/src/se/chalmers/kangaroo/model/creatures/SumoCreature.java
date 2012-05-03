@@ -69,7 +69,7 @@ public class SumoCreature implements Creature {
 		isGroundStomping = true;
 		new Thread() {
 			@Override
-			public void start() {
+			public void run() {
 				try {
 					sleep(2460);
 					isEarthShaking = true;
