@@ -17,6 +17,7 @@ public class IncSpeedItem implements Item, Runnable {
 	public IncSpeedItem(int id, int x, int y) {
 		this.id = id;
 		this.pos = new Position(x,y);
+		t= new Thread();
 	}
 	
 	@Override
