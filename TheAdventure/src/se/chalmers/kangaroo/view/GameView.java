@@ -65,8 +65,10 @@ public class GameView extends JPanelWithBackground {
 			for(int i = 0; i < gm.getGameMap().getCreatureSize(); i++){
 				Creature c = gm.getGameMap().getCreatureAt(i);
 				if(c.getPosition().getX() > drawFrom*32 && c.getPosition().getX() < (drawFrom+32)*32){
-					int[] xs = {p.getX()-drawFrom*32, p.getX()-drawFrom*32+64, p.getX()-drawFrom*32+64, p.getX()-drawFrom*32};
-					int[] ys = {p.getY(), p.getY(), p.getY()+32, p.getY()+32};
+					int xP = c.getPosition().getX();
+					int yP = c.getPosition().getY();
+					int[] xs = {xP-drawFrom*32, xP-drawFrom*32+64, xP-drawFrom*32+64, xP-drawFrom*32};
+					int[] ys = {yP-64, yP-64, yP-32, yP-32};
 					g.drawPolygon(xs, ys, 4);
 				}
 			}
