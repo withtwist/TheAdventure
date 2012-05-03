@@ -84,6 +84,7 @@ public class GameModel {
 	 * A method to update the game.
 	 */
 	public void update() {
+		kangaroo.enableDoubleJump();
 		oldPos = kangaroo.getPosition();
 		kangaroo.move();
 		updateCreatures();
@@ -94,7 +95,7 @@ public class GameModel {
 		for( int i = 0; i < gameMap.getCreatureSize(); i++){
 			Creature c = gameMap.getCreatureAt(i);
 			Rectangle2D cRect = c.getPolygon().getBounds2D();
-			if(!gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMaxY()/32)+1).isCollidable() || !gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMaxY()/32)+1).isCollidable()) {
+			if(!(gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMinY()/32)+1).isCollidable()) || !(gameMap.getTile((int)(cRect.getMaxX()/32), (int)(cRect.getMinY()/32)+1).isCollidable()) || (gameMap.getTile((int)(cRect.getMinX()/32), (int)(cRect.getMinY()/32))).isCollidable() || gameMap.getTile((int)(cRect.getMaxX()/32), (int)(cRect.getMinY()/32)).isCollidable()) {
 				c.changeDirection();
 			}
 			c.updateCreature();
