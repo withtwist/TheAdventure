@@ -8,8 +8,6 @@ import se.chalmers.kangaroo.model.Position;
 
 public class SmurfCreature implements Creature {
 
-	private Polygon poly;
-	
 	private Position currentPos;
 	
 	private Direction currentDir;
@@ -28,7 +26,9 @@ public class SmurfCreature implements Creature {
 
 	@Override
 	public Polygon getPolygon() {
-		return poly;
+		int[] polyX = { currentPos.getX()+0, currentPos.getX() +31, currentPos.getX()+0, currentPos.getX() +31 };
+		int[] polyY = { currentPos.getY()+0, currentPos.getY()+0, currentPos.getY()+31, currentPos.getY()+31 };
+		return new Polygon(polyX,polyY,4);
 	}
 
 	@Override
