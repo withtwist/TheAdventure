@@ -39,7 +39,6 @@ public class GameController implements KeyListener {
 		return gv;
 	}
 	
-	//TODO fix so you can go back to the menu
 	public MenuView getMenuView(){
 		return mv;
 	}
@@ -98,6 +97,7 @@ public class GameController implements KeyListener {
 
 	public void releaseKey(KeyEvent e) {
 		int code = e.getKeyCode();
+		//TODO Fix so jump is key sensitive
 		if (code == ck.getJumpKey()) {
 			gm.getKangaroo().setStillJumping(false);
 		}
