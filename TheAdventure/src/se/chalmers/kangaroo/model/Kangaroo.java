@@ -170,14 +170,22 @@ public class Kangaroo implements Movable {
 		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
-			while(isStillJumping){
-				this.verticalSpeed += -0.1f;
-				if(this.verticalSpeed <= -7.2f){
-					this.isStillJumping = false;
-					System.out.println("MAXIMUM");
+			new Thread() {
+				@Override
+				public void start() {
+					try {
+						while(isStillJumping){
+							verticalSpeed += -0.1f;
+							if(verticalSpeed <= -7.2f){
+								isStillJumping = false;
+								System.out.println("MAXIMUM");
+							}
+						}
+					}finally{}
 				}
-			}
+			}.start();
 			
+						
 		} else if(enableDoubleJump) {
 			this.verticalSpeed = -8.7f;
 			enableDoubleJump = false;
