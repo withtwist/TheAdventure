@@ -87,7 +87,10 @@ public class GameController implements KeyListener {
 
 		// Jump
 		if (code == ck.getJumpKey()) {
-			gm.getKangaroo().jump();
+			if(gm.getKangaroo().getStillJumping() == false){
+				gm.getKangaroo().setStillJumping(true);
+				gm.getKangaroo().jump();
+			}
 
 			// Left
 		} else if (code == ck.getLeftKey()) {
@@ -107,8 +110,13 @@ public class GameController implements KeyListener {
 
 	}
 
-	private void releaseKey(KeyEvent e) {
+	public void releaseKey(KeyEvent e) {
 		int code = e.getKeyCode();
+		if (code == ck.getJumpKey()) {
+			gm.getKangaroo().setStillJumping(false);
+			System.out.println(gm.getKangaroo().getStillJumping() + "Troll");
+			System.out.println("Troll");
+		}
 		switch (code) {
 		case KeyEvent.VK_LEFT:
 			gm.getKangaroo().setDirection(Direction.DIRETION_NONE);
@@ -123,13 +131,13 @@ public class GameController implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		pressedKey(e);
+		
 
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		releaseKey(e);
-
 	}
 
 	@Override

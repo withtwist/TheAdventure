@@ -26,6 +26,7 @@ public class Kangaroo implements Movable {
 	
 	private boolean enableDoubleJump = false;
 	
+	private boolean isStillJumping = false;
 	private boolean isJumping = false;
 	private boolean isFalling = false;
 	
@@ -154,6 +155,14 @@ public class Kangaroo implements Movable {
 	public boolean isDoubleJumpEnabled() {
 		return enableDoubleJump;
 	}
+	
+	public void setStillJumping(boolean isStillJumping){
+		this.isStillJumping = isStillJumping;
+	}
+	
+	public boolean getStillJumping(){
+		return isStillJumping;
+	}
 	/**
 	 * Makes the Kangaroo jump by setting its vertical speed.
 	 */
@@ -161,7 +170,14 @@ public class Kangaroo implements Movable {
 		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
-			this.verticalSpeed = -8.7f;		
+			while(isStillJumping){
+				this.verticalSpeed += -0.1f;
+				if(this.verticalSpeed <= -7.2f){
+					this.isStillJumping = false;
+					System.out.println("MAXIMUM");
+				}
+			}
+			
 		} else if(enableDoubleJump) {
 			this.verticalSpeed = -8.7f;
 			enableDoubleJump = false;
@@ -235,7 +251,7 @@ public class Kangaroo implements Movable {
 	public void move() {
 	
 		if (isFalling && Math.abs(verticalSpeed) < 10f) {
-			verticalSpeed += 0.5f;			
+			verticalSpeed += 0.32f;			
 		}
 		
 		if(direction == Direction.DIRECTION_EAST) {			
