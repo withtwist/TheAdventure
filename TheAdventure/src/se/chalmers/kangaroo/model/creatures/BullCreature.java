@@ -87,11 +87,6 @@ public class BullCreature implements Creature {
 		if (getClass() != obj.getClass())
 			return false;
 		BullCreature other = (BullCreature) obj;
-		if (bullPolygon == null) {
-			if (other.bullPolygon != null)
-				return false;
-		} else if (!bullPolygon.equals(other.bullPolygon))
-			return false;
 		if (health != other.health)
 			return false;
 		return true;
