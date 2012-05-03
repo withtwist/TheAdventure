@@ -64,10 +64,16 @@ public class BlackAndWhiteCreature implements Creature{
 	public String toString() {
 		return "BlackAndWhiteCreature [pos=" + pos + "]";
 	}
+	/**
+	 * Changes the direction of the creature
+	 */
 	@Override
 	public void changeDirection() {
 		direction = direction == Direction.DIRECTION_WEST ? Direction.DIRECTION_EAST : Direction.DIRECTION_WEST;
 	}
+	/**
+	 * Moves the creature
+	 */
 	@Override
 	public void move() {
 		if(direction == Direction.DIRECTION_WEST){
@@ -76,14 +82,23 @@ public class BlackAndWhiteCreature implements Creature{
 			pos = new Position(pos.getX()+speed, pos.getY());
 		}
 	}
+	/**
+	 * Updates the creature (moves it and may change speed etc)
+	 */
 	@Override
 	public void updateCreature() {
 		move();
 	}
+	/**
+	 * Returns the id of this creature
+	 */
 	@Override
 	public int getId() {
 		return ID;
 	}
+	/**
+	 * Returns the position of this creature.
+	 */
 	@Override
 	public Position getPosition() {
 		return pos;
