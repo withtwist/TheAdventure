@@ -82,7 +82,7 @@ public class GameView extends JPanelWithBackground {
 			int[] xs = {p.getX(), p.getX()+32, p.getX()+32, p.getX()};
 			int[] ys = {p.getY()-64, p.getY()-64, p.getY()-1, p.getY()-1};
 			g.drawPolygon(new Polygon(xs, ys, 4));
-			ka.drawSprite(g, p.getX(), p.getY());
+			ka.drawSprite(g, p.getX(), p.getY(), this);
 		}else if(drawFrom == gm.getGameMap().getTileWidth() - 33){
 			int[] xs = {p.getX()-drawFrom*32, p.getX()+32-drawFrom*32, p.getX()+32-drawFrom*32, p.getX()-drawFrom*32};
 
