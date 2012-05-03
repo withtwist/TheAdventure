@@ -105,29 +105,17 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == newGame) {
 			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
-<<<<<<< HEAD
-=======
-			// TODO Delete the syso
-			System.out.println("New Game");
->>>>>>> ran format
+
 			cv.gameView();
 		}
 		if (e.getSource() == highScore) {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
-<<<<<<< HEAD
-=======
-			// TODO Delete the syso
-			System.out.println("High Score");
->>>>>>> ran format
+
 			cv.highscoreView();
 		}
 		if (e.getSource() == options) {
 			options.setIcon(new ImageIcon("resources/images/options.png"));
-<<<<<<< HEAD
-=======
-			// TODO Delete the syso
-			System.out.println("Options");
->>>>>>> ran format
+
 			cv.optionView();
 		}
 		if (e.getSource() == exitGame) {
