@@ -24,14 +24,15 @@ public class OptionView extends JPanelWithBackground implements ActionListener, 
 	private JPanel mainPanel;
 	private JPanel keyGrid;
 	//TODO give the variable a proper name
-	private Menuebutton backToMenu;
-	ChangeView cv;
+	private Menuebutton back;
+	private ChangeView cv;
 
-	public OptionView(String imagepath) {
+	public OptionView(String imagepath, ChangeView cv) {
 		super(imagepath);
+		this.cv = cv;
 		ck = CustomKeys.getInstance();
-		backToMenu = new Menuebutton("resources/images/backtomenu.png");
-		backToMenu.addMouseListener(this);
+		back = new Menuebutton("resources/images/buttons/back.png");
+		back.addMouseListener(this);
 	}
 	
 	@Override
@@ -55,7 +56,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener, 
 			
 			//backPanel is where the back button is.
 			JPanel backPanel = new JPanel();
-			backPanel.add(backToMenu);
+			backPanel.add(back);
 			header.add(backPanel, BorderLayout.WEST);
 			
 			//titlePanel is where the title is.
@@ -168,31 +169,32 @@ public class OptionView extends JPanelWithBackground implements ActionListener, 
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (e.getSource() == backToMenu)
-			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu_onHover.png"));
+		if (e.getSource() == back)
+			back.setIcon(new ImageIcon("resources/images/buttons/back_onHover.png"));
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == backToMenu){
-			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu.png"));
+		if (e.getSource() == back){
+			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
 		}
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == backToMenu){
-			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu_onSelect.png"));
+		if (e.getSource() == back){
+			back.setIcon(new ImageIcon("resources/images/buttons/back_onSelect.png"));
+			cv.menuView();
 		}
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (e.getSource() == backToMenu){
-			backToMenu.setIcon(new ImageIcon("resources/images/backtomenu.png"));
+		if (e.getSource() == back){
+			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
 			//TODO Delete this syso later
 			System.out.println("Back to menu");
 			cv.menuView();

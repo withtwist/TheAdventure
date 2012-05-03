@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.CardLayout;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -11,13 +12,20 @@ import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.view.*;
 
 public class ChangeView extends JFrame implements KeyListener{
 
 	private JPanel jp;
 	private GameController gc;
+	private OptionView ov;
+	private HighscoreView hv;
+	private MenuView mv;
 	public ChangeView() {
 		gc = new GameController();
+		ov = new OptionView("resources/images/background.gif", this);
+		hv = new HighscoreView("resources/images/background.gif", this);
+		mv = new MenuView("resources/images/background.gif", this);
 		
 		jp = new JPanel(new CardLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,8 +38,9 @@ public class ChangeView extends JFrame implements KeyListener{
 		setLocation(xPos,yPos);
 		jp.add(new MenuView("resources/images/background.gif", this) , "menuview");
 		jp.add(gc.getGameView(), "gameview");
-		jp.add(gc.getOptionView(), "optionview");
-		jp.add(gc.getHighscoreView(), "highscoreview");
+		jp.add(getOptionView(), "optionview");
+		jp.add(getHighscoreView(), "highscoreview");
+		jp.add(getMenuView(), "menuview");
 		//TODO fix so you can go back to the menu
 //		jp.add(gc.getMenuView(), "menuview");
 		add(jp);
@@ -59,14 +68,24 @@ public class ChangeView extends JFrame implements KeyListener{
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "optionview");
 		addKeyListener(this);
-		gc.start();
 	}
 	
 	public void highscoreView(){
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "highscoreview");
 		addKeyListener(this);
-		gc.start();
+	}
+	
+	public OptionView getOptionView(){
+		return ov;
+	}
+	
+	public HighscoreView getHighscoreView(){
+		return hv;
+	}
+	
+	public MenuView getMenuView(){
+		return mv;
 	}
 
 	@Override

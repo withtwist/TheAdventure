@@ -175,7 +175,7 @@ public class Kangaroo implements Movable {
 				public void start() {
 					try {
 						while(isStillJumping){
-							verticalSpeed += -0.1f;
+							verticalSpeed += -0.33f;
 							if(verticalSpeed <= -7.2f){
 								isStillJumping = false;
 								System.out.println("MAXIMUM");

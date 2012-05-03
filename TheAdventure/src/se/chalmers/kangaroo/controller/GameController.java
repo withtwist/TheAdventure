@@ -33,24 +33,10 @@ public class GameController implements KeyListener {
 		ck = CustomKeys.getInstance();
 		gm = new GameModel();
 		gv = new GameView("resources/images/background.gif", gm);
-		ov = new OptionView("resources/images/background.gif");
-		hv = new HighscoreView("resources/images/background.gif");
-		//TODO fix so you can go back to the menu
-//		mv = new MenuView("resources/images/background.gif", cv);
-		gv.addKeyListener(this);
-		ov.addKeyListener(this);
 	}
 
 	public GameView getGameView() {
 		return gv;
-	}
-	
-	public OptionView getOptionView(){
-		return ov;
-	}
-	
-	public HighscoreView getHighscoreView(){
-		return hv;
 	}
 	
 	//TODO fix so you can go back to the menu

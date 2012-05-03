@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+
 import se.chalmers.kangaroo.constants.*;
 
 /**
@@ -14,6 +15,8 @@ import se.chalmers.kangaroo.constants.*;
  */
 public class HighscoreView extends JPanelWithBackground implements
 		MouseListener {
+	private ChangeView cv;
+	private Menuebutton back;
 	private JLabel title;
 	private Menuebutton lv1;
 	private Menuebutton lv2;
@@ -24,9 +27,13 @@ public class HighscoreView extends JPanelWithBackground implements
 	private Menuebutton lv7;
 	private Menuebutton lv8;
 
-	public HighscoreView(String imagepath) {
+	public HighscoreView(String imagepath, ChangeView cv) {
 		super(imagepath);
+		this.cv = cv;
+		back = new Menuebutton("resources/images/buttons/back.png");
+		back.addMouseListener(this);
 		this.setLayout(new BorderLayout());
+		
 
 		//Header
 		JPanel headerPanel = new JPanel();
@@ -40,8 +47,7 @@ public class HighscoreView extends JPanelWithBackground implements
 		
 		//Back-button
 		JPanel backPanel = new JPanel(new BorderLayout());
-		Menuebutton btm = new Menuebutton("resources/images/buttons/back.png");
-		backPanel.add(btm, BorderLayout.WEST);
+		backPanel.add(back, BorderLayout.WEST);
 		backPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
 		backPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
 		backPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH/3, titleHeight));
@@ -127,26 +133,37 @@ public class HighscoreView extends JPanelWithBackground implements
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		if (e.getSource() == back)
+			back.setIcon(new ImageIcon("resources/images/buttons/back_onHover.png"));
+		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		if (e.getSource() == back){
+			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+		}
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		if (e.getSource() == back){
+			back.setIcon(new ImageIcon("resources/images/buttons/back_onSelect.png"));
+			cv.menuView();
+		}
+		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		if (e.getSource() == back){
+			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+			//TODO Delete this syso later
+			System.out.println("Back to menu");
+			cv.menuView();
+		}
+		
 	}
 
 }
