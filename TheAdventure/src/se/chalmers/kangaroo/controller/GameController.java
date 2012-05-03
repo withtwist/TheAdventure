@@ -100,8 +100,6 @@ public class GameController implements KeyListener {
 		int code = e.getKeyCode();
 		if (code == ck.getJumpKey()) {
 			gm.getKangaroo().setStillJumping(false);
-			System.out.println(gm.getKangaroo().getStillJumping() + "Troll");
-			System.out.println("Troll");
 		}
 		switch (code) {
 		case KeyEvent.VK_LEFT:

@@ -170,6 +170,7 @@ public class Kangaroo implements Movable {
 		if(isJumping==false) {
 			this.isJumping = true;
 			this.isFalling = true;
+			//TODO Fix so jump is key sensitive
 			new Thread() {
 				@Override
 				public void start() {
@@ -178,7 +179,6 @@ public class Kangaroo implements Movable {
 							verticalSpeed += -0.33f;
 							if(verticalSpeed <= -7.2f){
 								isStillJumping = false;
-								System.out.println("MAXIMUM");
 							}
 						}
 					}finally{}
