@@ -11,7 +11,7 @@ import se.chalmers.kangaroo.io.CustomKeysIO;
  */
 public class CustomKeys {
 	private static CustomKeys instance;
-	static private int jumpKey, leftKey, rightKey, itemKey;
+	private int jumpKey, leftKey, rightKey, itemKey;
 	private CustomKeysIO io;
 
 	/**
@@ -38,7 +38,7 @@ public class CustomKeys {
 	 * @param jumpKey is the key you perform the action jump with.
 	 */
 	public void setJumpKey(int jumpKey) {
-		CustomKeys.jumpKey = jumpKey;
+		this.jumpKey = jumpKey;
 		writeToFile();
 	}
 
@@ -55,7 +55,7 @@ public class CustomKeys {
 	 * @param leftKey is the key you perform the action go left with.
 	 */
 	public void setleftKey(int leftKey) {
-		CustomKeys.leftKey = leftKey;
+		this.leftKey = leftKey;
 		writeToFile();
 	}
 
@@ -72,7 +72,7 @@ public class CustomKeys {
 	 * @param rightKey is the key you perform the action go right with.
 	 */
 	public void setRightKey(int rightKey) {
-		CustomKeys.rightKey = rightKey;
+		this.rightKey = rightKey;
 		writeToFile();
 	}
 
@@ -89,7 +89,7 @@ public class CustomKeys {
 	 * @param itemKey is the key you perform the action use item with.
 	 */
 	public void setItemKey(int itemKey) {
-		CustomKeys.itemKey = itemKey;
+		this.itemKey = itemKey;
 		writeToFile();
 	}
 

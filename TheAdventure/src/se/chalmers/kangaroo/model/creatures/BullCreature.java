@@ -14,8 +14,8 @@ import se.chalmers.kangaroo.model.Position;
  * 
  */
 public class BullCreature implements Creature {
-	
-	private Position position;
+
+	private Position pos;
 	private int health;
 	private Polygon bullPolygon;
 	private static final int ID = 114;
@@ -27,14 +27,8 @@ public class BullCreature implements Creature {
 	 * @param direction
 	 */
 	public BullCreature(Position spawnPos) {
-		this.position = spawnPos;
+		this.pos = spawnPos;
 		health = 100;
-		int polyX[] = { 0, 14, 14, 20, 20, 44, 44, 50, 50, 64, 64, 54, 54, 10,
-				10, 0 };
-		int polyY[] = { 2, 2, 0, 0, 6, 6, 0, 0, 2, 2, 16, 16, 32, 32, 16, 16 };
-		for (int i = 0; i < polyX.length; i++) {
-			bullPolygon.addPoint(polyX[i], polyY[i]);
-		}
 	}
 
 	/**
@@ -48,7 +42,17 @@ public class BullCreature implements Creature {
 	 * Returns the polygin of the bull.
 	 */
 	public Polygon getPolygon() {
-		return bullPolygon;
+		int polyX[] = { pos.getX(), pos.getX() + 14, pos.getX() + 14,
+				pos.getX() + 20, pos.getX() + 20, pos.getX() + 44,
+				pos.getX() + 44, pos.getX() + 50, pos.getX() + 50,
+				pos.getX() + 64, pos.getX() + 64, pos.getX() + 54,
+				pos.getX() + 54, pos.getX() + 10, pos.getX() + 10, pos.getX() };
+		int polyY[] = { pos.getY() + 2, pos.getY() + 2, pos.getY(), pos.getY(),
+				pos.getY() + 6, pos.getY() + 6, pos.getY(), pos.getY(),
+				pos.getY() + 2, pos.getY() + 2, pos.getY() + 16,
+				pos.getY() + 16, pos.getY() + 32, pos.getY() + 32,
+				pos.getY() + 16, pos.getY() + 16 };
+		return new Polygon(polyX, polyY, 16);
 	}
 
 	/**
@@ -107,20 +111,20 @@ public class BullCreature implements Creature {
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void updateCreature() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public int getId() {
 		// TODO Auto-generated method stub
 		return 0;
-	}
+	} 
 
 	@Override
 	public Position getPosition() {
@@ -131,6 +135,6 @@ public class BullCreature implements Creature {
 	@Override
 	public void changeDirection() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

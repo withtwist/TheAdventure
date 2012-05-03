@@ -17,7 +17,6 @@ public class SmurfCreature implements Creature {
 	private int speed = 3;
 	
 	public SmurfCreature(Position spawnPos) {
-		
 		this.currentDir = Direction.DIRECTION_EAST;
 		
 	}

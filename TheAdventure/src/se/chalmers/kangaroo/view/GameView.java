@@ -67,7 +67,7 @@ public class GameView extends JPanelWithBackground {
 				if(c.getPosition().getX() > drawFrom*32 && c.getPosition().getX() < (drawFrom+32)*32){
 					int xP = c.getPosition().getX();
 					int yP = c.getPosition().getY();
-					int[] xs = {xP-drawFrom*32, xP-drawFrom*32+64, xP-drawFrom*32+64, xP-drawFrom*32};
+					int[] xs = {xP-drawFrom*32-fixPosition, xP-drawFrom*32+64-fixPosition, xP-drawFrom*32+64-fixPosition, xP-drawFrom*32-fixPosition};
 					int[] ys = {yP-64, yP-64, yP-32, yP-32};
 					g.drawPolygon(xs, ys, 4);
 				}
