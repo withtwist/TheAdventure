@@ -12,7 +12,7 @@ import java.awt.image.ImageObserver;
  * @author simonal
  *
  */
-public interface Animation extends ImageObserver {
+public interface Animation {
 	/**
 	 * Draws the current frame of the sprite in the view.
 	 * @param g
