@@ -98,9 +98,6 @@ public class GameModel {
 				c.changeDirection();
 			}
 			c.updateCreature();
-
-
-			//TODO add code for creatures walking into a wall.
 			
 		}
 		
