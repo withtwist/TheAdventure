@@ -158,6 +158,13 @@ public class GameMap {
 		for(Creature c : sCreatures)
 			creatures.add(c);
 	}
+	/**
+	 * Kills and removes the given creature from the map.
+	 * @param c
+	 */
+	public void killCreature(Creature c){
+		creatures.remove(c);
+	}
 
 	/**
 	 * Returns the tile at the given position
