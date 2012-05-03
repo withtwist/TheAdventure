@@ -21,6 +21,7 @@ public class ChangeView extends JFrame implements KeyListener{
 	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
+	private Sound s;
 	
 	public ChangeView() {
 		gc = new GameController();
@@ -45,36 +46,31 @@ public class ChangeView extends JFrame implements KeyListener{
 		//TODO fix so you can go back to the menu
 //		jp.add(gc.getMenuView(), "menuview");
 		add(jp);
+		new Sound("resources/music/menuemusic.wav").play();
+		addKeyListener(this);
 		setVisible(true);
 		jp.setVisible(true);
 	}
 
 	public void menuView() {
-		Sound s = new Sound("resources/music/menuemusic.wav");
-		s.play();
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "menuview");
-		//TODO fix so you can go back to the menu
-//		gc.start();
 	}
 
 	public void gameView() {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "gameview");
-		addKeyListener(this);
 		gc.start();
 	}
 	
 	public void optionView() {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "optionview");
-		addKeyListener(this);
 	}
 	
 	public void highscoreView(){
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "highscoreview");
-		addKeyListener(this);
 	}
 
 	@Override

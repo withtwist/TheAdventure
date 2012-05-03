@@ -195,8 +195,6 @@ public class OptionView extends JPanelWithBackground implements ActionListener, 
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == back){
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
-			//TODO Delete this syso later
-			System.out.println("Back to menu");
 			cv.menuView();
 		}
 		
