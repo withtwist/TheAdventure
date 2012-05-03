@@ -131,7 +131,6 @@ public class GameController implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		pressedKey(e);
-		
 
 	}
 

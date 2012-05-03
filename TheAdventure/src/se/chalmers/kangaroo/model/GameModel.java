@@ -232,6 +232,9 @@ public class GameModel {
 	public void restartLevel() {
 		deathCount++;
 		kangaroo.setPosition(kangaroo.getSpawnPosition());
+		kangaroo.setVerticalSpeed(0f);
+		kangaroo.setDirection(Direction.DIRETION_NONE);
+		kangaroo.setFalling(true);
 		gameMap.resetItems();
 		gameMap.resetCreatures();
 	}
