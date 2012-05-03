@@ -141,7 +141,7 @@ public class GameModel {
 					if (creature.isKillable()
 							&& kangaroo.getVerticalSpeed() > 0) {
 						gameMap.killCreature(creature);
-						kangaroo.setVerticalSpeed(-2.5f);
+						kangaroo.setVerticalSpeed(-3.5f);
 					} else {
 						deathCount++;
 						restartLevel();
