@@ -143,7 +143,7 @@ public class GameModel {
 						.intersects(creature.getPolygon().getBounds2D())) {
 					if (creature.isKillable()
 							&& kangaroo.getVerticalSpeed() > 0) {
-						//remove
+						gameMap.killCreature(creature);
 					} else {
 						deathCount++;
 						restartLevel();
