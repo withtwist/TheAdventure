@@ -22,7 +22,7 @@ public class Kangaroo implements Movable {
 	
 	private float maxSpeed = 5f;
 	
-	private Direction direction = Direction.DIRETION_NONE;
+	private Direction direction = Direction.DIRECTION_NONE;
 	
 	private boolean enableDoubleJump = false;
 	
@@ -279,7 +279,7 @@ public class Kangaroo implements Movable {
 			if( horizontalSpeed > -maxSpeed) {
 				horizontalSpeed -= 0.5f;
 			}
-		} if(direction == Direction.DIRETION_NONE) {
+		} if(direction == Direction.DIRECTION_NONE) {
 			if (horizontalSpeed<0) {				
 				horizontalSpeed += 0.5f;						
 			} else if (horizontalSpeed>0) {				

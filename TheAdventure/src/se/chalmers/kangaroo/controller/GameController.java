@@ -103,11 +103,11 @@ public class GameController implements KeyListener {
 		}
 		switch (code) {
 		case KeyEvent.VK_LEFT:
-			gm.getKangaroo().setDirection(Direction.DIRETION_NONE);
+			gm.getKangaroo().setDirection(Direction.DIRECTION_NONE);
 			break;
 
 		case KeyEvent.VK_RIGHT:
-			gm.getKangaroo().setDirection(Direction.DIRETION_NONE);
+			gm.getKangaroo().setDirection(Direction.DIRECTION_NONE);
 			break;
 		}
 	}

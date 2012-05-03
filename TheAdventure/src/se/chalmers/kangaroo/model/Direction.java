@@ -5,5 +5,5 @@ package se.chalmers.kangaroo.model;
  *
  */
 public enum Direction {
-	DIRECTION_WEST, DIRECTION_EAST, DIRETION_NONE
+	DIRECTION_WEST, DIRECTION_EAST, DIRECTION_NONE
 }
