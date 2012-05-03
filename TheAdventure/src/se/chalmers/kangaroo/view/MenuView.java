@@ -1,21 +1,28 @@
 package se.chalmers.kangaroo.view;
 
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+
+
 
 /**
  * The view of the game.
  * 
  * @author twist3r
- * 
+ * @modifiedby arvidk
+ *
  */
 public class MenuView extends JPanelWithBackground implements MouseListener {
 	private Menuebutton newGame, highScore, options, exitGame;
 
-	// GameController gc = new GameController();
+
 	ChangeView cv;
 
 	/**
@@ -35,11 +42,17 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		exitGame = new Menuebutton("resources/images/exitgame.png");
 
 		this.add(new Menuebutton("resources/images/menu_logo.gif"));
+		this.add(Box.createVerticalGlue());
+		this.add(Box.createVerticalGlue());
+		this.add(Box.createVerticalGlue());
 		this.add(newGame);
+		this.add(Box.createVerticalGlue());
 		this.add(highScore);
+		this.add(Box.createVerticalGlue());
 		this.add(options);
+		this.add(Box.createVerticalGlue());
 		this.add(exitGame);
-
+		
 		newGame.addMouseListener(this);
 		highScore.addMouseListener(this);
 		options.addMouseListener(this);
