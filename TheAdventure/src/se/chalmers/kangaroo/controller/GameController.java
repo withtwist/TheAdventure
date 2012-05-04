@@ -9,7 +9,7 @@ import se.chalmers.kangaroo.view.ChangeView;
 import se.chalmers.kangaroo.view.GameView;
 import se.chalmers.kangaroo.view.HighscoreView;
 import se.chalmers.kangaroo.view.MenuView;
-import se.chalmers.kangaroo.view.OptionView;
+//import se.chalmers.kangaroo.view.OptionView;
 
 /**
  * A class for handling and running the game.
@@ -22,7 +22,7 @@ public class GameController implements KeyListener {
 
 	private GameModel gm;
 	private GameView gv;
-	private OptionView ov;
+	//private OptionView ov;
 	private HighscoreView hv;
 	// TODO fix so you can go back to the menu
 	private MenuView mv;

@@ -2,6 +2,9 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import se.chalmers.kangaroo.constants.Constants;
 
 /**
@@ -11,7 +14,9 @@ import se.chalmers.kangaroo.constants.Constants;
  * @author alburgh
  * 
  */
+@XmlRootElement
 public class Tile {
+	@XmlElement
 	private int id;
 	private boolean collidable;
 	private Polygon poly;
@@ -45,6 +50,13 @@ public class Tile {
 	 */
 	public int getId() {
 		return id;
+	}
+	/**
+	 * Sets the current id of the Tile, used when parsing maps.
+	 * @param i
+	 */
+	public void setId(int i) {
+		this.id = i;
 	}
 
 	/**
