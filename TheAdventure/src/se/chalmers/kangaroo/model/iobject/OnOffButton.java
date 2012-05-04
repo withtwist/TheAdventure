@@ -61,5 +61,10 @@ public class OnOffButton implements InteractiveObject {
 	public int getId() {
 		return id;
 	}
+	
+	@Override
+	public void changeId(){
+		id = id % 2 == 0 ? id-1 : id+1;
+	}
 
 }
