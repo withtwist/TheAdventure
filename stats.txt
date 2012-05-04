@@ -1,0 +1,28 @@
+The following historical commit information, by author, was found in the
+repository:
+
+[1mAuthor               Commits   Insertions   Deletions   % of changes[0;0m
+Henrik Alburg            108         1827         941          31.03
+Sean Pavlov               58         2143         574          30.46
+Shortleft                 43         1221         325          17.33
+Simon Almgren             93         1498         392          21.19
+
+Below is the number of rows from each author that have survived and
+are still intact in the current revision:
+
+[1mAuthor                     Rows[0;0m
+Henrik Alburg              1328
+Sean Pavlov                1509
+Shortleft                   791
+Simon Almgren               928
+
+The following history timeline has been gathered from the repository:
+
+[1mAuthor                  2012W13    2012W16    2012W17    2012W18 [0;0m
+Henrik Alburg             +++++   ---+++++   --++++++   ---+++++ 
+Sean Pavlov                  ++    --+++++ -+++++++++  --+++++++ 
+Shortleft                 +++++    -++++++      -++++            
+Simon Almgren         +++++++++  --+++++++         ++       -+++ 
+
+The extensions below were found in the repository history:
+tmx pdf txt java
