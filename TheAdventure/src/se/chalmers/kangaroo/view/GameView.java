@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.Polygon;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 
@@ -20,7 +21,7 @@ import se.chalmers.kangaroo.model.Position;
 
 public class GameView extends JPanelWithBackground {
 	private GameModel gm;
-
+	private HashMap<Creature, Animation> creatureAnimations;
 	private KangarooAnimation ka;
 
 	// private Graphics slickGraphics = new Graphics();
@@ -28,6 +29,14 @@ public class GameView extends JPanelWithBackground {
 	public GameView(String imagepath, GameModel gm) {
 		super(imagepath);
 		this.gm = gm;
+		creatureAnimations = new HashMap<Creature, Animation>();
+		for(int i= 0; i < gm.getGameMap().getCreatureSize(); i++){
+			Creature c = gm.getGameMap().getCreatureAt(i);
+			//Här ska Twister skapa sina animationer baserat på egenskaper hos c. 
+			Animation a = new KangarooAnimation("hej", 13, 37); //TODO <- Skapa animation beroende på vilken creature det är
+			creatureAnimations.put(c, a);
+		}
+		
 		ka = new KangarooAnimation("resources/sheets/kangaroo_58x64_right.png",
 				58, 64);
 	}
