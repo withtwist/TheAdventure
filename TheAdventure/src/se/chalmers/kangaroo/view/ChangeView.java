@@ -32,6 +32,7 @@ public class ChangeView extends JFrame implements KeyListener {
 		jp = new JPanel(new CardLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 576);
+		setResizable(false);
 		Dimension win = Toolkit.getDefaultToolkit().getScreenSize();
 		int width = getSize().width;
 		int height = getSize().height;

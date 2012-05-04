@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  * @modified simonal
  */
 public class Sound implements Runnable {
+
 	String fileLocation;
 
 	public Sound(String fileLocation) {
@@ -25,13 +26,15 @@ public class Sound implements Runnable {
 	}
 
 	public void play() {
+
 		Thread t = new Thread(this);
 		t.start();
 	}
-
+	
 	public void run() {
 		while (true) {
-			// playSound(fileLocation);
+			playSound(fileLocation);
+
 		}
 
 	}
