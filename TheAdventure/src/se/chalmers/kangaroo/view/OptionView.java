@@ -12,6 +12,7 @@ import javax.swing.*;
 
 import se.chalmers.kangaroo.controller.CustomKeys;
 import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.utils.KeyList;
 
 public class OptionView extends JPanelWithBackground implements ActionListener,
 		KeyListener, MouseListener {
@@ -28,6 +29,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private Menuebutton back;
 	private ChangeView cv;
 	private Key pressedKey;
+	private KeyList kl = new KeyList();;
 	
 	private enum Key {
 		 LEFT, RIGHT, JUMP, ITEM, NONE;
