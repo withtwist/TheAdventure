@@ -33,8 +33,8 @@ public class GameView extends JPanelWithBackground {
 		for(int i= 0; i < gm.getGameMap().getCreatureSize(); i++){
 			Creature c = gm.getGameMap().getCreatureAt(i);
 			//Här ska Twister skapa sina animationer baserat på egenskaper hos c. 
-			Animation a = new KangarooAnimation(13, 37); //TODO <- Skapa animation beroende på vilken creature det är
-			creatureAnimations.put(c, a);
+			//Animation a = new KangarooAnimation(13, 37); //TODO <- Skapa animation beroende på vilken creature det är
+			//creatureAnimations.put(c, a);
 		}
 		
 		ka = new KangarooAnimation(58, 64);
@@ -114,11 +114,13 @@ public class GameView extends JPanelWithBackground {
 			int[] ys = { p.getY() - 64, p.getY() - 64, p.getY() - 1,
 					p.getY() - 1 };
 			g.drawPolygon(new Polygon(xs, ys, 4));
+			ka.drawSprite(g, p.getX(), p.getY());
 		} else {
 			int[] xs = { 16 * 32, 17 * 32, 17 * 32, 16 * 32 };
 			int[] ys = { p.getY() - 64, p.getY() - 64, p.getY() - 1,
 					p.getY() - 1 };
 			g.drawPolygon(new Polygon(xs, ys, 4));
+			ka.drawSprite(g, p.getX(), p.getY());
 		}
 	}
 

@@ -23,8 +23,8 @@ public class KangarooAnimation implements Animation {
 	 * @param height
 	 */
 	public KangarooAnimation(int width, int height) {
-		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_right");
-		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_left");
+		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_right.png");
+		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_right.png");
 		currentFrame = 0;
 		this.widthPerFrame = width;
 		this.height = height;
@@ -32,13 +32,7 @@ public class KangarooAnimation implements Animation {
 		tick = 0;
 	}
 	/**
-	 * Resets the animation, setting the current animation to 0.
-	 */
-	public void resetAnimation() {
-		currentFrame = 0;
-	}
-	/**
-	 * Draws the animation once every half second if the game is running in 60 ups.
+	 * Draws the animation once every halv second if the game is running in 60 ups.
 	 */
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
@@ -46,8 +40,8 @@ public class KangarooAnimation implements Animation {
 			tick = 0;
 			currentFrame = (currentFrame % 3) + 1;
 		}
-		g.drawImage(rightSheet, x-widthPerFrame/2, y-height, x+widthPerFrame/2, y,
-				currentFrame * widthPerFrame, 0,
+		g.drawImage(leftSheet, x-widthPerFrame/2, y-height, x+widthPerFrame/2, y,
+				(currentFrame * widthPerFrame), 1,
 				(currentFrame * widthPerFrame) + widthPerFrame,
 				height, null, null);
 		tick++;
