@@ -23,7 +23,8 @@ public class GameMap {
 
 	private Item[] sItems;
 	private Creature[] sCreatures;
-
+	
+	
 	/**
 	 * Creates a GameMap with the level name. The level name should be the path
 	 * to the file. Creates all tiles along with items and creatures.

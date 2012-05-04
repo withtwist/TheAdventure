@@ -16,6 +16,5 @@ public interface Animation {
 	 */
 	public void drawSprite(Graphics g, int x, int y);
 
-	void drawSprite(Graphics g, int x, int y, JPanelWithBackground jpg);
 
 }

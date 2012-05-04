@@ -37,8 +37,7 @@ public class GameView extends JPanelWithBackground {
 			creatureAnimations.put(c, a);
 		}
 		
-		ka = new KangarooAnimation("resources/sheets/kangaroo_58x64_right.png",
-				58, 64);
+		ka = new KangarooAnimation(58, 64);
 	}
 
 	@Override
@@ -106,7 +105,7 @@ public class GameView extends JPanelWithBackground {
 			int[] ys = { p.getY() - 64, p.getY() - 64, p.getY() - 1,
 					p.getY() - 1 };
 			g.drawPolygon(new Polygon(xs, ys, 4));
-			ka.drawSprite(g, p.getX(), p.getY(), this);
+			ka.drawSprite(g, p.getX(), p.getY());
 		} else if (drawFrom == gm.getGameMap().getTileWidth() - 33) {
 			int[] xs = { p.getX() - drawFrom * 32,
 					p.getX() + 32 - drawFrom * 32,
