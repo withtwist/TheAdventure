@@ -36,9 +36,10 @@ public class KangarooAnimation implements Animation {
 	 */
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if (tick == 30) {
+		if (tick == 15) {
 			tick = 0;
-			currentFrame = (currentFrame % 3) + 1;
+			currentFrame++;
+			currentFrame = (currentFrame % 3);
 		}
 		g.drawImage(leftSheet, x-widthPerFrame/2, y-height, x+widthPerFrame/2, y,
 				(currentFrame * widthPerFrame), 1,
