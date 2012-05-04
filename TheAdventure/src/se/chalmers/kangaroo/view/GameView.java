@@ -33,7 +33,7 @@ public class GameView extends JPanelWithBackground {
 		for(int i= 0; i < gm.getGameMap().getCreatureSize(); i++){
 			Creature c = gm.getGameMap().getCreatureAt(i);
 			//Här ska Twister skapa sina animationer baserat på egenskaper hos c. 
-			Animation a = new KangarooAnimation("hej", 13, 37); //TODO <- Skapa animation beroende på vilken creature det är
+			Animation a = new KangarooAnimation(13, 37); //TODO <- Skapa animation beroende på vilken creature det är
 			creatureAnimations.put(c, a);
 		}
 		
