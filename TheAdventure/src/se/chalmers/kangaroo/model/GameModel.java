@@ -182,7 +182,6 @@ public class GameModel {
 					int kangMaxY = (int) kangaroo.getPolygon().getBounds2D()
 							.getMaxY();
 					if (oldX != x && Math.abs(tileMaxY - kangMinY) > 2) {
-						System.out.println(oldPos+" "+kangaroo.getVerticalSpeed()+" "+kangaroo.getPosition());
 						kangaroo.setPosition(new Position(oldPos.getX(),
 								kangMinY));
 						kangaroo.setFalling(true);
