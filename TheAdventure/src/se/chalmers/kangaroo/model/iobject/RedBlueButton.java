@@ -39,7 +39,6 @@ public class RedBlueButton implements InteractiveObject {
 	@Override
 	public void onCollision() {
 		if (!sleep) {
-			id = id == 71 ? id + 1 : id - 1;
 			int x = gameMap.getTileWidth();
 			int y = gameMap.getTileHeight();
 			for (int i = 0; i < y; i++) {
@@ -48,6 +47,10 @@ public class RedBlueButton implements InteractiveObject {
 							+ gameMap.getTile(j, i).getId() + " ")) {
 						((InteractiveTile) gameMap.getTile(j, i)).onTrigger();
 					}
+						InteractiveObject iobj = gameMap.getIObjectAt(j, i);
+						if(iobj != null)
+							iobj.changeId();
+					
 				}
 			}
 			sleep = true;
@@ -82,6 +85,11 @@ public class RedBlueButton implements InteractiveObject {
 	@Override
 	public int getId() {
 		return id;
+	}
+	
+	@Override
+	public void changeId(){
+		id = id == 71 ? id + 1 : id - 1;
 	}
 
 }

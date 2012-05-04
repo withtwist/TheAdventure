@@ -35,4 +35,6 @@ public interface InteractiveObject {
 	public Position getPosition();
 
 	public int getId();
+	
+	public void changeId();
 }
