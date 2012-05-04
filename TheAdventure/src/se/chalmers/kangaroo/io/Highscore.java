@@ -1,7 +1,10 @@
 package se.chalmers.kangaroo.io;
 
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -14,6 +17,7 @@ import java.util.Scanner;
 public class Highscore {
 	private static Highscore highscore;
 	private static final String FILE_NAME = "resources/highscore.txt";
+	private static final int nbrOfScores = 5;
 
 	private Highscore() {
 
@@ -43,9 +47,9 @@ public class Highscore {
 		int[] times = getTimes(level);
 		String[] names = getNames(level);
 
-		if (times[4] > time) {
-			times[4] = time;
-			names[4] = playerName;
+		if (times[nbrOfScores-1] > time) {
+			times[nbrOfScores-1] = time;
+			names[nbrOfScores-1] = playerName;
 		}
 		/*
 		 * Since it already should be sorted I only need to make one bubbleSort
@@ -62,8 +66,28 @@ public class Highscore {
 				names[i - 1] = tmpName;
 			}
 		}
-		// TODO: Replace the lines 6*level+1 -> 6*level+6 with
-		// names[i]+" "+times[i]
+		StringBuilder sb = new StringBuilder();
+		try {
+			InputStream in = new FileInputStream(FILE_NAME);
+			Scanner sc = new Scanner(in);
+			while(sc.hasNext())
+				sb.append(sc.nextLine() +"\n");
+			sc.close();
+			
+			int start = sb.indexOf(names[0]+" "+times[0]);
+			int stop = sb.indexOf(names[nbrOfScores-1]+ " "+times[nbrOfScores-1-1])-names[nbrOfScores-1].length()-((Integer)times[nbrOfScores-1]).toString().length()-1;
+			StringBuilder str = new StringBuilder();
+			for(int i = 0; i < names.length; i++){
+				str.append(names[i]+" "+times[i]);
+			}
+			sb.replace(start, stop, str.toString());
+			/* Write the modified String to the file*/
+			FileWriter fw = new FileWriter(FILE_NAME);
+			BufferedWriter out = new BufferedWriter(fw);
+			out.write(sb.toString());
+		} catch (FileNotFoundException e) {
+			System.out.println("Could't find the specific file.");
+		} catch (IOException io){}
 	}
 
 	/**
@@ -75,7 +99,7 @@ public class Highscore {
 	 * @return all the names.
 	 */
 	public String[] getNames(int level) {
-		String[] names = new String[5];
+		String[] names = new String[nbrOfScores];
 		try {
 			InputStream in = new FileInputStream(FILE_NAME);
 			Scanner sc = new Scanner(in);
@@ -101,7 +125,7 @@ public class Highscore {
 	 * @return all the times
 	 */
 	public int[] getTimes(int level) {
-		int[] times = new int[5];
+		int[] times = new int[nbrOfScores];
 		try {
 			InputStream in = new FileInputStream(FILE_NAME);
 			Scanner sc = new Scanner(in);
@@ -118,5 +142,31 @@ public class Highscore {
 			System.out.println("The times are not numbers.");
 		}
 		return times;
+	}
+	/**
+	 * Will return true if the time is low enough to be on the highscore.
+	 * If this returns true the setHighscore() method will do something. 
+	 * @param level, the number of the level
+	 * @param time, the time in millis
+	 * @return true if the time is good enough for the highscore
+	 */
+	public boolean willMakeHighscore(int level, int time){
+		int[] times = new int[nbrOfScores];
+		try {
+			InputStream in = new FileInputStream(FILE_NAME);
+			Scanner sc = new Scanner(in);
+			while (!sc.nextLine().equals("level" + level)) {
+				// Loop through all the other rows
+			}
+			for (int i = 0; i < times.length; i++) {
+				sc.next(); // Will skip the names
+				times[i] = Integer.parseInt(sc.next());
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Could't find the specific file.");
+		} catch (NumberFormatException e) {
+			System.out.println("The times are not numbers.");
+		}
+		return time < times[nbrOfScores-1];
 	}
 }
