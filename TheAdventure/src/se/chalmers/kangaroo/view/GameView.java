@@ -37,7 +37,7 @@ public class GameView extends JPanelWithBackground {
 			//creatureAnimations.put(c, a);
 		}
 		
-		ka = new KangarooAnimation(58, 64);
+		ka = new KangarooAnimation(gm.getKangaroo(),58, 64);
 	}
 
 	@Override
