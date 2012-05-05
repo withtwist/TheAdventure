@@ -13,10 +13,24 @@ public class BlackAndWhiteCreature implements Creature {
 	private final static int ID = 113;
 	private static final int speed = 7;
 	private Direction direction;
+	private boolean killable;
 
 	public BlackAndWhiteCreature(Position spawnPos) {
 		this.pos = spawnPos;
 		this.direction = Direction.DIRECTION_WEST;
+		this.killable = false;
+		new Thread() {
+			@Override
+			public void run() {
+				while (true)
+					try {
+						sleep(1000);
+						killable = !killable;
+					} catch (InterruptedException e) {
+					}
+
+			};
+		}.start();
 	}
 
 	/**
@@ -32,9 +46,7 @@ public class BlackAndWhiteCreature implements Creature {
 	 * Return true if the creature is in a killable state.
 	 */
 	public boolean isKillable() {
-		if (timer.getElapsedNanoTime() / 10000 % 2 == 1)
-			return false;
-		return true;
+		return killable;
 	}
 
 	@Override

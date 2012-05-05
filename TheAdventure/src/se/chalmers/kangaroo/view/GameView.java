@@ -11,6 +11,7 @@ import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.InteractiveObject;
 import se.chalmers.kangaroo.model.Item;
 import se.chalmers.kangaroo.model.Position;
+import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
 
 /**
  * 
