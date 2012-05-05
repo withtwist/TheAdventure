@@ -10,15 +10,20 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 /**
- * The view of the game.
+ * A view to show when the game is paused.
  * 
- * @author twist3r
- * @modifiedby arvidk
+ * 
+ * @author arvidk
  * 
  */
-public class MenuView extends JPanelWithBackground implements MouseListener {
-	private Menuebutton newGame, highScore, options, exitGame;
+public class PauseView extends JPanelWithBackground implements MouseListener {
+	private Menuebutton resume, highScore, options, exitGame;
 
+	
+	//TOTO make sure that the thread that runs the game is asleep when the pause view is showed.
+	//Check with the rest of the group how to connect the view and also graphics.
+	
+	
 	ChangeView cv;
 
 	/**
@@ -26,13 +31,13 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	 * 
 	 * @param bgpath
 	 */
-	public MenuView(String bgpath, ChangeView cv) {
+	public PauseView(String bgpath, ChangeView cv) {
 		super(bgpath);
 		this.cv = cv;
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(1024, 576);
-		newGame = new Menuebutton("resources/images/newgame.png");
+		resume = new Menuebutton("resources/images/resuem.png");
 		highScore = new Menuebutton("resources/images/highscore.png");
 		options = new Menuebutton("resources/images/options.png");
 		exitGame = new Menuebutton("resources/images/exitgame.png");
@@ -42,7 +47,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
-		this.add(newGame);
+		this.add(resume);
 		this.add(Box.createVerticalGlue());
 		this.add(highScore);
 		this.add(Box.createVerticalGlue());
@@ -54,7 +59,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		this.add(Box.createVerticalGlue());
 		
 		
-		newGame.addMouseListener(this);
+		resume.addMouseListener(this);
 		highScore.addMouseListener(this);
 		options.addMouseListener(this);
 		exitGame.addMouseListener(this);
@@ -72,9 +77,9 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		if (e.getSource() == newGame)
-			newGame.setIcon(new ImageIcon(
-					"resources/images/newgame_onHover.png"));
+		if (e.getSource() == resume)
+			resume.setIcon(new ImageIcon(
+					"resources/images/resuem_onHover.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon(
 					"resources/images/highscore_onHover.png"));
@@ -88,8 +93,8 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == newGame)
-			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
+		if (e.getSource() == resume)
+			resume.setIcon(new ImageIcon("resources/images/resume.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
 		if (e.getSource() == options)
@@ -101,9 +106,9 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == newGame)
-			newGame.setIcon(new ImageIcon(
-					"resources/images/newgame_onSelect.png"));
+		if (e.getSource() == resume)
+			resume.setIcon(new ImageIcon(
+					"resources/images/resuem_onSelect.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon(
 					"resources/images/highscore_onSelect.png"));
@@ -117,8 +122,10 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if (e.getSource() == newGame) {
-			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
+		if (e.getSource() == resume) {
+			resume.setIcon(new ImageIcon("resources/images/resume.png"));
+			//TODO wake the thread that the game is running in.
+			
 			cv.gameView();
 
 		}
