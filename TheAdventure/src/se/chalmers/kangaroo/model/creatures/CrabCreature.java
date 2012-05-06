@@ -78,4 +78,8 @@ public class CrabCreature implements Creature {
 		}
 
 	}
+	
+	public Direction getDirection(){
+		return this.direction;
+	}
 }
