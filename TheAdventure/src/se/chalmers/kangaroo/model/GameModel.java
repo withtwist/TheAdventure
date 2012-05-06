@@ -114,11 +114,11 @@ public class GameModel {
 	 * Checks if a polygon collides with a tile or a creature.
 	 */
 	private void checkCollition() {
-		creatureCollition();
-		itemCollition();
-		tileCollition();
-		iObjectCollition();
 		try {
+			creatureCollition();
+			itemCollition();
+			tileCollition();
+			iObjectCollition();
 			changeFalling();
 		} catch (ArrayIndexOutOfBoundsException e) {
 			restartLevel();
@@ -148,7 +148,6 @@ public class GameModel {
 						gameMap.killCreature(creature);
 						kangaroo.setVerticalSpeed(-6.5f);
 					} else {
-						deathCount++;
 						restartLevel();
 					}
 				}

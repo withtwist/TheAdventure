@@ -135,6 +135,7 @@ public class CustomKeys {
 	private void writeToFile() {
 		int[] keys = { leftKey, rightKey, jumpKey, itemKey };
 		io.setKeys(keys);
+		loadFromFile();
 	}
 
 	private void loadFromFile() {

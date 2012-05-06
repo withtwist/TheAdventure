@@ -77,10 +77,12 @@ public class CustomKeysIO {
 				customKeys[i] = Integer.parseInt(sc.next());
 				i++;
 			}
-
 			sc.close();
+			in.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("No such file exists");
+		} catch(IOException i){
+			System.out.println("Problem closing the file");
 		}
 	}
 

@@ -69,7 +69,6 @@ public class GameController implements KeyListener {
 
 	private void pressedKey(KeyEvent e) {
 		int code = e.getKeyCode();
-
 		// Jump
 		if (code == ck.getJumpKey()) {
 			if (gm.getKangaroo().getStillJumping() == false) {
