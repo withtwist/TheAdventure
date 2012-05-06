@@ -139,9 +139,7 @@ public class GameModel {
 	 * creature. If so, the kangaroo will either kill the creature or die.
 	 */
 	private void creatureCollition() {
-		int nbrOfCreatures = gameMap.getCreatureSize();
-		if (nbrOfCreatures != 0) {
-			for (int i = 0; i < nbrOfCreatures; i++) {
+			for (int i = 0; i < gameMap.getCreatureSize(); i++) {
 				Creature creature = gameMap.getCreatureAt(i);
 				if (kangaroo.getPolygon().getBounds2D()
 						.intersects(creature.getPolygon().getBounds2D())) {
@@ -155,7 +153,6 @@ public class GameModel {
 					}
 				}
 			}
-		}
 	}
 
 	/**
