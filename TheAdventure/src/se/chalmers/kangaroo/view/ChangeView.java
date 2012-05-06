@@ -18,14 +18,14 @@ public class ChangeView extends JFrame implements KeyListener {
 
 	private JPanel jp;
 	private GameController gc;
-	//private OptionView ov;
+	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
 	private Sound s;
 
 	public ChangeView() {
 		gc = new GameController();
-		//ov = new OptionView("resources/images/background.gif", this);
+		ov = new OptionView("resources/images/background.gif", this);
 		hv = new HighscoreView("resources/images/background.gif", this);
 		mv = new MenuView("resources/images/background.gif", this);
 
@@ -41,11 +41,9 @@ public class ChangeView extends JFrame implements KeyListener {
 		setLocation(xPos, yPos);
 		jp.add(mv, "menuview");
 		jp.add(gc.getGameView(), "gameview");
-		//jp.add(ov, "optionview");
+		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
 		jp.add(mv, "menuview");
-		// TODO fix so you can go back to the menu
-		// jp.add(gc.getMenuView(), "menuview");
 		add(jp);
 		new Sound("resources/music/menuemusic.wav").play();
 		addKeyListener(this);
