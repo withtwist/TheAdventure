@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import se.chalmers.kangaroo.model.Creature;
 import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
 
@@ -15,8 +16,8 @@ public class CrabAnimation implements Animation{
 	private int width;
 	private int height;
 	
-	public CrabAnimation(CrabCreature c){
-		this.crab = c;
+	public CrabAnimation(Creature c){
+		this.crab = (CrabCreature)c;
 		tick = 0;
 		currentState = 0;
 		this.sheet = Toolkit.getDefaultToolkit().getImage("../gfx/creatures/crab_256x32.png");
@@ -30,7 +31,7 @@ public class CrabAnimation implements Animation{
 			currentState++;
 			currentState = currentState % 2;
 		}
-		int currentSprite = crab.getDirection() == Direction.DIRECTION_WEST ? currentState : currentState+2;
+		int currentSprite = (crab.getDirection() == Direction.DIRECTION_WEST) ? currentState : currentState+2;
 		g.drawImage(sheet, x, y, x+width, y+height, currentSprite*64, 0, currentSprite*64+width, height, null, null);
 		tick++;
 	}
