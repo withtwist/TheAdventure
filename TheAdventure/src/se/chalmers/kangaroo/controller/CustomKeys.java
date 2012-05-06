@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.controller;
 
+import java.awt.event.KeyEvent;
+
 import se.chalmers.kangaroo.io.CustomKeysIO;
 
 /**
@@ -53,6 +55,10 @@ public class CustomKeys {
 	public int getJumpKey() {
 		return jumpKey;
 	}
+	
+	public String getJumpKeyName(KeyEvent keyEvent) {
+		return keyEvent.getKeyText(getJumpKey());
+	}
 
 	/**
 	 * Sets key binding for left key.
@@ -60,7 +66,7 @@ public class CustomKeys {
 	 * @param leftKey
 	 *            is the key you perform the action go left with.
 	 */
-	public void setleftKey(int leftKey) {
+	public void setLeftKey(int leftKey) {
 		this.leftKey = leftKey;
 		writeToFile();
 	}
@@ -72,6 +78,10 @@ public class CustomKeys {
 	 */
 	public int getLeftKey() {
 		return leftKey;
+	}
+	
+	public String getLeftKeyName(KeyEvent keyEvent) {
+		return keyEvent.getKeyText(getLeftKey());
 	}
 
 	/**
@@ -93,6 +103,10 @@ public class CustomKeys {
 	public int getRightKey() {
 		return rightKey;
 	}
+	
+	public String getRightKeyName(KeyEvent keyEvent) {
+		return keyEvent.getKeyText(getRightKey());
+	}
 
 	/**
 	 * Sets key binding for item key.
@@ -112,6 +126,10 @@ public class CustomKeys {
 	 */
 	public int getItemKey() {
 		return itemKey;
+	}
+	
+	public String getItemKeyName(KeyEvent keyEvent) {
+		return keyEvent.getKeyText(getItemKey());
 	}
 
 	private void writeToFile() {

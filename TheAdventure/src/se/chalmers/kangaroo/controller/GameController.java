@@ -101,14 +101,10 @@ public class GameController implements KeyListener {
 		if (code == ck.getJumpKey()) {
 			gm.getKangaroo().setStillJumping(false);
 		}
-		switch (code) {
-		case KeyEvent.VK_LEFT:
+		if(code == ck.getLeftKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_NONE);
-			break;
-
-		case KeyEvent.VK_RIGHT:
+		}else if(code == ck.getRightKey()){
 			gm.getKangaroo().setDirection(Direction.DIRECTION_NONE);
-			break;
 		}
 	}
 

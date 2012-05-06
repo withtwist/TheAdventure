@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.utils;
 
+import java.awt.event.KeyEvent;
+
 /**
  * 
  * @author pavlov
@@ -14,7 +16,11 @@ public class KeyList {
 	 * @param keyId
 	 * @return
 	 */
-	public String getKeyName(int keyId){
+	public String getKeyName(KeyEvent keyEvent){
+		int keyId = keyEvent.getKeyCode();
+		if(keyId >= 48 && keyId <= 90){
+			return Character.toString(keyEvent.getKeyChar());
+		}
 		//If numpad
 		if(keyId >= 96 && keyId <= 105){
 			return "Numpad " + (keyId-96);

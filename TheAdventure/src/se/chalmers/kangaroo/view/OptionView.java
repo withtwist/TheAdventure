@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Scanner;
 
 import javax.swing.*;
 
@@ -16,7 +17,6 @@ import se.chalmers.kangaroo.utils.KeyList;
 
 public class OptionView extends JPanelWithBackground implements ActionListener,
 		KeyListener, MouseListener {
-	private int pressedKeyId;
 	private JLabel currentLeft;
 	private JLabel currentRight;
 	private JLabel currentJump;
@@ -29,7 +29,8 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private Menuebutton back;
 	private ChangeView cv;
 	private Key pressedKey;
-	private KeyList kl = new KeyList();;
+	private KeyEvent keyEvent;
+	JTextField txt = new JTextField();
 	
 	private enum Key {
 		 LEFT, RIGHT, JUMP, ITEM, NONE;
@@ -38,9 +39,12 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	public OptionView(String imagepath, ChangeView cv) {
 		super(imagepath);
 		this.cv = cv;
+		this.setFocusable(true);
+		this.addKeyListener(this);
 		ck = CustomKeys.getInstance();
 		back = new Menuebutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
+		addKeyListener(this);
 		this.setLayout(new BorderLayout());
 
 		// Header
@@ -107,11 +111,13 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		JPanel kbGridPanel = new JPanel(new GridLayout(4, 2));
 		Dimension buttonPanelDimension= new Dimension(Constants.BUTTON_RESOLUTION_WIDTH + 20, Constants.BUTTON_RESOLUTION_HEIGHT + 40);
 
+		//Left
 		JPanel leftButtonPanel = new JPanel();
 		left.addActionListener(this);
+		left.setFocusable(false);
 		leftButtonPanel.add(left);
 		kbGridPanel.add(leftButtonPanel);
-		currentLeft = new JLabel("LEFT_KEY");
+		currentLeft = new JLabel(ck.getLeftKeyName(keyEvent));
 		kbGridPanel.add(currentLeft);
 		leftButtonPanel.setMinimumSize(buttonPanelDimension);
 		leftButtonPanel.setMaximumSize(buttonPanelDimension);
@@ -120,11 +126,13 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		left.setMaximumSize(Constants.BUTTON_RESOLUTION);
 		left.setPreferredSize(Constants.BUTTON_RESOLUTION);
 
+		//Right
 		JPanel rightButtonPanel = new JPanel();
 		right.addActionListener(this);
+		right.setFocusable(false);
 		rightButtonPanel.add(right);
 		kbGridPanel.add(rightButtonPanel);
-		currentRight = new JLabel("RIGHT_KEY");
+		currentRight = new JLabel(ck.getRightKeyName(keyEvent));
 		kbGridPanel.add(currentRight);
 		rightButtonPanel.setMinimumSize(buttonPanelDimension);
 		rightButtonPanel.setMaximumSize(buttonPanelDimension);
@@ -133,11 +141,13 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		right.setMaximumSize(Constants.BUTTON_RESOLUTION);
 		right.setPreferredSize(Constants.BUTTON_RESOLUTION);
 
+		//Jump
 		JPanel jumpButtonPanel = new JPanel();
 		jump.addActionListener(this);
+		jump.setFocusable(false);
 		jumpButtonPanel.add(jump);
 		kbGridPanel.add(jumpButtonPanel);
-		currentJump = new JLabel("UP_KEY");
+		currentJump = new JLabel(ck.getJumpKeyName(keyEvent));
 		kbGridPanel.add(currentJump);
 		jumpButtonPanel.setMinimumSize(buttonPanelDimension);
 		jumpButtonPanel.setMaximumSize(buttonPanelDimension);
@@ -146,11 +156,13 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		jump.setMaximumSize(Constants.BUTTON_RESOLUTION);
 		jump.setPreferredSize(Constants.BUTTON_RESOLUTION);
 		
+		//Item
 		JPanel itemButtonPanel = new JPanel();
 		item.addActionListener(this);
+		item.setFocusable(false);
 		itemButtonPanel.add(item);
 		kbGridPanel.add(itemButtonPanel);
-		currentItem = new JLabel("C");
+		currentItem = new JLabel(ck.getItemKeyName(keyEvent));
 		kbGridPanel.add(currentItem);
 		itemButtonPanel.setMinimumSize(buttonPanelDimension);
 		itemButtonPanel.setMaximumSize(buttonPanelDimension);
@@ -186,6 +198,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		Object src = e.getSource();
 		if (src == left) {
 			pressedKey = Key.LEFT;
+			this.requestFocus();
 			new Thread() {
 				@Override
 				public void run() {
@@ -196,7 +209,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 							currentLeft.setText("");
 							sleep(700);
 						}
-						//TODO add a get current key.
+						currentLeft.setText(ck.getLeftKeyName(keyEvent));
 					} catch (InterruptedException ie) {
 
 					}
@@ -206,6 +219,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 		} else if (src == right) {
 			pressedKey = Key.RIGHT;
+			this.requestFocus();
 			new Thread() {
 				@Override
 				public void run() {
@@ -216,7 +230,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 							currentRight.setText("");
 							sleep(700);
 						}
-						//TODO add a get current key.
+						currentRight.setText(ck.getRightKeyName(keyEvent));
 					} catch (InterruptedException ie) {
 
 					}
@@ -225,6 +239,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 		} else if (src == jump) {
 			pressedKey = Key.JUMP;
+			this.requestFocus();
 			new Thread() {
 				@Override
 				public void run() {
@@ -235,7 +250,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 							currentJump.setText("");
 							sleep(700);
 						}
-						//TODO add a get current key.
+						currentJump.setText(ck.getJumpKeyName(keyEvent));
 					} catch (InterruptedException ie) {
 
 					}
@@ -244,6 +259,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 		} else if (src == item) {
 			pressedKey = Key.ITEM;
+			this.requestFocus();
 			new Thread() {
 				@Override
 				public void run() {
@@ -254,7 +270,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 							currentItem.setText("");
 							sleep(700);
 						}
-						//TODO add a get current key.
+						currentItem.setText(ck.getItemKeyName(keyEvent));
 					} catch (InterruptedException ie) {
 
 					}
@@ -264,13 +280,20 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 	}
 
-	@Override
 	public void keyPressed(KeyEvent key) {
-		System.out.println("In da if");
-		pressedKey = Key.NONE;
-		System.out.println(ck.getLeftKey());
-		ck.setleftKey(key.getKeyCode());
-		System.out.println(ck.getLeftKey());
+		if(pressedKey == Key.LEFT){
+			ck.setLeftKey(key.getKeyCode());
+			pressedKey = Key.NONE;
+		}else if(pressedKey == Key.RIGHT){
+			ck.setRightKey(key.getKeyCode());
+			pressedKey = Key.NONE;
+		}else if(pressedKey == Key.JUMP){
+			ck.setJumpKey(key.getKeyCode());
+			pressedKey = Key.NONE;
+		}else if(pressedKey == Key.ITEM){
+			ck.setItemKey(key.getKeyCode());
+			pressedKey = Key.NONE;
+		}
 
 	}
 
@@ -280,8 +303,8 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+	public void keyTyped(KeyEvent key) {
+		
 
 	}
 
