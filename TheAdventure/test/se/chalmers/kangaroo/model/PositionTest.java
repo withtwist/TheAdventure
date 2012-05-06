@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import se.chalmers.kangaroo.model.Position;
+import se.chalmers.kangaroo.model.utils.Position;
 /**
  * A testing class for testing Position.
  * @author twist3r

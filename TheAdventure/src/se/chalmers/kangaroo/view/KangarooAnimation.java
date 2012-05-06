@@ -4,8 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-import se.chalmers.kangaroo.model.Direction;
 import se.chalmers.kangaroo.model.Kangaroo;
+import se.chalmers.kangaroo.model.utils.Direction;
 /**
  * A class representing the animation of the Kangaroo.
  * @author simonal

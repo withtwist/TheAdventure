@@ -4,8 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-import se.chalmers.kangaroo.model.Creature;
 import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
+import se.chalmers.kangaroo.model.creatures.Creature;
 
 public class BlackAndWhiteAnimation implements Animation{
 	

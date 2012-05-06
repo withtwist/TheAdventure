@@ -1,6 +1,6 @@
 package se.chalmers.kangaroo.view;
 
-import se.chalmers.kangaroo.model.Creature;
+import se.chalmers.kangaroo.model.creatures.Creature;
 
 
 public class AnimationFactory {

@@ -4,12 +4,16 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
 import se.chalmers.kangaroo.model.creatures.BullCreature;
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
+import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.creatures.SumoCreature;
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
+import se.chalmers.kangaroo.model.iobject.InteractiveObject;
 import se.chalmers.kangaroo.model.iobject.RedBlueButton;
 import se.chalmers.kangaroo.model.item.DoubleJumpItem;
 import se.chalmers.kangaroo.model.item.ImmortalItem;
+import se.chalmers.kangaroo.model.item.Item;
 import se.chalmers.kangaroo.model.item.StopTimeItem;
+import se.chalmers.kangaroo.model.utils.Position;
 
 /**
  * Creates tiles or interactiveTiles depending on ID.

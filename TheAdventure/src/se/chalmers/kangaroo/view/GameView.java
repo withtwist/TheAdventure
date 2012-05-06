@@ -6,12 +6,12 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 
 import se.chalmers.kangaroo.constants.Constants;
-import se.chalmers.kangaroo.model.Creature;
 import se.chalmers.kangaroo.model.GameModel;
-import se.chalmers.kangaroo.model.InteractiveObject;
-import se.chalmers.kangaroo.model.Item;
-import se.chalmers.kangaroo.model.Position;
 import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
+import se.chalmers.kangaroo.model.creatures.Creature;
+import se.chalmers.kangaroo.model.iobject.InteractiveObject;
+import se.chalmers.kangaroo.model.item.Item;
+import se.chalmers.kangaroo.model.utils.Position;
 
 /**
  * 
@@ -24,8 +24,6 @@ public class GameView extends JPanelWithBackground {
 	private GameModel gm;
 	private HashMap<Creature, Animation> creatureAnimations;
 	private KangarooAnimation ka;
-
-	// private Graphics slickGraphics = new Graphics();
 
 	public GameView(String imagepath, GameModel gm) {
 		super(imagepath);

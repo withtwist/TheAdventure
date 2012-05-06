@@ -2,6 +2,10 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
+import se.chalmers.kangaroo.model.item.Item;
+import se.chalmers.kangaroo.model.utils.Direction;
+import se.chalmers.kangaroo.model.utils.Position;
+
 /**
  * This class represents the Kangaroo controlled by the player.
  * 

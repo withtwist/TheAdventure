@@ -1,8 +1,7 @@
 package se.chalmers.kangaroo.model.item;
 
-import se.chalmers.kangaroo.model.Item;
 import se.chalmers.kangaroo.model.Kangaroo;
-import se.chalmers.kangaroo.model.Position;
+import se.chalmers.kangaroo.model.utils.Position;
 
 /**
  * A class representing an item that makes the kangaroo immortal for 5 seconds.

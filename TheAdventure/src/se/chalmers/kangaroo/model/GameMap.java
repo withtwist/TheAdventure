@@ -5,6 +5,10 @@ import java.util.List;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.FileToMap;
+import se.chalmers.kangaroo.model.creatures.Creature;
+import se.chalmers.kangaroo.model.iobject.InteractiveObject;
+import se.chalmers.kangaroo.model.item.Item;
+import se.chalmers.kangaroo.model.utils.Position;
 
 /**
  * This is a class for representing a map. It consists of a matrix of Tiles. The

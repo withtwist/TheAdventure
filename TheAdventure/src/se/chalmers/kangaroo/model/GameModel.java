@@ -3,6 +3,9 @@ package se.chalmers.kangaroo.model;
 import java.awt.geom.Rectangle2D;
 
 import se.chalmers.kangaroo.constants.Constants;
+import se.chalmers.kangaroo.model.creatures.Creature;
+import se.chalmers.kangaroo.model.item.Item;
+import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
 
 /**

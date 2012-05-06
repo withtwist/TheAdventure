@@ -2,9 +2,8 @@ package se.chalmers.kangaroo.model.creatures;
 
 import java.awt.Polygon;
 
-import se.chalmers.kangaroo.model.Creature;
-import se.chalmers.kangaroo.model.Direction;
-import se.chalmers.kangaroo.model.Position;
+import se.chalmers.kangaroo.model.utils.Direction;
+import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
 
 public class BlackAndWhiteCreature implements Creature {
