@@ -59,7 +59,6 @@ public class ChangeView extends JFrame implements KeyListener {
 	public void gameView() {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "gameview");
-		addKeyListener(this);
 		gc.start();
 	}
 

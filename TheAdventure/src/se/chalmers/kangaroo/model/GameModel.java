@@ -120,6 +120,7 @@ public class GameModel {
 			tileCollition();
 			iObjectCollition();
 			changeFalling();
+			
 		} catch (ArrayIndexOutOfBoundsException e) {
 			restartLevel();
 		}

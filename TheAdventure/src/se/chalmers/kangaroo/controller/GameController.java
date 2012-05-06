@@ -120,8 +120,7 @@ public class GameController implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO add nothing here
-
+		//Nothing to do here.
 	}
 
 }
