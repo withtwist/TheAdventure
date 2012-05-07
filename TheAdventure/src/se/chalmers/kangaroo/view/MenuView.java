@@ -60,10 +60,6 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		exitGame.addMouseListener(this);
 	}
 
-	public ChangeView getChangeView() {
-		return cv;
-	}
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
