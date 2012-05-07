@@ -94,6 +94,7 @@ public class GameView extends JPanelWithBackground {
 						xP - drawFrom * 32 - fixPosition };
 				int[] ys = { yP - 64, yP - 64, yP - 32, yP - 32 };
 				g.drawPolygon(xs, ys, 4);
+				System.out.println(creatureAnimations.get(c).toString());
 				if(creatureAnimations.containsKey(c))
 					creatureAnimations.get(c).drawSprite(g, xP, yP);
 			}
