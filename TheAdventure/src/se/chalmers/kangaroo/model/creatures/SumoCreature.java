@@ -22,10 +22,13 @@ public class SumoCreature implements Creature {
 	private boolean isJumping = false;
 	private boolean isEarthShaking = false;
 	private double verticalSpeed;
+	private Direction direction;
+
 
 	public SumoCreature(Position pos) {
 
 		this.pos = pos;
+		direction = Direction.DIRECTION_NONE;
 	}
 
 	@Override
@@ -129,6 +132,10 @@ public class SumoCreature implements Creature {
 	@Override
 	public Position getPosition() {
 		return pos;
+	}
+
+	public Direction getDirection() {
+		return this.direction;
 	}
 
 	@Override
