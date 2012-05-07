@@ -105,7 +105,7 @@ public class SumoCreature implements Creature {
 				try {
 					sleep(20);
 					verticalSpeed = -3;
-					while (verticalSpeed != 3) {
+					while (Math.abs(verticalSpeed-3) <= 10e-5) {
 						pos = new Position(pos.getX(),
 								(int) (pos.getY() + verticalSpeed));
 						verticalSpeed += 0.01;
