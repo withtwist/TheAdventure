@@ -14,10 +14,11 @@ import se.chalmers.kangaroo.model.utils.Position;
  */
 public class BullCreature implements Creature {
 
+	private static final int id = 114;
 	private Position pos;
+	private Direction direction;
+	private int speed = 1;
 	private int health;
-	private Polygon bullPolygon;
-	private static final int ID = 114;
 
 	/**
 	 * Creates a bull at the given position and direction.
@@ -28,13 +29,6 @@ public class BullCreature implements Creature {
 	public BullCreature(Position spawnPos) {
 		this.pos = spawnPos;
 		health = 100;
-	}
-
-	/**
-	 * Desides if the creature is killable. The bull is.
-	 */
-	public boolean isKillable() {
-		return true;
 	}
 
 	/**
@@ -108,25 +102,38 @@ public class BullCreature implements Creature {
 
 	@Override
 	public void updateCreature() {
-		// TODO Auto-generated method stub
+		if (direction == Direction.DIRECTION_WEST) {
+			pos = new Position(pos.getX() - speed, pos.getY());
+		} else {
+			pos = new Position(pos.getX() + speed, pos.getY());
+		}
 
 	}
 
 	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
 	@Override
 	public Position getPosition() {
-		// TODO Auto-generated method stub
-		return null;
+		return pos;
 	}
 
 	@Override
 	public void changeDirection() {
-		// TODO Auto-generated method stub
-
+		if (direction == Direction.DIRECTION_WEST) {
+			direction = Direction.DIRECTION_EAST;
+		} else {
+			direction = Direction.DIRECTION_WEST;
+		}
 	}
+
+	/**
+	 * Desides if the creature is killable. The bull is.
+	 */
+	public boolean isKillable() {
+		return true;
+	}
+
 }
