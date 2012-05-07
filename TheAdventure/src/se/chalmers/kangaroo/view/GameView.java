@@ -94,8 +94,10 @@ public class GameView extends JPanelWithBackground {
 						xP - drawFrom * 32 - fixPosition };
 				int[] ys = { yP - 64, yP - 64, yP - 32, yP - 32 };
 				g.drawPolygon(xs, ys, 4);
-				if(creatureAnimations.containsKey(c))
+				if(creatureAnimations.containsKey(c)) {
+					System.out.println(c.isKillable());
 					creatureAnimations.get(c).drawSprite(g, xP-drawFrom*32-fixPosition, yP-64);
+				}
 			}
 		}
 		/* Draw the kangaroo based on where you are */
