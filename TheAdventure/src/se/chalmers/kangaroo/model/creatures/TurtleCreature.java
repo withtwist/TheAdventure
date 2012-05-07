@@ -7,22 +7,22 @@ import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.Waiter;
 
 /**
- * An enemy in the form of a turtle. Will go into its shell at random tmes and
+ * An enemy in the form of a turtle. Will go into its shell at random times and
  * will then be impossible to kill.
  * 
- * @author Arvid
+ * @author arvidk
  * 
  */
 public class TurtleCreature implements Creature {
-
-	private boolean inShell = false;
-	private Waiter w;
+	
+	private static final int id = 111;
 	private Position pos;
-	private static final int ID = 112;
+	private Direction direction;
+	private int speed = 1;
+	private boolean inShell = false;
 
 	public TurtleCreature(Position spawnPos) {
 		pos = spawnPos;
-		w = new Waiter();
 	}
 
 	@Override
@@ -30,7 +30,11 @@ public class TurtleCreature implements Creature {
 		int i = (int) ((6) * Math.random() * 100);
 		if (i == 5)
 			changeState();
-		this.move();
+		if (direction == Direction.DIRECTION_WEST) {
+			pos = new Position(pos.getX() - speed, pos.getY());
+		} else {
+			pos = new Position(pos.getX() + speed, pos.getY());
+		}
 	}
 
 	/**
@@ -39,7 +43,17 @@ public class TurtleCreature implements Creature {
 	 */
 	public void changeState() {
 		this.goInShell();
-		w.waitTime((int) ((6) * Math.random()) * 1000);
+		new Thread() {
+			@Override
+			public void run() {
+				while (true)
+					try {
+						sleep((long) ((5) * Math.random() * 1000));
+					} catch (InterruptedException e) {
+					}
+
+			};
+		}.start();
 		this.goOutOfShell();
 
 	}
@@ -65,11 +79,7 @@ public class TurtleCreature implements Creature {
 	 */
 	@Override
 	public boolean isKillable() {
-		if (inShell) {
-			return true;
-		} else {
-			return false;
-		}
+		return !inShell;
 	}
 
 	/**
@@ -78,9 +88,7 @@ public class TurtleCreature implements Creature {
 	 */
 	@Override
 	public void move() {
-		if (!inShell) {
-			pos = new Position(pos.getX() - 2, pos.getY());
-		}
+	
 	}
 
 	@Override
@@ -102,7 +110,7 @@ public class TurtleCreature implements Creature {
 
 	@Override
 	public int getId() {
-		return ID;
+		return id;
 	}
 
 	@Override
@@ -112,7 +120,13 @@ public class TurtleCreature implements Creature {
 
 	@Override
 	public void changeDirection() {
-		//
+		if (direction == Direction.DIRECTION_WEST) {
+			direction = Direction.DIRECTION_EAST;
+		} else {
+			direction = Direction.DIRECTION_WEST;
+		}
+
 	}
+	
 
 }
