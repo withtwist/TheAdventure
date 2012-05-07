@@ -5,6 +5,7 @@ import java.awt.Polygon;
 import se.chalmers.kangaroo.model.item.Item;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
+import se.chalmers.kangaroo.utils.Sound;
 
 /**
  * This class represents the Kangaroo controlled by the player.
@@ -36,6 +37,8 @@ public class Kangaroo implements Movable {
 	private boolean immortal = false;
 
 	private Polygon kangarooPoly;
+	
+	private Sound sfxKangaroo;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -197,6 +200,8 @@ public class Kangaroo implements Movable {
 	 */
 	public void jump() {
 		if (isJumping == false) {
+			new Sound("resources/sfx/kangaroo_jump.WAV").play();
+			
 			this.isJumping = true;
 			this.isFalling = true;
 			// TODO Fix so jump is key sensitive
