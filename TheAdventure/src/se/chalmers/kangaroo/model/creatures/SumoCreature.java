@@ -18,9 +18,9 @@ import se.chalmers.kangaroo.utils.Waiter;
 public class SumoCreature implements Creature {
 	private final static int id = 115;
 	private Position pos;
-	private boolean isGroundStomping = false;
+	private boolean isStomping = false;
 	private boolean isJumping = false;
-	private boolean isEarthShaking = false;
+	private boolean isShaking = false;
 	private double verticalSpeed;
 	private Direction direction;
 
@@ -28,7 +28,7 @@ public class SumoCreature implements Creature {
 	public SumoCreature(Position pos) {
 
 		this.pos = pos;
-		direction = Direction.DIRECTION_NONE;
+		direction = Direction.DIRECTION_WEST;
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class SumoCreature implements Creature {
 	 */
 	@Override
 	public Polygon getPolygon() {
-		if (isGroundStomping == false) {
+		if (isShaking == false) {
 			int polyX[] = { pos.getX() + 58, pos.getX() + 58, pos.getX() + 64,
 					pos.getX() + 64, pos.getX() + 0, pos.getX() + 0,
 					pos.getX() + 20, pos.getX() + 20 };
@@ -67,22 +67,31 @@ public class SumoCreature implements Creature {
 	 * The sumo is stamping the ground and making three tiles in radius being
 	 * vulnerable.
 	 */
-	public void groundStomp() {
-		isGroundStomping = true;
+	private void groundStomp() {
+		isStomping = true;
 		new Thread() {
 			@Override
 			public void run() {
 				try {
 					sleep(2460);
-					isEarthShaking = true;
+					isShaking = true;
+					isStomping = false;
 					sleep(2000);
-					isGroundStomping = false;
-					isEarthShaking = false;
+					isShaking = false;
 				} catch (InterruptedException ie) {
 
 				}
 			}
 		}.start();
+		changeDirection();
+	}
+	
+	public boolean isStomping(){
+		return isStomping;
+	}
+	
+	public boolean isJumping(){
+		return isJumping;
 	}
 
 	/**
@@ -112,10 +121,10 @@ public class SumoCreature implements Creature {
 	@Override
 	public void updateCreature() {
 		if ((Math.random() * 600) <= 599 && isJumping == false
-				&& isGroundStomping == false) {
+				&& isStomping == false) {
 			jump();
 		} else if (Math.random() * 600 <= 541 && isJumping == false
-				&& isGroundStomping == false) {
+				&& isStomping == false) {
 			groundStomp();
 		}
 	}
@@ -140,6 +149,11 @@ public class SumoCreature implements Creature {
 
 	@Override
 	public void changeDirection() {
+		if(direction == Direction.DIRECTION_WEST){
+			direction = Direction.DIRECTION_EAST;
+		}else{
+			direction = Direction.DIRECTION_WEST;
+		}
 	}
 
 }
