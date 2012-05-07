@@ -16,7 +16,7 @@ public class BlackAndWhiteAnimation implements Animation{
 	
 	public BlackAndWhiteAnimation(Creature bw){
 		this.creature = (BlackAndWhiteCreature)bw;
-		this.sheet = Toolkit.getDefaultToolkit().getImage("../gfx/creatures/blackandwhite_64_32.png");
+		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/blackandwhite_64_32.png");
 		this.height = 32;
 		this.width = 32;
 	}

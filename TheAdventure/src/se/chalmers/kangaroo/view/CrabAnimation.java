@@ -20,7 +20,7 @@ public class CrabAnimation implements Animation{
 		this.crab = (CrabCreature)c;
 		tick = 0;
 		currentState = 0;
-		this.sheet = Toolkit.getDefaultToolkit().getImage("../gfx/creatures/crab_256x32.png");
+		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/crab_256x32.png");
 		this.width = 64;
 		this.height = 32;
 	}
