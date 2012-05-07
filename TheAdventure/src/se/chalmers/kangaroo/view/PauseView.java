@@ -29,7 +29,7 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	 * 
 	 * @param bgpath
 	 */
-	public PauseView(String bgpath) {
+	public PauseView(String bgpath, ChangeView cv) {
 		super(bgpath);
 		this.cv = cv;
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);

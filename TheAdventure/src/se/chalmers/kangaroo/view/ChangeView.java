@@ -22,9 +22,10 @@ public class ChangeView extends JFrame implements KeyListener {
 	private HighscoreView hv;
 	private MenuView mv;
 	private Sound s;
+	
 
 	public ChangeView() {
-		gc = new GameController();
+		gc = new GameController(this);
 		ov = new OptionView("resources/images/background.gif", this);
 		hv = new HighscoreView("resources/images/background.gif", this);
 		mv = new MenuView("resources/images/background.gif", this);
@@ -49,6 +50,11 @@ public class ChangeView extends JFrame implements KeyListener {
 		addKeyListener(this);
 		setVisible(true);
 		jp.setVisible(true);
+	}
+	
+	public void back() {
+		CardLayout cl = (CardLayout) jp.getLayout();
+		cl.previous(jp);
 	}
 
 	public void menuView() {

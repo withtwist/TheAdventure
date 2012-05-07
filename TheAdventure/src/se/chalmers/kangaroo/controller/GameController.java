@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.utils.Direction;
+import se.chalmers.kangaroo.view.ChangeView;
 import se.chalmers.kangaroo.view.GameView;
 
 
@@ -21,11 +22,12 @@ public class GameController implements KeyListener {
 	private GameView gv;
 
 	private CustomKeys ck;
+	private boolean isRunning = false;
 
-	public GameController() {
+	public GameController(ChangeView cv) {
 		ck = CustomKeys.getInstance();
 		gm = new GameModel();
-		gv = new GameView("resources/images/background.gif", gm);
+		gv = new GameView("resources/images/background.gif", gm, cv);
 	}
 
 	public GameView getGameView() {
@@ -33,7 +35,19 @@ public class GameController implements KeyListener {
 	}
 
 	public void start() {
+		isRunning = true;
 		new Thread(new PlayModel()).start();
+	}
+	
+	private void pauseGame() {
+		isRunning = false;
+		gv.togglePause();
+		gv.repaint();
+	}
+	
+	private void resumeGame() {
+		isRunning = true;
+		gv.togglePause();
 	}
 
 	class PlayModel implements Runnable {
@@ -41,17 +55,19 @@ public class GameController implements KeyListener {
 
 		public void run() {
 			while (true) {
-				long time = System.currentTimeMillis();
-				gm.update();
-				gv.repaint();
-				gv.revalidate();
-				try {
-					diff = System.currentTimeMillis() - time;
-					if (diff < 1000 / 60)
-						Thread.sleep(1000 / 60 - diff);
-				} catch (InterruptedException e) {
+				if(isRunning){
+					long time = System.currentTimeMillis();
+					gm.update();
+					gv.repaint();
+					gv.revalidate();
+					try {
+						diff = System.currentTimeMillis() - time;
+						if (diff < 1000 / 60)
+							Thread.sleep(1000 / 60 - diff);
+					} catch (InterruptedException e) {
+					}
 				}
-			}
+			}	
 		}
 
 	}
@@ -76,6 +92,12 @@ public class GameController implements KeyListener {
 			if (gm.getKangaroo().getItem() != null)
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
+		} else if(code == KeyEvent.VK_ESCAPE) {
+			if(isRunning == true){
+				pauseGame();
+			} else {
+				resumeGame();
+			}
 		} else {
 			// If any other keys are pressed, restarts the level.
 			gm.restartLevel();

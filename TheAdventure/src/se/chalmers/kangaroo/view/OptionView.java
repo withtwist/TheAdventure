@@ -335,7 +335,6 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon(
 					"resources/images/buttons/back_onSelect.png"));
-			cv.menuView();
 		}
 
 	}
@@ -344,7 +343,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
-			cv.menuView();
+			cv.back();
 		}
 
 	}

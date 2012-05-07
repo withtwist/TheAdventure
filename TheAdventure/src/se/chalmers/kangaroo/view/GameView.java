@@ -24,8 +24,10 @@ public class GameView extends JPanelWithBackground {
 	private GameModel gm;
 	private HashMap<Creature, Animation> creatureAnimations;
 	private KangarooAnimation ka;
+	private boolean isPaused = false;
+	private PauseView pv;
 
-	public GameView(String imagepath, GameModel gm) {
+	public GameView(String imagepath, GameModel gm, ChangeView cv) {
 		super(imagepath);
 		this.gm = gm;
 		creatureAnimations = new HashMap<Creature, Animation>();
@@ -36,9 +38,9 @@ public class GameView extends JPanelWithBackground {
 		}
 		
 		ka = new KangarooAnimation(gm.getKangaroo(),58, 64);
-		PauseView pv = new PauseView(imagepath);
-		pv.setVisible(false);
-		pv.setOpaque(false);
+		pv = new PauseView(imagepath, cv);
+		pv.setVisible(isPaused);
+		pv.setOpaque(isPaused);
 		this.add(pv);
 		
 	}
@@ -132,5 +134,10 @@ public class GameView extends JPanelWithBackground {
 		if (gm.getGameMap().getTileWidth() - kPos < 17)
 			return gm.getGameMap().getTileWidth() - 33;
 		return kPos - 16;
+	}
+	public void togglePause() {
+		this.isPaused = !isPaused;
+		pv.setVisible(isPaused);
+		pv.setOpaque(isPaused);
 	}
 }

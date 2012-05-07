@@ -157,7 +157,6 @@ public class HighscoreView extends JPanelWithBackground implements
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon(
 					"resources/images/buttons/back_onSelect.png"));
-			cv.menuView();
 		}
 
 	}
@@ -168,7 +167,7 @@ public class HighscoreView extends JPanelWithBackground implements
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
 			// TODO Delete this syso later
 			System.out.println("Back to menu");
-			cv.menuView();
+			cv.back();
 		}
 
 	}
