@@ -39,6 +39,11 @@ public class RedBlueButton implements InteractiveObject {
 	@Override
 	public void onCollision() {
 		if (!sleep) {
+			if (getId() % 2 == 0) {
+				new Sound("resources/sfx/redblue_red.WAV").play(false);
+			} else {
+				new Sound("resources/sfx/redblue_blue.WAV").play(false);
+			}
 			int x = gameMap.getTileWidth();
 			int y = gameMap.getTileHeight();
 			for (int i = 0; i < y; i++) {
@@ -71,10 +76,8 @@ public class RedBlueButton implements InteractiveObject {
 	@Override
 	public int getChangedId(int currentId) {
 		if (currentId % 2 == 0) {
-			new Sound("resources/sfx/redblue_red.WAV").play(false);
 			return currentId - 1;
 		} else {
-			new Sound("resources/sfx/redblue_blue.WAV").play(false);
 			return currentId + 1;
 		}
 	}
