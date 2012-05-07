@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 
 import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.creatures.SumoCreature;
+import se.chalmers.kangaroo.model.utils.Direction;
 
 public class SumoAnimation implements Animation{
 	private SumoCreature sumo;
@@ -25,11 +26,28 @@ public class SumoAnimation implements Animation{
 	}
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if(tick ==6){
+		if(sumo.isStomping()){
+			tick++;
+			currentSprite = (sumo.getDirection() == Direction.DIRECTION_EAST) ? 4 : 0;
+			if(tick == 6)
+				currentSprite++;
+			else if(tick == 12)
+				currentSprite++;
+			else if(tick == 18)
+				currentSprite++;
+			else if(tick == 138)
+				currentSprite++;
+			else if(tick == 139)
+				currentSprite--;
+			else if(tick == 140)
+				currentSprite--;
+			else if(tick == 141)
+				currentSprite--;
+		}else{
 			tick = 0;
-			currentSprite++;
-			currentSprite %= 4;
+			currentSprite = 0;
 		}
+		
 		
 	}
 	
