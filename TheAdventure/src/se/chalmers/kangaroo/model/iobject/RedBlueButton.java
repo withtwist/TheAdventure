@@ -4,6 +4,7 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveTile;
 import se.chalmers.kangaroo.model.utils.Position;
+import se.chalmers.kangaroo.utils.Sound;
 
 /**
  * 
@@ -70,8 +71,10 @@ public class RedBlueButton implements InteractiveObject {
 	@Override
 	public int getChangedId(int currentId) {
 		if (currentId % 2 == 0) {
+			new Sound("resources/sfx/redblue_red.WAV").play(false);
 			return currentId - 1;
 		} else {
+			new Sound("resources/sfx/redblue_blue.WAV").play(false);
 			return currentId + 1;
 		}
 	}
