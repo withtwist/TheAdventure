@@ -36,4 +36,8 @@ public class CrabAnimation implements Animation{
 		tick++;
 	}
 	
+	@Override
+	public String toString(){
+		return "CrabAnimation: " +tick +" "+currentState;
+	}
 }
