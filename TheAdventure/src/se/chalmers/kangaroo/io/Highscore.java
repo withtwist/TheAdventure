@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
+import org.keyczar.Crypter;
+
 /**
  * This is a class that manages the highscore in a file.
  * 
@@ -18,9 +20,14 @@ public class Highscore {
 	private static Highscore highscore;
 	private static final String FILE_NAME = "resources/highscore.txt";
 	private static final int nbrOfScores = 5;
-
+	private static Crypter crypter;
 	private Highscore() {
-
+		try {
+			this.crypter = new Crypter("path");
+		} catch(Exception e) {
+			System.out.println("Something went horribly wrong!");
+			System.out.println(e.toString());
+		}
 	}
 
 	/**
