@@ -20,7 +20,7 @@ public class SumoAnimation implements Animation{
 		this.sumo = (SumoCreature)c;
 		this.width = 64;
 		this.height = 64;
-		this.sheet = Toolkit.getDefaultToolkit().getImage("/resources/sheet/sumo_64x64.png");
+		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/sumo_64x64.png");
 		this.tick = 0;
 		this.currentSprite = 0;
 	}
@@ -47,7 +47,7 @@ public class SumoAnimation implements Animation{
 			tick = 0;
 			currentSprite = 0;
 		}
-		
+		g.drawImage(sheet, x, y, x+width, y+width, currentSprite*width, 0, (currentSprite+1)*width, height, null, null);
 		
 	}
 	
