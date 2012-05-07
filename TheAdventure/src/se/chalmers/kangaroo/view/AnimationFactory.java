@@ -19,8 +19,8 @@ public class AnimationFactory {
 			return new BlackAndWhiteAnimation(c);
 //		case 114:
 //			return new BullCreature(p);
-//		case 115:
-//			return new SumoCreature(p);
+		case 115:
+			return new SumoAnimation(c);
 		default:
 			return null;
 		
