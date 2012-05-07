@@ -48,7 +48,7 @@ public class TurtleCreature implements Creature {
 			public void run() {
 				while (true)
 					try {
-						sleep((long) ((5) * Math.random() * 1000));
+						sleep((int) ((5) * Math.random() * 1000));
 					} catch (InterruptedException e) {
 					}
 
