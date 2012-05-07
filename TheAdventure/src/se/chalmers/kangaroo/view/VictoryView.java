@@ -95,20 +95,22 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 			submit.setIcon(new ImageIcon("resources/images/submit.png"));
 			try {
 				name = removeSpaces(namefield.getText());
-				
+
 			} catch (NullPointerException exc) { };
-			
+
 		}
 	}
 
 	public String removeSpaces(String name) {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0 ; i < name.length() ; i++){
-			if(!((Character)name.charAt(i)).equals(' ') || !((Character)name.charAt(i)).equals(' ') )
+		for (int i = 0; i < name.length(); i++) {
+			if (!((Character) name.charAt(i)).equals(' ')
+					|| !((Character) name.charAt(i)).equals(' '))
 				sb.append(name.charAt(i));
 		}
 		return sb.toString();
 	}
+
 	public String getName() {
 		return name;
 	}
