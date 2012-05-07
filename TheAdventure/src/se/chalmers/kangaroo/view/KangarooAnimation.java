@@ -30,6 +30,7 @@ public class KangarooAnimation implements Animation {
 	public KangarooAnimation(Kangaroo k,int width, int height) {
 		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_right.png");
 		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_left.png");
+		lastSheet = "rightSheet";
 		currentFrame = 0;
 		this.widthPerFrame = width;
 		this.height = height;

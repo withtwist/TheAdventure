@@ -44,7 +44,7 @@ public class Kangaroo implements Movable {
 	 * @return
 	 */
 	public Kangaroo(Position spawnPos) {
-
+		this.direction = Direction.DIRECTION_NONE;
 		this.pos = spawnPos;
 		this.spawnPos = spawnPos;
 		int[] xcords = { pos.getX(), pos.getX() + 32, pos.getX() + 32,
