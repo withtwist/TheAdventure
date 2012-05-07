@@ -23,7 +23,7 @@ public class BlackAndWhiteCreature implements Creature {
 			public void run() {
 				while (true)
 					try {
-						sleep(1000);
+						sleep(600);
 						killable = !killable;
 					} catch (InterruptedException e) {
 					}

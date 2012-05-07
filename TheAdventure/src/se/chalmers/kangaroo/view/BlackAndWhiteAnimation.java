@@ -22,16 +22,10 @@ public class BlackAndWhiteAnimation implements Animation{
 	}
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if( creature.isKillable() ) {
+		if( creature.isKillable() ) 
 			g.drawImage(sheet, x, y, x+width, y+height, width, 0, 2*width, height, null, null);
-
-		}
-
-
-		else {
-
-			g.drawImage(sheet, x, y, x+width, y+height, width, 0, 2*width, height, null, null);
-		}
+		else 
+			g.drawImage(sheet, x, y, x+width, y+height, 0, 0, width, height, null, null);
 
 	}
 	
