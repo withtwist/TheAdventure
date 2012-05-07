@@ -14,7 +14,7 @@ import se.chalmers.kangaroo.utils.Waiter;
  * 
  */
 public class TurtleCreature implements Creature {
-	
+
 	private static final int id = 111;
 	private Position pos;
 	private Direction direction;
@@ -88,7 +88,7 @@ public class TurtleCreature implements Creature {
 	 */
 	@Override
 	public void move() {
-	
+
 	}
 
 	@Override
@@ -127,6 +127,5 @@ public class TurtleCreature implements Creature {
 		}
 
 	}
-	
 
 }
