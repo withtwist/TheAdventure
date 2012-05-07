@@ -200,8 +200,7 @@ public class Kangaroo implements Movable {
 	 */
 	public void jump() {
 		if (isJumping == false) {
-			new Sound("resources/sfx/kangaroo_jump.WAV").play();
-			
+			new Sound("resources/sfx/kangaroo_jump.WAV").play(false);
 			this.isJumping = true;
 			this.isFalling = true;
 			// TODO Fix so jump is key sensitive
@@ -221,6 +220,7 @@ public class Kangaroo implements Movable {
 			}.start();
 
 		} else if (enableDoubleJump) {
+			new Sound("resources/sfx/kangaroo_jump.WAV").play(false);
 			this.verticalSpeed = -8.7f;
 			enableDoubleJump = false;
 		}

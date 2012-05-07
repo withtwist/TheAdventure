@@ -20,23 +20,34 @@ import javax.swing.JOptionPane;
 public class Sound implements Runnable {
 
 	String fileLocation;
+	
+	boolean isLooping;
 
 	public Sound(String fileLocation) {
 		this.fileLocation = fileLocation;
 	}
 
-	public void play() {
-
+//	public void play() {
+//
+//		Thread t = new Thread(this);
+//		t.start();
+//	}
+	
+	public void play(boolean isLooping){
+		this.isLooping = isLooping;
 		Thread t = new Thread(this);
 		t.start();
 	}
 	
 	public void run() {
-		while (true) {
+		if(isLooping == true){
+			while (true) {
+				playSound(fileLocation);
+	
+			}
+		}else{
 			playSound(fileLocation);
-
 		}
-
 	}
 
 	private void playSound(String fileName) {

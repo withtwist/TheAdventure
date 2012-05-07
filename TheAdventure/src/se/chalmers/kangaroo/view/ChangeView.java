@@ -45,7 +45,7 @@ public class ChangeView extends JFrame implements KeyListener {
 		jp.add(hv, "highscoreview");
 		jp.add(mv, "menuview");
 		add(jp);
-		new Sound("resources/music/menumusic.wav").play();
+		new Sound("resources/music/menumusic.wav").play(true);
 		addKeyListener(this);
 		setVisible(true);
 		jp.setVisible(true);
