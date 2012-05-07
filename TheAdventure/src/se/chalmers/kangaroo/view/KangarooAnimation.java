@@ -48,21 +48,29 @@ public class KangarooAnimation implements Animation {
 			currentFrame++;
 			currentFrame = (currentFrame % 3);
 		}
-		if(kangaroo.getDirection() == Direction.DIRECTION_EAST) {
+		if (kangaroo.getVerticalSpeed() != 0) {
+			if(kangaroo.getDirection() == Direction.DIRECTION_EAST || lastSheet == "rightSheet") {
+				g.drawImage(rightSheet, x-5, y-height, x+widthPerFrame-5, y,
+						widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
+				this.lastSheet = "rightSheet";
+			} else if (kangaroo.getDirection() == Direction.DIRECTION_WEST || lastSheet == "leftSheet") {
+				g.drawImage(leftSheet, x-5, y-height, x+widthPerFrame-5, y,
+						widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
+				this.lastSheet = "leftSheet";
+			}
+		} else if(kangaroo.getDirection() == Direction.DIRECTION_EAST) {
 			g.drawImage(rightSheet, (x-widthPerFrame/2)+10, y-height, (x+widthPerFrame/2)+10, y,
 					(currentFrame * widthPerFrame), 1,
 					(currentFrame * widthPerFrame) + widthPerFrame,
 					height, null, null);
 			this.lastSheet = "rightSheet";
-		}
-		if (kangaroo.getDirection() == Direction.DIRECTION_WEST) {
+		} else if (kangaroo.getDirection() == Direction.DIRECTION_WEST) {
 			g.drawImage(leftSheet, x-5, y-height, x+widthPerFrame-5, y,
 					(currentFrame * widthPerFrame), 1,
 					(currentFrame * widthPerFrame) + widthPerFrame,
 					height, null, null);
 			this.lastSheet = "leftSheet";
-		}
-		if (kangaroo.getDirection() == Direction.DIRECTION_NONE) {
+		} else if (kangaroo.getDirection() == Direction.DIRECTION_NONE) {
 			if(lastSheet == "leftSheet") {
 				g.drawImage(leftSheet, x-5, y-height, x+widthPerFrame-5, y,
 						1, 1, widthPerFrame, height, null, null);
