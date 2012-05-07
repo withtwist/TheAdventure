@@ -50,7 +50,7 @@ public class KangarooAnimation implements Animation {
 		}
 		if (kangaroo.getVerticalSpeed() != 0) {
 			if(kangaroo.getDirection() == Direction.DIRECTION_EAST || lastSheet == "rightSheet") {
-				g.drawImage(rightSheet, x-5, y-height, x+widthPerFrame-5, y,
+				g.drawImage(rightSheet, x+10, y-height, x+widthPerFrame+10, y,
 						widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
 				this.lastSheet = "rightSheet";
 			} else if (kangaroo.getDirection() == Direction.DIRECTION_WEST || lastSheet == "leftSheet") {
