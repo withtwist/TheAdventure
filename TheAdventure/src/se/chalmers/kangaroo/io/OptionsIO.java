@@ -100,6 +100,7 @@ public class OptionsIO {
 			Writer w = new FileWriter(SOUND_FILE_NAME);
 			w.write(bg + "\n");
 			w.write(sfx + "\n");
+			w.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("There is no such file");
 		} catch (IOException e) {
