@@ -82,6 +82,8 @@ public class GameModel {
 		kangaroo.move();
 		updateCreatures();
 		checkCollition();
+		if( gameMap.getTileWidth() - kangaroo.getPosition().getX()/Constants.TILE_SIZE < 3)
+			System.out.println("Victory!");
 	}
 
 	private void updateCreatures() {
