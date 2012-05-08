@@ -2,7 +2,7 @@ package se.chalmers.kangaroo.model.creatures;
 
 import java.awt.Polygon;
 
-import se.chalmers.kangaroo.model.Movable;
+import se.chalmers.kangaroo.model.utils.Movable;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**

@@ -4,6 +4,7 @@ import java.awt.Polygon;
 
 import se.chalmers.kangaroo.model.item.Item;
 import se.chalmers.kangaroo.model.utils.Direction;
+import se.chalmers.kangaroo.model.utils.Movable;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.Sound;
 
