@@ -1,11 +1,15 @@
 package se.chalmers.kangaroo.io;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.Scanner;
 
 import org.keyczar.Crypter;
@@ -52,7 +56,7 @@ public class Highscore {
 	 * @param time
 	 *            , the time in millis
 	 */
-	public void setHighscore(String playerName, int level, int time) {
+	public void setHighscore(String playerName, int level, int time) throws IOException {
 		int[] times = getTimes(level);
 		String[] names = getNames(level);
 
@@ -76,34 +80,31 @@ public class Highscore {
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		try {
-			InputStream in = new FileInputStream(FILE_NAME);
-			Scanner sc = new Scanner(in);
-			while(sc.hasNext())
-				sb.append(sc.nextLine() +"\n");
-			sc.close();
-			
-			int start = sb.indexOf(names[0]+" "+times[0]);
-			int stop = sb.indexOf(names[nbrOfScores-1]+ " "+times[nbrOfScores-1-1])-names[nbrOfScores-1].length()-((Integer)times[nbrOfScores-1]).toString().length()-1;
-			StringBuilder str = new StringBuilder();
-			for(int i = 0; i < names.length; i++){
-				str.append(names[i]+" "+times[i]);
-			}
-			sb.replace(start, stop, str.toString());
-			/* Write the modified String to the file*/
-			FileWriter fw = new FileWriter(FILE_NAME);
-			BufferedWriter out = new BufferedWriter(fw);
-			try {
-				encText = crypter.encrypt(sb.toString());
-			} catch (KeyczarException e) {
-				e.toString();
-			}
-			out.write(encText);
-		} catch (FileNotFoundException e) {
-			System.out.println("Could't find the specific file.");
-		} catch (IOException io){}
-	}
 
+		InputStream in = new FileInputStream(FILE_NAME);
+		Scanner sc = new Scanner(in);
+		while(sc.hasNext())
+			sb.append(sc.nextLine() +"\n");
+		sc.close();
+		
+		int start = sb.indexOf(names[0]+" "+times[0]);
+		int stop = sb.indexOf(names[nbrOfScores-1]+ " "+times[nbrOfScores-1-1])-names[nbrOfScores-1].length()-((Integer)times[nbrOfScores-1]).toString().length()-1;
+		StringBuilder str = new StringBuilder();
+		for(int i = 0; i < names.length; i++){
+			str.append(names[i]+" "+times[i]);
+		}
+		sb.replace(start, stop, str.toString());
+		/* Write the modified String to the file*/
+		FileWriter fw = new FileWriter(FILE_NAME);
+		BufferedWriter out = new BufferedWriter(fw);
+		try {
+			encText = crypter.encrypt(sb.toString());
+		} catch (KeyczarException e) {
+			e.toString();
+		}
+		out.write(encText);
+
+	}
 	/**
 	 * Returns a string array consisting of the player names in order. If the
 	 * file can't be found, an empty array will be returned.
@@ -111,12 +112,14 @@ public class Highscore {
 	 * @param level
 	 *            , the number of the level
 	 * @return all the names.
+	 * @throws IOException 
 	 */
-	public String[] getNames(int level) {
+	public String[] getNames(int level) throws IOException {
 		String[] names = new String[nbrOfScores];
 		try {
-			InputStream in = new FileInputStream(FILE_NAME);
-			Scanner sc = new Scanner(in);
+			byte[] b = fileToByteArray(new File(FILE_NAME));
+			byte[] decryptedByteArray = crypter.decrypt(b);
+			Scanner sc = new Scanner(byteArrayToFile(decryptedByteArray));
 			while (!sc.nextLine().equals("level" + level)) {
 				// Loop through all the other rows
 			}
@@ -124,8 +127,9 @@ public class Highscore {
 				names[i] = sc.next();
 				sc.next(); // Will skip the time
 			}
-		} catch (FileNotFoundException e) {
-			System.out.println("Could't find the specific file.");
+		} catch (KeyczarException e) {
+			System.out.println("Something bad happened!");
+			e.printStackTrace();
 		}
 		return names;
 	}
@@ -138,11 +142,19 @@ public class Highscore {
 	 *            , the number of the level
 	 * @return all the times
 	 */
-	public int[] getTimes(int level) {
+	public int[] getTimes(int level) throws IOException {
 		int[] times = new int[nbrOfScores];
+		byte[] decryptedByteArray = null;
 		try {
-			InputStream in = new FileInputStream(FILE_NAME);
-			Scanner sc = new Scanner(in);
+			byte[] b = fileToByteArray(new File(FILE_NAME));
+
+			try {
+				decryptedByteArray = crypter.decrypt(b);
+			} catch (KeyczarException e) {
+				System.out.println("Decryption error");
+				e.printStackTrace();
+			}
+			Scanner sc = new Scanner(byteArrayToFile(decryptedByteArray));
 			while (!sc.nextLine().equals("level" + level)) {
 				// Loop through all the other rows
 			}
@@ -182,5 +194,30 @@ public class Highscore {
 			System.out.println("The times are not numbers.");
 		}
 		return time < times[nbrOfScores-1];
+	}
+	
+	public byte[] fileToByteArray(File f) throws IOException {
+
+		InputStream istream = new FileInputStream(f);
+
+		long l = f.length();
+		
+		byte[] bytes = new byte[(int)l];
+		
+		int offset = 0;
+		int numRead = 0;
+		
+		while(offset < bytes.length && (numRead=istream.read(bytes,offset,bytes.length-offset)) >=0) {
+			offset += numRead;
+		}
+		istream.close();
+		return bytes;
+	}
+	
+	public File byteArrayToFile(byte[] b) throws IOException {
+		OutputStream out = new FileOutputStream("temp");
+		out.write(b);
+		File f = new File("temp");
+		return f;
 	}
 }
