@@ -214,7 +214,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		JLabel bgTitle = new JLabel("Background Music:");
 		av.add(bgTitle);
 		
-		bgSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 60);
+		bgSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int)(s.getBgVolume()*100.0));
 		bgSlider.addChangeListener(this);
 		bgSlider.setMajorTickSpacing(25);
 		bgSlider.setMinorTickSpacing(10);
@@ -226,7 +226,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		JLabel sfxTitle = new JLabel("Soundeffects:");
 		av.add(sfxTitle);
 		
-		sfxSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 100);
+		sfxSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int)(s.getSfxVolume()*100.0));
 		sfxSlider.addChangeListener(this);
 		sfxSlider.setMajorTickSpacing(25);
 		sfxSlider.setMinorTickSpacing(10);
