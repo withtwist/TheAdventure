@@ -10,6 +10,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.Line;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -54,15 +55,15 @@ public class Sound{
 		                true);        // big endian
 		        stream = AudioSystem.getAudioInputStream(format, stream);
 		    }
-
 		    // Create the clip
 		    DataLine.Info info = new DataLine.Info(
 		        Clip.class, stream.getFormat(), ((int)stream.getFrameLength()*format.getFrameSize()));
-		    clip = (Clip) AudioSystem.getLine(info);
+		    if(AudioSystem.isLineSupported(info)){
+		    	clip = (Clip) AudioSystem.getLine(info);
 
 		    // This method does not return until the audio file is completely loaded
 		    clip.open(stream);
-
+		    }
 		} catch (MalformedURLException e) {
 		} catch (IOException e) {
 		} catch (LineUnavailableException e) {
@@ -71,9 +72,11 @@ public class Sound{
 		
 		if(isBgMusic == true){
 		    // Start looping
-			clip.loop(Clip.LOOP_CONTINUOUSLY);
+			if(clip != null)
+				clip.loop(Clip.LOOP_CONTINUOUSLY);
 		}else{
-			clip.start();
+			if(clip != null)
+				clip.start();
 		}
 		
 		setVolume(isBgMusic);
@@ -82,13 +85,14 @@ public class Sound{
 	
 	public void setVolume(boolean isBgMusic){
 		// Set Volume
-		FloatControl gainControl = (FloatControl)clip.getControl(FloatControl.Type.MASTER_GAIN);
+		if(clip != null){
+			FloatControl gainControl = (FloatControl)clip.getControl(FloatControl.Type.MASTER_GAIN);
 		if(isBgMusic == true){
 			gainControl.setValue((float)(Math.log(bgDecibel)/Math.log(10.0)*20.0));
 		}else{
 			gainControl.setValue((float)(Math.log(sfxDecibel)/Math.log(10.0)*20.0));
 		}
-		
+		}
 	}
 	
 	public void setBgVolume(double decibel){

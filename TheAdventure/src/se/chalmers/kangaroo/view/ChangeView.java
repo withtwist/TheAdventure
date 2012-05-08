@@ -19,7 +19,6 @@ public class ChangeView extends JFrame implements KeyListener {
 	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
-	private Sound s;
 	
 
 	public ChangeView() {
