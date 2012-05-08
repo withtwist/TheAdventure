@@ -5,6 +5,11 @@ import java.awt.Polygon;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 
+/**
+ * Represents an unkillable smurf.
+ * @author simonal
+ *
+ */
 public class SmurfCreature implements Creature {
 
 	private Position currentPos;
@@ -12,12 +17,15 @@ public class SmurfCreature implements Creature {
 	private Direction currentDir;
 
 	private int speed = 3;
-
+	/**
+	 * The default constructor taking the spawnposition.
+	 * @param spawnPos
+	 */
 	public SmurfCreature(Position spawnPos) {
 		this.currentDir = Direction.DIRECTION_EAST;
 		currentPos = spawnPos;
 	}
-
+	
 	@Override
 	public boolean isKillable() {
 		return false;
@@ -70,7 +78,10 @@ public class SmurfCreature implements Creature {
 		}
 
 	}
-	
+	/**
+	 * Returns in which direction the smurf is movning.
+	 * @return
+	 */
 	public Direction getDirection() {
 		return currentDir;
 	}

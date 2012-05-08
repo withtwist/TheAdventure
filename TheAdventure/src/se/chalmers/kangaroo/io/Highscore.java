@@ -212,7 +212,12 @@ public class Highscore {
 		istream.close();
 		return bytes;
 	}
-	
+	/**
+	 * Takes a byte array and converts it to a File and returns the file"
+	 * @param b
+	 * @return
+	 * @throws IOException
+	 */
 	public File byteArrayToFile(byte[] b) throws IOException {
 		OutputStream out = new FileOutputStream("temp");
 		out.write(b);

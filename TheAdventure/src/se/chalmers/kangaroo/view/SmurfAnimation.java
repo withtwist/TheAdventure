@@ -8,8 +8,13 @@ import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.creatures.SmurfCreature;
 import se.chalmers.kangaroo.model.utils.Direction;
 
+/**
+ * Represents the animation for a smurfcreature.
+ * @author simonal
+ *
+ */
 public class SmurfAnimation implements Animation {
-	
+	/* Different sheets for different directions */
 	private Image leftSheet;
 	private Image rightSheet;
 	
@@ -20,7 +25,10 @@ public class SmurfAnimation implements Animation {
 	private int height;
 	
 	private SmurfCreature sc;
-	
+	/**
+	 * The default constructor, taking a Creature as parameter.
+	 * @param sc
+	 */
 	public SmurfAnimation(Creature sc) {
 		if(sc instanceof SmurfCreature) {
 			this.sc = (SmurfCreature)sc;
@@ -30,7 +38,9 @@ public class SmurfAnimation implements Animation {
 		this.width = 32;
 		this.height = 32;
 	}
-
+	/**
+	 * Draws a part of the sheet, updates with a new once per 10 updates.
+	 */
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
 		if(tick == 10) {
