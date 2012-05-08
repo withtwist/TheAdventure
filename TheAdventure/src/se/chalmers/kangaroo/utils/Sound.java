@@ -13,6 +13,8 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import se.chalmers.kangaroo.io.OptionsIO;
+
 /**
  * 
  * @author ExampleDepot
@@ -22,9 +24,13 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Sound{
 	String fileLocation;
 	Clip clip;
+	private OptionsIO io;
 	private static double bgDecibel = 0.6;			// number between 0 and 1 (loudest)
 	private static double sfxDecibel = 1.0;		// number between 0 and 1 (loudest)
+	
 	public Sound(){
+		io = OptionsIO.getInstance();
+		loadFromFile();
 	}
 	
 	
@@ -87,10 +93,12 @@ public class Sound{
 	
 	public void setBgVolume(double decibel){
 		bgDecibel = decibel;
+		writeToFile();
 	}
 
 	public void setSfxVolume(double decibel){
 		sfxDecibel = decibel;
+		writeToFile();
 	}
 
 	public double getBgVolume(){
@@ -99,6 +107,16 @@ public class Sound{
 
 	public double getSfxVolume(){
 		return sfxDecibel;
+	}
+	
+	private void writeToFile() {
+		io.saveVolume(bgDecibel, sfxDecibel);
+		loadFromFile();
+	}
+	
+	private void loadFromFile() {
+		bgDecibel = io.getBgVolume();
+		sfxDecibel = io.getSfxVolume();
 	}
 	
 }
