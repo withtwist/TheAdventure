@@ -47,7 +47,6 @@ public class GameModel {
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
-	private Rectangle2D oldPoly;
 
 	private int jGlobal;
 
@@ -91,7 +90,6 @@ public class GameModel {
 	 */
 	public void update() {
 		oldPos = kangaroo.getPosition();
-		oldPoly = kangaroo.getPolygon().getBounds2D();
 		kangaroo.move();
 		updateCreatures();
 		checkCollition();
@@ -172,7 +170,6 @@ public class GameModel {
 	 * the ground its vertical speed shall be resetted.
 	 */
 	private void tileCollition() {
-		Rectangle2D poly = kangaroo.getPolygon().getBounds2D();
 		int oldX = oldPos.getX() / Constants.TILE_SIZE;
 		int oldY = oldPos.getY() / Constants.TILE_SIZE;
 		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
@@ -188,8 +185,6 @@ public class GameModel {
 							.getMinY();
 					int kangMinY = (int) kangaroo.getPolygon().getBounds2D()
 							.getMinY();
-					int kangMaxY = (int) kangaroo.getPolygon().getBounds2D()
-							.getMaxY();
 					if ( x != oldX
 							&& Math.abs(tileMaxY - kangMinY) > 2) {
 						kangaroo.setPosition(new Position(oldPos.getX(),
@@ -201,7 +196,6 @@ public class GameModel {
 									.getPolygon().getBounds2D().getMinX() == kangaroo
 									.getPolygon().getBounds2D().getMinX() < tile
 									.getPolygon().getBounds2D().getMaxX())) {
-						System.out.println(2);
 						kangaroo.setPosition(new Position(kangaroo
 								.getPosition().getX(), tileMaxY - 1));
 						kangaroo.setVerticalSpeed(0f);
@@ -217,7 +211,6 @@ public class GameModel {
 									.getPolygon().getBounds2D().getMinX() == kangaroo
 									.getPolygon().getBounds2D().getMinX() < tile
 									.getPolygon().getBounds2D().getMaxX())) {
-						System.out.println(3);
 						kangaroo.setPosition(new Position(kangaroo
 								.getPosition().getX(), tileMinY - 66));
 						kangaroo.setVerticalSpeed(0f);
