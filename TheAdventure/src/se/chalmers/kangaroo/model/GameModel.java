@@ -38,6 +38,8 @@ public class GameModel {
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
+	
+	private int currentLevel;
 
 	/**
 	 * A method to start the game.
@@ -68,7 +70,8 @@ public class GameModel {
 	// }
 
 	public GameModel() {
-		gameMap = new GameMap("../maps/betamap.tmx");
+		currentLevel = 0;
+		gameMap = new GameMap("../maps/level"+currentLevel+".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
 		timer = new GameTimer();
 		timer.start();
@@ -83,7 +86,7 @@ public class GameModel {
 		updateCreatures();
 		checkCollition();
 		if( gameMap.getTileWidth() - kangaroo.getPosition().getX()/Constants.TILE_SIZE < 3)
-			System.out.println("Victory!");
+			changeLevel();
 	}
 
 	private void updateCreatures() {
@@ -243,6 +246,20 @@ public class GameModel {
 		kangaroo.reset();
 		gameMap.resetItems();
 		gameMap.resetCreatures();
+	}
+	
+	/* When one level is finished this method should be invoked.*/
+	private void changeLevel(){
+		//setHighScore(currentLevel);
+		currentLevel++;
+		//TMp
+		currentLevel %= 2;
+		gameMap = new GameMap("../maps/level"+currentLevel+".tmx");
+		restartLevel();
+		deathCount = 0;
+		timer = new GameTimer();
+		timer.start();
+		
 	}
 
 	/**
