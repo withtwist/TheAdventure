@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.creatures.SmurfCreature;
 import se.chalmers.kangaroo.model.utils.Direction;
 
@@ -20,12 +21,14 @@ public class SmurfAnimation implements Animation {
 	
 	private SmurfCreature sc;
 	
-	public SmurfAnimation(SmurfCreature sc) {
+	public SmurfAnimation(Creature sc) {
+		if(sc instanceof SmurfCreature) {
+			this.sc = (SmurfCreature)sc;
+		}
 		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/smurf_32x32_left.png");
 		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/smurf_32x32_right.png");
 		this.width = 32;
 		this.height = 32;
-		this.sc = sc;
 	}
 
 	@Override
