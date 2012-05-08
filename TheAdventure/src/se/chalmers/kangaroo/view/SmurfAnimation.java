@@ -33,7 +33,7 @@ public class SmurfAnimation implements Animation {
 
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if(tick == 20) {
+		if(tick == 10) {
 			tick = 0;
 			currentSprite++;
 			currentSprite = currentSprite % 3;
