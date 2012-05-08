@@ -10,13 +10,16 @@ import java.awt.event.MouseListener;
 import java.util.Scanner;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import se.chalmers.kangaroo.controller.CustomKeys;
 import se.chalmers.kangaroo.constants.*;
 import se.chalmers.kangaroo.utils.KeyList;
+import se.chalmers.kangaroo.utils.Sound;
 
 public class OptionView extends JPanelWithBackground implements ActionListener,
-		KeyListener, MouseListener {
+		KeyListener, MouseListener, ChangeListener {
 	private JLabel currentLeft;
 	private JLabel currentRight;
 	private JLabel currentJump;
@@ -25,12 +28,14 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private JButton right = new JButton("GO RIGHT");
 	private JButton jump = new JButton("JUMP");
 	private JButton item = new JButton("USE ITEM");
+	private JSlider bgSlider;
+	private JSlider sfxSlider;
 	private CustomKeys ck;
 	private Menuebutton back;
 	private ChangeView cv;
 	private Key pressedKey;
 	private KeyEvent keyEvent;
-	JTextField txt = new JTextField();
+	private Sound s;
 	
 	private enum Key {
 		 LEFT, RIGHT, JUMP, ITEM, NONE;
@@ -176,17 +181,55 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		//Placeholder
 		JPanel ph = new JPanel();
 		ph.setMinimumSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3 * 2, Constants.RESOLUTION_HEIGHT
+				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
 						- titleHeight));
 		ph.setMaximumSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3 * 2, Constants.RESOLUTION_HEIGHT
+				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
 						- titleHeight));
 		ph.setPreferredSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3 * 2, Constants.RESOLUTION_HEIGHT
+				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
 						- titleHeight));
 		
 		contentPanel.add(ph, BorderLayout.CENTER);
 		
+		//Adjust Volume
+		JPanel av = new JPanel(new GridLayout(4,1));
+		av.setMinimumSize(new Dimension(
+				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
+						- titleHeight));
+		av.setMaximumSize(new Dimension(
+				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
+						- titleHeight));
+		av.setPreferredSize(new Dimension(
+				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
+						- titleHeight));
+		
+		contentPanel.add(av, BorderLayout.EAST);
+		
+		//Grid with the sound sliders
+		JLabel bgTitle = new JLabel("Background Music:");
+		av.add(bgTitle);
+		
+		bgSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 60);
+		bgSlider.addChangeListener(this);
+		bgSlider.setMajorTickSpacing(25);
+		bgSlider.setMinorTickSpacing(10);
+		bgSlider.setPaintTicks(true);
+		bgSlider.setPaintLabels(true);
+		
+		av.add(bgSlider);
+		
+		JLabel sfxTitle = new JLabel("Soundeffects:");
+		av.add(sfxTitle);
+		
+		sfxSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 100);
+		sfxSlider.addChangeListener(this);
+		sfxSlider.setMajorTickSpacing(25);
+		sfxSlider.setMinorTickSpacing(10);
+		sfxSlider.setPaintTicks(true);
+		sfxSlider.setPaintLabels(true);
+		
+		av.add(sfxSlider);
 	}
 
 	@Override
@@ -346,6 +389,16 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 			cv.back();
 		}
 
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e) {
+		if(e.getSource() == bgSlider){
+			s.setBgVolume((double)bgSlider.getValue()/100.0);
+		}else if(e.getSource() == sfxSlider){
+			s.setSfxVolume((double)sfxSlider.getValue()/100.0);
+		}
+		
 	}
 
 }
