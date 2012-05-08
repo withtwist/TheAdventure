@@ -40,9 +40,9 @@ public class RedBlueButton implements InteractiveObject {
 	public void onCollision() {
 		if (!sleep) {
 			if (getId() % 2 == 0) {
-				new Sound("resources/sfx/redblue_red.WAV").play(false);
+				new Sound().play("resources/sfx/redblue_red.WAV", false);
 			} else {
-				new Sound("resources/sfx/redblue_blue.WAV").play(false);
+				new Sound().play("resources/sfx/redblue_blue.WAV", false);
 			}
 			int x = gameMap.getTileWidth();
 			int y = gameMap.getTileHeight();
