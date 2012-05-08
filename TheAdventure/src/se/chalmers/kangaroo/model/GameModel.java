@@ -121,7 +121,7 @@ public class GameModel {
 			changeFalling();
 
 		} catch (ArrayIndexOutOfBoundsException e) {
-			new Sound("resources/sfx/kangaroo_death.WAV").play(false);
+			new Sound().play("resources/sfx/kangaroo_death.WAV", false);
 			restartLevel();
 		}
 	}
@@ -146,11 +146,11 @@ public class GameModel {
 						.intersects(creature.getPolygon().getBounds2D())) {
 					if (creature.isKillable()
 							&& kangaroo.getVerticalSpeed() > 0) {
-						new Sound("resources/sfx/creature_death.WAV").play(false);
+						new Sound().play("resources/sfx/creature_death.WAV", false);
 						gameMap.killCreature(creature);
 						kangaroo.setVerticalSpeed(-6.5f);
 					} else {
-						new Sound("resources/sfx/kangaroo_death.WAV").play(false);
+						new Sound().play("resources/sfx/kangaroo_death.WAV", false);
 						restartLevel();
 					}
 

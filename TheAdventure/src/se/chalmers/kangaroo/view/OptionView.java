@@ -35,7 +35,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private ChangeView cv;
 	private Key pressedKey;
 	private KeyEvent keyEvent;
-	private Sound s;
+	private Sound s = new Sound();
 	
 	private enum Key {
 		 LEFT, RIGHT, JUMP, ITEM, NONE;

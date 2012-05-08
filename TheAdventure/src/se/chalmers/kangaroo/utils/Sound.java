@@ -17,7 +17,11 @@ public class Sound{
 	Clip clip;
 	private static double bgDecibel = 0.6;			// number between 0 and 1 (loudest)
 	private static double sfxDecibel = 1.0;		// number between 0 and 1 (loudest)
-	public Sound(String fileLocation){
+	public Sound(){
+	}
+	
+	
+	public void play(String fileLocation, boolean isBgMusic){
 		this.fileLocation = fileLocation;
 		try {
 		    // From file
@@ -51,18 +55,15 @@ public class Sound{
 		} catch (LineUnavailableException e) {
 		} catch (UnsupportedAudioFileException e) {
 		}
-	}
-	
-	
-	public void play(boolean isBgMusic){
-			if(isBgMusic == true){
-			    // Start looping
-				clip.loop(Clip.LOOP_CONTINUOUSLY);
-			}else{
-				clip.start();
-			}
-			
-			setVolume(isBgMusic);
+		
+		if(isBgMusic == true){
+		    // Start looping
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		}else{
+			clip.start();
+		}
+		
+		setVolume(isBgMusic);
 		
 	}
 	
