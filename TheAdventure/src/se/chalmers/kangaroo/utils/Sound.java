@@ -15,13 +15,15 @@ import javax.swing.JOptionPane;
  * A class for playing sound in the background.
  * 
  * @author LouwHopley
- * @modified simonal
+ * @modified simonal, pavlov
  */
 public class Sound implements Runnable {
 
 	String fileLocation;
 	
 	boolean isLooping;
+	float bgDecibel;
+	float sfxDecibel;
 
 	public Sound(String fileLocation) {
 		this.fileLocation = fileLocation;
@@ -32,6 +34,22 @@ public class Sound implements Runnable {
 //		Thread t = new Thread(this);
 //		t.start();
 //	}
+	
+	public void setBgVolume(float decibel){
+		bgDecibel = decibel;
+	}
+	
+	public void setSfxVolume(float decibel){
+		sfxDecibel = decibel;
+	}
+	
+	public float getBgVolume(){
+		return bgDecibel;
+	}
+	
+	public float getSfxVolume(){
+		return sfxDecibel;
+	}
 	
 	public void play(boolean isLooping){
 		this.isLooping = isLooping;
