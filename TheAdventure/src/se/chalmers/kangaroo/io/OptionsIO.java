@@ -116,7 +116,7 @@ public class OptionsIO {
 	public double getBgVolume() {
 		double bg = -1;
 		try {
-			InputStream in = new FileInputStream(KEYS_FILE_NAME);
+			InputStream in = new FileInputStream(SOUND_FILE_NAME);
 			Scanner sc = new Scanner(in);
 			bg = Double.parseDouble(sc.next());
 			sc.close();
@@ -138,7 +138,7 @@ public class OptionsIO {
 	public double getSfxVolume() {
 		double sfx = -1;
 		try {
-			InputStream in = new FileInputStream(KEYS_FILE_NAME);
+			InputStream in = new FileInputStream(SOUND_FILE_NAME);
 			Scanner sc = new Scanner(in);
 			sc.next();
 			sfx = Double.parseDouble(sc.next());
