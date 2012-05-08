@@ -5,6 +5,7 @@ import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
 import se.chalmers.kangaroo.model.creatures.BullCreature;
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
 import se.chalmers.kangaroo.model.creatures.Creature;
+import se.chalmers.kangaroo.model.creatures.SmurfCreature;
 import se.chalmers.kangaroo.model.creatures.SumoCreature;
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
 import se.chalmers.kangaroo.model.iobject.InteractiveObject;
@@ -88,6 +89,8 @@ public class Factory {
 			return new BullCreature(p);
 		case 115:
 			return new SumoCreature(p);
+		case 116:
+			return new SmurfCreature(p);
 		default:
 			return null;
 		}
