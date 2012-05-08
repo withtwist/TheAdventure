@@ -53,7 +53,7 @@ public class SumoAnimation implements Animation{
 			currentSprite = 0;
 		}
 		g.drawImage(sheet, x, y, x+width, y+width, currentSprite*width, 0, (currentSprite+1)*width, height, null, null);
-		
+		//hej
 	}
 	
 }
