@@ -2,7 +2,6 @@ package se.chalmers.kangaroo.model.creatures;
 
 import java.awt.Polygon;
 
-import se.chalmers.kangaroo.model.utils.Movable;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**
@@ -13,7 +12,7 @@ import se.chalmers.kangaroo.model.utils.Position;
  * @modified by arvidk
  * 
  */
-public interface Creature extends Movable {
+public interface Creature{
 	/**
 	 * Returns true of the creature is killable and false if it isn't.
 	 * 

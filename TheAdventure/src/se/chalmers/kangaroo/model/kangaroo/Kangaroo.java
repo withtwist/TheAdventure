@@ -2,7 +2,6 @@ package se.chalmers.kangaroo.model.kangaroo;
 
 import java.awt.Polygon;
 
-import se.chalmers.kangaroo.model.Movable;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.Sound;
@@ -14,7 +13,7 @@ import se.chalmers.kangaroo.utils.Sound;
  * @modified by arvidk
  * 
  */
-public class Kangaroo implements Movable {
+public class Kangaroo{
 
 	private Item item;
 
@@ -308,7 +307,6 @@ public class Kangaroo implements Movable {
 		return "Kangaroo [pos=" + pos + "]";
 	}
 
-	@Override
 	public void move() {
 
 		if (isFalling && Math.abs(verticalSpeed) < 10f) {
