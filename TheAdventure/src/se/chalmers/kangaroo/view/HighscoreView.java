@@ -1,12 +1,16 @@
 package se.chalmers.kangaroo.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import javax.swing.*;
-
-import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.constants.Constants;
 
 /**
  * 

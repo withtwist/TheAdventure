@@ -9,10 +9,10 @@ import se.chalmers.kangaroo.model.creatures.SumoCreature;
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
 import se.chalmers.kangaroo.model.iobject.InteractiveObject;
 import se.chalmers.kangaroo.model.iobject.RedBlueButton;
-import se.chalmers.kangaroo.model.item.DoubleJumpItem;
-import se.chalmers.kangaroo.model.item.ImmortalItem;
-import se.chalmers.kangaroo.model.item.Item;
-import se.chalmers.kangaroo.model.item.StopTimeItem;
+import se.chalmers.kangaroo.model.kangaroo.DoubleJumpItem;
+import se.chalmers.kangaroo.model.kangaroo.ImmortalItem;
+import se.chalmers.kangaroo.model.kangaroo.Item;
+import se.chalmers.kangaroo.model.kangaroo.StopTimeItem;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**

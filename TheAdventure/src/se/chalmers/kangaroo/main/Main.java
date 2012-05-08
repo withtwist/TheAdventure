@@ -1,11 +1,6 @@
 package se.chalmers.kangaroo.main;
 
-import javax.swing.JFrame;
-
-import se.chalmers.kangaroo.controller.GameController;
-import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.view.ChangeView;
-import se.chalmers.kangaroo.view.MenuView;
 
 /**
  * 

@@ -1,7 +1,6 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.CardLayout;
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -12,7 +11,6 @@ import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.utils.Sound;
-import se.chalmers.kangaroo.view.*;
 
 public class ChangeView extends JFrame implements KeyListener {
 

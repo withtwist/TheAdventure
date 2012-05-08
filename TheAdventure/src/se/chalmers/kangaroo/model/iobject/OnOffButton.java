@@ -1,6 +1,6 @@
 package se.chalmers.kangaroo.model.iobject;
 
-import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveTile;
 import se.chalmers.kangaroo.model.utils.Position;

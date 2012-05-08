@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 
 import se.chalmers.kangaroo.model.creatures.CrabCreature;
 import se.chalmers.kangaroo.model.creatures.Creature;
-import se.chalmers.kangaroo.model.utils.Direction;
 
 public class CrabAnimation implements Animation{
 	private CrabCreature crab;

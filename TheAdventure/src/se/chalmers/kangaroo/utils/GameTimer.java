@@ -1,6 +1,6 @@
 package se.chalmers.kangaroo.utils;
 
-import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.constants.Constants;
 
 /**
  * A class used to keep track of the elapsed time in a game level.

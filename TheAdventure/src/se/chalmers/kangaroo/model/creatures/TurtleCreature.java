@@ -4,7 +4,6 @@ import java.awt.Polygon;
 
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.Waiter;
 
 /**
  * An enemy in the form of a turtle. Will go into its shell at random times and

@@ -1,6 +1,6 @@
 package se.chalmers.kangaroo.utils;
 
-import se.chalmers.kangaroo.constants.*;
+import se.chalmers.kangaroo.constants.Constants;
 
 /**
  * This class is a utility that let any method that use the method, wait as long

@@ -4,7 +4,6 @@ import java.awt.Polygon;
 
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.Waiter;
 
 /**
  * The creature is a sumo wrestler that can cause a radius of three tiles ground

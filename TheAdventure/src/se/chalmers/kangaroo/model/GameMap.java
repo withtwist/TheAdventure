@@ -7,7 +7,7 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.FileToMap;
 import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.iobject.InteractiveObject;
-import se.chalmers.kangaroo.model.item.Item;
+import se.chalmers.kangaroo.model.kangaroo.Item;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**

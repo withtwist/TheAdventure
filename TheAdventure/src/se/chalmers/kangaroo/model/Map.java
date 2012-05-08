@@ -1,7 +1,6 @@
 package se.chalmers.kangaroo.model;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
