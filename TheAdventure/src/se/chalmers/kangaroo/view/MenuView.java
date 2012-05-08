@@ -20,9 +20,9 @@ import se.chalmers.kangaroo.utils.Sound;
 public class MenuView extends JPanelWithBackground implements MouseListener {
 	private Menuebutton newGame, highScore, options, exitGame;
 
-	ChangeView cv;
-	Sound menuMusic;
-	Sound lv1Music;
+	private ChangeView cv;
+	private Sound menuMusic, lv1Music;
+	private String viewName = "menuview";
 
 	/**
 	 * The constructor for the GameView.
@@ -128,12 +128,12 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		}
 		if (e.getSource() == highScore) {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
-			cv.highscoreView();
+			cv.highscoreView(viewName);
 		}
 
 		if (e.getSource() == options) {
 			options.setIcon(new ImageIcon("resources/images/options.png"));
-			cv.optionView();
+			cv.optionView(viewName);
 
 		}
 		if (e.getSource() == exitGame) {

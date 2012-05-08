@@ -16,13 +16,13 @@ import javax.swing.ImageIcon;
  */
 public class PauseView extends JPanelWithBackground implements MouseListener {
 	private Menuebutton resume, highScore, options, exitGame;
-
+	private String viewName = "gameview";
 	
 	//TOTO make sure that the thread that runs the game is asleep when the pause view is showed.
 	//Check with the rest of the group how to connect the view and also graphics.
 	
 	
-	ChangeView cv;
+	private ChangeView cv;
 
 	/**
 	 * The constructor for the GameView.
@@ -125,12 +125,12 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		}
 		if (e.getSource() == highScore) {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
-			cv.highscoreView();
+			cv.highscoreView(viewName);
 		}
 
 		if (e.getSource() == options) {
 			options.setIcon(new ImageIcon("resources/images/options.png"));
-			cv.optionView();
+			cv.optionView(viewName);
 
 		}
 		if (e.getSource() == exitGame) {

@@ -19,6 +19,7 @@ public class ChangeView extends JFrame implements KeyListener {
 	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
+	private String prevView;
 	
 
 	public ChangeView() {
@@ -41,7 +42,6 @@ public class ChangeView extends JFrame implements KeyListener {
 		jp.add(gc.getGameView(), "gameview");
 		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
-		jp.add(mv, "menuview");
 		add(jp);
 		addKeyListener(this);
 		setVisible(true);
@@ -50,7 +50,7 @@ public class ChangeView extends JFrame implements KeyListener {
 	
 	public void back() {
 		CardLayout cl = (CardLayout) jp.getLayout();
-		cl.previous(jp);
+		cl.show(jp, prevView);
 	}
 
 	public void menuView() {
@@ -64,12 +64,14 @@ public class ChangeView extends JFrame implements KeyListener {
 		gc.start();
 	}
 
-	public void optionView() {
+	public void optionView(String prevView) {
+		this.prevView = prevView;
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "optionview");
 	}
 
-	public void highscoreView() {
+	public void highscoreView(String prevView) {
+		this.prevView = prevView;
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "highscoreview");
 	}
