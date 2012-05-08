@@ -3,6 +3,9 @@
  <tileset firstgid="1" name="tileChart" tilewidth="32" tileheight="32">
   <image source="../gfx/tiles/tileChart.png" width="640" height="320"/>
  </tileset>
+ <tileset firstgid="201" name="Tile" tilewidth="32" tileheight="32">
+  <image source="../gfx/tiles/tileChart.png" width="640" height="320"/>
+ </tileset>
  <layer name="tiles" width="200" height="20">
   <data>
    <tile gid="0"/>
@@ -3336,12 +3339,12 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="9"/>
+   <tile gid="316"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="113"/>
+   <tile gid="316"/>
    <tile gid="9"/>
    <tile gid="0"/>
    <tile gid="0"/>
