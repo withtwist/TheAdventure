@@ -62,6 +62,7 @@ public class GameView extends JPanelWithBackground {
 
 		g.drawString("" + gm.getTime(), 10, 10);
 		g.drawString("Deaths: " + gm.getDeathCount(), 100, 10);
+//		g.drawString
 		/* Render the tiles */
 		for (int y = 0; y < gm.getGameMap().getTileHeight(); y++)
 			for (int x = drawFrom; x < drawFrom + 33; x++) {

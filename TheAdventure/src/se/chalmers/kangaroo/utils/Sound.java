@@ -61,6 +61,7 @@ public class Sound{
 			}else{
 				clip.start();
 			}
+			
 			setVolume(isBgMusic);
 		
 	}
