@@ -7,6 +7,7 @@ import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.item.Item;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
+import se.chalmers.kangaroo.utils.Sound;
 
 /**
  * A class to represent the model of a platform game.
@@ -125,6 +126,7 @@ public class GameModel {
 			changeFalling();
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
+			new Sound("resources/sfx/kangaroo_death.WAV").play(false);
 			restartLevel();
 		}
 	}
@@ -149,9 +151,11 @@ public class GameModel {
 						.intersects(creature.getPolygon().getBounds2D())) {
 					if (creature.isKillable()
 							&& kangaroo.getVerticalSpeed() > 0) {
+						new Sound("resources/sfx/creature_death.WAV").play(false);
 						gameMap.killCreature(creature);
 						kangaroo.setVerticalSpeed(-6.5f);
 					} else {
+						new Sound("resources/sfx/kangaroo_death.WAV").play(false);
 						restartLevel();
 					}
 				}
