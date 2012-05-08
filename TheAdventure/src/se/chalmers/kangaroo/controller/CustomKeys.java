@@ -2,7 +2,7 @@ package se.chalmers.kangaroo.controller;
 
 import java.awt.event.KeyEvent;
 
-import se.chalmers.kangaroo.io.CustomKeysIO;
+import se.chalmers.kangaroo.io.OptionsIO;
 
 /**
  * This is a singleton that hold the key binding for GameController. it has
@@ -14,13 +14,13 @@ import se.chalmers.kangaroo.io.CustomKeysIO;
 public class CustomKeys {
 	private static CustomKeys instance;
 	private int jumpKey, leftKey, rightKey, itemKey;
-	private CustomKeysIO io;
+	private OptionsIO io;
 
 	/**
 	 * Sets the default scheme for the control.
 	 */
 	private CustomKeys() {
-		io = CustomKeysIO.getInstance();
+		io = OptionsIO.getInstance();
 		loadFromFile();
 	}
 

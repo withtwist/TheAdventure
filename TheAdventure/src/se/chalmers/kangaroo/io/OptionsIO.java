@@ -16,14 +16,14 @@ import java.util.Scanner;
  * @modifiedby simonal
  * 
  */
-public class CustomKeysIO {
-	private static CustomKeysIO instance;
+public class OptionsIO {
+	private static OptionsIO instance;
 	private static int[] customKeys = new int[4];
 	private static final String KEYS_FILE_NAME = "resources/customkeys.txt";
 	private static final String SOUND_FILE_NAME = "resources/soundoptions.txt";
 
 	/* Private constructor, so only one instance will be created. */
-	private CustomKeysIO() {
+	private OptionsIO() {
 	}
 
 	/**
@@ -31,9 +31,9 @@ public class CustomKeysIO {
 	 * 
 	 * @return
 	 */
-	public static synchronized CustomKeysIO getInstance() {
+	public static synchronized OptionsIO getInstance() {
 		if (instance == null)
-			instance = new CustomKeysIO();
+			instance = new OptionsIO();
 		return instance;
 	}
 
