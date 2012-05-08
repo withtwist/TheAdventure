@@ -70,5 +70,9 @@ public class SmurfCreature implements Creature {
 		}
 
 	}
+	
+	public Direction getDirection() {
+		return currentDir;
+	}
 
 }
