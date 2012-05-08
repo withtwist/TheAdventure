@@ -14,12 +14,11 @@ import se.chalmers.kangaroo.model.item.Item;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**
- * 
+ * This is the normal view which renders the model. 
  * @author alburgh
  * @modifiedby simonal
  * @modifiedby arvidk
  */
-
 public class GameView extends JPanelWithBackground {
 	private GameModel gm;
 	private HashMap<Creature, Animation> creatureAnimations;
@@ -27,6 +26,12 @@ public class GameView extends JPanelWithBackground {
 	private boolean isPaused = false;
 	private PauseView pv;
 
+	/**
+	 * Create the view when the rendering shall begin. 
+	 * @param imagepath, the path name to the background
+	 * @param gm, the gamemodel it shall render
+	 * @param cv, the changeview in order for the menu to work. 
+	 */
 	public GameView(String imagepath, GameModel gm, ChangeView cv) {
 		super(imagepath);
 		this.gm = gm;
@@ -103,25 +108,10 @@ public class GameView extends JPanelWithBackground {
 		/* Draw the kangaroo based on where you are */
 		if (drawFrom == 0
 				&& gm.getKangaroo().getPosition().getX() / Constants.TILE_SIZE != 16) {
-			int[] xs = { p.getX(), p.getX() + 32, p.getX() + 32, p.getX() };
-			int[] ys = { p.getY() - 64, p.getY() - 64, p.getY() - 1,
-					p.getY() - 1 };
-			//g.drawPolygon(new Polygon(xs, ys, 4));
 			ka.drawSprite(g, p.getX(), p.getY());
 		} else if (drawFrom == gm.getGameMap().getTileWidth() - 33) {
-			int[] xs = { p.getX() - drawFrom * 32,
-					p.getX() + 32 - drawFrom * 32,
-					p.getX() + 32 - drawFrom * 32, p.getX() - drawFrom * 32 };
-
-			int[] ys = { p.getY() - 64, p.getY() - 64, p.getY() - 1,
-					p.getY() - 1 };
-			//g.drawPolygon(new Polygon(xs, ys, 4));
 			ka.drawSprite(g, p.getX()-drawFrom*32-fixPosition, p.getY());
 		} else {
-			int[] xs = { 16 * 32, 17 * 32, 17 * 32, 16 * 32 };
-			int[] ys = { p.getY() - 64, p.getY() - 64, p.getY() - 1,
-					p.getY() - 1 };
-			//g.drawPolygon(new Polygon(xs, ys, 4));
 			ka.drawSprite(g, p.getX()-drawFrom*32-fixPosition, p.getY());
 		}
 	}
@@ -135,6 +125,9 @@ public class GameView extends JPanelWithBackground {
 			return gm.getGameMap().getTileWidth() - 33;
 		return kPos - 16;
 	}
+	/**
+	 * When the game pauses a menu will appear.
+	 */
 	public void togglePause() {
 		this.isPaused = !isPaused;
 		pv.setVisible(isPaused);

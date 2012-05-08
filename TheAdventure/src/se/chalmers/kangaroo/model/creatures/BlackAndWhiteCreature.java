@@ -6,6 +6,12 @@ import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
 
+/**
+ * The B&WCreature will toggle between black and white. When he is white he is killable. 
+ * He is also very fast. 
+ * @author Grubla
+ *
+ */
 public class BlackAndWhiteCreature implements Creature {
 	private Position pos;
 	private GameTimer timer = new GameTimer();
@@ -14,6 +20,11 @@ public class BlackAndWhiteCreature implements Creature {
 	private Direction direction;
 	private boolean killable;
 
+	/**
+	 * Creates a new BlackAndWhiteCreature with the given position at start.
+	 * The creature will start off by moving west. 
+	 * @param spawnPos
+	 */
 	public BlackAndWhiteCreature(Position spawnPos) {
 		this.pos = spawnPos;
 		this.direction = Direction.DIRECTION_WEST;
@@ -34,6 +45,7 @@ public class BlackAndWhiteCreature implements Creature {
 
 	/**
 	 * Returns the polygon for this creature.
+	 * @return the polygon
 	 */
 	public Polygon getPolygon() {
 		int[] xs = { pos.getX(), pos.getX() + 31, pos.getX() + 31, pos.getX() };
@@ -49,10 +61,12 @@ public class BlackAndWhiteCreature implements Creature {
 	}
 
 
-
+	/**
+	 * Return the string containing the position and killable state of him. 
+	 */
 	@Override
 	public String toString() {
-		return "BlackAndWhiteCreature [pos=" + pos + "]";
+		return "BlackAndWhiteCreature [pos=" + pos + "] " + "Killable: " +killable;
 	}
 
 	/**
@@ -77,7 +91,7 @@ public class BlackAndWhiteCreature implements Creature {
 	}
 
 	/**
-	 * Updates the creature (moves it and may change speed etc)
+	 * Updates the creature (moves it)
 	 */
 	@Override
 	public void updateCreature() {
@@ -85,7 +99,7 @@ public class BlackAndWhiteCreature implements Creature {
 	}
 
 	/**
-	 * Returns the id of this creature
+	 * Returns the static id of this creature
 	 */
 	@Override
 	public int getId() {

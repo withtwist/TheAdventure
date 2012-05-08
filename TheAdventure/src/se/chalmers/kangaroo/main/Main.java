@@ -17,20 +17,14 @@ import se.chalmers.kangaroo.view.MenuView;
 public class Main {
 
 	/**
+	 * Starts the game
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
 		ChangeView cv = new ChangeView();
-		// GameController gc = new GameController();
-		// //jf.add(gc.getGameView());
-		// gw.revalidate();
 		cv.menuView();
 		cv.setVisible(true);
-		// gw.setVisible(true);
-		// cf.addKeyListener(gc);
-		// gc.start();
-
 	}
 
 }

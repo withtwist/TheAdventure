@@ -113,10 +113,11 @@ public class GameMap {
 	}
 
 	/**
-	 * Return the item at which they are drawn.
+	 * Return the item the i:th item.
+	 * will throw IndexOutOfBoundsException if i > amountOfItems
 	 * 
 	 * @param i
-	 * @return
+	 * @return, the Item at i
 	 */
 	public Item getItem(int i) {
 		return items.get(i);
@@ -124,7 +125,6 @@ public class GameMap {
 
 	/**
 	 * The number of items currently on the map.
-	 * 
 	 * @return
 	 */
 	public int amountOfItems() {

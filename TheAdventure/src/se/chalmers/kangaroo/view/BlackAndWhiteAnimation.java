@@ -13,9 +13,13 @@ public class BlackAndWhiteAnimation implements Animation{
 	private Image sheet;
 	private int height;
 	private int width;
-	
+	/**
+	 * Create an animation for the blackandwhiteCreature. 
+	 * @param bw, must be BlackAndWhiteCreature
+	 */
 	public BlackAndWhiteAnimation(Creature bw){
-		this.creature = (BlackAndWhiteCreature)bw;
+		if(bw instanceof BlackAndWhiteCreature)
+			this.creature = (BlackAndWhiteCreature)bw;
 		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/blackandwhite_64_32.png");
 		this.height = 32;
 		this.width = 32;

@@ -16,8 +16,13 @@ public class SumoAnimation implements Animation{
 	private int tick;
 	private int currentSprite;
 	
+	/**
+	 * Creates an animation for a SumoCreature
+	 * @param c, must be a SumoCreature
+	 */
 	public SumoAnimation(Creature c){
-		this.sumo = (SumoCreature)c;
+		if(c instanceof SumoCreature)
+			this.sumo = (SumoCreature)c;
 		this.width = 64;
 		this.height = 64;
 		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/sumo_64x64.png");

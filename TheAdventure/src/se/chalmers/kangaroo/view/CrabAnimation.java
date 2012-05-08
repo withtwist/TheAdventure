@@ -16,8 +16,13 @@ public class CrabAnimation implements Animation{
 	private int width;
 	private int height;
 	
+	/**
+	 * Creates the animation for a crab.
+	 * @param c, must be a crabcreature. 
+	 */
 	public CrabAnimation(Creature c){
-		this.crab = (CrabCreature)c;
+		if(c instanceof CrabCreature)
+			this.crab = (CrabCreature)c;
 		tick = 0;
 		currentSprite = 0;
 		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/crab_256x32.png");
@@ -35,6 +40,9 @@ public class CrabAnimation implements Animation{
 		tick++;
 	}
 	
+	/**
+	 * Returns the string showing the current animationstate of this creature. 
+	 */
 	@Override
 	public String toString(){
 		return "CrabAnimation: " +tick +" "+currentSprite;
