@@ -15,7 +15,7 @@ public class SmurfCreature implements Creature {
 
 	public SmurfCreature(Position spawnPos) {
 		this.currentDir = Direction.DIRECTION_EAST;
-
+		currentPos = spawnPos;
 	}
 
 	@Override
@@ -63,7 +63,6 @@ public class SmurfCreature implements Creature {
 
 	@Override
 	public void changeDirection() {
-		System.out.println("hej");
 		if (this.currentDir == Direction.DIRECTION_EAST) {
 			this.currentDir = Direction.DIRECTION_WEST;
 		} else if (this.currentDir == Direction.DIRECTION_WEST) {

@@ -33,7 +33,7 @@ public class SmurfAnimation implements Animation {
 
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if(tick == 10) {
+		if(tick == 20) {
 			tick = 0;
 			currentSprite++;
 			currentSprite = currentSprite % 3;
@@ -45,6 +45,7 @@ public class SmurfAnimation implements Animation {
 		if (sc.getDirection() == Direction.DIRECTION_WEST) {
 			g.drawImage(leftSheet, x, y, x+width, y+height, currentSprite*32, 0, currentSprite*32+width, height, null, null);
 		}
+		tick++;
 		
 	}
 
