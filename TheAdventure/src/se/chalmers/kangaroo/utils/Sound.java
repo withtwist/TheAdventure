@@ -83,6 +83,10 @@ public class Sound{
 		
 	}
 	
+	public void stop(){
+		clip.stop();
+	}
+	
 	public void setVolume(boolean isBgMusic){
 		// Set Volume
 		if(clip != null){

@@ -10,6 +10,7 @@ import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.iobject.InteractiveObject;
 import se.chalmers.kangaroo.model.kangaroo.Item;
 import se.chalmers.kangaroo.model.utils.Position;
+import se.chalmers.kangaroo.utils.Sound;
 
 /**
  * This is the normal view which renders the model. 
@@ -23,6 +24,7 @@ public class GameView extends JPanelWithBackground {
 	private KangarooAnimation ka;
 	private boolean isPaused = false;
 	private PauseView pv;
+	private Sound lv1Music;
 
 	/**
 	 * Create the view when the rendering shall begin. 
