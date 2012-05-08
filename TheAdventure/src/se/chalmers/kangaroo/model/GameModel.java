@@ -1,6 +1,5 @@
 package se.chalmers.kangaroo.model;
 
-import java.awt.Polygon;
 import java.awt.geom.Rectangle2D;
 
 import se.chalmers.kangaroo.constants.Constants;
@@ -24,10 +23,6 @@ public class GameModel {
 	 */
 	private Kangaroo kangaroo;
 	/*
-	 * The current level that the player are playing.
-	 */
-	private GameMap map;
-	/*
 	 * The amount of times the player have died.
 	 */
 	private int deathCount;
@@ -36,10 +31,6 @@ public class GameModel {
 	 */
 	private GameTimer timer;
 	/*
-	 * Will check if the game is running. Not sure if we need it.
-	 */
-	private boolean isRunning = false;
-	/*
 	 * The gameMap. Makes it able to check collition
 	 */
 	private GameMap gameMap;
@@ -47,8 +38,6 @@ public class GameModel {
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
-
-	private int jGlobal;
 
 	/**
 	 * A method to start the game.
