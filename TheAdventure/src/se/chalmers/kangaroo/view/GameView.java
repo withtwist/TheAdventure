@@ -26,6 +26,8 @@ public class GameView extends JPanelWithBackground {
 	private boolean isPaused = false;
 	private PauseView pv;
 	private Sound lv1Music;
+	private VictoryView vv;
+	private boolean newLevel = false;
 
 	/**
 	 * Create the view when the rendering shall begin.
@@ -52,7 +54,6 @@ public class GameView extends JPanelWithBackground {
 		pv.setVisible(isPaused);
 		pv.setOpaque(isPaused);
 		this.add(pv);
-
 	}
 
 	@Override
@@ -140,5 +141,21 @@ public class GameView extends JPanelWithBackground {
 		this.isPaused = !isPaused;
 		pv.setVisible(isPaused);
 		pv.setOpaque(isPaused);
+	}
+	
+	public void showVictoryView(){
+		vv = new VictoryView("resources/images/pausebackground.png", gm.getDeathCount(), gm.getTime(), this);
+		vv.setVisible(true); 
+		vv.setOpaque(true);
+		this.add(vv);
+		repaint();
+	}
+	
+	public void setNewLevel(boolean b){
+		newLevel = b; 
+	}
+	
+	public boolean startNewLevel(){
+		return newLevel;
 	}
 }

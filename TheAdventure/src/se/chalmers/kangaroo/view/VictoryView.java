@@ -17,10 +17,12 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	private Menubutton nextlevel, submit;
 	private JTextField namefield;
 	private String name;
+	private GameView gameview;
 
-	public VictoryView(String imagepath, GameModel gm) {
+	public VictoryView(String imagepath, int deathcount, double time, GameView gv) {
 		super(imagepath);
 
+		this.gameview = gv;
 		nextlevel = new Menubutton("resources/images/nextlevel.png");
 		submit = new Menubutton("resources/images/submit.png");
 		namefield = new JTextField();
@@ -39,9 +41,9 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		this.add(new Menubutton("resources/images/congratulations.png"));
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
-		this.add(new JLabel("Deaths: " + gm.getDeathCount()));
+		this.add(new JLabel("Deaths: " + deathcount));
 		this.add(Box.createVerticalGlue());
-		this.add(new JLabel("Time: " + gm.getTime()));
+		this.add(new JLabel("Time: " + time));
 		this.add(jp);
 		this.add(Box.createVerticalGlue());
 		this.add(new Menubutton("resources/images/nextlevel.png"));
@@ -90,7 +92,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == nextlevel)
 			nextlevel.setIcon(new ImageIcon("resources/images/nextlevel.png"));
-		// Start the next level
+		gameview.setNewLevel(true);
 		if (e.getSource() == submit) {
 			submit.setIcon(new ImageIcon("resources/images/submit.png"));
 			try {

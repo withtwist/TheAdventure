@@ -58,6 +58,9 @@ public class GameController implements KeyListener {
 				if (isRunning) {
 					long time = System.currentTimeMillis();
 					gm.update();
+					if(!gm.isRunning()){
+						setVictoryView();
+					}
 					gv.repaint();
 					gv.revalidate();
 					try {
@@ -68,6 +71,16 @@ public class GameController implements KeyListener {
 					}
 				}
 			}
+		}
+
+		private void setVictoryView() {
+			gv.showVictoryView();
+			while(!gv.startNewLevel())
+				try{
+					Thread.sleep(100);
+				}catch(InterruptedException e){
+				}
+			
 		}
 
 	}
