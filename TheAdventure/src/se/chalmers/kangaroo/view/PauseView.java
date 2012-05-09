@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- * A view to show when the game is paused.
- * 
+ * A view to show when the game is paused. Shows when the game is paused and
+ * shows some of the alternatives that can be shown in the menu
  * 
  * @author arvidk
  * 
@@ -25,9 +25,12 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	private ChangeView cv;
 
 	/**
-	 * The constructor for the GameView.
+	 * The constructor for the PauseView. Takes a string as a paramether where
+	 * the background image is located. Also takes a changeView so it can change
+	 * the veiw to options, hisckre etc.
 	 * 
 	 * @param bgpath
+	 *            , cv
 	 */
 	public PauseView(String bgpath, ChangeView cv) {
 		super(bgpath);
@@ -49,32 +52,45 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(exitGame);
 		this.add(new Menubutton("resources/images/stretchbar.png"));
-		
-		
+
 		resume.addMouseListener(this);
 		highScore.addMouseListener(this);
 		options.addMouseListener(this);
 		exitGame.addMouseListener(this);
 	}
-	@Override
-	 public void paintComponent (Graphics g)
-	    { 
-	((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.2f)); // draw transparent background
-	     super.paintComponent(g);
-	    ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1.0f)); // turn on opacity
-	     } 
 
+	/**
+	 * Overrides the paintComponent. The firsl line makes the
+	 * background transparent. The float value in the first line decides how
+	 * transparent the background shall be. 0 is 100%, 1 is 0%. The second
+	 * decides how transparent the other objects shall be.
+	 */
+	@Override
+	public void paintComponent(Graphics g) {
+		((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+				AlphaComposite.SRC_OVER, 0.2f)); // draw transparent background
+		super.paintComponent(g);
+		((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+				AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
+	}
+
+	/**
+	 * Unused method
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * Changes the button when the mouse hovers over the button. Changes the
+	 * image on the button to the given string.
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == resume)
-			resume.setIcon(new ImageIcon(
-					"resources/images/resuem_onHover.png"));
+			resume.setIcon(new ImageIcon("resources/images/resume_onHover.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon(
 					"resources/images/highscore_onHover.png"));
@@ -86,6 +102,10 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 					"resources/images/exitgame_onHover.png"));
 	}
 
+	/**
+	 * Changes the button when the mouse exits the button. Changes the image on
+	 * the button to the given string.
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == resume)
@@ -99,11 +119,14 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 
 	}
 
+	/**
+	 * Changes the button when you press the button. Changes the image on the
+	 * button to the given string.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == resume)
-			resume.setIcon(new ImageIcon(
-					"resources/images/resuem_onSelect.png"));
+			resume.setIcon(new ImageIcon("resources/images/resume_onSelect.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon(
 					"resources/images/highscore_onSelect.png"));
@@ -115,14 +138,15 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 					"resources/images/exitgame_onSelect.png"));
 	}
 
+	/**
+	 * Changes the button when you release the button. Changes the image on the
+	 * btton to the given string and also changes the view to the one that says
+	 * on the button or exits the game.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == resume) {
 			resume.setIcon(new ImageIcon("resources/images/resume.png"));
-			//TODO wake the thread that the game is running in.
-			
-			cv.gameView();
-
 		}
 		if (e.getSource() == highScore) {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
