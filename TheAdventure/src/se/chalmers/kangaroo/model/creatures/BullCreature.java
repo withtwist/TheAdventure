@@ -15,8 +15,8 @@ import se.chalmers.kangaroo.model.utils.Position;
 public class BullCreature implements Creature {
 
 	private static final int id = 114;
-	private Position pos;
-	private Direction direction;
+	private Position currentPos;
+	private Direction currentDir;
 	private int speed = 1;
 	private int health;
 
@@ -24,10 +24,10 @@ public class BullCreature implements Creature {
 	 * Creates a bull at the given position and direction.
 	 * 
 	 * @param spawnPos
-	 * @param direction
+	 * @param currentDir
 	 */
 	public BullCreature(Position spawnPos) {
-		this.pos = spawnPos;
+		this.currentPos = spawnPos;
 		health = 100;
 	}
 
@@ -35,16 +35,16 @@ public class BullCreature implements Creature {
 	 * Returns the polygin of the bull.
 	 */
 	public Polygon getPolygon() {
-		int polyX[] = { pos.getX(), pos.getX() + 14, pos.getX() + 14,
-				pos.getX() + 20, pos.getX() + 20, pos.getX() + 44,
-				pos.getX() + 44, pos.getX() + 50, pos.getX() + 50,
-				pos.getX() + 64, pos.getX() + 64, pos.getX() + 54,
-				pos.getX() + 54, pos.getX() + 10, pos.getX() + 10, pos.getX() };
-		int polyY[] = { pos.getY() + 2, pos.getY() + 2, pos.getY(), pos.getY(),
-				pos.getY() + 6, pos.getY() + 6, pos.getY(), pos.getY(),
-				pos.getY() + 2, pos.getY() + 2, pos.getY() + 16,
-				pos.getY() + 16, pos.getY() + 32, pos.getY() + 32,
-				pos.getY() + 16, pos.getY() + 16 };
+		int polyX[] = { currentPos.getX(), currentPos.getX() + 14, currentPos.getX() + 14,
+				currentPos.getX() + 20, currentPos.getX() + 20, currentPos.getX() + 44,
+				currentPos.getX() + 44, currentPos.getX() + 50, currentPos.getX() + 50,
+				currentPos.getX() + 64, currentPos.getX() + 64, currentPos.getX() + 54,
+				currentPos.getX() + 54, currentPos.getX() + 10, currentPos.getX() + 10, currentPos.getX() };
+		int polyY[] = { currentPos.getY() + 2, currentPos.getY() + 2, currentPos.getY(), currentPos.getY(),
+				currentPos.getY() + 6, currentPos.getY() + 6, currentPos.getY(), currentPos.getY(),
+				currentPos.getY() + 2, currentPos.getY() + 2, currentPos.getY() + 16,
+				currentPos.getY() + 16, currentPos.getY() + 32, currentPos.getY() + 32,
+				currentPos.getY() + 16, currentPos.getY() + 16 };
 		return new Polygon(polyX, polyY, 16);
 	}
 
@@ -96,16 +96,23 @@ public class BullCreature implements Creature {
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
+		if (this.currentDir == Direction.DIRECTION_EAST) {
+			this.currentPos = new Position(currentPos.getX() + speed,
+					currentPos.getY());
+		} else if (this.currentDir == Direction.DIRECTION_WEST) {
+			this.currentPos = new Position(currentPos.getX() - speed,
+					currentPos.getY());
+
+		}
 
 	}
 
 	@Override
 	public void updateCreature() {
-		if (direction == Direction.DIRECTION_WEST) {
-			pos = new Position(pos.getX() - speed, pos.getY());
+		if (currentDir == Direction.DIRECTION_WEST) {
+			currentPos = new Position(currentPos.getX() - speed, currentPos.getY());
 		} else {
-			pos = new Position(pos.getX() + speed, pos.getY());
+			currentPos = new Position(currentPos.getX() + speed, currentPos.getY());
 		}
 
 	}
@@ -117,15 +124,15 @@ public class BullCreature implements Creature {
 
 	@Override
 	public Position getPosition() {
-		return pos;
+		return currentPos;
 	}
 
 	@Override
 	public void changeDirection() {
-		if (direction == Direction.DIRECTION_WEST) {
-			direction = Direction.DIRECTION_EAST;
+		if (currentDir == Direction.DIRECTION_WEST) {
+			currentDir = Direction.DIRECTION_EAST;
 		} else {
-			direction = Direction.DIRECTION_WEST;
+			currentDir = Direction.DIRECTION_WEST;
 		}
 	}
 
