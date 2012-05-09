@@ -42,7 +42,7 @@ public class GameMap {
 		if (tiles != null)
 			map = new Tile[tiles.length][tiles[0].length];
 		else
-			System.out.println("HEJ");
+			System.out.println("Will not be able to load map, exceptiong incoming..");
 		Factory tf = new Factory();
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[0].length; j++) {
@@ -64,12 +64,10 @@ public class GameMap {
 		for (int i = 0; i < sCreatures.length; i++)
 			sCreatures[i] = creatures.get(i);
 	}
-
 	/**
-	 * Returns the i:th interactive object Will cast IndexOutOfBoundsException
-	 * if i > getIObjectSize()
-	 * 
-	 * @return the list of InteractiveObjects
+	 * Try to get the iObject at the given position.
+	 * Will return null if there is no iobject at the given position.  
+	 * @return an InteractiveObjects or null
 	 */
 	public InteractiveObject getIObjectAt(int x, int y) {
 		Position p = new Position(x, y);
@@ -89,7 +87,12 @@ public class GameMap {
 	public int getIObjectSize() {
 		return iObjects.size();
 	}
-
+	/**
+	 * Will return the i:th iObject on the map.
+	 * @throws IndexOutOfBoundsException if i > getIObjectSize()-1
+	 * @param i, number in a list
+	 * @return, an InterActiveObject
+	 */
 	public InteractiveObject getIObject(int i) {
 		return iObjects.get(i);
 	}
@@ -114,8 +117,7 @@ public class GameMap {
 
 	/**
 	 * Return the item the i:th item.
-	 * will throw IndexOutOfBoundsException if i > amountOfItems
-	 * 
+	 * @throws IndexOutOfBoundsException if i > amountOfItems()-1
 	 * @param i
 	 * @return, the Item at i
 	 */
@@ -141,9 +143,8 @@ public class GameMap {
 	}
 
 	/**
-	 * Return the i:th creature. Will cast IndexOutOfBoundsException if i >
-	 * getCreatureSize()
-	 * 
+	 * Return the i:th creature. 
+	 * @throws IndexOutOfBoundsException if i > getCreatureSize()-1
 	 * @return a list of creatures
 	 */
 	public Creature getCreatureAt(int i) {
@@ -170,7 +171,7 @@ public class GameMap {
 
 	/**
 	 * Kills and removes the given creature from the map.
-	 * 
+	 * If the creature doesn't exist this method will do nothing.
 	 * @param c
 	 */
 	public void killCreature(Creature c) {
@@ -181,11 +182,10 @@ public class GameMap {
 	 * Returns the tile at the given position
 	 * 
 	 * @param x
-	 *            , position in x-axis, x < getTileWidth()
+	 *            , position in x-axis, x < getTileWidth()-1
 	 * @param y
-	 *            , position in y,axis, y < getTileHieght()
-	 * @throws IndexOutOfBoundsException
-	 *             if -^
+	 *            , position in y,axis, y < getTileHieght()-1
+	 * @throws IndexOutOfBoundsException if -^
 	 * @return the tile at the given position
 	 */
 	public Tile getTile(int x, int y) {
