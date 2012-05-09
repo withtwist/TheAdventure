@@ -50,13 +50,6 @@ public class Tile {
 	public int getId() {
 		return id;
 	}
-	/**
-	 * Sets the current id of the Tile, used when parsing maps.
-	 * @param i
-	 */
-	public void setId(int i) {
-		this.id = i;
-	}
 
 	/**
 	 * Returns the polygon representing the size.
