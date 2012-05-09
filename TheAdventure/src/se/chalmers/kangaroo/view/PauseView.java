@@ -41,22 +41,14 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		options = new Menuebutton("resources/images/options.png");
 		exitGame = new Menuebutton("resources/images/exitgame.png");
 
-		this.add(Box.createVerticalGlue());
-		this.add(new Menuebutton("resources/images/menu_logo.gif"));
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
 		this.add(resume);
-		this.add(Box.createVerticalGlue());
+		this.add(new Menuebutton("resources/images/transparent.png"));
 		this.add(highScore);
-		this.add(Box.createVerticalGlue());
+		this.add(new Menuebutton("resources/images/transparent.png"));
 		this.add(options);
-		this.add(Box.createVerticalGlue());
+		this.add(new Menuebutton("resources/images/transparent.png"));
 		this.add(exitGame);
 		this.add(new Menuebutton("resources/images/stretchbar.png"));
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
 		
 		
 		resume.addMouseListener(this);
@@ -67,7 +59,7 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	@Override
 	 public void paintComponent (Graphics g)
 	    { 
-	((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.0f)); // draw transparent background
+	((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.2f)); // draw transparent background
 	     super.paintComponent(g);
 	    ((Graphics2D) g).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1.0f)); // turn on opacity
 	     } 
