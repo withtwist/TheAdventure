@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.constants.Constants;
+import se.chalmers.kangaroo.utils.Sound;
 
 /**
  * A class representing the a view of all the different highscores of every level in the game. 
@@ -91,6 +92,7 @@ public class HighscoreView extends JPanelWithBackground implements
 
 		// Level 1
 		lv1 = new Menubutton("resources/images/levels/level_1.png");
+		lv1.setName("1");
 		lv1.addMouseListener(this);
 		levelPanel.add(lv1);
 
@@ -176,7 +178,14 @@ public class HighscoreView extends JPanelWithBackground implements
 			// TODO Delete this syso later
 			System.out.println("Back to menu");
 			cv.back();
-		}
+		}else if (e.getSource() == lv1) {
+			lv1.setIcon(new ImageIcon("resources/images/newgame.png"));
+			menuMusic.stop();
+			lv1Music = new Sound();
+			lv1Music.play("resources/music/gamemusic.WAV", true);
+			cv.gameView();
+
+		})
 
 	}
 

@@ -113,7 +113,7 @@ public class Highscore {
 	 * @return all the names.
 	 * @throws IOException 
 	 */
-	public String[] getNames(int level) throws IOException {
+	public String[] getNames(int level){
 		String[] names = new String[nbrOfScores];
 		try {
 			byte[] b = fileToByteArray(new File(FILE_NAME));
@@ -129,6 +129,9 @@ public class Highscore {
 		} catch (KeyczarException e) {
 			System.out.println("Something bad happened!");
 			e.printStackTrace();
+		} catch (IOException e){
+			System.out.println("Something bad happened in io!");
+			e.printStackTrace();
 		}
 		return names;
 	}
@@ -141,7 +144,7 @@ public class Highscore {
 	 *            , the number of the level
 	 * @return all the times
 	 */
-	public int[] getTimes(int level) throws IOException {
+	public int[] getTimes(int level){
 		int[] times = new int[nbrOfScores];
 		byte[] decryptedByteArray = null;
 		try {
@@ -165,6 +168,9 @@ public class Highscore {
 			System.out.println("Could't find the specific file.");
 		} catch (NumberFormatException e) {
 			System.out.println("The times are not numbers.");
+		} catch (IOException e){
+			System.out.println("Something bad happened in io!");
+			e.printStackTrace();
 		}
 		return times;
 	}

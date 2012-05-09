@@ -2,24 +2,35 @@ package se.chalmers.kangaroo.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.event.ChangeEvent;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.controller.CustomKeys;
+import se.chalmers.kangaroo.io.Highscore;
 
 public class ShowHighscoreView extends JPanelWithBackground implements MouseListener{
 	private Menubutton back;
 	private ChangeView cv;
 	private int currentLevel;
+	private String[] names;
+	private int[] times;
+	private int[] deaths;
+	private Highscore hs;
 	
 	public ShowHighscoreView(String imagepath, ChangeView cv, int currentLevel) {
 		super(imagepath);
 		this.cv = cv;
 		this.currentLevel = currentLevel;
+		hs = Highscore.getInstance();
+		names = hs.getNames(currentLevel);
+		times = hs.getTimes(currentLevel);
 		this.setFocusable(true);
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
@@ -62,8 +73,24 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 					titleHeight));
 			
 			// Content
-			JPanel contentPanel = new JPanel(new BorderLayout());
+			JPanel contentPanel = new JPanel(new GridLayout(6,7));
 			this.add(contentPanel, BorderLayout.SOUTH);
+			
+			// Information Labels
+			for(int i = 0; i<2; i++){
+				contentPanel.add(new JLabel("<html><body><b>Name</b></body></html>"));
+				contentPanel.add(new JLabel("<html><body><b>Time</b></body></html>"));
+				contentPanel.add(new JLabel("<html><body><b>Deaths</b></body></html>"));
+			}
+			
+			// Writes out labels on every person in highscore
+			for(int i = 0; i<10; i++){
+				contentPanel.add(new JLabel(names[i]));
+				contentPanel.add(new JLabel("" + (double)(((int)(times[i]/1000.0))/100)));
+				contentPanel.add(new JLabel("" + deaths[i]));
+			}
+			
+			
 	}
 
 	@Override
@@ -73,27 +100,37 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseEntered(MouseEvent e) {
+		if (e.getSource() == back)
+			back.setIcon(new ImageIcon(
+					"resources/images/buttons/back_onHover.png"));
+
 	}
 
 	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseExited(MouseEvent e) {
+		if (e.getSource() == back) {
+			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+		}
+
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mousePressed(MouseEvent e) {
+		if (e.getSource() == back) {
+			back.setIcon(new ImageIcon(
+					"resources/images/buttons/back_onSelect.png"));
+		}
+
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseReleased(MouseEvent e) {
+		if (e.getSource() == back) {
+			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+			cv.back();
+		}
+
 	}
 
 }
