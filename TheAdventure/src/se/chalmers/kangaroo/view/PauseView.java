@@ -7,10 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 /**
  * A view to show when the game is paused. Shows when the game is paused and
@@ -53,6 +51,8 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		this.add(options);
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(exitGame);
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/stretchbar.png"));
 
 		resume.addMouseListener(this);

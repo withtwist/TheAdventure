@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import se.chalmers.kangaroo.model.GameModel;
 
 public class VictoryView extends JPanelWithBackground implements MouseListener {
 
