@@ -35,7 +35,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private JSlider bgSlider;
 	private JSlider sfxSlider;
 	private CustomKeys ck;
-	private Menuebutton back;
+	private Menubutton back;
 	private ChangeView cv;
 	private Key pressedKey;
 	private KeyEvent keyEvent;
@@ -51,7 +51,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		this.setFocusable(true);
 		this.addKeyListener(this);
 		ck = CustomKeys.getInstance();
-		back = new Menuebutton("resources/images/buttons/back.png");
+		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
 		addKeyListener(this);
 		this.setLayout(new BorderLayout());

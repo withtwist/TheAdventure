@@ -20,21 +20,21 @@ import se.chalmers.kangaroo.constants.Constants;
 public class HighscoreView extends JPanelWithBackground implements
 		MouseListener {
 	private ChangeView cv;
-	private Menuebutton back;
+	private Menubutton back;
 	private JLabel title;
-	private Menuebutton lv1;
-	private Menuebutton lv2;
-	private Menuebutton lv3;
-	private Menuebutton lv4;
-	private Menuebutton lv5;
-	private Menuebutton lv6;
-	private Menuebutton lv7;
-	private Menuebutton lv8;
+	private Menubutton lv1;
+	private Menubutton lv2;
+	private Menubutton lv3;
+	private Menubutton lv4;
+	private Menubutton lv5;
+	private Menubutton lv6;
+	private Menubutton lv7;
+	private Menubutton lv8;
 
 	public HighscoreView(String imagepath, ChangeView cv) {
 		super(imagepath);
 		this.cv = cv;
-		back = new Menuebutton("resources/images/buttons/back.png");
+		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
 		this.setLayout(new BorderLayout());
 
@@ -86,42 +86,42 @@ public class HighscoreView extends JPanelWithBackground implements
 				Constants.RESOLUTION_HEIGHT - titleHeight));
 
 		// Level 1
-		lv1 = new Menuebutton("resources/images/levels/level_1.png");
+		lv1 = new Menubutton("resources/images/levels/level_1.png");
 		lv1.addMouseListener(this);
 		levelPanel.add(lv1);
 
 		// Level 2
-		lv2 = new Menuebutton("resources/images/levels/level_-1.png");
+		lv2 = new Menubutton("resources/images/levels/level_-1.png");
 		lv2.addMouseListener(this);
 		levelPanel.add(lv2);
 
 		// Level 3
-		lv3 = new Menuebutton("resources/images/levels/level_inProg.png");
+		lv3 = new Menubutton("resources/images/levels/level_inProg.png");
 		lv3.addMouseListener(this);
 		levelPanel.add(lv3);
 
 		// Level 4
-		lv4 = new Menuebutton("resources/images/levels/level_inProg.png");
+		lv4 = new Menubutton("resources/images/levels/level_inProg.png");
 		lv4.addMouseListener(this);
 		levelPanel.add(lv4);
 
 		// Level 5
-		lv5 = new Menuebutton("resources/images/levels/level_inProg.png");
+		lv5 = new Menubutton("resources/images/levels/level_inProg.png");
 		lv5.addMouseListener(this);
 		levelPanel.add(lv5);
 
 		// Level 6
-		lv6 = new Menuebutton("resources/images/levels/level_inProg.png");
+		lv6 = new Menubutton("resources/images/levels/level_inProg.png");
 		lv6.addMouseListener(this);
 		levelPanel.add(lv6);
 
 		// Level 7
-		lv7 = new Menuebutton("resources/images/levels/level_inProg.png");
+		lv7 = new Menubutton("resources/images/levels/level_inProg.png");
 		lv7.addMouseListener(this);
 		levelPanel.add(lv7);
 
 		// Level 8
-		lv8 = new Menuebutton("resources/images/levels/level_inProg.png");
+		lv8 = new Menubutton("resources/images/levels/level_inProg.png");
 		lv8.addMouseListener(this);
 		levelPanel.add(lv8);
 

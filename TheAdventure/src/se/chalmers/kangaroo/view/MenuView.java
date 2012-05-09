@@ -18,7 +18,7 @@ import se.chalmers.kangaroo.utils.Sound;
  * 
  */
 public class MenuView extends JPanelWithBackground implements MouseListener {
-	private Menuebutton newGame, highScore, options, exitGame;
+	private Menubutton newGame, highScore, options, exitGame;
 
 	private ChangeView cv;
 	private Sound menuMusic, lv1Music;
@@ -37,13 +37,13 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		this.setSize(Constants.RESOLUTION_WIDTH, Constants.RESOLUTION_WIDTH);
 		menuMusic = new Sound();
 		menuMusic.play("resources/music/menumusic.wav", true);
-		newGame = new Menuebutton("resources/images/newgame.png");
-		highScore = new Menuebutton("resources/images/highscore.png");
-		options = new Menuebutton("resources/images/options.png");
-		exitGame = new Menuebutton("resources/images/exitgame.png");
+		newGame = new Menubutton("resources/images/newgame.png");
+		highScore = new Menubutton("resources/images/highscore.png");
+		options = new Menubutton("resources/images/options.png");
+		exitGame = new Menubutton("resources/images/exitgame.png");
 
 		this.add(Box.createVerticalGlue());
-		this.add(new Menuebutton("resources/images/menu_logo.gif"));
+		this.add(new Menubutton("resources/images/menu_logo.gif"));
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());

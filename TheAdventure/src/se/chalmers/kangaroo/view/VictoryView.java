@@ -14,15 +14,15 @@ import se.chalmers.kangaroo.model.GameModel;
 
 public class VictoryView extends JPanelWithBackground implements MouseListener {
 
-	private Menuebutton nextlevel, submit;
+	private Menubutton nextlevel, submit;
 	private JTextField namefield;
 	private String name;
 
 	public VictoryView(String imagepath, GameModel gm) {
 		super(imagepath);
 
-		nextlevel = new Menuebutton("resources/images/nextlevel.png");
-		submit = new Menuebutton("resources/images/submit.png");
+		nextlevel = new Menubutton("resources/images/nextlevel.png");
+		submit = new Menubutton("resources/images/submit.png");
 		namefield = new JTextField();
 		JPanel jp = new JPanel();
 		jp.add(namefield);
@@ -32,11 +32,11 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		this.setLayout(layout);
 		this.setSize(1024, 576);
 		this.add(Box.createVerticalGlue());
-		this.add(new Menuebutton("resources/images/victory_logo.png"));
+		this.add(new Menubutton("resources/images/victory_logo.png"));
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
-		this.add(new Menuebutton("resources/images/congratulations.png"));
+		this.add(new Menubutton("resources/images/congratulations.png"));
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
 		this.add(new JLabel("Deaths: " + gm.getDeathCount()));
@@ -44,7 +44,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		this.add(new JLabel("Time: " + gm.getTime()));
 		this.add(jp);
 		this.add(Box.createVerticalGlue());
-		this.add(new Menuebutton("resources/images/nextlevel.png"));
+		this.add(new Menubutton("resources/images/nextlevel.png"));
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());
 		this.add(Box.createVerticalGlue());

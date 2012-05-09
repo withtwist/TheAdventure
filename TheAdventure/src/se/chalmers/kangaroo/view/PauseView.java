@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  * 
  */
 public class PauseView extends JPanelWithBackground implements MouseListener {
-	private Menuebutton resume, highScore, options, exitGame;
+	private Menubutton resume, highScore, options, exitGame;
 	private String viewName = "gameview";
 	private ChangeView cv;
 
@@ -36,19 +36,19 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		this.setLayout(layout);
 		this.setSize(1024, 576);
 		this.setBackground(Color.BLACK);
-		resume = new Menuebutton("resources/images/resume.png");
-		highScore = new Menuebutton("resources/images/highscore.png");
-		options = new Menuebutton("resources/images/options.png");
-		exitGame = new Menuebutton("resources/images/exitgame.png");
+		resume = new Menubutton("resources/images/resume.png");
+		highScore = new Menubutton("resources/images/highscore.png");
+		options = new Menubutton("resources/images/options.png");
+		exitGame = new Menubutton("resources/images/exitgame.png");
 
 		this.add(resume);
-		this.add(new Menuebutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(highScore);
-		this.add(new Menuebutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(options);
-		this.add(new Menuebutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(exitGame);
-		this.add(new Menuebutton("resources/images/stretchbar.png"));
+		this.add(new Menubutton("resources/images/stretchbar.png"));
 		
 		
 		resume.addMouseListener(this);
