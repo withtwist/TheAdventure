@@ -178,7 +178,10 @@ public class HighscoreView extends JPanelWithBackground implements
 			// TODO Delete this syso later
 			System.out.println("Back to menu");
 			cv.back();
-		}else if (e.getSource() == lv1) {
+		}
+		for(int i = 1; i<=8; i++){
+			if(e.getSource(). == lv1) {
+		}
 			lv1.setIcon(new ImageIcon("resources/images/newgame.png"));
 			menuMusic.stop();
 			lv1Music = new Sound();
