@@ -14,7 +14,6 @@ import se.chalmers.kangaroo.constants.Constants;
  * @author alburgh
  * 
  */
-@XmlRootElement
 public class Tile {
 	@XmlElement
 	private int id;
