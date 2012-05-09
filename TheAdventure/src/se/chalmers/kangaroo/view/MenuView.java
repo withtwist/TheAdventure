@@ -11,7 +11,10 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.utils.Sound;
 
 /**
- * The view of the game.
+ * The view of the menu.
+ * Will create the menu that shows when the game is started.
+ * The menu will allow the user to start the game, see high score 
+ * or do some changes in the menu.
  * 
  * @author twist3r
  * @modifiedby arvidk
@@ -25,9 +28,12 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	private String viewName = "menuview";
 
 	/**
-	 * The constructor for the GameView.
+	 * The constructor for the MenuView.
+	 * Takes a String and a Changeview as parameters.
+	 * The String is the path to the specified background.
+	 * ChangeView is used to change between the diffrent views in the game.
 	 * 
-	 * @param bgpath
+	 * @param bgpath, cv
 	 */
 	public MenuView(String bgpath, ChangeView cv) {
 		super(bgpath);
@@ -64,13 +70,19 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		options.addMouseListener(this);
 		exitGame.addMouseListener(this);
 	}
-
+	/**
+	 * unused method
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	/**
+	 * Changes the button when the mouse hovers over the button. Changes the
+	 * image on the button to the given string.
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == newGame)
@@ -86,7 +98,11 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 			exitGame.setIcon(new ImageIcon(
 					"resources/images/exitgame_onHover.png"));
 	}
-
+	
+	/**
+	 * Changes the button when the mouse exits the button. Changes the image on
+	 * the button to the given string.
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == newGame)
@@ -99,7 +115,11 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 			exitGame.setIcon(new ImageIcon("resources/images/exitgame.png"));
 
 	}
-
+	
+	/**
+	 * Changes the button when you press the button. Changes the image on the
+	 * button to the given string.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == newGame)
@@ -116,6 +136,11 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 					"resources/images/exitgame_onSelect.png"));
 	}
 
+	/**
+	 * Changes the button when you release the button. Changes the image on the
+	 * button to the given string and also changes the view to the one that says
+	 * on the button or exits the game.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == newGame) {

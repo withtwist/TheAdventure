@@ -8,7 +8,6 @@ import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.view.ChangeView;
 import se.chalmers.kangaroo.view.GameView;
 
-
 /**
  * A class for handling and running the game.
  * 
@@ -36,15 +35,16 @@ public class GameController implements KeyListener {
 
 	public void start() {
 		isRunning = true;
+		gm.start();
 		new Thread(new PlayModel()).start();
 	}
-	
+
 	private void pauseGame() {
 		isRunning = false;
 		gv.togglePause();
 		gv.repaint();
 	}
-	
+
 	private void resumeGame() {
 		isRunning = true;
 		gv.togglePause();
@@ -55,7 +55,7 @@ public class GameController implements KeyListener {
 
 		public void run() {
 			while (true) {
-				if(isRunning){
+				if (isRunning) {
 					long time = System.currentTimeMillis();
 					gm.update();
 					gv.repaint();
@@ -67,7 +67,7 @@ public class GameController implements KeyListener {
 					} catch (InterruptedException e) {
 					}
 				}
-			}	
+			}
 		}
 
 	}
@@ -92,8 +92,8 @@ public class GameController implements KeyListener {
 			if (gm.getKangaroo().getItem() != null)
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
-		} else if(code == KeyEvent.VK_ESCAPE) {
-			if(isRunning == true){
+		} else if (code == KeyEvent.VK_ESCAPE) {
+			if (isRunning == true) {
 				pauseGame();
 			} else {
 				resumeGame();
@@ -111,9 +111,9 @@ public class GameController implements KeyListener {
 		if (code == ck.getJumpKey()) {
 			gm.getKangaroo().setStillJumping(false);
 		}
-		if(code == ck.getLeftKey()){
+		if (code == ck.getLeftKey()) {
 			gm.getKangaroo().setDirection(Direction.DIRECTION_NONE);
-		}else if(code == ck.getRightKey()){
+		} else if (code == ck.getRightKey()) {
 			gm.getKangaroo().setDirection(Direction.DIRECTION_NONE);
 		}
 	}
@@ -131,7 +131,7 @@ public class GameController implements KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		//Nothing to do here.
+		// Nothing to do here.
 	}
 
 }

@@ -39,7 +39,7 @@ public class GameModel {
 	 * Avariable to keep track of the kangaroos old position
 	 */
 	private Position oldPos;
-	
+
 	private int currentLevel;
 
 	/**
@@ -72,14 +72,14 @@ public class GameModel {
 
 	public GameModel() {
 		currentLevel = 0;
-		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
-	}
-	/**
-	 * Starts the model.
-	 * Will start the timer and set the kangaroo to its spawnPosition.
-	 */
-	public void start(){
+		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
+	}
+
+	/**
+	 * Starts the model. Will start the timer.
+	 */
+	public void start() {
 		timer = new GameTimer();
 		timer.start();
 	}
@@ -92,9 +92,11 @@ public class GameModel {
 		kangaroo.move();
 		updateCreatures();
 		checkCollition();
-		if( gameMap.getTileWidth() - kangaroo.getPosition().getX()/Constants.TILE_SIZE < 3)
+		if (gameMap.getTileWidth() - kangaroo.getPosition().getX()
+				/ Constants.TILE_SIZE < 3)
 			changeLevel();
 	}
+
 	/* Private method for updating all the creatures. */
 	private void updateCreatures() {
 		for (int i = 0; i < gameMap.getCreatureSize(); i++) {
@@ -132,6 +134,7 @@ public class GameModel {
 			restartLevel();
 		}
 	}
+
 	/* Check collition with interactive objects and calls for their action */
 	private void iObjectCollition() {
 		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
@@ -147,22 +150,21 @@ public class GameModel {
 	 * creature. If so, the kangaroo will either kill the creature or die.
 	 */
 	private void creatureCollition() {
-			for (int i = 0; i < gameMap.getCreatureSize(); i++) {
-				Creature creature = gameMap.getCreatureAt(i);
-				if (kangaroo.getPolygon().getBounds2D()
-						.intersects(creature.getPolygon().getBounds2D())) {
-					if (creature.isKillable()
-							&& kangaroo.getVerticalSpeed() > 0) {
-						new Sound().play("resources/sfx/creature_death.WAV", false);
-						gameMap.killCreature(creature);
-						kangaroo.setVerticalSpeed(-6.5f);
-					} else {
-						new Sound().play("resources/sfx/kangaroo_death.WAV", false);
-						restartLevel();
-					}
-
+		for (int i = 0; i < gameMap.getCreatureSize(); i++) {
+			Creature creature = gameMap.getCreatureAt(i);
+			if (kangaroo.getPolygon().getBounds2D()
+					.intersects(creature.getPolygon().getBounds2D())) {
+				if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
+					new Sound().play("resources/sfx/creature_death.WAV", false);
+					gameMap.killCreature(creature);
+					kangaroo.setVerticalSpeed(-6.5f);
+				} else {
+					new Sound().play("resources/sfx/kangaroo_death.WAV", false);
+					restartLevel();
 				}
+
 			}
+		}
 	}
 
 	/*
@@ -186,14 +188,15 @@ public class GameModel {
 							.getMinY();
 					int kangMinY = (int) kangaroo.getPolygon().getBounds2D()
 							.getMinY();
-					if ( x != oldX
-							&& Math.abs(tileMaxY - kangMinY) > 2) {
+					if (x != oldX && Math.abs(tileMaxY - kangMinY) > 2) {
 						kangaroo.setPosition(new Position(oldPos.getX(),
 								kangMinY));
 
-					} else if (oldX == x && kangMinY < tileMaxY
+					} else if (oldX == x
+							&& kangMinY < tileMaxY
 							&& kangaroo.getVerticalSpeed() < 0
-							&& kangMinY > tileMinY && (kangaroo.getPolygon().getBounds2D().getMaxX() > tile
+							&& kangMinY > tileMinY
+							&& (kangaroo.getPolygon().getBounds2D().getMaxX() > tile
 									.getPolygon().getBounds2D().getMinX() == kangaroo
 									.getPolygon().getBounds2D().getMinX() < tile
 									.getPolygon().getBounds2D().getMaxX())) {
@@ -222,7 +225,11 @@ public class GameModel {
 			}
 		}
 	}
-	/* Checks collition with the items and calls them if they collide with the kangaroo*/
+
+	/*
+	 * Checks collition with the items and calls them if they collide with the
+	 * kangaroo
+	 */
 	private void itemCollition() {
 		int x = kangaroo.getPosition().getX() / Constants.TILE_SIZE;
 		int y = kangaroo.getPosition().getY() / Constants.TILE_SIZE;
@@ -233,7 +240,11 @@ public class GameModel {
 					kangaroo.setItem(item);
 			}
 	}
-	/* Checks if there is something collideable under the kangaroo or if it shuold start falling */
+
+	/*
+	 * Checks if there is something collideable under the kangaroo or if it
+	 * shuold start falling
+	 */
 	private void checkFalling() {
 		Rectangle2D kangBounds = kangaroo.getPolygon().getBounds2D();
 		if ((!gameMap.getTile((int) (kangBounds.getMaxX() / 32),
@@ -246,7 +257,8 @@ public class GameModel {
 	}
 
 	/**
-	 * Restarts the level. Should be used when the kangaroo dies or wants to respawn.
+	 * Restarts the level. Should be used when the kangaroo dies or wants to
+	 * respawn.
 	 */
 	public void restartLevel() {
 		deathCount++;
@@ -254,24 +266,25 @@ public class GameModel {
 		gameMap.resetItems();
 		gameMap.resetCreatures();
 	}
-	
-	/* When one level is finished this method should be invoked.*/
-	private void changeLevel(){
-		//setHighScore(currentLevel, time);
+
+	/* When one level is finished this method should be invoked. */
+	private void changeLevel() {
+		// setHighScore(currentLevel, time);
 		currentLevel++;
-		//TMp
+		// TMp
 		currentLevel %= 2;
-		//end of tmp
-		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
+		// end of tmp
+		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		restartLevel();
 		deathCount = 0;
 		timer = new GameTimer();
 		timer.start();
-		
+
 	}
 
 	/**
 	 * A getter for the current deathcount.
+	 * 
 	 * @return the amount of times the player has died.
 	 */
 	public int getDeathCount() {
@@ -280,6 +293,7 @@ public class GameModel {
 
 	/**
 	 * A getter for the kangaroo.
+	 * 
 	 * @return the kangaroo
 	 */
 	public Kangaroo getKangaroo() {
@@ -288,6 +302,7 @@ public class GameModel {
 
 	/**
 	 * A getter for the gamemap
+	 * 
 	 * @return the gameMap
 	 */
 	public GameMap getGameMap() {
@@ -296,6 +311,7 @@ public class GameModel {
 
 	/**
 	 * A getter for the time.
+	 * 
 	 * @return the time that has elapsed for the player.
 	 */
 	public double getTime() {

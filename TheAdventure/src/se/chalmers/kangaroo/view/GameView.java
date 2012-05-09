@@ -13,7 +13,8 @@ import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.Sound;
 
 /**
- * This is the normal view which renders the model. 
+ * This is the normal view which renders the model.
+ * 
  * @author alburgh
  * @modifiedby simonal
  * @modifiedby arvidk
@@ -27,27 +28,31 @@ public class GameView extends JPanelWithBackground {
 	private Sound lv1Music;
 
 	/**
-	 * Create the view when the rendering shall begin. 
-	 * @param imagepath, the path name to the background
-	 * @param gm, the gamemodel it shall render
-	 * @param cv, the changeview in order for the menu to work. 
+	 * Create the view when the rendering shall begin.
+	 * 
+	 * @param imagepath
+	 *            , the path name to the background
+	 * @param gm
+	 *            , the gamemodel it shall render
+	 * @param cv
+	 *            , the changeview in order for the menu to work.
 	 */
 	public GameView(String imagepath, GameModel gm, ChangeView cv) {
 		super(imagepath);
 		this.gm = gm;
 		creatureAnimations = new HashMap<Creature, Animation>();
 		AnimationFactory af = new AnimationFactory();
-		for(int i= 0; i < gm.getGameMap().getCreatureSize(); i++){
+		for (int i = 0; i < gm.getGameMap().getCreatureSize(); i++) {
 			Creature c = gm.getGameMap().getCreatureAt(i);
 			creatureAnimations.put(c, af.getAnimation(c));
 		}
-		
-		ka = new KangarooAnimation(gm.getKangaroo(),58, 64);
+
+		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
 		pv = new PauseView("resources/images/pausebackground.png", cv);
 		pv.setVisible(isPaused);
 		pv.setOpaque(isPaused);
 		this.add(pv);
-		
+
 	}
 
 	@Override
@@ -62,7 +67,7 @@ public class GameView extends JPanelWithBackground {
 
 		g.drawString("" + gm.getTime(), 10, 10);
 		g.drawString("Deaths: " + gm.getDeathCount(), 100, 10);
-//		paintIcon(null, g
+		// paintIcon(null, g
 		/* Render the tiles */
 		for (int y = 0; y < gm.getGameMap().getTileHeight(); y++)
 			for (int x = drawFrom; x < drawFrom + 33; x++) {
@@ -101,8 +106,9 @@ public class GameView extends JPanelWithBackground {
 					&& c.getPosition().getX() < (drawFrom + 32) * 32) {
 				int xP = c.getPosition().getX();
 				int yP = c.getPosition().getY();
-				if(creatureAnimations.containsKey(c)) {
-					creatureAnimations.get(c).drawSprite(g, xP-drawFrom*32-fixPosition, yP-64);
+				if (creatureAnimations.containsKey(c)) {
+					creatureAnimations.get(c).drawSprite(g,
+							xP - drawFrom * 32 - fixPosition, yP - 64);
 				}
 			}
 		}
@@ -111,9 +117,9 @@ public class GameView extends JPanelWithBackground {
 				&& gm.getKangaroo().getPosition().getX() / Constants.TILE_SIZE != 16) {
 			ka.drawSprite(g, p.getX(), p.getY());
 		} else if (drawFrom == gm.getGameMap().getTileWidth() - 33) {
-			ka.drawSprite(g, p.getX()-drawFrom*32-fixPosition, p.getY());
+			ka.drawSprite(g, p.getX() - drawFrom * 32 - fixPosition, p.getY());
 		} else {
-			ka.drawSprite(g, p.getX()-drawFrom*32-fixPosition, p.getY());
+			ka.drawSprite(g, p.getX() - drawFrom * 32 - fixPosition, p.getY());
 		}
 	}
 
@@ -126,6 +132,7 @@ public class GameView extends JPanelWithBackground {
 			return gm.getGameMap().getTileWidth() - 33;
 		return kPos - 16;
 	}
+
 	/**
 	 * When the game pauses a menu will appear.
 	 */
