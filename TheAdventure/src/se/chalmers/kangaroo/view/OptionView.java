@@ -22,6 +22,12 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.controller.CustomKeys;
 import se.chalmers.kangaroo.utils.Sound;
 
+/**
+ * This is the class that paints the view of option.
+ * 
+ * @author pavlov
+ * 
+ */
 public class OptionView extends JPanelWithBackground implements ActionListener,
 		KeyListener, MouseListener, ChangeListener {
 	private JLabel currentLeft;
@@ -40,11 +46,18 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private Key pressedKey;
 	private KeyEvent keyEvent;
 	private Sound s = new Sound();
-	
+
 	private enum Key {
-		 LEFT, RIGHT, JUMP, ITEM, NONE;
+		LEFT, RIGHT, JUMP, ITEM, NONE;
 	}
 
+	/**
+	 * The constructor creates the view.
+	 * @param imagepath
+	 *            is the background image that option has.
+	 * @param cv
+	 *            is the ChangeView that is required to change view from option
+	 */
 	public OptionView(String imagepath, ChangeView cv) {
 		super(imagepath);
 		this.cv = cv;
@@ -112,15 +125,20 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		// Key Binding - Title
 		JLabel kbLabel = new JLabel("Custom Keys");
 		kBindingPanel.add(kbLabel, BorderLayout.NORTH);
-		kbLabel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, subTitleHeight));
-		kbLabel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH/3, subTitleHeight));
-		kbLabel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH/3, subTitleHeight));
+		kbLabel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				subTitleHeight));
+		kbLabel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				subTitleHeight));
+		kbLabel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				subTitleHeight));
 
 		// Key Binding - Grid
 		JPanel kbGridPanel = new JPanel(new GridLayout(4, 2));
-		Dimension buttonPanelDimension= new Dimension(Constants.BUTTON_RESOLUTION_WIDTH + 20, Constants.BUTTON_RESOLUTION_HEIGHT + 40);
+		Dimension buttonPanelDimension = new Dimension(
+				Constants.BUTTON_RESOLUTION_WIDTH + 20,
+				Constants.BUTTON_RESOLUTION_HEIGHT + 40);
 
-		//Left
+		// Left
 		JPanel leftButtonPanel = new JPanel();
 		left.addActionListener(this);
 		left.setFocusable(false);
@@ -135,7 +153,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		left.setMaximumSize(Constants.BUTTON_RESOLUTION);
 		left.setPreferredSize(Constants.BUTTON_RESOLUTION);
 
-		//Right
+		// Right
 		JPanel rightButtonPanel = new JPanel();
 		right.addActionListener(this);
 		right.setFocusable(false);
@@ -150,7 +168,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		right.setMaximumSize(Constants.BUTTON_RESOLUTION);
 		right.setPreferredSize(Constants.BUTTON_RESOLUTION);
 
-		//Jump
+		// Jump
 		JPanel jumpButtonPanel = new JPanel();
 		jump.addActionListener(this);
 		jump.setFocusable(false);
@@ -164,8 +182,8 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		jump.setMinimumSize(Constants.BUTTON_RESOLUTION);
 		jump.setMaximumSize(Constants.BUTTON_RESOLUTION);
 		jump.setPreferredSize(Constants.BUTTON_RESOLUTION);
-		
-		//Item
+
+		// Item
 		JPanel itemButtonPanel = new JPanel();
 		item.addActionListener(this);
 		item.setFocusable(false);
@@ -181,58 +199,54 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		item.setPreferredSize(Constants.BUTTON_RESOLUTION);
 
 		kBindingPanel.add(kbGridPanel, BorderLayout.SOUTH);
-		
-		//Placeholder
+
+		// Placeholder
 		JPanel ph = new JPanel();
-		ph.setMinimumSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
-						- titleHeight));
-		ph.setMaximumSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
-						- titleHeight));
-		ph.setPreferredSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
-						- titleHeight));
-		
+		ph.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				Constants.RESOLUTION_HEIGHT - titleHeight));
+		ph.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				Constants.RESOLUTION_HEIGHT - titleHeight));
+		ph.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				Constants.RESOLUTION_HEIGHT - titleHeight));
+
 		contentPanel.add(ph, BorderLayout.CENTER);
-		
-		//Adjust Volume
-		JPanel av = new JPanel(new GridLayout(4,1));
-		av.setMinimumSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
-						- titleHeight));
-		av.setMaximumSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
-						- titleHeight));
-		av.setPreferredSize(new Dimension(
-				Constants.RESOLUTION_WIDTH / 3, Constants.RESOLUTION_HEIGHT
-						- titleHeight));
-		
+
+		// Adjust Volume
+		JPanel av = new JPanel(new GridLayout(4, 1));
+		av.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				Constants.RESOLUTION_HEIGHT - titleHeight));
+		av.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				Constants.RESOLUTION_HEIGHT - titleHeight));
+		av.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH / 3,
+				Constants.RESOLUTION_HEIGHT - titleHeight));
+
 		contentPanel.add(av, BorderLayout.EAST);
-		
-		//Grid with the sound sliders
+
+		// Grid with the sound sliders
 		JLabel bgTitle = new JLabel("Background Music:");
 		av.add(bgTitle);
-		
-		bgSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int)(s.getBgVolume()*100.0));
+
+		bgSlider = new JSlider(JSlider.HORIZONTAL, 0, 100,
+				(int) (s.getBgVolume() * 100.0));
 		bgSlider.addChangeListener(this);
 		bgSlider.setMajorTickSpacing(25);
 		bgSlider.setMinorTickSpacing(10);
 		bgSlider.setPaintTicks(true);
 		bgSlider.setPaintLabels(true);
-		
+
 		av.add(bgSlider);
-		
+
 		JLabel sfxTitle = new JLabel("Soundeffects:");
 		av.add(sfxTitle);
-		
-		sfxSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int)(s.getSfxVolume()*100.0));
+
+		sfxSlider = new JSlider(JSlider.HORIZONTAL, 0, 100,
+				(int) (s.getSfxVolume() * 100.0));
 		sfxSlider.addChangeListener(this);
 		sfxSlider.setMajorTickSpacing(25);
 		sfxSlider.setMinorTickSpacing(10);
 		sfxSlider.setPaintTicks(true);
 		sfxSlider.setPaintLabels(true);
-		
+
 		av.add(sfxSlider);
 	}
 
@@ -250,7 +264,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 				@Override
 				public void run() {
 					try {
-						while(pressedKey == Key.LEFT){
+						while (pressedKey == Key.LEFT) {
 							currentLeft.setText("Press a key...");
 							sleep(700);
 							currentLeft.setText("");
@@ -262,7 +276,6 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 					}
 				}
 			}.start();
-			
 
 		} else if (src == right) {
 			pressedKey = Key.RIGHT;
@@ -271,7 +284,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 				@Override
 				public void run() {
 					try {
-						while(pressedKey == Key.RIGHT){
+						while (pressedKey == Key.RIGHT) {
 							currentRight.setText("Press a key...");
 							sleep(700);
 							currentRight.setText("");
@@ -291,7 +304,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 				@Override
 				public void run() {
 					try {
-						while(pressedKey == Key.JUMP){
+						while (pressedKey == Key.JUMP) {
 							currentJump.setText("Press a key...");
 							sleep(700);
 							currentJump.setText("");
@@ -311,7 +324,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 				@Override
 				public void run() {
 					try {
-						while(pressedKey == Key.ITEM){
+						while (pressedKey == Key.ITEM) {
 							currentItem.setText("Press a key...");
 							sleep(700);
 							currentItem.setText("");
@@ -328,16 +341,16 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	}
 
 	public void keyPressed(KeyEvent key) {
-		if(pressedKey == Key.LEFT){
+		if (pressedKey == Key.LEFT) {
 			ck.setLeftKey(key.getKeyCode());
 			pressedKey = Key.NONE;
-		}else if(pressedKey == Key.RIGHT){
+		} else if (pressedKey == Key.RIGHT) {
 			ck.setRightKey(key.getKeyCode());
 			pressedKey = Key.NONE;
-		}else if(pressedKey == Key.JUMP){
+		} else if (pressedKey == Key.JUMP) {
 			ck.setJumpKey(key.getKeyCode());
 			pressedKey = Key.NONE;
-		}else if(pressedKey == Key.ITEM){
+		} else if (pressedKey == Key.ITEM) {
 			ck.setItemKey(key.getKeyCode());
 			pressedKey = Key.NONE;
 		}
@@ -351,7 +364,6 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 	@Override
 	public void keyTyped(KeyEvent key) {
-		
 
 	}
 
@@ -397,13 +409,12 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		if(e.getSource() == bgSlider){
-			s.setBgVolume((double)bgSlider.getValue()/100.0);
-		}else if(e.getSource() == sfxSlider){
-			s.setSfxVolume((double)sfxSlider.getValue()/100.0);
+		if (e.getSource() == bgSlider) {
+			s.setBgVolume((double) bgSlider.getValue() / 100.0);
+		} else if (e.getSource() == sfxSlider) {
+			s.setSfxVolume((double) sfxSlider.getValue() / 100.0);
 		}
-		
+
 	}
 
 }
-

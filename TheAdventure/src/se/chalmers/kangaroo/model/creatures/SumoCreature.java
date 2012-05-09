@@ -51,12 +51,12 @@ public class SumoCreature implements Creature {
 			return new Polygon(polyX, polyY, 8);
 		} else {
 			int polyX[] = { pos.getX() + 58, pos.getX() + 58, pos.getX() + 64,
-					pos.getX() + 64, pos.getX() + 256, pos.getX() + 256,
-					pos.getX() - 96, pos.getX() - 96, pos.getX() + 0,
+					pos.getX() + 64, pos.getX() + 192, pos.getX() + 192,
+					pos.getX() - 64, pos.getX() - 64, pos.getX() + 0,
 					pos.getX() + 20, pos.getX() + 20 };
 			int polyY[] = { pos.getY() + 0, pos.getY() + 22, pos.getY() + 22,
 					pos.getY() + 63, pos.getY() + 63, pos.getY() + 64,
-					pos.getY() + 64, pos.getY() + 63, pos.getY() + 22,
+					pos.getY() + 64, pos.getY() + 63, pos.getY() + 63,
 					pos.getY() + 22, pos.getY() + 0 };
 			return new Polygon(polyX, polyY, 8);
 		}
