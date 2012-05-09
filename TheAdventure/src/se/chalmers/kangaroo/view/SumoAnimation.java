@@ -33,9 +33,10 @@ public class SumoAnimation implements Animation{
 	public void drawSprite(Graphics g, int x, int y) {
 		if(sumo.isStomping()){
 			tick++;
-			currentSprite = (sumo.getDirection() == Direction.DIRECTION_EAST) ? 4 : 0;
-			if(tick == 6)
+			if(tick == 6){
+				currentSprite = (sumo.getDirection() == Direction.DIRECTION_EAST) ? 4 : 0;
 				currentSprite++;
+			}	
 			else if(tick == 12)
 				currentSprite++;
 			else if(tick == 18)
@@ -53,7 +54,14 @@ public class SumoAnimation implements Animation{
 			currentSprite = 0;
 		}
 		g.drawImage(sheet, x, y, x+width, y+width, currentSprite*width, 0, (currentSprite+1)*width, height, null, null);
-		//hej
+		int xs[] = sumo.getPolygon().xpoints;
+		int ys[] = sumo.getPolygon().ypoints;
+		for(int i = 0; i < xs.length; i++){
+			xs[i] = xs[i]-sumo.getPosition().getX()+x;
+			ys[i] = ys[i]-64;
+		}
+			
+		g.drawPolygon(xs, ys, sumo.getPolygon().npoints);
 	}
 	
 }

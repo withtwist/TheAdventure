@@ -82,7 +82,7 @@ public class SumoCreature implements Creature {
 				}
 			}
 		}.start();
-		changeDirection();
+		
 	}
 	
 	public boolean isStomping(){
@@ -93,38 +93,34 @@ public class SumoCreature implements Creature {
 		return isJumping;
 	}
 
-	/**
+	/*
 	 * Sumo is jumping so the Kangaroo has the chance to proceed further.
 	 */
 	private void jump() {
-		isJumping = true;
-		new Thread() {
-			@Override
-			public void start() {
-				try {
-					sleep(20);
-					verticalSpeed = -3;
-					while (Math.abs(verticalSpeed-3) <= 10e-5) {
+					if (Math.abs(verticalSpeed-5) > 10e-10) {
+						
 						pos = new Position(pos.getX(),
-								(int) (pos.getY() + verticalSpeed));
-						verticalSpeed += 0.01;
-					}
-				} catch (InterruptedException ie) {
-
-				}
-			}
-		}.start();
-
+								(int) (pos.getY() + verticalSpeed + 0.5));
+						verticalSpeed += 0.1;
+					}else{
+						isJumping = false;
+					}	
 	}
 
 	@Override
 	public void updateCreature() {
-		if ((Math.random() * 600) <= 599 && isJumping == false
-				&& isStomping == false) {
-			jump();
-		} else if (Math.random() * 600 <= 541 && isJumping == false
-				&& isStomping == false) {
+		int tmp = (int)(Math.random() * 600);
+		if (tmp >= 595 && !isJumping
+				&& !isShaking&& !isStomping) {
+			isJumping = true;
+			verticalSpeed = -5;
+		} else if (tmp >= 590 && !isJumping
+				&& !isShaking&& !isStomping) {
+			changeDirection();
 			groundStomp();
+		}
+		if(isJumping == true){
+			jump();
 		}
 	}
 
