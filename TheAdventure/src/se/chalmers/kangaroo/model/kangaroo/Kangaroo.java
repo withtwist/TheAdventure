@@ -181,15 +181,25 @@ public class Kangaroo{
 	public void disableDoubleJump() {
 		this.enableDoubleJump = false;
 	}
-
+	/**
+	 * Returns whether or not the kangaroo should be able to doublejump.
+	 * @return true if doublejump is enabled.
+	 */
 	public boolean isDoubleJumpEnabled() {
 		return enableDoubleJump;
 	}
 
+	/**
+	 * Set to false when the jump is over. 
+	 * @param isStillJumping
+	 */
 	public void setStillJumping(boolean isStillJumping) {
 		this.isStillJumping = isStillJumping;
 	}
-
+	/**
+	 * Return whether or not the kangaroo is still jumping
+	 * @return, true if still jumping
+	 */
 	public boolean getStillJumping() {
 		return isStillJumping;
 	}
