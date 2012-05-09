@@ -17,8 +17,8 @@ public class AnimationFactory {
 		switch(c.getId()){
 		case 111:
 			return new CrabAnimation(c);
-//		case 112: activate when turtlecreature is complete.
-//			return new TurtleAnimation(c);
+		case 112:
+			return new TurtleAnimation(c);
 		case 113:
 			return new BlackAndWhiteAnimation(c);
 //		case 114: activate when bullcreature is complete.

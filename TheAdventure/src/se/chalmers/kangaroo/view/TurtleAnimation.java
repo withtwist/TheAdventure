@@ -21,6 +21,7 @@ public class TurtleAnimation implements Animation {
 	private int width;
 	private int height;
 	private boolean inShell;
+	private Direction dir;
 
 	public TurtleAnimation(Creature c) {
 		if (c instanceof TurtleCreature)
@@ -29,15 +30,21 @@ public class TurtleAnimation implements Animation {
 		currentSprite = 0;
 		// Fix the imagepath
 		this.sheet = Toolkit.getDefaultToolkit().getImage(
-				"resources/sheets/crab_256x32.png");
+				"resources/sheets/turtle_64x32.png");
 		this.width = 64;
 		this.height = 32;
 		this.inShell = turtle.isKillable();
+		this.dir = turtle.getDirection();
 
 	}
 
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
+		if(dir != turtle.getDirection()){
+			currentSprite = (turtle.getDirection() == Direction.DIRECTION_WEST) ? 0 : 6;
+			dir = turtle.getDirection();
+		}
+			
 		if(turtle.isKillable()){
 			if(inShell){
 				currentSprite = (turtle.getDirection() == Direction.DIRECTION_WEST) ? 0 : 6;
@@ -63,6 +70,7 @@ public class TurtleAnimation implements Animation {
 			}
 			tick++;
 		}
+		g.drawImage(sheet, x, y, x+width, y+height, currentSprite*width, 0, (currentSprite+1)*width, height, null);
 	}
 
 	/**

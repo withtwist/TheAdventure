@@ -14,7 +14,7 @@ import se.chalmers.kangaroo.model.utils.Position;
  */
 public class TurtleCreature implements Creature {
 
-	private static final int id = 111;
+	private static final int id = 112;
 	private Position currentPos;
 	private Direction currentDir;
 	private int speed = 1;
@@ -26,14 +26,11 @@ public class TurtleCreature implements Creature {
 
 	@Override
 	public void updateCreature() {
-		int i = (int) ((6) * Math.random() * 100);
-		if (i == 5)
+		int i = (int)(Math.random() * 600);
+		if (i >= 598)
 			changeState();
-		if (currentDir == Direction.DIRECTION_WEST) {
-			currentPos = new Position(currentPos.getX() - speed, currentPos.getY());
-		} else {
-			currentPos = new Position(currentPos.getX() + speed, currentPos.getY());
-		}
+		if(!inShell)
+			move();
 	}
 
 	/**
@@ -41,34 +38,8 @@ public class TurtleCreature implements Creature {
 	 * shell for a random amount of time between 1 and 5 seconds.
 	 */
 	public void changeState() {
-		this.goInShell();
-		new Thread() {
-			@Override
-			public void run() {
-				while (true)
-					try {
-						sleep((int) ((5) * Math.random() * 1000));
-					} catch (InterruptedException e) {
-					}
+		inShell = !inShell;
 
-			};
-		}.start();
-		this.goOutOfShell();
-
-	}
-
-	/**
-	 * A method to make the turtle go into its shell.
-	 */
-	private void goInShell() {
-		inShell = true;
-	}
-
-	/**
-	 * A method to make the turtle go out of its shell.
-	 */
-	private void goOutOfShell() {
-		inShell = false;
 	}
 
 	/**
@@ -87,30 +58,34 @@ public class TurtleCreature implements Creature {
 	 */
 	@Override
 	public void move() {
-		if (this.currentDir == Direction.DIRECTION_EAST) {
-			this.currentPos = new Position(currentPos.getX() + speed,
-					currentPos.getY());
-		} else if (this.currentDir == Direction.DIRECTION_WEST) {
-			this.currentPos = new Position(currentPos.getX() - speed,
-					currentPos.getY());
+			if (this.currentDir == Direction.DIRECTION_EAST) {
+				this.currentPos = new Position(currentPos.getX() + speed,
+						currentPos.getY());
+			} else{
+				this.currentPos = new Position(currentPos.getX() - speed,
+						currentPos.getY());
 
-		}
-
+			}
 	}
 
 	@Override
 	public Polygon getPolygon() {
-		int xs[] = { currentPos.getX() + 0, currentPos.getX() + 14, currentPos.getX() + 14,
-				currentPos.getX() + 20, currentPos.getX() + 20, currentPos.getX() + 44,
-				currentPos.getX() + 44, currentPos.getX() + 50, currentPos.getX() + 50,
-				currentPos.getX() + 64, currentPos.getX() + 64, currentPos.getX() + 54,
-				currentPos.getX() + 54, currentPos.getX() + 10, currentPos.getX() + 10,
-				currentPos.getX() + 0 };
-		int ys[] = { currentPos.getY() + 2, currentPos.getY() + 2, currentPos.getY() + 0,
-				currentPos.getY() + 0, currentPos.getY() + 6, currentPos.getY() + 6, currentPos.getY() + 0,
-				currentPos.getY() + 0, currentPos.getY() + 2, currentPos.getY() + 2,
-				currentPos.getY() + 16, currentPos.getY() + 16, currentPos.getY() + 32,
-				currentPos.getY() + 32, currentPos.getY() + 16, currentPos.getY() + 16 };
+		int xs[] = { currentPos.getX() + 0, currentPos.getX() + 14,
+				currentPos.getX() + 14, currentPos.getX() + 20,
+				currentPos.getX() + 20, currentPos.getX() + 44,
+				currentPos.getX() + 44, currentPos.getX() + 50,
+				currentPos.getX() + 50, currentPos.getX() + 64,
+				currentPos.getX() + 64, currentPos.getX() + 54,
+				currentPos.getX() + 54, currentPos.getX() + 10,
+				currentPos.getX() + 10, currentPos.getX() + 0 };
+		int ys[] = { currentPos.getY() + 2, currentPos.getY() + 2,
+				currentPos.getY() + 0, currentPos.getY() + 0,
+				currentPos.getY() + 6, currentPos.getY() + 6,
+				currentPos.getY() + 0, currentPos.getY() + 0,
+				currentPos.getY() + 2, currentPos.getY() + 2,
+				currentPos.getY() + 16, currentPos.getY() + 16,
+				currentPos.getY() + 32, currentPos.getY() + 32,
+				currentPos.getY() + 16, currentPos.getY() + 16 };
 		return new Polygon(xs, ys, 16);
 
 	}
@@ -124,7 +99,7 @@ public class TurtleCreature implements Creature {
 	public Position getPosition() {
 		return currentPos;
 	}
-	
+
 	/**
 	 * Makes the turtle change its direction.
 	 */
@@ -137,11 +112,13 @@ public class TurtleCreature implements Creature {
 		}
 
 	}
+
 	/**
-	 * Returns the direction of this creature. 
+	 * Returns the direction of this creature.
+	 * 
 	 * @return
 	 */
-	public Direction getDirection(){
+	public Direction getDirection() {
 		return currentDir;
 	}
 
