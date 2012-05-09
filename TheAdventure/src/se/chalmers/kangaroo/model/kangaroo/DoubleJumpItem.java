@@ -12,7 +12,12 @@ public class DoubleJumpItem implements Item {
 
 	private Position pos;
 	private int id;
-
+	/**
+	 * The default constructor, taking the id and the x and y cordinate.
+	 * @param id
+	 * @param x
+	 * @param y
+	 */
 	public DoubleJumpItem(int id, int x, int y) {
 		this.id = id;
 		this.pos = new Position(x, y);
