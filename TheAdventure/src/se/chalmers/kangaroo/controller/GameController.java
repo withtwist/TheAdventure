@@ -58,7 +58,7 @@ public class GameController implements KeyListener {
 				if (isRunning) {
 					long time = System.currentTimeMillis();
 					gm.update();
-					if(!gm.isRunning()){
+					if(gm.isLevelFinished()){
 						setVictoryView();
 					}
 					gv.repaint();
@@ -80,7 +80,8 @@ public class GameController implements KeyListener {
 					Thread.sleep(100);
 				}catch(InterruptedException e){
 				}
-			
+			gv.removeVictoryView();
+			gm.nextLevel();
 		}
 
 	}

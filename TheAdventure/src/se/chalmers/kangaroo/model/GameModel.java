@@ -42,7 +42,7 @@ public class GameModel {
 
 	private int currentLevel;
 	
-	private boolean isRunning;
+	private boolean levelFinished;
 
 	/**
 	 * A method to start the game.
@@ -73,7 +73,7 @@ public class GameModel {
 	// }
 
 	public GameModel() {
-		isRunning = true;
+		levelFinished = false;
 		currentLevel = 0;
 		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
@@ -273,15 +273,16 @@ public class GameModel {
 	/* When one level is finished this method should be invoked. */
 	private void changeLevel() {
 		// setHighScore(currentLevel, time);
-		isRunning = false;
+		levelFinished = true;
 		// end of tmp
 	}
 	
-	public boolean isRunning(){
-		return isRunning;
+	public boolean isLevelFinished(){
+		return levelFinished;
 	}
 	
 	public void nextLevel(){
+		levelFinished = false;
 		currentLevel++;
 		// TMp
 				currentLevel %= 2;
