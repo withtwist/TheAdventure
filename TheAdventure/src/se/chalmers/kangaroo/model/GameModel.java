@@ -72,7 +72,7 @@ public class GameModel {
 
 	public GameModel() {
 		currentLevel = 0;
-		gameMap = new GameMap("../maps/level"+currentLevel+".tmx");
+		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
 		timer = new GameTimer();
 		timer.start();
