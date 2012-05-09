@@ -50,7 +50,7 @@ public class GameView extends JPanelWithBackground {
 		}
 
 		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
-		pv = new PauseView("resources/images/pausebackground.png", cv);
+		pv = new PauseView("resources/images/pausebackground.png", cv, this);
 		pv.setVisible(isPaused);
 		pv.setOpaque(isPaused);
 		this.add(pv);

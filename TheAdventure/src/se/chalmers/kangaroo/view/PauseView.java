@@ -23,18 +23,20 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	private Menubutton resume, highScore, options, exitGame;
 	private String viewName = "gameview";
 	private ChangeView cv;
+	private GameView gv;
 
 	/**
 	 * The constructor for the PauseView. Takes a string as a paramether where
 	 * the background image is located. Also takes a changeView so it can change
-	 * the veiw to options, hisckre etc.
+	 * the veiw to options, hiscore etc.
 	 * 
 	 * @param bgpath
 	 *            , cv
 	 */
-	public PauseView(String bgpath, ChangeView cv) {
+	public PauseView(String bgpath, ChangeView cv, GameView gv) {
 		super(bgpath);
 		this.cv = cv;
+		this.gv = gv;
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(1024, 576);
@@ -147,6 +149,7 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == resume) {
 			resume.setIcon(new ImageIcon("resources/images/resume.png"));
+			gv.togglePause();
 		}
 		if (e.getSource() == highScore) {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
