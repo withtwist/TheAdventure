@@ -32,24 +32,12 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(1024, 576);
-		this.add(Box.createVerticalGlue());
 		this.add(new Menubutton("resources/images/victory_logo.png"));
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
 		this.add(new Menubutton("resources/images/congratulations.png"));
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
 		this.add(new JLabel("Deaths: " + deathcount));
-		this.add(Box.createVerticalGlue());
 		this.add(new JLabel("Time: " + time));
 		this.add(jp);
-		this.add(Box.createVerticalGlue());
-		this.add(new Menubutton("resources/images/nextlevel.png"));
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
-		this.add(Box.createVerticalGlue());
-
+		this.add(nextlevel);
 		nextlevel.addMouseListener(this);
 		submit.addMouseListener(this);
 	}
