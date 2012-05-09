@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import se.chalmers.kangaroo.constants.Constants;
 
 /**
- * 
+ * A class representing the a view of all the different highscores of every level in the game. 
  * @author pavlov
  * 
  */
@@ -30,7 +30,11 @@ public class HighscoreView extends JPanelWithBackground implements
 	private Menubutton lv6;
 	private Menubutton lv7;
 	private Menubutton lv8;
-
+	/**
+	 * The default constructor taking an imagepath and a changeview.
+	 * @param imagepath
+	 * @param cv
+	 */
 	public HighscoreView(String imagepath, ChangeView cv) {
 		super(imagepath);
 		this.cv = cv;
