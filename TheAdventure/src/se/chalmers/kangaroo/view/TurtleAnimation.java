@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 
 import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
+import se.chalmers.kangaroo.model.utils.Direction;
 
 /**
  * 
@@ -19,6 +20,7 @@ public class TurtleAnimation implements Animation {
 	private Image sheet;
 	private int width;
 	private int height;
+	private boolean inShell;
 
 	public TurtleAnimation(Creature c) {
 		if (c instanceof TurtleCreature)
@@ -30,19 +32,37 @@ public class TurtleAnimation implements Animation {
 				"resources/sheets/crab_256x32.png");
 		this.width = 64;
 		this.height = 32;
+		this.inShell = turtle.isKillable();
 
 	}
 
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if (tick == 10) {
-			tick = 0;
-			currentSprite++;
-			currentSprite = currentSprite % 4;
+		if(turtle.isKillable()){
+			if(inShell){
+				currentSprite = (turtle.getDirection() == Direction.DIRECTION_WEST) ? 0 : 6;
+				tick = 0; 
+				inShell = !inShell;
+			}
+			if(tick == 10){
+				currentSprite++;
+				tick = 0;
+				if(currentSprite % 3 == 0)
+					currentSprite -= 3;
+			}
+			tick++;	
+			
+		}else{
+			if(!inShell){
+				currentSprite = (turtle.getDirection() == Direction.DIRECTION_WEST) ? 4 : 10;
+				tick = 0;
+				inShell = !inShell;
+			}
+			if(tick == 10){
+				currentSprite++;
+			}
+			tick++;
 		}
-		g.drawImage(sheet, x, y, x + width, y + height, currentSprite * 64, 0,
-				currentSprite * 64 + width, height, null, null);
-		tick++;
 	}
 
 	/**

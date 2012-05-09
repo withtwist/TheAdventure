@@ -137,5 +137,12 @@ public class TurtleCreature implements Creature {
 		}
 
 	}
+	/**
+	 * Returns the direction of this creature. 
+	 * @return
+	 */
+	public Direction getDirection(){
+		return currentDir;
+	}
 
 }
