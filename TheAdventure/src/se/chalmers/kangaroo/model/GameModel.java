@@ -255,7 +255,7 @@ public class GameModel {
 		currentLevel++;
 		//TMp
 		currentLevel %= 2;
-		gameMap = new GameMap("../maps/level"+currentLevel+".tmx");
+		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
 		restartLevel();
 		deathCount = 0;
 		timer = new GameTimer();
