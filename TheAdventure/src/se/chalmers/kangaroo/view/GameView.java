@@ -148,7 +148,10 @@ public class GameView extends JPanelWithBackground {
 		vv.setVisible(true); 
 		vv.setOpaque(true);
 		this.add(vv);
-		repaint();
+		this.repaint();
+		this.revalidate();
+		this.validate();
+		this.revalidate();
 	}
 	
 	public void setNewLevel(boolean b){
