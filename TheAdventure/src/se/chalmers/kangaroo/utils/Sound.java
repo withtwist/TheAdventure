@@ -45,15 +45,15 @@ public class Sound{
 		    // to PCM_SIGNED before it can be played
 		    AudioFormat format = stream.getFormat();
 		    if (format.getEncoding() != AudioFormat.Encoding.PCM_SIGNED) {
-		        format = new AudioFormat(
-		                AudioFormat.Encoding.PCM_SIGNED,
-		                format.getSampleRate(),
-		                format.getSampleSizeInBits()*2,
-		                format.getChannels(),
-		                format.getFrameSize()*2,
-		                format.getFrameRate(),
-		                true);        // big endian
-		        stream = AudioSystem.getAudioInputStream(format, stream);
+//		        format = new AudioFormat(
+//		                AudioFormat.Encoding.PCM_SIGNED,
+//		                format.getSampleRate(),
+//		                format.getSampleSizeInBits()*2,
+//		                format.getChannels(),
+//		                format.getFrameSize()*2,
+//		                format.getFrameRate(),
+//		                true);        // big endian
+//		        stream = AudioSystem.getAudioInputStream(format, stream);
 		    }
 		    // Create the clip
 		    DataLine.Info info = new DataLine.Info(
