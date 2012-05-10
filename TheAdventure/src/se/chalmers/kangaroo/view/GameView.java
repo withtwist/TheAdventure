@@ -145,6 +145,12 @@ public class GameView extends JPanelWithBackground {
 		this.isPaused = !isPaused;
 		pv.setVisible(isPaused);
 		pv.setOpaque(isPaused);
+		pv.revalidate();
+		pv.repaint();
+		pv.validate();
+		this.revalidate();
+		this.repaint();
+		this.validate();
 	}
 	
 	public void showVictoryView(){
