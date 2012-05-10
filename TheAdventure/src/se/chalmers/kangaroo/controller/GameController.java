@@ -51,20 +51,22 @@ public class GameController implements KeyListener {
 
 		public void run() {
 			while (true) {
+				long time = System.currentTimeMillis();
 				if (!gv.getIsPaused()) {
-					long time = System.currentTimeMillis();
+					
 					gm.update();
 					if(gm.isLevelFinished()){
 						setVictoryView();
 					}
 					gv.repaint();
 					gv.revalidate();
-					try {
-						diff = System.currentTimeMillis() - time;
-						if (diff < 1000 / 60)
-							Thread.sleep(1000 / 60 - diff);
-					} catch (InterruptedException e) {
-					}
+					
+				}
+				try {
+					diff = System.currentTimeMillis() - time;
+					if (diff < 1000 / 60)
+						Thread.sleep(1000 / 60 - diff);
+				} catch (InterruptedException e) {
 				}
 			}
 		}
