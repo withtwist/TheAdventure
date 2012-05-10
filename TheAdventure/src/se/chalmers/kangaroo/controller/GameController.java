@@ -86,7 +86,7 @@ public class GameController implements KeyListener {
 		int code = e.getKeyCode();
 		// Jump
 		if (code == ck.getJumpKey()) {
-			if (gm.getKangaroo().getStillJumping() == false) {
+			if (gm.getKangaroo().getStillJumping() == false && !gv.getIsPaused()) {
 				gm.getKangaroo().setStillJumping(true);
 				gm.getKangaroo().jump();
 			}
@@ -110,7 +110,8 @@ public class GameController implements KeyListener {
 			}
 		} else {
 			// If any other keys are pressed, restarts the level.
-			gm.restartLevel();
+			if(!gv.getIsPaused())
+				gm.restartLevel();
 		}
 
 	}
