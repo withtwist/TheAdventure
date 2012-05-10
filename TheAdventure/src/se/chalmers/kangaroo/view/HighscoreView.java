@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -98,36 +99,43 @@ public class HighscoreView extends JPanelWithBackground implements
 
 		// Level 2
 		lv2 = new Menubutton("resources/images/levels/level_-1.png");
+		lv2.setName("2");
 		lv2.addMouseListener(this);
 		levelPanel.add(lv2);
 
 		// Level 3
 		lv3 = new Menubutton("resources/images/levels/level_inProg.png");
+		lv3.setName("3");
 		lv3.addMouseListener(this);
 		levelPanel.add(lv3);
 
 		// Level 4
 		lv4 = new Menubutton("resources/images/levels/level_inProg.png");
+		lv4.setName("4");
 		lv4.addMouseListener(this);
 		levelPanel.add(lv4);
 
 		// Level 5
 		lv5 = new Menubutton("resources/images/levels/level_inProg.png");
+		lv5.setName("5");
 		lv5.addMouseListener(this);
 		levelPanel.add(lv5);
 
 		// Level 6
 		lv6 = new Menubutton("resources/images/levels/level_inProg.png");
+		lv6.setName("6");
 		lv6.addMouseListener(this);
 		levelPanel.add(lv6);
 
 		// Level 7
 		lv7 = new Menubutton("resources/images/levels/level_inProg.png");
+		lv7.setName("7");
 		lv7.addMouseListener(this);
 		levelPanel.add(lv7);
 
 		// Level 8
 		lv8 = new Menubutton("resources/images/levels/level_inProg.png");
+		lv8.setName("8");
 		lv8.addMouseListener(this);
 		levelPanel.add(lv8);
 
@@ -179,16 +187,15 @@ public class HighscoreView extends JPanelWithBackground implements
 			System.out.println("Back to menu");
 			cv.back();
 		}
-		for(int i = 1; i<=8; i++){
-			if(e.getSource(). == lv1) {
-		}
-			lv1.setIcon(new ImageIcon("resources/images/newgame.png"));
-			menuMusic.stop();
-			lv1Music = new Sound();
-			lv1Music.play("resources/music/gamemusic.WAV", true);
-			cv.gameView();
-
-		})
+		//TODO: Fix crypt
+//		for(int i = 1; i<=8; i++){
+//			if(e.getSource() instanceof JButton) {
+//				if(((JButton)e.getSource()).getName() == ("" + i)){
+//					cv.showHighscoreView(i);
+//				}
+//			}
+//
+//		}
 
 	}
 

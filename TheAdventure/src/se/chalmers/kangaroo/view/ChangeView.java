@@ -26,6 +26,7 @@ public class ChangeView extends JFrame implements KeyListener {
 	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
+	private ShowHighscoreView shv;
 	private String prevView;
 
 	/**
@@ -39,6 +40,8 @@ public class ChangeView extends JFrame implements KeyListener {
 		ov = new OptionView("resources/images/background.gif", this);
 		hv = new HighscoreView("resources/images/background.gif", this);
 		mv = new MenuView("resources/images/background.gif", this);
+		//TODO: Fix crypt
+//		shv = new ShowHighscoreView("resources/images/background.gif", this);
 
 		jp = new JPanel(new CardLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +57,8 @@ public class ChangeView extends JFrame implements KeyListener {
 		jp.add(gc.getGameView(), "gameview");
 		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
+		//TODO: Fix crypt
+//		jp.add(shv, "showHighscoreView");
 		add(jp);
 		addKeyListener(this);
 		setVisible(true);
@@ -109,6 +114,13 @@ public class ChangeView extends JFrame implements KeyListener {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "highscoreview");
 	}
+	
+	//TODO: Fix crypt
+//	public void showHighscoreView(int level) {
+//		shv.setLevel(level);
+//		CardLayout cl = (CardLayout) jp.getLayout();
+//		cl.show(jp, "showhighscoreview");
+//	}
 
 	/**
 	 * Listen to when the keys are pressed. makles you able to move in the game.

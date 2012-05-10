@@ -18,19 +18,19 @@ import se.chalmers.kangaroo.io.Highscore;
 public class ShowHighscoreView extends JPanelWithBackground implements MouseListener{
 	private Menubutton back;
 	private ChangeView cv;
-	private int currentLevel;
 	private String[] names;
 	private int[] times;
 	private int[] deaths;
 	private Highscore hs;
+	private int level;
 	
-	public ShowHighscoreView(String imagepath, ChangeView cv, int currentLevel) {
+	public ShowHighscoreView(String imagepath, ChangeView cv) {
 		super(imagepath);
 		this.cv = cv;
-		this.currentLevel = currentLevel;
 		hs = Highscore.getInstance();
-		names = hs.getNames(currentLevel);
-		times = hs.getTimes(currentLevel);
+		names = hs.getNames(level);
+		times = hs.getTimes(level);
+		//deaths = hs.getDeaths(level);
 		this.setFocusable(true);
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
@@ -60,7 +60,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 
 			// Title
 			JPanel titlePanel = new JPanel();
-			JLabel title = new JLabel(Constants.TITLE_START + "Highscore - Level " + currentLevel
+			JLabel title = new JLabel(Constants.TITLE_START + "Highscore - Level " + level
 					+ Constants.TITLE_END);
 			titlePanel.add(title);
 			headerPanel.add(title, BorderLayout.CENTER);
@@ -91,6 +91,10 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 			}
 			
 			
+	}
+	
+	public void setLevel(int level){
+		this.level = level;
 	}
 
 	@Override
