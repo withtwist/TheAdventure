@@ -21,7 +21,6 @@ public class GameController implements KeyListener {
 	private GameView gv;
 
 	private CustomKeys ck;
-	private boolean isRunning = false;
 
 	public GameController(ChangeView cv) {
 		ck = CustomKeys.getInstance();
@@ -34,19 +33,16 @@ public class GameController implements KeyListener {
 	}
 
 	public void start() {
-		isRunning = true;
 		gm.start();
 		new Thread(new PlayModel()).start();
 	}
 
 	private void pauseGame() {
-		isRunning = false;
 		gv.togglePause();
 		gv.repaint();
 	}
 
 	private void resumeGame() {
-		isRunning = true;
 		gv.togglePause();
 	}
 
@@ -55,7 +51,7 @@ public class GameController implements KeyListener {
 
 		public void run() {
 			while (true) {
-				if (isRunning) {
+				if (!gv.getIsPaused()) {
 					long time = System.currentTimeMillis();
 					gm.update();
 					if(gm.isLevelFinished()){
@@ -107,7 +103,7 @@ public class GameController implements KeyListener {
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
 		} else if (code == KeyEvent.VK_ESCAPE) {
-			if (isRunning == true) {
+			if (!gv.getIsPaused() == true) {
 				pauseGame();
 			} else {
 				resumeGame();

@@ -133,6 +133,10 @@ public class GameView extends JPanelWithBackground {
 			return gm.getGameMap().getTileWidth() - 33;
 		return kPos - 16;
 	}
+	
+	public boolean getIsPaused() {
+		return isPaused;
+	}
 
 	/**
 	 * When the game pauses a menu will appear.
