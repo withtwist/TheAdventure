@@ -75,7 +75,7 @@ public class GameModel {
 	public GameModel() {
 		levelFinished = false;
 		currentLevel = 0;
-		gameMap = new GameMap("resources/maps/"+currentLevel+".tmx");
+		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
 	}
 
