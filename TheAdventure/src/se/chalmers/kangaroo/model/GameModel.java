@@ -75,7 +75,7 @@ public class GameModel {
 	public GameModel() {
 		levelFinished = false;
 		currentLevel = 0;
-		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
+		gameMap = new GameMap("resources/maps/"+currentLevel+".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
 	}
 
@@ -268,6 +268,7 @@ public class GameModel {
 		kangaroo.reset();
 		gameMap.resetItems();
 		gameMap.resetCreatures();
+		kangaroo.setPosition(new Position(10, 186));
 	}
 
 	/* When one level is finished this method should be invoked. */
