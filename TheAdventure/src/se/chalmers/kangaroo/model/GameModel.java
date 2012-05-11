@@ -126,10 +126,10 @@ public class GameModel {
 	 */
 	private void checkCollition() {
 		try {
-			creatureCollition();
 			itemCollition();
 			tileCollition();
 			iObjectCollition();
+			creatureCollition();
 			checkFalling();
 
 		} catch (ArrayIndexOutOfBoundsException e) {
