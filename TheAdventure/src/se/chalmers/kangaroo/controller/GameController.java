@@ -56,7 +56,10 @@ public class GameController implements KeyListener {
 					
 					gm.update();
 					if(gm.isLevelFinished()){
-						setVictoryView();
+						if(gm.isGameFinished()){
+							//gv.showFinishedView();
+						}else
+							setVictoryView();
 					}
 					gv.repaint();
 					gv.revalidate();

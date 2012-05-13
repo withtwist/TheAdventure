@@ -55,4 +55,6 @@ public class Constants {
 	
 	public static final String TITLE_START = "<html><body><font size='45'>";
 	public static final String TITLE_END = "</font></body></html>";
+	
+	public static final int NUMBER_OF_LEVELS = 2;
 }

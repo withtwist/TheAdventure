@@ -41,8 +41,10 @@ public class GameModel {
 	private Position oldPos;
 
 	private int currentLevel;
-	
+
 	private boolean levelFinished;
+
+	private boolean gameFinished;
 
 	/**
 	 * A method to start the game.
@@ -74,8 +76,9 @@ public class GameModel {
 
 	public GameModel() {
 		levelFinished = false;
+		gameFinished = false;
 		currentLevel = 0;
-		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
+		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
 	}
 
@@ -275,18 +278,37 @@ public class GameModel {
 	private void changeLevel() {
 		// setHighScore(currentLevel, time);
 		levelFinished = true;
+		if (currentLevel + 1 == Constants.NUMBER_OF_LEVELS)
+			gameFinished = true;
 		// end of tmp
 	}
-	
-	public boolean isLevelFinished(){
+
+	/**
+	 * Will return true when the current level has been completed.
+	 * 
+	 * @return whether the level is finished or not
+	 */
+	public boolean isLevelFinished() {
 		return levelFinished;
 	}
-	
-	public void nextLevel(){
+
+	/**
+	 * Will return true when all the levels has been completed and the game is
+	 * over.
+	 * 
+	 * @return whether the game is finished or not
+	 */
+	public boolean isGameFinished() {
+		return gameFinished;
+	}
+	/**
+	 * Starts the next level.
+	 */
+	public void nextLevel() {
 		levelFinished = false;
 		currentLevel++;
 		// TMp
-				currentLevel %= 2;
+		currentLevel %= 2;
 		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		restartLevel();
 		deathCount = 0;
