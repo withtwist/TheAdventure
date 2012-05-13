@@ -9,10 +9,8 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.event.ChangeEvent;
 
 import se.chalmers.kangaroo.constants.Constants;
-import se.chalmers.kangaroo.controller.CustomKeys;
 import se.chalmers.kangaroo.io.Highscore;
 
 public class ShowHighscoreView extends JPanelWithBackground implements MouseListener{
@@ -28,9 +26,6 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 		super(imagepath);
 		this.cv = cv;
 		hs = Highscore.getInstance();
-		names = hs.getNames(level);
-		times = hs.getTimes(level);
-		//deaths = hs.getDeaths(level);
 		this.setFocusable(true);
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
@@ -83,8 +78,8 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 				contentPanel.add(new JLabel("<html><body><b>Deaths</b></body></html>"));
 			}
 			
-			// Writes out labels on every person in highscore
-			for(int i = 0; i<10; i++){
+			// Writes out labels on every person in highscore, may have to do after setLevel
+			for(int i = 0; i<names.length; i++){
 				contentPanel.add(new JLabel(names[i]));
 				contentPanel.add(new JLabel("" + (double)(((int)(times[i]/1000.0))/100)));
 				contentPanel.add(new JLabel("" + deaths[i]));
@@ -95,6 +90,9 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 	
 	public void setLevel(int level){
 		this.level = level;
+		names = hs.getNames(level);
+		times = hs.getTimes(level);
+		//deaths = hs.getDeaths(level);
 	}
 
 	@Override

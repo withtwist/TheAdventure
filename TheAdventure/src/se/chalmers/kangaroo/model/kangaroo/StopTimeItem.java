@@ -10,7 +10,6 @@ import se.chalmers.kangaroo.model.utils.Position;
  */
 public class StopTimeItem implements Item {
 	private int seconds;
-	private Kangaroo k;
 	private int id;
 
 	/**
@@ -33,7 +32,6 @@ public class StopTimeItem implements Item {
 	 */
 	@Override
 	public void onPickup(Kangaroo k) {
-		this.k = k;
 		Thread stt = new Thread();
 		stt.setDaemon(true);
 		stt.start();

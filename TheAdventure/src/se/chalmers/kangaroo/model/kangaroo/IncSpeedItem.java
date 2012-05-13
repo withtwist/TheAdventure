@@ -54,7 +54,7 @@ public class IncSpeedItem implements Item, Runnable {
 	@Override
 	public void run() {
 		try {
-			t.sleep(7000);
+			Thread.sleep(7000);
 		} catch (InterruptedException e) {
 		}
 		k.setMaxSpeed(10f);

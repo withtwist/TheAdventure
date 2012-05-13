@@ -2,9 +2,6 @@ package se.chalmers.kangaroo.model;
 
 import java.awt.Polygon;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import se.chalmers.kangaroo.constants.Constants;
 
 /**
@@ -15,7 +12,6 @@ import se.chalmers.kangaroo.constants.Constants;
  * 
  */
 public class Tile {
-	@XmlElement
 	private int id;
 	private boolean collidable;
 	private Polygon poly;

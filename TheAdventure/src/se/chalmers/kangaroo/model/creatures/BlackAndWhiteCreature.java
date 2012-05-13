@@ -4,7 +4,6 @@ import java.awt.Polygon;
 
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.GameTimer;
 
 /**
  * The B&WCreature will toggle between black and white. When he is white he is killable. 
@@ -14,7 +13,6 @@ import se.chalmers.kangaroo.utils.GameTimer;
  */
 public class BlackAndWhiteCreature implements Creature {
 	private Position pos;
-	private GameTimer timer = new GameTimer();
 	private final static int ID = 113;
 	private static final int speed = 7;
 	private Direction direction;

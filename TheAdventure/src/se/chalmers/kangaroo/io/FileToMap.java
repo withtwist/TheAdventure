@@ -5,11 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-
 /**
  * This is a class handling the map-files. It is used to take a .tmx file (maybe
  * more in the future) and make them readable by putting them in a matrix of
@@ -62,13 +57,4 @@ public class FileToMap {
 		}
 		return tileId;
 	} 
-	
-	public <T> T unmarshal( Class<T> docClass, InputStream inputStream )
-		    throws JAXBException {
-		    String classPackage = docClass.getPackage().getName();
-		    JAXBContext jc = JAXBContext.newInstance(classPackage);
-		    Unmarshaller u = jc.createUnmarshaller();
-		    JAXBElement<T> element = (JAXBElement<T>)u.unmarshal( inputStream );
-		    return element.getValue();
-		}
 }

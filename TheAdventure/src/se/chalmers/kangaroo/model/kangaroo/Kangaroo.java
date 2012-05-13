@@ -35,10 +35,6 @@ public class Kangaroo{
 
 	private boolean immortal = false;
 
-	private Polygon kangarooPoly;
-	
-	private Sound sfxKangaroo;
-
 	/**
 	 * The constructor for Kangaroo.
 	 * 
@@ -49,11 +45,6 @@ public class Kangaroo{
 		this.direction = Direction.DIRECTION_NONE;
 		this.pos = spawnPos;
 		this.spawnPos = spawnPos;
-		int[] xcords = { pos.getX(), pos.getX() + 32, pos.getX() + 32,
-				pos.getX() };
-		int[] ycords = { pos.getY(), pos.getY(), pos.getY() + 64,
-				pos.getY() + 64 };
-		kangarooPoly = new Polygon(xcords, ycords, 4);
 	}
 
 	/**

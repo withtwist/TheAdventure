@@ -56,8 +56,8 @@ public class CustomKeys {
 		return jumpKey;
 	}
 	
-	public String getJumpKeyName(KeyEvent keyEvent) {
-		return keyEvent.getKeyText(getJumpKey());
+	public String getJumpKeyName() {
+		return KeyEvent.getKeyText(getJumpKey());
 	}
 
 	/**
@@ -80,8 +80,8 @@ public class CustomKeys {
 		return leftKey;
 	}
 	
-	public String getLeftKeyName(KeyEvent keyEvent) {
-		return keyEvent.getKeyText(getLeftKey());
+	public String getLeftKeyName() {
+		return KeyEvent.getKeyText(getLeftKey());
 	}
 
 	/**
@@ -104,8 +104,8 @@ public class CustomKeys {
 		return rightKey;
 	}
 	
-	public String getRightKeyName(KeyEvent keyEvent) {
-		return keyEvent.getKeyText(getRightKey());
+	public String getRightKeyName() {
+		return KeyEvent.getKeyText(getRightKey());
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class CustomKeys {
 		return itemKey;
 	}
 	
-	public String getItemKeyName(KeyEvent keyEvent) {
-		return keyEvent.getKeyText(getItemKey());
+	public String getItemKeyName() {
+		return KeyEvent.getKeyText(getItemKey());
 	}
 
 	private void writeToFile() {

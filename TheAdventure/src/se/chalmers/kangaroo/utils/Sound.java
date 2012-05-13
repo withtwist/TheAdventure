@@ -10,7 +10,6 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.Line;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -25,7 +24,7 @@ import se.chalmers.kangaroo.io.OptionsIO;
 public class Sound{
 	String fileLocation;
 	Clip clip;
-	private OptionsIO io;
+	private static OptionsIO io;
 	private static double bgDecibel = 0.6;			// number between 0 and 1 (loudest)
 	private static double sfxDecibel = 1.0;		// number between 0 and 1 (loudest)
 	
@@ -100,12 +99,12 @@ public class Sound{
 		}
 	}
 	
-	public void setBgVolume(double decibel){
+	public static void setBgVolume(double decibel){
 		bgDecibel = decibel;
 		writeToFile();
 	}
 
-	public void setSfxVolume(double decibel){
+	public static void setSfxVolume(double decibel){
 		sfxDecibel = decibel;
 		writeToFile();
 	}
@@ -118,12 +117,12 @@ public class Sound{
 		return sfxDecibel;
 	}
 	
-	private void writeToFile() {
+	private static void writeToFile() {
 		io.saveVolume(bgDecibel, sfxDecibel);
 		loadFromFile();
 	}
 	
-	private void loadFromFile() {
+	private static void loadFromFile() {
 		bgDecibel = io.getBgVolume();
 		sfxDecibel = io.getSfxVolume();
 	}
