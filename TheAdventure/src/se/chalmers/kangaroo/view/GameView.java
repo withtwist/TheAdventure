@@ -146,8 +146,8 @@ public class GameView extends JPanelWithBackground{
 	 */
 	public void togglePause() {
 		this.isRunning = !isRunning;
-		pv.setVisible(isRunning);
-		pv.setOpaque(isRunning);
+		pv.setVisible(!isRunning);
+		pv.setOpaque(!isRunning);
 		pv.revalidate();
 		pv.repaint();
 		pv.validate();

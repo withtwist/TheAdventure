@@ -31,6 +31,7 @@ public class GameController implements KeyListener, PropertyChangeListener {
 		gv = new GameView("resources/images/background.gif", gm, cv);
 		cv.setGameView(gv);
 		gv.getObserver().addPropertyChangeListener(this);
+		cv.addKeyListener(this);
 	}
 
 	public GameView getGameView() {
