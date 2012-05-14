@@ -89,6 +89,7 @@ public class Sound{
 	
 	public void setVolume(boolean isBgMusic){
 		// Set Volume
+		try{
 		if(clip != null){
 			FloatControl gainControl = (FloatControl)clip.getControl(FloatControl.Type.MASTER_GAIN);
 		if(isBgMusic == true){
@@ -96,6 +97,9 @@ public class Sound{
 		}else{
 			gainControl.setValue((float)(Math.log(sfxDecibel)/Math.log(10.0)*20.0));
 		}
+		}
+		}catch(IllegalArgumentException e){
+			
 		}
 	}
 	

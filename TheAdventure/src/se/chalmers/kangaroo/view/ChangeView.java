@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.controller.GameController;
-import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.model.GameModel;
 
 /**
  * A class that lets you change between the different views in the game. The
@@ -26,8 +26,10 @@ public class ChangeView extends JFrame implements KeyListener {
 	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
+	private GameView gv;
 	private ShowHighscoreView shv;
 	private String prevView;
+	private GameModel gm;
 
 	/**
 	 * Adds a panel to itself and places the diffrent views in itself. The
@@ -35,8 +37,8 @@ public class ChangeView extends JFrame implements KeyListener {
 	 * swwitches between these cards when the right metods are called upon.
 	 */
 
-	public ChangeView() {
-		gc = new GameController(this);
+	public ChangeView(GameModel gm) {
+		this.gm = gm;
 		ov = new OptionView("resources/images/background.gif", this);
 		hv = new HighscoreView("resources/images/background.gif", this);
 		mv = new MenuView("resources/images/background.gif", this);
@@ -54,7 +56,7 @@ public class ChangeView extends JFrame implements KeyListener {
 		int yPos = (win.height - height) / 2;
 		setLocation(xPos, yPos);
 		jp.add(mv, "menuview");
-		jp.add(gc.getGameView(), "gameview");
+		jp.add(gv, "gameview");
 		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
 		//TODO: Fix crypt
@@ -63,6 +65,17 @@ public class ChangeView extends JFrame implements KeyListener {
 		addKeyListener(this);
 		setVisible(true);
 		jp.setVisible(true);
+	}
+	/**
+	 * Returns the gamemodel
+	 * @return
+	 */
+	public GameModel getGameModel(){
+		return gm;
+	}
+	
+	public void setGameView(GameView gameview){
+		this.gv = gameview;
 	}
 
 	/**

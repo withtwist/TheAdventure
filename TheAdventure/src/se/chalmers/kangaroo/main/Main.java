@@ -1,5 +1,7 @@
 package se.chalmers.kangaroo.main;
 
+import se.chalmers.kangaroo.controller.GameController;
+import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.view.ChangeView;
 
 /**
@@ -16,10 +18,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		ChangeView cv = new ChangeView();
-		cv.menuView();
-		cv.setVisible(true);
+		new GameController(new ChangeView(new GameModel()));
 	}
 
 }

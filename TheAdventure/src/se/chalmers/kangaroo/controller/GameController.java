@@ -25,8 +25,9 @@ public class GameController implements KeyListener {
 
 	public GameController(ChangeView cv) {
 		ck = CustomKeys.getInstance();
-		gm = new GameModel();
+		gm = cv.getGameModel();
 		gv = new GameView("resources/images/background.gif", gm, cv);
+		cv.setGameView(gv);
 	}
 
 	public GameView getGameView() {
