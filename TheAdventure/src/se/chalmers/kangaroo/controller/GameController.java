@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.utils.Direction;
+import se.chalmers.kangaroo.utils.CustomKeys;
 import se.chalmers.kangaroo.view.ChangeView;
 import se.chalmers.kangaroo.view.GameView;
 

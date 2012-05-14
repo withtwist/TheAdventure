@@ -19,7 +19,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import se.chalmers.kangaroo.constants.Constants;
-import se.chalmers.kangaroo.controller.CustomKeys;
+import se.chalmers.kangaroo.utils.CustomKeys;
 import se.chalmers.kangaroo.utils.Sound;
 
 /**

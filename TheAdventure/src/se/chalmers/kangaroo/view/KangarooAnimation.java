@@ -43,7 +43,7 @@ public class KangarooAnimation implements Animation {
 	 */
 	@Override
 	public void drawSprite(Graphics g, int x, int y) {
-		if (tick == 15) {
+		if (tick == 9) {
 			tick = 0;
 			currentFrame++;
 			currentFrame = (currentFrame % 3);

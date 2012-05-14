@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.controller;
+package se.chalmers.kangaroo.utils;
 
 import java.awt.event.KeyEvent;
 
