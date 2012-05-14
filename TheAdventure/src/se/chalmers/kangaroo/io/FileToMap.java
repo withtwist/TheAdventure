@@ -57,4 +57,30 @@ public class FileToMap {
 		}
 		return tileId;
 	} 
+	
+	public String[] getMetaData(String fileName){
+		String[] metaData = new String[2];
+		try {
+			InputStream in = new FileInputStream(fileName);
+			Scanner sc = new Scanner(in);
+			while (sc.hasNextLine()) {
+				String tmp = sc.nextLine();
+				if (tmp.contains("<name>")) {
+					String[] split = tmp.split("<name>");
+					metaData[0] = split[0];
+				}
+				if (tmp.contains("<author>")) {
+					String[] split = tmp.split("<author>");
+					metaData[1] = split[0];
+				}
+				if (tmp.contains("<comment>")) {
+					String[] split = tmp.split("<comment>");
+					metaData[2] = split[0];
+				}
+			}
+		} catch (IOException e) {
+			System.out.println("Wrong filename!");
+		}
+		return metaData;
+	}
 }

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.constants.Constants;
+import se.chalmers.kangaroo.io.FileToMap;
 import se.chalmers.kangaroo.utils.Sound;
 
 /**
@@ -22,6 +23,7 @@ import se.chalmers.kangaroo.utils.Sound;
 public class HighscoreView extends JPanelWithBackground implements
 		MouseListener {
 	private ChangeView cv;
+	private FileToMap ftm;
 	private Menubutton back;
 	private JLabel title;
 	private Menubutton lv1;
@@ -92,6 +94,10 @@ public class HighscoreView extends JPanelWithBackground implements
 				Constants.RESOLUTION_HEIGHT - titleHeight));
 
 		// Level 1
+		JPanel lv1Panel = new JPanel(new BorderLayout());
+		String[] lv1Meta = ftm.getMetaData("resources/maps/level0.tmx");
+		lv1Panel.add(lv1, BorderLayout.WEST);
+		lv1Panel.add(new JLabel(lv1Meta[0] + "\n" + lv1Meta[1] + "\n" + lv1Meta[2]), BorderLayout.EAST);
 		lv1 = new Menubutton("resources/images/levels/level_1.png");
 		lv1.setName("1");
 		lv1.addMouseListener(this);
