@@ -3,13 +3,10 @@ package se.chalmers.kangaroo.view;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.model.GameModel;
 
 /**
@@ -19,10 +16,9 @@ import se.chalmers.kangaroo.model.GameModel;
  * @author Arvid
  * 
  */
-public class ChangeView extends JFrame implements KeyListener {
+public class ChangeView extends JFrame {
 
 	private JPanel jp;
-	private GameController gc;
 	private OptionView ov;
 	private HighscoreView hv;
 	private MenuView mv;
@@ -56,13 +52,11 @@ public class ChangeView extends JFrame implements KeyListener {
 		int yPos = (win.height - height) / 2;
 		setLocation(xPos, yPos);
 		jp.add(mv, "menuview");
-		jp.add(gv, "gameview");
 		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
 		//TODO: Fix crypt
 //		jp.add(shv, "showHighscoreView");
 		add(jp);
-		addKeyListener(this);
 		setVisible(true);
 		jp.setVisible(true);
 	}
@@ -75,7 +69,8 @@ public class ChangeView extends JFrame implements KeyListener {
 	}
 	
 	public void setGameView(GameView gameview){
-		this.gv = gameview;
+		this.gv = gameview;		
+		jp.add(gv, "gameview");
 	}
 
 	/**
@@ -98,7 +93,7 @@ public class ChangeView extends JFrame implements KeyListener {
 	 * A method to change to the GameView. Also starts the game.
 	 */
 	public void gameView() {
-		gc.start();
+		gv.start();
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "gameview");
 
@@ -134,30 +129,4 @@ public class ChangeView extends JFrame implements KeyListener {
 //		CardLayout cl = (CardLayout) jp.getLayout();
 //		cl.show(jp, "showhighscoreview");
 //	}
-
-	/**
-	 * Listen to when the keys are pressed. makles you able to move in the game.
-	 */
-	@Override
-	public void keyPressed(KeyEvent e) {
-		gc.keyPressed(e);
-
-	}
-
-	/**
-	 * Listen when the keys are released. makes you able to controll the game.
-	 */
-	@Override
-	public void keyReleased(KeyEvent e) {
-		gc.keyReleased(e);
-
-	}
-
-	/**
-	 * Unused method
-	 */
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// Do nothing really
-	}
 }

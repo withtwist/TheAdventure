@@ -2,6 +2,8 @@ package se.chalmers.kangaroo.controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.model.utils.Direction;
@@ -16,7 +18,7 @@ import se.chalmers.kangaroo.view.GameView;
  * @modifiedby pavlov
  * 
  */
-public class GameController implements KeyListener {
+public class GameController implements KeyListener, PropertyChangeListener {
 
 	private GameModel gm;
 	private GameView gv;
@@ -28,6 +30,7 @@ public class GameController implements KeyListener {
 		gm = cv.getGameModel();
 		gv = new GameView("resources/images/background.gif", gm, cv);
 		cv.setGameView(gv);
+		gv.getObserver().addPropertyChangeListener(this);
 	}
 
 	public GameView getGameView() {
@@ -54,7 +57,7 @@ public class GameController implements KeyListener {
 		public void run() {
 			while (true) {
 				long time = System.currentTimeMillis();
-				if (!gv.getIsPaused()) {
+				if (gv.isRunning()) {
 					
 					gm.update();
 					if(gm.isLevelFinished()){
@@ -93,7 +96,7 @@ public class GameController implements KeyListener {
 		int code = e.getKeyCode();
 		// Jump
 		if (code == ck.getJumpKey()) {
-			if (gm.getKangaroo().getStillJumping() == false && !gv.getIsPaused()) {
+			if (gm.getKangaroo().getStillJumping() == false && !gv.isRunning()) {
 				gm.getKangaroo().setStillJumping(true);
 				gm.getKangaroo().jump();
 			}
@@ -105,19 +108,19 @@ public class GameController implements KeyListener {
 			// Right
 		} else if (code == ck.getRightKey()) {
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
-		} else if (code == ck.getItemKey() && !gv.getIsPaused()) {
+		} else if (code == ck.getItemKey() && !gv.isRunning()) {
 			if (gm.getKangaroo().getItem() != null)
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
 		} else if (code == KeyEvent.VK_ESCAPE) {
-			if (!gv.getIsPaused() == true) {
+			if (!gv.isRunning() == true) {
 				pauseGame();
 			} else {
 				resumeGame();
 			}
 		} else {
 			// If any other keys are pressed, restarts the level.
-			if(!gv.getIsPaused())
+			if(!gv.isRunning())
 				gm.restartLevel();
 		}
 
@@ -150,6 +153,12 @@ public class GameController implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// Nothing to do here.
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if(evt.getPropertyName().equals("start") )
+				start();
 	}
 
 }

@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.model;
 
 import java.awt.geom.Rectangle2D;
+import java.beans.PropertyChangeSupport;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.creatures.Creature;
@@ -17,7 +18,7 @@ import se.chalmers.kangaroo.utils.Sound;
  * @modifiedby simonal
  * 
  */
-public class GameModel {
+public class GameModel{
 
 	/*
 	 * The kangaroo that the player controlls.
@@ -75,6 +76,7 @@ public class GameModel {
 	// }
 
 	public GameModel() {
+		super();
 		levelFinished = false;
 		gameFinished = false;
 		currentLevel = 0;

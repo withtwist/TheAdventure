@@ -1,5 +1,6 @@
 package se.chalmers.kangaroo.view;
 
+import java.beans.PropertyChangeSupport;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;
@@ -19,15 +20,16 @@ import se.chalmers.kangaroo.utils.Sound;
  * @modifiedby simonal
  * @modifiedby arvidk
  */
-public class GameView extends JPanelWithBackground {
+public class GameView extends JPanelWithBackground{
 	private GameModel gm;
 	private HashMap<Creature, Animation> creatureAnimations;
 	private KangarooAnimation ka;
-	private boolean isPaused = false;
+	private boolean isRunning = false;
 	private PauseView pv;
 	private Sound lv1Music;
 	private VictoryView vv;
 	private boolean newLevel = false;
+	private PropertyChangeSupport pcs;
 
 	/**
 	 * Create the view when the rendering shall begin.
@@ -42,6 +44,7 @@ public class GameView extends JPanelWithBackground {
 	public GameView(String imagepath, GameModel gm, ChangeView cv) {
 		super(imagepath);
 		this.gm = gm;
+		this.pcs = new PropertyChangeSupport(this);
 		creatureAnimations = new HashMap<Creature, Animation>();
 		AnimationFactory af = new AnimationFactory();
 		for (int i = 0; i < gm.getGameMap().getCreatureSize(); i++) {
@@ -51,8 +54,8 @@ public class GameView extends JPanelWithBackground {
 
 		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
 		pv = new PauseView("resources/images/pausebackground.png", cv, this);
-		pv.setVisible(isPaused);
-		pv.setOpaque(isPaused);
+		pv.setVisible(isRunning);
+		pv.setOpaque(isRunning);
 		this.add(pv);
 	}
 
@@ -134,17 +137,17 @@ public class GameView extends JPanelWithBackground {
 		return kPos - 16;
 	}
 	
-	public boolean getIsPaused() {
-		return isPaused;
+	public boolean isRunning() {
+		return isRunning;
 	}
 
 	/**
 	 * When the game pauses a menu will appear.
 	 */
 	public void togglePause() {
-		this.isPaused = !isPaused;
-		pv.setVisible(isPaused);
-		pv.setOpaque(isPaused);
+		this.isRunning = !isRunning;
+		pv.setVisible(isRunning);
+		pv.setOpaque(isRunning);
 		pv.revalidate();
 		pv.repaint();
 		pv.validate();
@@ -174,5 +177,14 @@ public class GameView extends JPanelWithBackground {
 	
 	public boolean startNewLevel(){
 		return newLevel;
+	}
+	
+	public void start(){
+		isRunning = true;
+		pcs.firePropertyChange("start", 0, 1);
+	}
+	
+	public PropertyChangeSupport getObserver(){
+		return pcs;
 	}
 }
