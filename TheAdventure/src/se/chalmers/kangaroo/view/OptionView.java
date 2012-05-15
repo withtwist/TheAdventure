@@ -65,7 +65,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		ck = CustomKeys.getInstance();
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
-		addKeyListener(this);
+		cv.addKeyListener(this);
 		this.setLayout(new BorderLayout());
 
 		// Header

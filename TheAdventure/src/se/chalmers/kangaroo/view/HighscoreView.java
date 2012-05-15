@@ -43,6 +43,7 @@ public class HighscoreView extends JPanelWithBackground implements
 		super(imagepath);
 		this.ftm = new FileToMap();
 		this.cv = cv;
+		this.setFocusable(true);
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
 		this.setLayout(new BorderLayout());

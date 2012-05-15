@@ -87,6 +87,7 @@ public class ChangeView extends JFrame {
 	public void menuView() {
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "menuview");
+		mv.requestFocus();
 	}
 
 	/**
@@ -96,6 +97,7 @@ public class ChangeView extends JFrame {
 		gv.start();
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "gameview");
+		gv.requestFocus();
 
 	}
 

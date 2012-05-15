@@ -43,8 +43,10 @@ public class GameView extends JPanelWithBackground{
 	 */
 	public GameView(String imagepath, GameModel gm, ChangeView cv) {
 		super(imagepath);
+		this.setFocusable(true);
 		this.gm = gm;
 		this.pcs = new PropertyChangeSupport(this);
+		this.requestFocus();
 		creatureAnimations = new HashMap<Creature, Animation>();
 		AnimationFactory af = new AnimationFactory();
 		for (int i = 0; i < gm.getGameMap().getCreatureSize(); i++) {
