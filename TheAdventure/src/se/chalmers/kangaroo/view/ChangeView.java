@@ -39,6 +39,7 @@ public class ChangeView extends JFrame {
 		ov = new OptionView("resources/images/background.gif", this);
 		hv = new HighscoreView("resources/images/background.gif", this);
 		mv = new MenuView("resources/images/background.gif", this);
+		fv = new FinishedView(this);
 		//TODO: Fix crypt
 //		shv = new ShowHighscoreView("resources/images/background.gif", this);
 
