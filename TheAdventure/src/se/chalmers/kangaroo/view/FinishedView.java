@@ -16,8 +16,10 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 public class FinishedView extends JPanel{
-	public FinishedView() {
-		
+	private final ChangeView cv;
+	
+	public FinishedView(final ChangeView cv) {
+		this.cv = cv;
 		setSize(new Dimension(1024,576));
 		setPreferredSize(new Dimension(1024,576));
 		setLayout(new BorderLayout(0, 0));
@@ -59,6 +61,7 @@ public class FinishedView extends JPanel{
 		btnNewGame.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				cv.gameView();
 			}
 		});
 		panel_1.add(btnNewGame);
@@ -67,6 +70,7 @@ public class FinishedView extends JPanel{
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
 			}
 		});
 		btnNewButton.addActionListener(new ActionListener() {

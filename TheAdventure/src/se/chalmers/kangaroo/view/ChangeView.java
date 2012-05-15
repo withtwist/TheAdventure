@@ -24,6 +24,7 @@ public class ChangeView extends JFrame {
 	private MenuView mv;
 	private GameView gv;
 	private ShowHighscoreView shv;
+	private FinishedView fv;
 	private String prevView;
 	private GameModel gm;
 
@@ -54,6 +55,7 @@ public class ChangeView extends JFrame {
 		jp.add(mv, "menuview");
 		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
+		jp.add(fv, "finishedview");
 		//TODO: Fix crypt
 //		jp.add(shv, "showHighscoreView");
 		add(jp);
@@ -123,6 +125,11 @@ public class ChangeView extends JFrame {
 		this.prevView = prevView;
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "highscoreview");
+	}
+	
+	public void finishedView(){
+		CardLayout cl = (CardLayout) jp.getLayout();
+		cl.show(jp, "finishedview");
 	}
 	
 	//TODO: Fix crypt

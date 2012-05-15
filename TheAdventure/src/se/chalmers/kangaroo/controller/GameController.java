@@ -22,11 +22,12 @@ public class GameController implements KeyListener, PropertyChangeListener {
 
 	private GameModel gm;
 	private GameView gv;
-
+	private ChangeView cv;
 	private CustomKeys ck;
 
 	public GameController(ChangeView cv) {
 		ck = CustomKeys.getInstance();
+		this.cv = cv;
 		gm = cv.getGameModel();
 		gv = new GameView("resources/images/background.gif", gm, cv);
 		cv.setGameView(gv);
@@ -63,7 +64,7 @@ public class GameController implements KeyListener, PropertyChangeListener {
 					gm.update();
 					if(gm.isLevelFinished()){
 						if(gm.isGameFinished()){
-							gv.showFinishedView();
+							cv.finishedView();
 						}else
 							setVictoryView();
 					}
