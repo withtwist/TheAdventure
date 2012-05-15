@@ -49,34 +49,6 @@ public class GameModel{
 	
 	private Sound2 s;
 
-	/**
-	 * A method to start the game.
-	 */
-	// public void start() {
-	// isRunning = true;
-	// while (isRunning) {
-	// this.update();
-	// }
-	// }
-
-	/**
-	 * Will make it able to pause the game
-	 */
-	// public void pause() {
-	// if (isRunning = true) {
-	// isRunning = false;
-	// } else {
-	// this.start();
-	// }
-	// }
-
-	/**
-	 * A method to stop the game, and thereby quit it.
-	 */
-	// public void stop() {
-	// isRunning = false;
-	// }
-
 	public GameModel() {
 		super();
 		levelFinished = false;
