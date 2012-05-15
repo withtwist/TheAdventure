@@ -41,6 +41,7 @@ public class HighscoreView extends JPanelWithBackground implements
 	 */
 	public HighscoreView(String imagepath, ChangeView cv) {
 		super(imagepath);
+		this.ftm = new FileToMap();
 		this.cv = cv;
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
@@ -95,14 +96,14 @@ public class HighscoreView extends JPanelWithBackground implements
 
 		// Level 1
 		JPanel lv1Panel = new JPanel(new BorderLayout());
-		String[] lv1Meta = new String[2];
+		String[] lv1Meta = new String[3];
 		lv1Meta = ftm.getMetaData("resources/maps/level0.tmx");
-		lv1Panel.add(lv1, BorderLayout.WEST);
 		lv1Panel.add(new JLabel(lv1Meta[0] + "\n" + lv1Meta[1] + "\n" + lv1Meta[2]), BorderLayout.EAST);
 		lv1 = new Menubutton("resources/images/levels/level_1.png");
 		lv1.setName("1");
 		lv1.addMouseListener(this);
-		levelPanel.add(lv1);
+		lv1Panel.add(lv1, BorderLayout.WEST);
+		levelPanel.add(lv1Panel);
 
 		// Level 2
 		lv2 = new Menubutton("resources/images/levels/level_-1.png");

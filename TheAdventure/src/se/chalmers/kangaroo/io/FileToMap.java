@@ -59,7 +59,7 @@ public class FileToMap {
 	} 
 	
 	public String[] getMetaData(String fileName){
-		String[] metaData = new String[2];
+		String[] metaData = new String[3];
 		try {
 			InputStream in = new FileInputStream(fileName);
 			Scanner sc = new Scanner(in);
