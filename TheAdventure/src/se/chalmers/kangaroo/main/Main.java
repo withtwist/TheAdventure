@@ -3,7 +3,7 @@ package se.chalmers.kangaroo.main;
 
 import java.io.IOException;
 
-//import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.BasicConfigurator;
 import org.keyczar.exceptions.KeyczarException;
 
 import se.chalmers.kangaroo.controller.GameController;
