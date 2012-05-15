@@ -94,15 +94,10 @@ public class HighscoreView extends JPanelWithBackground implements
 				Constants.RESOLUTION_HEIGHT - titleHeight));
 
 		// Level 1
-		JPanel lv1Panel = new JPanel(new BorderLayout());
-		String[] lv1Meta = new String[3];
-		lv1Meta = ftm.getMetaData("resources/maps/level0.tmx");
-		lv1Panel.add(new JLabel("<html><body>" + lv1Meta[0] + "<br>" + lv1Meta[1] + "<br>" + lv1Meta[2] + "</body></html>"), BorderLayout.EAST);
 		lv1 = new Menubutton("resources/images/levels/level_1.png");
 		lv1.setName("1");
 		lv1.addMouseListener(this);
-		lv1Panel.add(lv1, BorderLayout.WEST);
-		levelPanel.add(lv1Panel);
+		levelPanel.add(lv1);
 
 		// Level 2
 		lv2 = new Menubutton("resources/images/levels/level_2.png");
@@ -165,7 +160,30 @@ public class HighscoreView extends JPanelWithBackground implements
 		if (e.getSource() == back)
 			back.setIcon(new ImageIcon(
 					"resources/images/buttons/back_onHover.png"));
-
+		if (e.getSource() == lv1)
+			lv1.setIcon(new ImageIcon(
+					"resources/images/level_1_onHover.png"));
+		if (e.getSource() == lv2)
+			lv2.setIcon(new ImageIcon(
+					"resources/images/level_2_onHover.png"));
+		if (e.getSource() == lv3)
+			lv3.setIcon(new ImageIcon(
+					"resources/images/level_3_onHover.png"));
+		if (e.getSource() == lv4)
+			lv4.setIcon(new ImageIcon(
+					"resources/images/level_4_onHover.png"));
+		if (e.getSource() == lv5)
+			lv5.setIcon(new ImageIcon(
+					"resources/images/level_5_onHover.png"));
+		if (e.getSource() == lv6)
+			lv6.setIcon(new ImageIcon(
+					"resources/images/level_6_onHover.png"));
+		if (e.getSource() == lv7)
+			lv7.setIcon(new ImageIcon(
+					"resources/images/level_7_onHover.png"));
+		if (e.getSource() == lv8)
+			lv8.setIcon(new ImageIcon(
+					"resources/images/level_8_onHover.png"));
 	}
 
 	@Override
