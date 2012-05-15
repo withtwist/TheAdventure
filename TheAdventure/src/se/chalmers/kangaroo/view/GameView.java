@@ -169,17 +169,6 @@ public class GameView extends JPanelWithBackground{
 		this.revalidate();
 	}
 	
-	public void showFinishedView(){
-		FinishedView fv = new FinishedView();
-		fv.setVisible(true); 
-		fv.setOpaque(true);
-		this.add(fv);
-		this.repaint();
-		this.revalidate();
-		this.validate();
-		this.revalidate();
-	}
-	
 	public void removeVictoryView(){
 		this.remove(vv);
 	}
