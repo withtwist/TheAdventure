@@ -95,7 +95,8 @@ public class HighscoreView extends JPanelWithBackground implements
 
 		// Level 1
 		JPanel lv1Panel = new JPanel(new BorderLayout());
-		String[] lv1Meta = ftm.getMetaData("resources/maps/level0.tmx");
+		String[] lv1Meta = new String[2];
+		lv1Meta = ftm.getMetaData("resources/maps/level0.tmx");
 		lv1Panel.add(lv1, BorderLayout.WEST);
 		lv1Panel.add(new JLabel(lv1Meta[0] + "\n" + lv1Meta[1] + "\n" + lv1Meta[2]), BorderLayout.EAST);
 		lv1 = new Menubutton("resources/images/levels/level_1.png");

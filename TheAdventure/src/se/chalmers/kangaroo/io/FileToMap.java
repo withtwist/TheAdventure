@@ -65,17 +65,13 @@ public class FileToMap {
 			Scanner sc = new Scanner(in);
 			while (sc.hasNextLine()) {
 				String tmp = sc.nextLine();
-				if (tmp.contains("<name>")) {
-					String[] split = tmp.split("<name>");
-					metaData[0] = split[0];
-				}
-				if (tmp.contains("<author>")) {
-					String[] split = tmp.split("<author>");
-					metaData[1] = split[0];
-				}
-				if (tmp.contains("<comment>")) {
-					String[] split = tmp.split("<comment>");
-					metaData[2] = split[0];
+				if (tmp.contains("<meta>")) {
+					String[] splitName = tmp.split("<name>");
+					metaData[0] = splitName[0];
+					String[] splitAuthor = tmp.split("<author>");
+					metaData[1] = splitAuthor[0];
+					String[] splitComment = tmp.split("<comment>");
+					metaData[2] = splitComment[0];
 				}
 			}
 		} catch (IOException e) {
