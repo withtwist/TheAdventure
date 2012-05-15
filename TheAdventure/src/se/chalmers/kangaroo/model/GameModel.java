@@ -141,6 +141,7 @@ public class GameModel{
 					s.playSfx("creaturedeath");
 					gameMap.killCreature(creature);
 					kangaroo.setVerticalSpeed(-6.5f);
+					kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), kangaroo.getPosition().getY()-5));
 				} else {
 					s.playSfx("death");
 					restartLevel();
