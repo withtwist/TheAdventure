@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import org.keyczar.Crypter;
 import org.keyczar.exceptions.KeyczarException;
 
@@ -24,9 +26,14 @@ public class Highscore {
 	private static Highscore highscore;
 	private static final String FILE_NAME = "resources/highscore.txt";
 	private static final int nbrOfScores = 5;
+	
+	private static Logger logger;
+	
 	private Crypter crypter;
 	private String encText;
 	private Highscore() {
+		logger = Logger.getLogger(Highscore.class);
+		BasicConfigurator.configure();
 		try {
 			this.crypter = new Crypter("resources/keyset");
 		} catch(Exception e) {
@@ -183,9 +190,11 @@ public class Highscore {
 	 */
 	public boolean willMakeHighscore(int level, int time){
 		int[] times = new int[nbrOfScores];
+		byte[] decryptedByteArray = null;
 		try {
-			InputStream in = new FileInputStream(FILE_NAME);
-			Scanner sc = new Scanner(in);
+			byte[] b = fileToByteArray(new File(FILE_NAME));
+			decryptedByteArray = crypter.decrypt(b);
+			Scanner sc = new Scanner(byteArrayToFile(decryptedByteArray));
 			while (!sc.nextLine().equals("level" + level)) {
 				// Loop through all the other rows
 			}
@@ -197,6 +206,11 @@ public class Highscore {
 			System.out.println("Could't find the specific file.");
 		} catch (NumberFormatException e) {
 			System.out.println("The times are not numbers.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (KeyczarException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return time < times[nbrOfScores-1];
 	}
@@ -229,5 +243,14 @@ public class Highscore {
 		out.write(b);
 		File f = new File("temp");
 		return f;
+	}
+	
+	public void temp() throws IOException, KeyczarException {
+		File f = new File("resources/highscore.txt");
+		byte[] b = fileToByteArray(f);
+		byte[] d = crypter.encrypt(b);
+		FileWriter fw = new FileWriter("resources/highscore2.txt");
+		BufferedWriter out = new BufferedWriter(fw);
+		out.write(d.toString());
 	}
 }
