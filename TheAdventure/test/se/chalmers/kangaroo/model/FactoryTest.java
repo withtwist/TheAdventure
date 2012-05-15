@@ -17,7 +17,7 @@ public class FactoryTest {
 	
 	@Test
 	public void itemsTest(){
-		Factory f = new Factory();
+		TileFactory f = new TileFactory();
 		for(int i = 0; i < 200; i++)
 			if( Constants.ITEM_IDS.contains(" "+i+" ") ){
 				assertTrue(f.createItem(i, 10, 10) != null);
@@ -28,7 +28,7 @@ public class FactoryTest {
 	
 	@Test
 	public void interactiveTileTest(){
-		Factory f = new Factory();
+		TileFactory f = new TileFactory();
 		for(int i = 0; i < 200; i++)
 			if( Constants.INTERACTIVE_TILES.contains(" "+i+" ") ){
 				assertTrue(f.createTile(i, 10, 10) instanceof InteractiveTile);
@@ -39,7 +39,7 @@ public class FactoryTest {
 	
 	@Test
 	public void creatureTest(){
-		Factory f = new Factory();
+		TileFactory f = new TileFactory();
 		for(int i = 0; i < 200; i++){
 			if( Constants.CREATURE_IDS.contains(" "+i+" ")){
 				assertTrue(f.createCreature(i, new Position(10,10)) != null);
@@ -51,7 +51,7 @@ public class FactoryTest {
 	
 	@Test
 	public void iObjectTest(){
-		Factory f = new Factory();
+		TileFactory f = new TileFactory();
 		for(int i = 0; i < 200; i++){
 			if( Constants.IOBJECTS_IDS.contains(" "+i+" ")){
 				assertTrue(f.createIObjects(i, 10, 10, null) != null);

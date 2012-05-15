@@ -22,12 +22,13 @@ import se.chalmers.kangaroo.model.utils.Position;
  * @author alburgh
  * 
  */
-public class Factory {
+public class TileFactory {
 	/**
 	 * Creates a simple factory.
 	 */
-	public Factory() {
+	public TileFactory() {
 		super();
+		//Not needed
 	}
 
 	/**
@@ -35,6 +36,7 @@ public class Factory {
 	 * 
 	 * @param i
 	 *            , the id of the tile
+	 * @param x, y the position of the tile
 	 * @return the tile created
 	 */
 	public Tile createTile(int i, int x, int y) {
@@ -47,69 +49,6 @@ public class Factory {
 		} else {
 
 			return new Tile(i, x, y);
-		}
-	}
-
-	/**
-	 * Creates different items depending on the ID.
-	 * 
-	 * @param i
-	 *            , the id of the item
-	 * @return the item created
-	 */
-	public Item createItem(int i, int x, int y) {
-		switch (i) {
-		case 51:
-			return new DoubleJumpItem(i, x, y);
-		case 102:
-			return new StopTimeItem(i, 5, x, y);
-		case 53:
-			return new ImmortalItem(i, x, y);
-		default:
-			return null;
-		}
-	}
-
-	/**
-	 * Creates different creatures depending on the ID.
-	 * 
-	 * @param i
-	 *            , the id of the creature
-	 * @return the creature created
-	 */
-	public Creature createCreature(int i, Position p) {
-		switch (i) {
-		case 111:
-			return new CrabCreature(p);
-		case 112:
-			return new TurtleCreature(p);
-		case 113:
-			return new BlackAndWhiteCreature(p);
-		case 114:
-			return new BullCreature(p);
-		case 115:
-			return new SumoCreature(p);
-		case 116:
-			return new SmurfCreature(p);
-		default:
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param i
-	 *            , the id of the creature
-	 * @return the interactive object created
-	 */
-	public InteractiveObject createIObjects(int i, int x, int y, GameMap gm) {
-		switch (i) {
-		case 71:
-			return new RedBlueButton(new Position(x, y), i, gm);
-		case 72:
-			return new RedBlueButton(new Position(x, y), i, gm);
-		default:
-			return null;
 		}
 	}
 }

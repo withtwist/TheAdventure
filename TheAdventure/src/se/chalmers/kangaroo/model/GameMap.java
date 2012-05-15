@@ -6,8 +6,11 @@ import java.util.List;
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.FileToMap;
 import se.chalmers.kangaroo.model.creatures.Creature;
+import se.chalmers.kangaroo.model.creatures.CreatureFactory;
+import se.chalmers.kangaroo.model.iobject.IObjectFactory;
 import se.chalmers.kangaroo.model.iobject.InteractiveObject;
 import se.chalmers.kangaroo.model.kangaroo.Item;
+import se.chalmers.kangaroo.model.kangaroo.ItemFactory;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**
@@ -43,17 +46,17 @@ public class GameMap {
 			map = new Tile[tiles.length][tiles[0].length];
 		else
 			System.out.println("Will not be able to load map, exceptiong incoming..");
-		Factory tf = new Factory();
+		TileFactory tf = new TileFactory();
 		for (int i = 0; i < map.length; i++)
 			for (int j = 0; j < map[0].length; j++) {
 				map[i][j] = tf.createTile((tiles[i][j]), i, j);
 				if (itemList.contains(" " + tiles[i][j] + " "))
-					items.add(tf.createItem(tiles[i][j], i, j));
+					items.add(ItemFactory.createItem(tiles[i][j], i, j));
 				if (creatureList.contains(" " + tiles[i][j] + " "))
-					creatures.add(tf.createCreature(tiles[i][j], new Position(
+					creatures.add(CreatureFactory.createCreature(tiles[i][j], new Position(
 							i * 32, j * 32)));
 				if (iObjectsList.contains(" " + tiles[i][j] + " ")) {
-					iObjects.add(tf.createIObjects(tiles[i][j], i, j, this));
+					iObjects.add(IObjectFactory.createIObjects(tiles[i][j], i, j, this));
 				}
 
 			}
