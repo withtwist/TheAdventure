@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <meta>
-<name>Introduction Level</name>
-<author>Sean Pavlov</author>
-<comment>This is a introduction level.</comment>
+<name>Introduction Level<name>
+<author>Sean Pavlov<author>
+<comment>This is a introduction level.<comment>
 </meta>
 <map version="1.0" orientation="orthogonal" width="200" height="20" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tileChart" tilewidth="32" tileheight="32">
