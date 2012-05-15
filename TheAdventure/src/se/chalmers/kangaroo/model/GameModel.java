@@ -308,8 +308,6 @@ public class GameModel{
 	public void nextLevel() {
 		levelFinished = false;
 		currentLevel++;
-		// TMp
-		currentLevel %= 2;
 		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		restartLevel();
 		deathCount = 0;
