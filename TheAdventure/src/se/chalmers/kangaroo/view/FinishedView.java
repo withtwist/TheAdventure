@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,10 @@ import javax.swing.SwingConstants;
 
 public class FinishedView extends JPanel{
 	public FinishedView() {
-	setLayout(new BorderLayout(0, 0));
+		
+		setSize(new Dimension(1024,576));
+		setPreferredSize(new Dimension(1024,576));
+		setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblCongratulations = new JLabel("Congratulations!");
 		lblCongratulations.setFont(new Font("Tahoma", Font.PLAIN, 36));
@@ -27,7 +31,7 @@ public class FinishedView extends JPanel{
 		txtrByFinishingThis.setWrapStyleWord(true);
 		txtrByFinishingThis.setLineWrap(true);
 		txtrByFinishingThis.setEditable(false);
-		txtrByFinishingThis.setText("By finishing this game you establish yourself as a true nerd and a pr0 g4m3r. Now the question is, can you do it faster?");
+		txtrByFinishingThis.setText("By finishing this game you establish yourself as a true nerd and a pr0 g4m3r. Now the question is, can you do it faster? (hardcore mode activated)");
 		add(txtrByFinishingThis, BorderLayout.CENTER);
 		
 		JPanel panel = new JPanel();
