@@ -22,6 +22,7 @@ public class TurtleCreature implements Creature {
 
 	public TurtleCreature(Position spawnPos) {
 		currentPos = spawnPos;
+		currentDir = Direction.DIRECTION_WEST;
 	}
 
 	@Override

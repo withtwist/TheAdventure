@@ -6,6 +6,7 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.creatures.Creature;
 import se.chalmers.kangaroo.model.kangaroo.Item;
 import se.chalmers.kangaroo.model.kangaroo.Kangaroo;
+import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
 import se.chalmers.kangaroo.utils.Sound2;
@@ -17,7 +18,7 @@ import se.chalmers.kangaroo.utils.Sound2;
  * @modifiedby simonal
  * 
  */
-public class GameModel{
+public class GameModel {
 
 	/*
 	 * The kangaroo that the player controlls.
@@ -45,7 +46,7 @@ public class GameModel{
 	private boolean levelFinished;
 
 	private boolean gameFinished;
-	
+
 	private Sound2 s;
 
 	public GameModel() {
@@ -55,7 +56,7 @@ public class GameModel{
 		currentLevel = 0;
 		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
-		
+
 		s = Sound2.getInstance();
 	}
 
@@ -85,16 +86,22 @@ public class GameModel{
 		for (int i = 0; i < gameMap.getCreatureSize(); i++) {
 			Creature c = gameMap.getCreatureAt(i);
 			Rectangle2D cRect = c.getPolygon().getBounds2D();
-			if (!(gameMap.getTile((int) (cRect.getMinX() / 32),
-					(int) (cRect.getMinY() / 32) + 1).isCollidable())
-					|| !(gameMap.getTile((int) (cRect.getMaxX() / 32),
-							(int) (cRect.getMinY() / 32) + 1).isCollidable())
-					|| (gameMap.getTile((int) (cRect.getMinX() / 32),
-							(int) (cRect.getMinY() / 32))).isCollidable()
-					|| gameMap.getTile((int) (cRect.getMaxX() / 32),
-							(int) (cRect.getMinY() / 32)).isCollidable()) {
+			//Checks if the objects to the left makes the creature to turn
+			if (( !(gameMap.getTile((int) (cRect.getMinX() / 32),
+					(int) (cRect.getMinY() / 32) + 1).isCollidable()) || (gameMap
+					.getTile((int) (cRect.getMinX() / 32),
+							(int) (cRect.getMinY() / 32))).isCollidable() )
+					&& c.getDirection() == Direction.DIRECTION_WEST){
 				c.changeDirection();
 			}
+			//Checks if the objects to the right makes the creature to turn
+				if ((!(gameMap.getTile((int) (cRect.getMaxX() / 32),
+						(int) (cRect.getMinY() / 32) + 1).isCollidable()) || (gameMap
+						.getTile((int) (cRect.getMaxX() / 32),
+								(int) (cRect.getMinY() / 32)).isCollidable()))
+						&& c.getDirection() == Direction.DIRECTION_EAST) {
+					c.changeDirection();
+				}
 			c.updateCreature();
 
 		}
@@ -141,7 +148,8 @@ public class GameModel{
 					s.playSfx("creaturedeath");
 					gameMap.killCreature(creature);
 					kangaroo.setVerticalSpeed(-6.5f);
-					kangaroo.setPosition(new Position(kangaroo.getPosition().getX(), kangaroo.getPosition().getY()-5));
+					kangaroo.setPosition(new Position(kangaroo.getPosition()
+							.getX(), kangaroo.getPosition().getY() - 5));
 				} else {
 					s.playSfx("death");
 					restartLevel();
@@ -280,6 +288,7 @@ public class GameModel{
 	public boolean isGameFinished() {
 		return gameFinished;
 	}
+
 	/**
 	 * Starts the next level.
 	 */

@@ -143,4 +143,7 @@ public class BullCreature implements Creature {
 		return true;
 	}
 
+	public Direction getDirection(){
+		return currentDir;
+	}
 }

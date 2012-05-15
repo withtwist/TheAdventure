@@ -174,6 +174,7 @@ public class GameView extends JPanelWithBackground{
 	
 	public void removeVictoryView(){
 		this.remove(vv);
+		newLevel = false;
 	}
 	
 	public void setNewLevel(boolean b){

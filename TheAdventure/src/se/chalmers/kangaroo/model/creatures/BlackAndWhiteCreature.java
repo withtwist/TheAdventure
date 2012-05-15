@@ -111,4 +111,8 @@ public class BlackAndWhiteCreature implements Creature {
 	public Position getPosition() {
 		return pos;
 	}
+	@Override
+	public Direction getDirection(){
+		return direction;
+	}
 }

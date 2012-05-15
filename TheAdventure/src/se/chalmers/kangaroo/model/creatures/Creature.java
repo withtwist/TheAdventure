@@ -2,6 +2,7 @@ package se.chalmers.kangaroo.model.creatures;
 
 import java.awt.Polygon;
 
+import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 
 /**
@@ -41,10 +42,29 @@ public interface Creature{
 	 */
 	public void updateCreature();
 
+	/**
+	 * Returns an ID for this creature, the id is specific for the type of creature. 
+	 * @return the id of the creature
+	 */
 	public int getId();
 
+	
+	/**
+	 * Returns the current position of this creature. 
+	 * @return the current position
+	 */
 	public Position getPosition();
 
+	
+	/**
+	 * Changes direction of this creature. 
+	 */
 	public void changeDirection();
+	
+	/**
+	 * The direction of the creature.
+	 * @return the current direction
+	 */
+	public Direction getDirection();
 
 }
