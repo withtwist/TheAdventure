@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileChart" tilewidth="32" tileheight="32">
+  <image source="../../../gfx/tiles/tileChart.png" width="640" height="320"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzisOACAMREF+B+b+CgQKhSGQdCZ5ttuUAAAAAAAAII48q5du94fbp8pntVW07f0H/dEACLMC2Q==
+  </data>
+ </layer>
+</map>
