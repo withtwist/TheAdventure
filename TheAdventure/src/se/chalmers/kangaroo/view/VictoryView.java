@@ -16,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
 public class VictoryView extends JPanelWithBackground implements MouseListener {
 
 	private Menubutton nextlevel, submit;
@@ -24,10 +23,10 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	private String name;
 	private GameView gameview;
 
-
-	public VictoryView(String imagepath, int deathcount, double time, GameView gv) {
+	public VictoryView(String imagepath, int deathcount, double time,
+			GameView gv) {
 		super(imagepath);
-		
+
 		int with = 130;
 		int height = 40;
 		Font stats = new Font("Verdana", Font.BOLD, 20);
@@ -38,7 +37,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		JLabel deathLabel = new JLabel("Deaths: " + deathcount);
 		deathLabel.setFont(stats);
 		deathLabel.setForeground(Color.red);
-		
+
 		this.gameview = gv;
 		nextlevel = new Menubutton("resources/images/nextlevel.png");
 		submit = new Menubutton("resources/images/submit.png");
@@ -48,22 +47,25 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		namefield.setMaximumSize(new Dimension(with, height));
 		namefield.setPreferredSize(new Dimension(with, height));
 		namefield.setFont(submitFont);
-		JPanel jp1 = new JPanel(){		@Override
+		JPanel jp1 = new JPanel() {
+			@Override
 			public void paintComponent(Graphics g) {
-			((Graphics2D) g).setComposite(AlphaComposite.getInstance(
-					AlphaComposite.SRC_OVER, 0.0f)); // draw transparent background
-			super.paintComponent(g);
-			((Graphics2D) g).setComposite(AlphaComposite.getInstance(
-					AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
+				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+						AlphaComposite.SRC_OVER, 0.0f)); // draw transparent
+															// background
+				super.paintComponent(g);
+				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+						AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
 			}
 		};
 		jp1.add(timeLabel);
 		jp1.add(deathLabel);
-		JPanel jp2 = new JPanel(){
+		JPanel jp2 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
-						AlphaComposite.SRC_OVER, 0.0f)); // draw transparent background
+						AlphaComposite.SRC_OVER, 0.0f)); // draw transparent
+															// background
 				super.paintComponent(g);
 				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
 						AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
@@ -142,7 +144,9 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 			try {
 				name = removeSpaces(namefield.getText());
 
-			} catch (NullPointerException exc) { };
+			} catch (NullPointerException exc) {
+			}
+			;
 
 		}
 	}
