@@ -63,7 +63,7 @@ public class GameController implements KeyListener, PropertyChangeListener {
 					gm.update();
 					if(gm.isLevelFinished()){
 						if(gm.isGameFinished()){
-							//gv.showFinishedView();
+							gv.showFinishedView();
 						}else
 							setVictoryView();
 					}
@@ -95,33 +95,28 @@ public class GameController implements KeyListener, PropertyChangeListener {
 
 	private void pressedKey(KeyEvent e) {
 		int code = e.getKeyCode();
-		// Jump
 		if (code == ck.getJumpKey()) {
-			if (gm.getKangaroo().getStillJumping() == false && !gv.isRunning()) {
+			if (!gm.getKangaroo().getStillJumping() && gv.isRunning()) {
 				gm.getKangaroo().setStillJumping(true);
 				gm.getKangaroo().jump();
 			}
-
-			// Left
 		} else if (code == ck.getLeftKey()) {
 			gm.getKangaroo().setDirection(Direction.DIRECTION_WEST);
-
-			// Right
 		} else if (code == ck.getRightKey()) {
 			gm.getKangaroo().setDirection(Direction.DIRECTION_EAST);
-		} else if (code == ck.getItemKey() && !gv.isRunning()) {
+		} else if (code == ck.getItemKey() && gv.isRunning()) {
 			if (gm.getKangaroo().getItem() != null)
 				gm.getKangaroo().getItem().onUse(gm.getKangaroo());
 
 		} else if (code == KeyEvent.VK_ESCAPE) {
-			if (!gv.isRunning() == true) {
+			if (!gv.isRunning()) {
 				pauseGame();
 			} else {
 				resumeGame();
 			}
 		} else {
-			// If any other keys are pressed, restarts the level.
-			if(!gv.isRunning())
+			// If any other keys are pressed, restart the level.
+			if(gv.isRunning())
 				gm.restartLevel();
 		}
 
@@ -129,7 +124,6 @@ public class GameController implements KeyListener, PropertyChangeListener {
 
 	public void releaseKey(KeyEvent e) {
 		int code = e.getKeyCode();
-		// TODO Fix so jump is key sensitive
 		if (code == ck.getJumpKey()) {
 			gm.getKangaroo().setStillJumping(false);
 		}

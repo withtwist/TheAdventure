@@ -1,7 +1,6 @@
 package se.chalmers.kangaroo.model;
 
 import java.awt.geom.Rectangle2D;
-import java.beans.PropertyChangeSupport;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.creatures.Creature;
@@ -280,7 +279,7 @@ public class GameModel{
 	private void changeLevel() {
 		// setHighScore(currentLevel, time);
 		levelFinished = true;
-		if (currentLevel + 1 == Constants.NUMBER_OF_LEVELS)
+		if (currentLevel == Constants.NUMBER_OF_LEVELS)
 			gameFinished = true;
 		// end of tmp
 	}
