@@ -98,7 +98,7 @@ public class HighscoreView extends JPanelWithBackground implements
 		JPanel lv1Panel = new JPanel(new BorderLayout());
 		String[] lv1Meta = new String[3];
 		lv1Meta = ftm.getMetaData("resources/maps/level0.tmx");
-		lv1Panel.add(new JLabel(lv1Meta[0] + "\n" + lv1Meta[1] + "\n" + lv1Meta[2]), BorderLayout.EAST);
+		lv1Panel.add(new JLabel("<html><body>" + lv1Meta[0] + "<br>" + lv1Meta[1] + "<br>" + lv1Meta[2] + "</body></html>"), BorderLayout.EAST);
 		lv1 = new Menubutton("resources/images/levels/level_1.png");
 		lv1.setName("1");
 		lv1.addMouseListener(this);
@@ -192,7 +192,6 @@ public class HighscoreView extends JPanelWithBackground implements
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
 			// TODO Delete this syso later
-			System.out.println("Back to menu");
 			cv.back();
 		}
 		//TODO: Fix crypt
