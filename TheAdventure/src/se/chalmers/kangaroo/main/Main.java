@@ -28,14 +28,6 @@ public class Main {
 	public static void main(String[] args) throws KeyczarException {
 
 	new GameController(new ChangeView(new GameModel()));
-	Highscore nh = Highscore.getInstance();
-	try {
-		nh.temp();
-	} catch (IOException e) {
-		System.out.println("hej");
-		e.printStackTrace();
-	}
-
 
 	}
 

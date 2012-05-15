@@ -245,12 +245,4 @@ public class Highscore {
 		return f;
 	}
 	
-	public void temp() throws IOException, KeyczarException {
-		File f = new File("resources/highscore.txt");
-		byte[] b = fileToByteArray(f);
-		byte[] d = crypter.encrypt(b);
-		FileWriter fw = new FileWriter("resources/highscore2.txt");
-		BufferedWriter out = new BufferedWriter(fw);
-		out.write(d.toString());
-	}
 }
