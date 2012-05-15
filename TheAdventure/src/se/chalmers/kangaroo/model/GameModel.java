@@ -9,6 +9,7 @@ import se.chalmers.kangaroo.model.kangaroo.Kangaroo;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
 import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.utils.Sound2;
 
 /**
  * A class to represent the model of a platform game.
@@ -45,6 +46,8 @@ public class GameModel{
 	private boolean levelFinished;
 
 	private boolean gameFinished;
+	
+	private Sound2 s;
 
 	/**
 	 * A method to start the game.
@@ -81,6 +84,8 @@ public class GameModel{
 		currentLevel = 0;
 		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		kangaroo = new Kangaroo(new Position(10, 186));
+		
+		s = Sound2.getInstance();
 	}
 
 	/**
@@ -137,7 +142,7 @@ public class GameModel{
 			checkFalling();
 
 		} catch (ArrayIndexOutOfBoundsException e) {
-			new Sound().play("resources/sfx/kangaroo_death.WAV", false);
+			s.playSfx("death");
 			restartLevel();
 		}
 	}
@@ -162,11 +167,11 @@ public class GameModel{
 			if (kangaroo.getPolygon().getBounds2D()
 					.intersects(creature.getPolygon().getBounds2D())) {
 				if (creature.isKillable() && kangaroo.getVerticalSpeed() > 0) {
-					new Sound().play("resources/sfx/creature_death.WAV", false);
+					s.playSfx("creaturedeath");
 					gameMap.killCreature(creature);
 					kangaroo.setVerticalSpeed(-6.5f);
 				} else {
-					new Sound().play("resources/sfx/kangaroo_death.WAV", false);
+					s.playSfx("death");
 					restartLevel();
 				}
 

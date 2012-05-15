@@ -5,6 +5,7 @@ import java.awt.Polygon;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.utils.Sound2;
 
 /**
  * This class represents the Kangaroo controlled by the player.
@@ -34,6 +35,7 @@ public class Kangaroo{
 	private boolean isFalling = false;
 
 	private boolean immortal = false;
+	private Sound2 s;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -45,6 +47,7 @@ public class Kangaroo{
 		this.direction = Direction.DIRECTION_NONE;
 		this.pos = spawnPos;
 		this.spawnPos = spawnPos;
+		this.s = Sound2.getInstance();
 	}
 
 	/**
@@ -200,7 +203,7 @@ public class Kangaroo{
 	 */
 	public void jump() {
 		if (isJumping == false) {
-			new Sound().play("resources/sfx/kangaroo_jump.WAV", false);
+			s.playSfx("jump");
 			this.isJumping = true;
 			this.isFalling = true;
 			// TODO Fix so jump is key sensitive
@@ -220,7 +223,7 @@ public class Kangaroo{
 			}.start();
 
 		} else if (enableDoubleJump) {
-			new Sound().play("resources/sfx/kangaroo_jump.WAV", false);
+			s.playSfx("jump");
 			this.verticalSpeed = -8.7f;
 			enableDoubleJump = false;
 		}

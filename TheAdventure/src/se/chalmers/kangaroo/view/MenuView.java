@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.utils.Sound2;
 
 /**
  * The view of the menu.
@@ -24,7 +25,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	private Menubutton newGame, highScore, options, exitGame;
 
 	private ChangeView cv;
-	private Sound menuMusic, lv1Music;
+	private Sound2 s;
 	private String viewName = "menuview";
 
 	/**
@@ -41,8 +42,8 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(Constants.RESOLUTION_WIDTH, Constants.RESOLUTION_WIDTH);
-		menuMusic = new Sound();
-		menuMusic.play("resources/music/menumusic.wav", true);
+		s = Sound2.getInstance();
+		s.playBgMusic("menumusic");
 		newGame = new Menubutton("resources/images/newgame.png");
 		highScore = new Menubutton("resources/images/highscore.png");
 		options = new Menubutton("resources/images/options.png");
@@ -145,9 +146,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == newGame) {
 			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
-			menuMusic.stop();
-			lv1Music = new Sound();
-			lv1Music.play("resources/music/gamemusic.WAV", true);
+			s.playBgMusic("gamemusic");
 			cv.gameView();
 
 		}

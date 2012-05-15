@@ -5,6 +5,7 @@ import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveTile;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.utils.Sound2;
 
 /**
  * 
@@ -22,12 +23,14 @@ public class RedBlueButton implements InteractiveObject {
 	private Position pos;
 	private boolean sleep;
 	private int id;
+	private Sound2 s;
 
 	public RedBlueButton(Position p, int id, GameMap gameMap) {
 		this.gameMap = gameMap;
 		this.pos = p;
 		this.sleep = false;
 		this.id = id;
+		this.s = Sound2.getInstance();
 	}
 
 	@Override
@@ -40,9 +43,9 @@ public class RedBlueButton implements InteractiveObject {
 	public void onCollision() {
 		if (!sleep) {
 			if (getId() % 2 == 0) {
-				new Sound().play("resources/sfx/redblue_red.WAV", false);
+				s.playSfx("red");
 			} else {
-				new Sound().play("resources/sfx/redblue_blue.WAV", false);
+				s.playSfx("blue");
 			}
 			int x = gameMap.getTileWidth();
 			int y = gameMap.getTileHeight();
