@@ -16,7 +16,7 @@ public class AnimationFactory {
 	public Animation getAnimation(Creature c){
 		switch(c.getId()){
 		case 111:
-			return new CrabAnimation(c);
+			return new CrabAnimation();
 		case 112:
 			return new TurtleAnimation(c);
 		case 113:

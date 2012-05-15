@@ -19,8 +19,6 @@ public class Menubutton extends JLabel {
 		this.setIcon(new ImageIcon(imagepath));
 		this.setAlignmentX(CENTER_ALIGNMENT);
 		this.setAlignmentY(CENTER_ALIGNMENT);
-		// this.setBorder(BorderFactory.createCompoundBorder(this.getBorder(),(Border)(new
-		// BorderFactory.createEmptyBorder(10,10,10,10))));
 		this.setVisible(true);
 	}
 

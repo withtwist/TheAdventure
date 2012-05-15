@@ -4,11 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-import se.chalmers.kangaroo.model.creatures.CrabCreature;
-import se.chalmers.kangaroo.model.creatures.Creature;
 
 public class CrabAnimation implements Animation{
-	private CrabCreature crab;
 	private int tick;
 	private int currentSprite;
 	private Image sheet;
@@ -19,9 +16,7 @@ public class CrabAnimation implements Animation{
 	 * Creates the animation for a crab.
 	 * @param c, must be a crabcreature. 
 	 */
-	public CrabAnimation(Creature c){
-		if(c instanceof CrabCreature)
-			this.crab = (CrabCreature)c;
+	public CrabAnimation(){
 		tick = 0;
 		currentSprite = 0;
 		this.sheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/crab_256x32.png");

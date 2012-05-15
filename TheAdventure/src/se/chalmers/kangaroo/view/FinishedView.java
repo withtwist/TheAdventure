@@ -15,11 +15,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-public class FinishedView extends JPanel{
-	private final ChangeView cv;
+public class FinishedView extends JPanelWithBackground{
 	
 	public FinishedView(final ChangeView cv) {
-		this.cv = cv;
+		super("resources/images/victory_background.png");
 		setSize(new Dimension(1024,576));
 		setPreferredSize(new Dimension(1024,576));
 		setLayout(new BorderLayout(0, 0));

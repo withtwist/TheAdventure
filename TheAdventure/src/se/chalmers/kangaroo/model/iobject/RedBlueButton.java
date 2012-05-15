@@ -4,7 +4,6 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveTile;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.utils.Sound2;
 
 /**

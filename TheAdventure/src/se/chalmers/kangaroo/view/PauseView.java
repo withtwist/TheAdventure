@@ -83,15 +83,6 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	}
 
 	/**
-	 * Unused method
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/**
 	 * Changes the button when the mouse hovers over the button. Changes the
 	 * image on the button to the given string.
 	 */
@@ -171,6 +162,11 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 			exitGame.setIcon(new ImageIcon("resources/images/exitGame.png"));
 			System.exit(0);
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		//Not needed
 	}
 
 }

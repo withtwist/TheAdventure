@@ -54,14 +54,6 @@ public class SumoAnimation implements Animation{
 			currentSprite = 0;
 		}
 		g.drawImage(sheet, x, y, x+width, y+width, currentSprite*width, 0, (currentSprite+1)*width, height, null, null);
-		int xs[] = sumo.getPolygon().xpoints;
-		int ys[] = sumo.getPolygon().ypoints;
-		for(int i = 0; i < xs.length; i++){
-			xs[i] = xs[i]-sumo.getPosition().getX()+x;
-			ys[i] = ys[i]-64;
-		}
-			
-		g.drawPolygon(xs, ys, sumo.getPolygon().npoints);
 	}
 	
 }

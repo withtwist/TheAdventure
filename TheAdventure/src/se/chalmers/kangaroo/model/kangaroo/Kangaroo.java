@@ -4,7 +4,6 @@ import java.awt.Polygon;
 
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.utils.Sound2;
 
 /**
@@ -206,7 +205,6 @@ public class Kangaroo{
 			s.playSfx("jump");
 			this.isJumping = true;
 			this.isFalling = true;
-			// TODO Fix so jump is key sensitive
 			new Thread() {
 				@Override
 				public void start() {

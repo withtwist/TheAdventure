@@ -368,8 +368,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		//Not needed
 	}
 
 	@Override

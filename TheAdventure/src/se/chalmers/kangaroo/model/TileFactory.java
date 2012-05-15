@@ -1,20 +1,6 @@
 package se.chalmers.kangaroo.model;
 
 import se.chalmers.kangaroo.constants.Constants;
-import se.chalmers.kangaroo.model.creatures.BlackAndWhiteCreature;
-import se.chalmers.kangaroo.model.creatures.BullCreature;
-import se.chalmers.kangaroo.model.creatures.CrabCreature;
-import se.chalmers.kangaroo.model.creatures.Creature;
-import se.chalmers.kangaroo.model.creatures.SmurfCreature;
-import se.chalmers.kangaroo.model.creatures.SumoCreature;
-import se.chalmers.kangaroo.model.creatures.TurtleCreature;
-import se.chalmers.kangaroo.model.iobject.InteractiveObject;
-import se.chalmers.kangaroo.model.iobject.RedBlueButton;
-import se.chalmers.kangaroo.model.kangaroo.DoubleJumpItem;
-import se.chalmers.kangaroo.model.kangaroo.ImmortalItem;
-import se.chalmers.kangaroo.model.kangaroo.Item;
-import se.chalmers.kangaroo.model.kangaroo.StopTimeItem;
-import se.chalmers.kangaroo.model.utils.Position;
 
 /**
  * Creates tiles or interactiveTiles depending on ID.

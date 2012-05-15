@@ -35,7 +35,6 @@ public class ShowHighscoreView extends JPanelWithBackground implements MouseList
 			JPanel headerPanel = new JPanel();
 			headerPanel.setLayout(new BorderLayout());
 			int titleHeight = 100;
-			int subTitleHeight = 75;
 
 			this.add(headerPanel, BorderLayout.NORTH);
 			this.setMinimumSize(Constants.RESOLUTION);

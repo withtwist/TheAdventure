@@ -7,13 +7,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.FileToMap;
-import se.chalmers.kangaroo.utils.Sound;
 
 /**
  * A class representing the a view of all the different highscores of every level in the game. 
@@ -159,8 +157,7 @@ public class HighscoreView extends JPanelWithBackground implements
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		//Not needed
 	}
 
 	@Override

@@ -8,7 +8,6 @@ import se.chalmers.kangaroo.model.kangaroo.Item;
 import se.chalmers.kangaroo.model.kangaroo.Kangaroo;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
-import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.utils.Sound2;
 
 /**
