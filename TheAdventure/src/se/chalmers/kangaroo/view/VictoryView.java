@@ -47,6 +47,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		namefield.setMaximumSize(new Dimension(with, height));
 		namefield.setPreferredSize(new Dimension(with, height));
 		namefield.setFont(submitFont);
+		namefield.setFocusable(true);
 		JPanel jp1 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
