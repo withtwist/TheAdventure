@@ -1,5 +1,9 @@
 package se.chalmers.kangaroo.view;
 
+import java.awt.AlphaComposite;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -18,26 +22,56 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	private String name;
 	private GameView gameview;
 
+
 	public VictoryView(String imagepath, int deathcount, double time, GameView gv) {
 		super(imagepath);
-
+		
+		int with = 100;
+		int height = 40;
+		
+		
 		this.gameview = gv;
 		nextlevel = new Menubutton("resources/images/nextlevel.png");
 		submit = new Menubutton("resources/images/submit.png");
 		namefield = new JTextField();
-		JPanel jp = new JPanel();
+		namefield.setSize(with, height);
+		namefield.setMinimumSize(new Dimension(with, height));
+		namefield.setMaximumSize(new Dimension(with, height));
+		namefield.setPreferredSize(new Dimension(with, height));
+		JPanel jp = new JPanel(){
+			@Override
+			public void paintComponent(Graphics g) {
+				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+						AlphaComposite.SRC_OVER, 0.0f)); // draw transparent background
+				super.paintComponent(g);
+				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+						AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
+			}
+		};
 		jp.add(namefield);
 		jp.add(submit);
 
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(1024, 576);
-		this.add(new Menubutton("resources/images/victory_logo.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/congratulations.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new JLabel("Deaths: " + deathcount));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new JLabel("Time: " + time));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(jp);
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(nextlevel);
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/stretchbar.png"));
 		nextlevel.addMouseListener(this);
 		submit.addMouseListener(this);
 	}

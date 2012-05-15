@@ -43,7 +43,9 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		highScore = new Menubutton("resources/images/highscore.png");
 		options = new Menubutton("resources/images/options.png");
 		exitGame = new Menubutton("resources/images/exitgame.png");
-
+		
+		this.add(new Menubutton("resources/images/menu_logo.gif"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(resume);
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(highScore);
@@ -51,6 +53,10 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		this.add(options);
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(exitGame);
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/stretchbar.png"));

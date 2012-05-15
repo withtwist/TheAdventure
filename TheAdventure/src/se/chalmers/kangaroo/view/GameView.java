@@ -157,7 +157,7 @@ public class GameView extends JPanelWithBackground{
 	}
 	
 	public void showVictoryView(){
-		vv = new VictoryView("resources/images/pausebackground.png", gm.getDeathCount(), gm.getTime(), this);
+		vv = new VictoryView("resources/images/victory_background.png", gm.getDeathCount(), gm.getTime(), this);
 		vv.setVisible(true); 
 		vv.setOpaque(true);
 		this.add(vv);
