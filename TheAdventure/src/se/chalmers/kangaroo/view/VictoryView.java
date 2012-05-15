@@ -1,7 +1,9 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.AlphaComposite;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
@@ -26,9 +28,16 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public VictoryView(String imagepath, int deathcount, double time, GameView gv) {
 		super(imagepath);
 		
-		int with = 100;
+		int with = 130;
 		int height = 40;
-		
+		Font stats = new Font("Verdana", Font.BOLD, 20);
+		Font submitFont = new Font("Verdana", Font.PLAIN, 28);
+		JLabel timeLabel = new JLabel("Time: " + time);
+		timeLabel.setFont(stats);
+		timeLabel.setForeground(Color.red);
+		JLabel deathLabel = new JLabel("Deaths: " + deathcount);
+		deathLabel.setFont(stats);
+		deathLabel.setForeground(Color.red);
 		
 		this.gameview = gv;
 		nextlevel = new Menubutton("resources/images/nextlevel.png");
@@ -38,7 +47,19 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		namefield.setMinimumSize(new Dimension(with, height));
 		namefield.setMaximumSize(new Dimension(with, height));
 		namefield.setPreferredSize(new Dimension(with, height));
-		JPanel jp = new JPanel(){
+		namefield.setFont(submitFont);
+		JPanel jp1 = new JPanel(){		@Override
+			public void paintComponent(Graphics g) {
+			((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+					AlphaComposite.SRC_OVER, 0.0f)); // draw transparent background
+			super.paintComponent(g);
+			((Graphics2D) g).setComposite(AlphaComposite.getInstance(
+					AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
+			}
+		};
+		jp1.add(timeLabel);
+		jp1.add(deathLabel);
+		JPanel jp2 = new JPanel(){
 			@Override
 			public void paintComponent(Graphics g) {
 				((Graphics2D) g).setComposite(AlphaComposite.getInstance(
@@ -48,8 +69,8 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 						AlphaComposite.SRC_OVER, 1.0f)); // turn on opacity
 			}
 		};
-		jp.add(namefield);
-		jp.add(submit);
+		jp2.add(namefield);
+		jp2.add(submit);
 
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
@@ -59,14 +80,16 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		this.add(new Menubutton("resources/images/congratulations.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new JLabel("Deaths: " + deathcount));
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(jp1);
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new JLabel("Time: " + time));
 		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(jp);
+		this.add(jp2);
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(nextlevel);
+		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
 		this.add(new Menubutton("resources/images/transparent.png"));
