@@ -11,17 +11,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.constants.Constants;
-import se.chalmers.kangaroo.io.FileToMap;
 
 /**
- * A class representing the a view of all the different highscores of every level in the game. 
+ * A class representing the a view of all the different highscores of every
+ * level in the game.
+ * 
  * @author pavlov
  * 
  */
 public class HighscoreView extends JPanelWithBackground implements
 		MouseListener {
 	private ChangeView cv;
-	private FileToMap ftm;
 	private Menubutton back;
 	private JLabel title;
 	private Menubutton lv1;
@@ -32,16 +32,18 @@ public class HighscoreView extends JPanelWithBackground implements
 	private Menubutton lv6;
 	private Menubutton lv7;
 	private Menubutton lv8;
+
 	/**
 	 * The default constructor taking an imagepath and a changeview.
+	 * 
 	 * @param imagepath
 	 * @param cv
 	 */
 	public HighscoreView(String imagepath, ChangeView cv) {
 		super(imagepath);
-		this.ftm = new FileToMap();
 		this.cv = cv;
 		this.setFocusable(true);
+		this.requestFocus();
 		back = new Menubutton("resources/images/buttons/back.png");
 		back.addMouseListener(this);
 		this.setLayout(new BorderLayout());
@@ -152,7 +154,7 @@ public class HighscoreView extends JPanelWithBackground implements
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		//Not needed
+		// Not needed
 	}
 
 	@Override
@@ -161,45 +163,67 @@ public class HighscoreView extends JPanelWithBackground implements
 			back.setIcon(new ImageIcon(
 					"resources/images/buttons/back_onHover.png"));
 		if (e.getSource() == lv1)
-			lv1.setIcon(new ImageIcon(
-					"resources/images/level_1_onHover.png"));
+			lv1.setIcon(new ImageIcon("resources/images/levels/level_1_onHover.png"));
 		if (e.getSource() == lv2)
-			lv2.setIcon(new ImageIcon(
-					"resources/images/level_2_onHover.png"));
+			lv2.setIcon(new ImageIcon("resources/images/levels/level_2_onHover.png"));
 		if (e.getSource() == lv3)
-			lv3.setIcon(new ImageIcon(
-					"resources/images/level_3_onHover.png"));
+			lv3.setIcon(new ImageIcon("resources/images/levels/level_3_onHover.png"));
 		if (e.getSource() == lv4)
-			lv4.setIcon(new ImageIcon(
-					"resources/images/level_4_onHover.png"));
+			lv4.setIcon(new ImageIcon("resources/images/levels/level_4_onHover.png"));
 		if (e.getSource() == lv5)
-			lv5.setIcon(new ImageIcon(
-					"resources/images/level_5_onHover.png"));
+			lv5.setIcon(new ImageIcon("resources/images/levels/level_5_onHover.png"));
 		if (e.getSource() == lv6)
-			lv6.setIcon(new ImageIcon(
-					"resources/images/level_6_onHover.png"));
+			lv6.setIcon(new ImageIcon("resources/images/levels/level_6_onHover.png"));
 		if (e.getSource() == lv7)
-			lv7.setIcon(new ImageIcon(
-					"resources/images/level_7_onHover.png"));
+			lv7.setIcon(new ImageIcon("resources/images/levels/level_7_onHover.png"));
 		if (e.getSource() == lv8)
-			lv8.setIcon(new ImageIcon(
-					"resources/images/level_8_onHover.png"));
+			lv8.setIcon(new ImageIcon("resources/images/levels/level_8_onHover.png"));
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == back) {
+		if (e.getSource() == back)
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
-		}
+		if (e.getSource() == lv1)
+			lv1.setIcon(new ImageIcon("resources/images/levels/level_1.png"));
+		if (e.getSource() == lv2)
+			lv2.setIcon(new ImageIcon("resources/images/levels/level_2.png"));
+		if (e.getSource() == lv3)
+			lv3.setIcon(new ImageIcon("resources/images/levels/level_3.png"));
+		if (e.getSource() == lv4)
+			lv4.setIcon(new ImageIcon("resources/images/levels/level_4.png"));
+		if (e.getSource() == lv5)
+			lv5.setIcon(new ImageIcon("resources/images/levels/level_5.png"));
+		if (e.getSource() == lv6)
+			lv6.setIcon(new ImageIcon("resources/images/levels/level_6.png"));
+		if (e.getSource() == lv7)
+			lv7.setIcon(new ImageIcon("resources/images/levels/level_7.png"));
+		if (e.getSource() == lv8)
+			lv8.setIcon(new ImageIcon("resources/images/levels/level_8.png"));
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if (e.getSource() == back) {
+		if (e.getSource() == back) 
 			back.setIcon(new ImageIcon(
 					"resources/images/buttons/back_onSelect.png"));
-		}
+		if (e.getSource() == lv1)
+			lv1.setIcon(new ImageIcon("resources/images/levels/level_1_onSelect.png"));
+		if (e.getSource() == lv2)
+			lv2.setIcon(new ImageIcon("resources/images/levels/level_2_onSelect.png"));
+		if (e.getSource() == lv3)
+			lv3.setIcon(new ImageIcon("resources/images/levels/level_3_onSelect.png"));
+		if (e.getSource() == lv4)
+			lv4.setIcon(new ImageIcon("resources/images/levels/level_4_onSelect.png"));
+		if (e.getSource() == lv5)
+			lv5.setIcon(new ImageIcon("resources/images/levels/level_5_onSelect.png"));
+		if (e.getSource() == lv6)
+			lv6.setIcon(new ImageIcon("resources/images/levels/level_6_onSelect.png"));
+		if (e.getSource() == lv7)
+			lv7.setIcon(new ImageIcon("resources/images/levels/level_7_onSelect.png"));
+		if (e.getSource() == lv8)
+			lv8.setIcon(new ImageIcon("resources/images/levels/level_8_onSelect.png"));
 
 	}
 
@@ -207,18 +231,33 @@ public class HighscoreView extends JPanelWithBackground implements
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
-			// TODO Delete this syso later
 			cv.back();
 		}
-		//TODO: Fix crypt
-//		for(int i = 1; i<=8; i++){
-//			if(e.getSource() instanceof JButton) {
-//				if(((JButton)e.getSource()).getName() == ("" + i)){
-//					cv.showHighscoreView(i);
-//				}
-//			}
-//
-//		}
+		if (e.getSource() == lv1)
+			lv1.setIcon(new ImageIcon("resources/images/levels/level_1.png"));
+		if (e.getSource() == lv2)
+			lv2.setIcon(new ImageIcon("resources/images/levels/level_2.png"));
+		if (e.getSource() == lv3)
+			lv3.setIcon(new ImageIcon("resources/images/levels/level_3.png"));
+		if (e.getSource() == lv4)
+			lv4.setIcon(new ImageIcon("resources/images/levels/level_4.png"));
+		if (e.getSource() == lv5)
+			lv5.setIcon(new ImageIcon("resources/images/levels/level_5.png"));
+		if (e.getSource() == lv6)
+			lv6.setIcon(new ImageIcon("resources/images/levels/level_6.png"));
+		if (e.getSource() == lv7)
+			lv7.setIcon(new ImageIcon("resources/images/levels/level_7.png"));
+		if (e.getSource() == lv8)
+			lv8.setIcon(new ImageIcon("resources/images/levels/level_8.png"));
+		// TODO: Fix crypt
+		// for(int i = 1; i<=8; i++){
+		// if(e.getSource() instanceof JButton) {
+		// if(((JButton)e.getSource()).getName() == ("" + i)){
+		// cv.showHighscoreView(i);
+		// }
+		// }
+		//
+		// }
 
 	}
 
