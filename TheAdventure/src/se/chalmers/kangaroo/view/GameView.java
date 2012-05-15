@@ -47,18 +47,23 @@ public class GameView extends JPanelWithBackground{
 		this.gm = gm;
 		this.pcs = new PropertyChangeSupport(this);
 		this.requestFocus();
+		initAnimations();
+		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
+		pv = new PauseView("resources/images/pausebackground.png", cv, this);
+		pv.setVisible(isRunning);
+		pv.setOpaque(isRunning);
+		this.add(pv);
+	}
+	/**
+	 * Use this when you want to initialize the Animations.
+	 */
+	public void initAnimations(){
 		creatureAnimations = new HashMap<Creature, Animation>();
 		AnimationFactory af = new AnimationFactory();
 		for (int i = 0; i < gm.getGameMap().getCreatureSize(); i++) {
 			Creature c = gm.getGameMap().getCreatureAt(i);
 			creatureAnimations.put(c, af.getAnimation(c));
 		}
-
-		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
-		pv = new PauseView("resources/images/pausebackground.png", cv, this);
-		pv.setVisible(isRunning);
-		pv.setOpaque(isRunning);
-		this.add(pv);
 	}
 
 	@Override

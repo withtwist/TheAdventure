@@ -90,6 +90,7 @@ public class GameController implements KeyListener, PropertyChangeListener {
 				}
 			gv.removeVictoryView();
 			gm.nextLevel();
+			gv.initAnimations();
 		}
 
 	}
