@@ -8,7 +8,6 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 import se.chalmers.kangaroo.constants.Constants;
-import se.chalmers.kangaroo.utils.Sound;
 import se.chalmers.kangaroo.utils.Sound2;
 
 /**

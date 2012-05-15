@@ -1,6 +1,8 @@
 package se.chalmers.kangaroo.main;
 
 
+import org.keyczar.exceptions.KeyczarException;
+
 import se.chalmers.kangaroo.controller.GameController;
 import se.chalmers.kangaroo.model.GameModel;
 import se.chalmers.kangaroo.view.ChangeView;

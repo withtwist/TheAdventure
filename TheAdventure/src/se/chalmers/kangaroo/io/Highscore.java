@@ -11,8 +11,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 import org.keyczar.Crypter;
 import org.keyczar.exceptions.KeyczarException;
 
