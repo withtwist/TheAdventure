@@ -28,7 +28,7 @@ public class Highscore {
 	private String encText;
 	private Highscore() {
 		try {
-			this.crypter = new Crypter("resources/keysets");
+			this.crypter = new Crypter("resources/keyset");
 		} catch(Exception e) {
 			System.out.println("Something went horribly wrong!");
 			System.out.println(e.toString());
