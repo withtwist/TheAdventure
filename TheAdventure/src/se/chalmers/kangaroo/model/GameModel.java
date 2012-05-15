@@ -279,6 +279,7 @@ public class GameModel{
 	private void changeLevel() {
 		// setHighScore(currentLevel, time);
 		levelFinished = true;
+		currentLevel++;
 		if (currentLevel == Constants.NUMBER_OF_LEVELS)
 			gameFinished = true;
 		// end of tmp
@@ -307,7 +308,6 @@ public class GameModel{
 	 */
 	public void nextLevel() {
 		levelFinished = false;
-		currentLevel++;
 		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		restartLevel();
 		deathCount = 0;
