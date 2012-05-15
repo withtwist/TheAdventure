@@ -20,7 +20,7 @@ import javax.swing.event.ChangeListener;
 
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.utils.CustomKeys;
-import se.chalmers.kangaroo.utils.Sound;
+import se.chalmers.kangaroo.utils.Sound2;
 
 /**
  * This is the class that paints the view of option.
@@ -44,7 +44,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	private Menubutton back;
 	private ChangeView cv;
 	private Key pressedKey;
-	private Sound s = new Sound();
+	private Sound2 s = Sound2.getInstance();
 
 	private enum Key {
 		LEFT, RIGHT, JUMP, ITEM, NONE;
@@ -408,9 +408,9 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		if (e.getSource() == bgSlider) {
-			Sound.setBgVolume((double) bgSlider.getValue() / 100.0);
+			s.setBgVolume((double) bgSlider.getValue() / 100.0);
 		} else if (e.getSource() == sfxSlider) {
-			Sound.setSfxVolume((double) sfxSlider.getValue() / 100.0);
+			s.setSfxVolume((double) sfxSlider.getValue() / 100.0);
 		}
 
 	}
