@@ -246,7 +246,7 @@ public class Highscore {
 	}
 	
 	public void temp() throws KeyczarException {
-		byte[] decryptedByteArray = null;
+		String decryptedByteArray = null;
 		byte[] b = null;
 		try {
 			b = fileToByteArray(new File(FILE_NAME));
@@ -255,10 +255,8 @@ public class Highscore {
 			e.printStackTrace();
 		}
 		System.out.println(b.length);
-
-			decryptedByteArray = crypter.decrypt(b);
-			decryptedByteArray = crypter.decrypt(b);
-		System.out.println(decryptedByteArray.length);
+		String s = new String(b);
+		decryptedByteArray = crypter.decrypt(s);
 		System.out.println(decryptedByteArray);
 	}
 	

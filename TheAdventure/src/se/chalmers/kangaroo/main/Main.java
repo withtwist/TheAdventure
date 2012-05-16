@@ -25,6 +25,8 @@ public class Main {
 	public static void main(String[] args) throws KeyczarException{
 
 	new GameController(new ChangeView(new GameModel()));
+	Highscore h = Highscore.getInstance();
+	h.temp();
 
 
 
