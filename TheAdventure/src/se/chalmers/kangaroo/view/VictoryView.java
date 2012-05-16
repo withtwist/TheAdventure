@@ -15,17 +15,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import se.chalmers.kangaroo.io.Highscore;
+
 public class VictoryView extends JPanelWithBackground implements MouseListener {
 
 	private Menubutton nextlevel, submit;
 	private JTextField namefield;
 	private String name;
 	private GameView gameview;
+	private int deathcount, time, level;
 
 	public VictoryView(String imagepath, int deathcount, double time,
-			GameView gv) {
+			GameView gv, int level) {
 		super(imagepath);
-
+		this.deathcount = deathcount;
+		this.time = (int)(time*1000);
+		this.level = level; 
 		int with = 130;
 		int height = 40;
 		Font stats = new Font("Verdana", Font.BOLD, 20);
@@ -143,10 +148,10 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 			submit.setIcon(new ImageIcon("resources/images/submit.png"));
 			try {
 				name = removeSpaces(namefield.getText());
-
+				Highscore h = Highscore.getInstance();
+				h.setHighscore(name, level, time);
 			} catch (NullPointerException exc) {
 			}
-			;
 
 		}
 	}

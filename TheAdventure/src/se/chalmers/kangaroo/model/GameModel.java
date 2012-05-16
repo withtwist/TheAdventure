@@ -336,5 +336,12 @@ public class GameModel {
 	public double getTime() {
 		return timer.getElapsedTime();
 	}
-
+	
+	/**
+	 * The level that is running or was just finished. 
+	 * @return the current level
+	 */
+	public int getLevel(){
+		return currentLevel;
+	}
 }

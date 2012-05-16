@@ -45,7 +45,7 @@ public class Highscore {
 	 * @param time
 	 *            , the time in millis
 	 */
-	public void setHighscore(String playerName, int level, int time) throws IOException {
+	public void setHighscore(String playerName, int level, int time){
 		int[] times = getTimes(level);
 		String[] names = getNames(level);
 
@@ -69,7 +69,7 @@ public class Highscore {
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-
+		try{
 		InputStream in = new FileInputStream(FILE_NAME);
 		Scanner sc = new Scanner(in);
 		while(sc.hasNext())
@@ -87,6 +87,9 @@ public class Highscore {
 		FileWriter fw = new FileWriter(FILE_NAME);
 		BufferedWriter out = new BufferedWriter(fw);
 		out.write(sb.toString());
+		}catch(IOException io){
+			
+		}
 
 	}
 	/**
