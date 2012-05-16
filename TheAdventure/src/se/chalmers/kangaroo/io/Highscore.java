@@ -112,6 +112,7 @@ public class Highscore {
 			for (int i = 0; i < names.length; i++) {
 				names[i] = sc.next();
 				sc.next(); // Will skip the time
+				sc.next(); // Will skip the deaths
 			}
 		} catch (IOException e){
 			System.out.println("Something bad happened in io!");
@@ -120,6 +121,26 @@ public class Highscore {
 		return names;
 	}
 
+	public int[] getDeaths(int level){
+		int[] deaths = new int[nbrOfScores];
+		try {
+			InputStream in = new FileInputStream("resources/highscore.txt");
+			Scanner sc = new Scanner(in);
+			while (!sc.nextLine().equals("level" + level)) {
+				// Loop through all the other rows
+			}
+			for (int i = 0; i < deaths.length; i++) {
+				sc.next(); // Will skip the name
+				sc.next(); // Will skip the time
+				deaths[i] = Integer.parseInt(sc.next());
+			}
+		} catch (IOException e){
+			System.out.println("Something bad happened in io!");
+			e.printStackTrace();
+		}
+		return deaths;
+	}
+	
 	/**
 	 * Returns a int array consisting of the player times in order. Will return
 	 * an empty array if the file is not found.
@@ -139,6 +160,7 @@ public class Highscore {
 			for (int i = 0; i < times.length; i++) {
 				sc.next(); // Will skip the names
 				times[i] = Integer.parseInt(sc.next());
+				sc.next(); // Will skip the deaths
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("Could't find the specific file.");
