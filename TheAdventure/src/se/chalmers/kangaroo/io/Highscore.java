@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
+import org.apache.log4j.BasicConfigurator;
+
 import org.keyczar.Crypter;
 import org.keyczar.exceptions.KeyczarException;
 
@@ -25,12 +27,12 @@ public class Highscore {
 	private static final String FILE_NAME = "resources/highscore.txt";
 	private static final int nbrOfScores = 5;
 	
-	private static Logger logger;
+	//private static Logger logger;
 	
 	private Crypter crypter;
 	private String encText;
 	private Highscore() {
-		logger = Logger.getLogger(Highscore.class);
+		//logger = Logger.getLogger(Highscore.class);
 		BasicConfigurator.configure();
 		try {
 			this.crypter = new Crypter("resources/keyset");
@@ -241,6 +243,23 @@ public class Highscore {
 		out.write(b);
 		File f = new File("temp");
 		return f;
+	}
+	
+	public void temp() throws KeyczarException {
+		byte[] decryptedByteArray = null;
+		byte[] b = null;
+		try {
+			b = fileToByteArray(new File(FILE_NAME));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(b.length);
+
+			decryptedByteArray = crypter.decrypt(b);
+			decryptedByteArray = crypter.decrypt(b);
+		System.out.println(decryptedByteArray.length);
+		System.out.println(decryptedByteArray);
 	}
 	
 }

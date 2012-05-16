@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import se.chalmers.kangaroo.constants.Constants;
+<<<<<<< HEAD
+=======
+import se.chalmers.kangaroo.io.FileToMap;
+>>>>>>> fixing with highscore
 
 /**
  * A class representing the a view of all the different highscores of every
