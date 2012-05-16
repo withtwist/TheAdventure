@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -235,31 +236,39 @@ public class HighscoreView extends JPanelWithBackground implements
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
 			cv.back();
 		}
-		if (e.getSource() == lv1)
+		if (e.getSource() == lv1){
 			lv1.setIcon(new ImageIcon("resources/images/levels/level_1.png"));
-		if (e.getSource() == lv2)
+		 	cv.showHighscoreView(0);
+		}
+		if (e.getSource() == lv2){
 			lv2.setIcon(new ImageIcon("resources/images/levels/level_2.png"));
-		if (e.getSource() == lv3)
+		 	cv.showHighscoreView(1);
+		}
+		if (e.getSource() == lv3){
 			lv3.setIcon(new ImageIcon("resources/images/levels/level_3.png"));
-		if (e.getSource() == lv4)
+		 	cv.showHighscoreView(2);
+		}
+		if (e.getSource() == lv4){
 			lv4.setIcon(new ImageIcon("resources/images/levels/level_4.png"));
-		if (e.getSource() == lv5)
+		 	cv.showHighscoreView(3);
+		}
+		if (e.getSource() == lv5){
 			lv5.setIcon(new ImageIcon("resources/images/levels/level_5.png"));
-		if (e.getSource() == lv6)
+		 	cv.showHighscoreView(4);
+		}
+		if (e.getSource() == lv6){
 			lv6.setIcon(new ImageIcon("resources/images/levels/level_6.png"));
-		if (e.getSource() == lv7)
+		 	cv.showHighscoreView(5);
+		}
+		if (e.getSource() == lv7){
 			lv7.setIcon(new ImageIcon("resources/images/levels/level_7.png"));
-		if (e.getSource() == lv8)
+		 	cv.showHighscoreView(6);
+		}
+		if (e.getSource() == lv8){
 			lv8.setIcon(new ImageIcon("resources/images/levels/level_8.png"));
-		// TODO: Fix crypt
-		// for(int i = 1; i<=8; i++){
-		// if(e.getSource() instanceof JButton) {
-		// if(((JButton)e.getSource()).getName() == ("" + i)){
-		// cv.showHighscoreView(i);
-		// }
-		// }
-		//
-		// }
+		 	cv.showHighscoreView(7);
+		}
+
 
 	}
 

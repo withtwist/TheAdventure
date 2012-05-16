@@ -40,8 +40,7 @@ public class ChangeView extends JFrame {
 		hv = new HighscoreView("resources/images/background.gif", this);
 		mv = new MenuView("resources/images/background.gif", this);
 		fv = new FinishedView(this);
-		//TODO: Fix crypt
-//		shv = new ShowHighscoreView("resources/images/background.gif", this);
+		shv = new ShowHighscoreView("resources/images/background.gif", this, 0);
 
 		jp = new JPanel(new CardLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,8 +56,7 @@ public class ChangeView extends JFrame {
 		jp.add(ov, "optionview");
 		jp.add(hv, "highscoreview");
 		jp.add(fv, "finishedview");
-		//TODO: Fix crypt
-//		jp.add(shv, "showHighscoreView");
+		jp.add(shv, "showHighscoreView");
 		add(jp);
 		setVisible(true);
 		jp.setVisible(true);
@@ -134,9 +132,10 @@ public class ChangeView extends JFrame {
 	}
 	
 	//TODO: Fix crypt
-//	public void showHighscoreView(int level) {
-//		shv.setLevel(level);
-//		CardLayout cl = (CardLayout) jp.getLayout();
-//		cl.show(jp, "showhighscoreview");
-//	}
+	public void showHighscoreView(int level) {
+		shv = new ShowHighscoreView("resources/images/background.gif", this, level);
+		CardLayout cl = (CardLayout) jp.getLayout();
+		jp.add(shv, "showhighscoreview");
+		cl.show(jp, "showhighscoreview");
+	}
 }
