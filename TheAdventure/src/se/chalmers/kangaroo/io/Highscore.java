@@ -11,11 +11,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
-import org.apache.log4j.BasicConfigurator;
-
-import org.keyczar.Crypter;
-import org.keyczar.exceptions.KeyczarException;
-
 /**
  * This is a class that manages the highscore in a file.
  * 
@@ -27,19 +22,7 @@ public class Highscore {
 	private static final String FILE_NAME = "resources/highscore.txt";
 	private static final int nbrOfScores = 5;
 	
-	//private static Logger logger;
-	
-	private Crypter crypter;
-	private String encText;
 	private Highscore() {
-		//logger = Logger.getLogger(Highscore.class);
-		BasicConfigurator.configure();
-		try {
-			this.crypter = new Crypter("resources/keyset");
-		} catch(Exception e) {
-			System.out.println("Something went horribly wrong!");
-			System.out.println(e.toString());
-		}
 	}
 
 	/**
@@ -103,12 +86,7 @@ public class Highscore {
 		/* Write the modified String to the file*/
 		FileWriter fw = new FileWriter(FILE_NAME);
 		BufferedWriter out = new BufferedWriter(fw);
-		try {
-			encText = crypter.encrypt(sb.toString());
-		} catch (KeyczarException e) {
-			e.toString();
-		}
-		out.write(encText);
+		out.write(sb.toString());
 
 	}
 	/**
@@ -123,9 +101,8 @@ public class Highscore {
 	public String[] getNames(int level){
 		String[] names = new String[nbrOfScores];
 		try {
-			byte[] b = fileToByteArray(new File(FILE_NAME));
-			byte[] decryptedByteArray = crypter.decrypt(b);
-			Scanner sc = new Scanner(byteArrayToFile(decryptedByteArray));
+			InputStream in = new FileInputStream("resources/highscore.txt");
+			Scanner sc = new Scanner(in);
 			while (!sc.nextLine().equals("level" + level)) {
 				// Loop through all the other rows
 			}
@@ -133,9 +110,6 @@ public class Highscore {
 				names[i] = sc.next();
 				sc.next(); // Will skip the time
 			}
-		} catch (KeyczarException e) {
-			System.out.println("Something bad happened!");
-			e.printStackTrace();
 		} catch (IOException e){
 			System.out.println("Something bad happened in io!");
 			e.printStackTrace();
@@ -153,17 +127,9 @@ public class Highscore {
 	 */
 	public int[] getTimes(int level){
 		int[] times = new int[nbrOfScores];
-		byte[] decryptedByteArray = null;
 		try {
-			byte[] b = fileToByteArray(new File(FILE_NAME));
-
-			try {
-				decryptedByteArray = crypter.decrypt(b);
-			} catch (KeyczarException e) {
-				System.out.println("Decryption error");
-				e.printStackTrace();
-			}
-			Scanner sc = new Scanner(byteArrayToFile(decryptedByteArray));
+			InputStream in = new FileInputStream("resources/highscore.txt");
+			Scanner sc = new Scanner(in);
 			while (!sc.nextLine().equals("level" + level)) {
 				// Loop through all the other rows
 			}
@@ -175,10 +141,7 @@ public class Highscore {
 			System.out.println("Could't find the specific file.");
 		} catch (NumberFormatException e) {
 			System.out.println("The times are not numbers.");
-		} catch (IOException e){
-			System.out.println("Something bad happened in io!");
-			e.printStackTrace();
-		}
+		} 
 		return times;
 	}
 	/**
@@ -190,11 +153,9 @@ public class Highscore {
 	 */
 	public boolean willMakeHighscore(int level, int time){
 		int[] times = new int[nbrOfScores];
-		byte[] decryptedByteArray = null;
 		try {
-			byte[] b = fileToByteArray(new File(FILE_NAME));
-			decryptedByteArray = crypter.decrypt(b);
-			Scanner sc = new Scanner(byteArrayToFile(decryptedByteArray));
+			InputStream in = new FileInputStream("resources/highscore.txt");
+			Scanner sc = new Scanner(in);
 			while (!sc.nextLine().equals("level" + level)) {
 				// Loop through all the other rows
 			}
@@ -206,32 +167,10 @@ public class Highscore {
 			System.out.println("Could't find the specific file.");
 		} catch (NumberFormatException e) {
 			System.out.println("The times are not numbers.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (KeyczarException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 		return time < times[nbrOfScores-1];
 	}
 	
-	public byte[] fileToByteArray(File f) throws IOException {
-
-		InputStream istream = new FileInputStream(f);
-
-		long l = f.length();
-		
-		byte[] bytes = new byte[(int)l];
-		
-		int offset = 0;
-		int numRead = 0;
-		
-		while(offset < bytes.length && (numRead=istream.read(bytes,offset,bytes.length-offset)) >=0) {
-			offset += numRead;
-		}
-		istream.close();
-		return bytes;
-	}
 	/**
 	 * Takes a byte array and converts it to a File and returns the file"
 	 * @param b
@@ -243,21 +182,6 @@ public class Highscore {
 		out.write(b);
 		File f = new File("temp");
 		return f;
-	}
-	
-	public void temp() throws KeyczarException {
-		String decryptedByteArray = null;
-		byte[] b = null;
-		try {
-			b = fileToByteArray(new File(FILE_NAME));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(b.length);
-		String s = new String(b);
-		decryptedByteArray = crypter.decrypt(s);
-		System.out.println(decryptedByteArray);
 	}
 	
 }
