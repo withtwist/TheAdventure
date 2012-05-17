@@ -3,19 +3,20 @@ package se.chalmers.kangaroo.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 public class FinishedView extends JPanelWithBackground{
+	
+	private JLabel btnNewGame;
+	private JLabel exitButton;
 	
 	public FinishedView(final ChangeView cv) {
 		super("resources/images/victory_background.png");
@@ -29,13 +30,17 @@ public class FinishedView extends JPanelWithBackground{
 		add(lblCongratulations, BorderLayout.NORTH);
 		
 		JTextArea txtrByFinishingThis = new JTextArea();
+		txtrByFinishingThis.setOpaque(false);
 		txtrByFinishingThis.setWrapStyleWord(true);
 		txtrByFinishingThis.setLineWrap(true);
 		txtrByFinishingThis.setEditable(false);
-		txtrByFinishingThis.setText("By finishing this game you establish yourself as a true nerd and a pr0 g4m3r. Now the question is, can you do it faster? (hardcore mode activated)");
+		txtrByFinishingThis.setAlignmentX(CENTER_ALIGNMENT);
+		txtrByFinishingThis.setText("\n\n\n\n\n\n\n"+"By finishing this game you establish yourself as a true nerd and a pr0 g4m3r. Now the question is, can you do it faster?");
+		txtrByFinishingThis.setFont(new Font("Tahoma",Font.PLAIN,17));
 		add(txtrByFinishingThis, BorderLayout.CENTER);
 		
 		JPanel panel = new JPanel();
+		panel.setOpaque(false);
 		add(panel, BorderLayout.EAST);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		JLabel lblCreators = new JLabel("Creators:");
@@ -54,28 +59,60 @@ public class FinishedView extends JPanelWithBackground{
 		panel.add(lblArvidKarlsson);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setOpaque(false);
 		add(panel_1, BorderLayout.SOUTH);
 		
-		JButton btnNewGame = new JButton("New Game");
+		btnNewGame = new JLabel();
+		btnNewGame.setIcon(new ImageIcon("resources/images/newgame.png"));
 		btnNewGame.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
+			public void mousePressed(MouseEvent arg0) {
+				btnNewGame.setIcon(new ImageIcon("resources/images/newgame_onSelect.png"));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnNewGame.setIcon(new ImageIcon("resources/images/newgame.png"));
 				cv.gameView();
+			}
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				btnNewGame.setIcon(new ImageIcon("resources/images/newgame_onHover.png"));
+			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				btnNewGame.setIcon(new ImageIcon("resources/images/newgame.png"));
 			}
 		});
 		panel_1.add(btnNewGame);
 		
-		JButton btnNewButton = new JButton("Exit Game");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		exitButton = new JLabel();
+		exitButton.setIcon(new ImageIcon("resources/images/exitgame.png"));
+		exitButton.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent arg0) {
+				exitButton.setIcon(new ImageIcon("resources/images/exitgame_onSelect.png"));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				exitButton.setIcon(new ImageIcon("resources/images/exitgame.png"));
 				System.exit(0);
 			}
-		});
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				exitButton.setIcon(new ImageIcon("resources/images/exitgame_onHover.png"));
 			}
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				exitButton.setIcon(new ImageIcon("resources/images/exitgame.png"));
+			}
+		
 		});
-		panel_1.add(btnNewButton);
+		JPanel space = new JPanel();
+		space.setSize(75, 1);
+		space.setOpaque(false);
+		panel_1.add(space);
+		panel_1.add(exitButton);
 	}
 }
+
+

@@ -179,19 +179,6 @@ public class GameView extends JPanelWithBackground{
 		newLevel = false;
 	}
 	
-	public void showFinnishedView() {
-		fv.setVisible(true);
-		fv.setOpaque(true);
-		this.add(fv);
-		this.repaint();
-		this.revalidate();
-		this.validate();
-		this.revalidate();
-	}
-	
-	public void removeFinnishedView() {
-		this.remove(fv);
-	}
 	
 	public void setNewLevel(boolean b){
 		newLevel = b; 
