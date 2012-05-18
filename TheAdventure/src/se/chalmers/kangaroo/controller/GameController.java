@@ -33,7 +33,6 @@ public class GameController implements KeyListener, PropertyChangeListener {
 		cv.setGameView(gv);
 		gv.getObserver().addPropertyChangeListener(this);
 		gv.addKeyListener(this);
-		cv.finishedView();
 	}
 
 	public GameView getGameView() {
