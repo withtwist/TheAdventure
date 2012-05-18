@@ -136,7 +136,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
-			cv.back();
+			cv.highscoreView();
 		}
 
 	}

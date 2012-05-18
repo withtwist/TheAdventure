@@ -126,6 +126,16 @@ public class ChangeView extends JFrame {
 		cl.show(jp, "highscoreview");
 	}
 	
+	/**
+	 * A method ro change to the highscoreview.
+	 * This method doesn't take a string from the previous view.
+	 * This is because it's not always nessesary.
+	 */
+	public void highscoreView() {
+		CardLayout cl = (CardLayout) jp.getLayout();
+		cl.show(jp, "highscoreview");
+	}
+	
 	public void finishedView(){
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "finishedview");
