@@ -1,6 +1,7 @@
 package se.chalmers.kangaroo.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -79,24 +80,30 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 
 		headerPanel.setMinimumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
-		title.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH,
+		headerPanel.setMaximumSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
-		title.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH,
+		headerPanel.setPreferredSize(new Dimension(Constants.RESOLUTION_WIDTH,
 				titleHeight));
 
 		// Content
-		JPanel contentPanel = new JPanel(new GridLayout(6, 6));
-		this.add(contentPanel, BorderLayout.SOUTH);
+		JPanel contentPanel = new JPanel(new GridLayout(6, 1));
 
+		this.level = level;
+		names = hs.getNames(level);
+		times = hs.getTimes(level);
+		deaths = hs.getDeaths(level);
+		
 		// Information Labels
+		JPanel topHead = new JPanel(new GridLayout(1, 6));
 		for (int i = 0; i < 2; i++) {
-			contentPanel
-					.add(new JLabel("<html><body><b>Name</b></body></html>"));
-			contentPanel
-					.add(new JLabel("<html><body><b>Time</b></body></html>"));
-			contentPanel.add(new JLabel(
-					"<html><body><b>Deaths</b></body></html>"));
+			topHead.add(new JLabel(
+					"<html><body><h1><b>Name</b></h1></body></html>"));
+			topHead.add(new JLabel(
+					"<html><body><h1><b>Time</b></h1></body></html>"));
+			topHead.add(new JLabel(
+					"<html><body><h1><b>Deaths</b></h1></body></html>"));
 		}
+<<<<<<< HEAD
 
 		this.level = level;
 		names = hs.getNames(level);
@@ -112,7 +119,68 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 			contentPanel.add(new JLabel(names[i + 5]));
 			contentPanel.add(new JLabel("" + times[i + 5] / 1000.0));
 			contentPanel.add(new JLabel("" + deaths[i + 5]));
+=======
+		contentPanel.add(topHead);
+		
+		int j = 1;
+		JPanel top1 = new JPanel(new GridLayout(1, 6));
+		top1.setBackground(Color.PINK);
+		for (int i = 0; i < 2; i++) {
+			top1.add(new JLabel("0" + (j) + ". " + names[j-1]));
+			top1.add(new JLabel("" + times[j-1] / 1000.0));
+			top1.add(new JLabel("" + deaths[j-1]));
+			j += 5;
 		}
+		contentPanel.add(top1);
+
+		j = 2;
+		JPanel top2 = new JPanel(new GridLayout(1, 6));
+		for (int i = 0; i < 2; i++) {
+			top2.add(new JLabel("0" + (j) + ". " + names[j-1]));
+			top2.add(new JLabel("" + times[j-1] / 1000.0));
+			top2.add(new JLabel("" + deaths[j-1]));
+			j += 5;
+>>>>>>> origin/master
+		}
+		contentPanel.add(top2);
+		
+		j = 3;
+		JPanel top3 = new JPanel(new GridLayout(1, 6));
+		top3.setBackground(Color.PINK);
+		for (int i = 0; i < 2; i++) {
+			top3.add(new JLabel("0" + (j) + ". " + names[j-1]));
+			top3.add(new JLabel("" + times[j-1] / 1000.0));
+			top3.add(new JLabel("" + deaths[j-1]));
+			j += 5;
+		}
+		contentPanel.add(top3);
+
+		j = 4;
+		JPanel top4 = new JPanel(new GridLayout(1, 6));
+		for (int i = 0; i < 2; i++) {
+			top4.add(new JLabel("0" + (j) + ". " + names[j-1]));
+			top4.add(new JLabel("" + times[j-1] / 1000.0));
+			top4.add(new JLabel("" + deaths[j-1]));
+			j += 5;
+		}
+		contentPanel.add(top4);
+
+		j = 5;
+		JPanel top5 = new JPanel(new GridLayout(1, 6));
+		top5.setBackground(Color.PINK);
+		for (int i = 0; i < 2; i++) {
+			if(j == 10){
+				top5.add(new JLabel((j) + ". " + names[j-1]));
+			}else{
+				top5.add(new JLabel("0" + (j) + ". " + names[j-1]));
+			}
+			top5.add(new JLabel("" + times[j-1] / 1000.0));
+			top5.add(new JLabel("" + deaths[j-1]));
+			j += 5;
+		}
+		contentPanel.add(top5);
+		
+		this.add(contentPanel, BorderLayout.SOUTH);
 
 	}
 
