@@ -49,12 +49,23 @@ public class KangarooAnimation implements Animation {
 			currentFrame = (currentFrame % 3);
 		}
 		if (kangaroo.getVerticalSpeed() != 0) {
-			if(kangaroo.getDirection() == Direction.DIRECTION_EAST || lastSheet == "rightSheet") {
+			if(kangaroo.getDirection() == Direction.DIRECTION_EAST) {
 				g.drawImage(rightSheet, (x-widthPerFrame/2)+10, y-height, (x+widthPerFrame/2)+10, y,
 						widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
-			} else if (kangaroo.getDirection() == Direction.DIRECTION_WEST || lastSheet == "leftSheet") {
+				this.lastSheet = "rightSheet";
+			} else if (kangaroo.getDirection() == Direction.DIRECTION_WEST) {
 				g.drawImage(leftSheet, x-5, y-height, x+widthPerFrame-5, y,
 						widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
+				this.lastSheet = "leftSheet";
+			} else if (kangaroo.getDirection() == Direction.DIRECTION_NONE) {
+				if(lastSheet == "leftSheet") {
+					g.drawImage(leftSheet, x-5, y-height, x+widthPerFrame-5, y,
+							1, 1, widthPerFrame, height, null, null);
+				}
+				if(lastSheet == "rightSheet") {
+					g.drawImage(rightSheet, (x-widthPerFrame/2)+10, y-height, (x+widthPerFrame/2)+10, y,
+							1, 1, widthPerFrame, height, null, null);
+				}
 			}
 		} else if(kangaroo.getDirection() == Direction.DIRECTION_EAST) {
 			g.drawImage(rightSheet, (x-widthPerFrame/2)+10, y-height, (x+widthPerFrame/2)+10, y,
