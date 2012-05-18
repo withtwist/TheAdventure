@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.model;
+	package se.chalmers.kangaroo.model;
 
 import java.awt.geom.Rectangle2D;
 
