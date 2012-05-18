@@ -20,7 +20,7 @@ import java.util.Scanner;
 public class Highscore {
 	private static Highscore highscore;
 	private static final String FILE_NAME = "resources/highscore.txt";
-	private static final int nbrOfScores = 5;
+	private static final int nbrOfScores = 10;
 	
 	private Highscore() {
 	}

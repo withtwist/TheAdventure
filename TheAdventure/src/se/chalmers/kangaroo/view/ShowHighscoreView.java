@@ -68,7 +68,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 				titleHeight));
 
 		// Content
-		JPanel contentPanel = new JPanel(new GridLayout(6, 7));
+		JPanel contentPanel = new JPanel(new GridLayout(6, 6));
 		this.add(contentPanel, BorderLayout.SOUTH);
 
 		// Information Labels
@@ -84,15 +84,19 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 		this.level = level;
 		names = hs.getNames(level);
 		times = hs.getTimes(level);
-		// deaths = hs.getDeaths(level);
+		 deaths = hs.getDeaths(level);
 
 		// Writes out labels on every person in highscore, may have to do after
 		// setLevel
-		for (int i = 0; i < names.length; i++) {
+		for (int i = 0; i < Constants.NUMBER_OF_HIGHSCORENAMES/2 ; i++) {
 			contentPanel.add(new JLabel(names[i]));
 			contentPanel.add(new JLabel(""
 					+ times[i]/1000.0));
-//			contentPanel.add(new JLabel("" + deaths[i]));
+			contentPanel.add(new JLabel("" + deaths[i]));
+			contentPanel.add(new JLabel(names[i+5]));
+			contentPanel.add(new JLabel(""
+					+ times[i+5]/1000.0));
+			contentPanel.add(new JLabel("" + deaths[i+5]));
 		}
 
 	}
