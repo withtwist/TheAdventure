@@ -14,6 +14,7 @@ import se.chalmers.kangaroo.model.GameModel;
  * changeview is a JFrame.
  * 
  * @author Arvid
+ * @modifiedby pavlov
  * 
  */
 public class ChangeView extends JFrame {
