@@ -13,6 +13,13 @@ import javax.swing.JPanel;
 import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.io.Highscore;
 
+/**
+ * This is the view that show you who has the best score on a specific level. It
+ * specifically show the level you have chosen in HighscoreView.
+ * 
+ * @author pavlov
+ * 
+ */
 public class ShowHighscoreView extends JPanelWithBackground implements
 		MouseListener {
 	private Menubutton back;
@@ -23,6 +30,16 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 	private Highscore hs;
 	private int level;
 
+	/**
+	 * Constructor that sets the design that is used.
+	 * 
+	 * @param imagepath
+	 *            is the background used for this view.
+	 * @param cv
+	 *            is the class for changing view.
+	 * @param level
+	 *            is the level that you want to show highscore for.
+	 */
 	public ShowHighscoreView(String imagepath, ChangeView cv, int level) {
 		super(imagepath);
 		this.cv = cv;
@@ -80,23 +97,21 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 			contentPanel.add(new JLabel(
 					"<html><body><b>Deaths</b></body></html>"));
 		}
-		
+
 		this.level = level;
 		names = hs.getNames(level);
 		times = hs.getTimes(level);
-		 deaths = hs.getDeaths(level);
+		deaths = hs.getDeaths(level);
 
 		// Writes out labels on every person in highscore, may have to do after
 		// setLevel
-		for (int i = 0; i < Constants.NUMBER_OF_HIGHSCORENAMES/2 ; i++) {
+		for (int i = 0; i < Constants.NUMBER_OF_HIGHSCORENAMES / 2; i++) {
 			contentPanel.add(new JLabel(names[i]));
-			contentPanel.add(new JLabel(""
-					+ times[i]/1000.0));
+			contentPanel.add(new JLabel("" + times[i] / 1000.0));
 			contentPanel.add(new JLabel("" + deaths[i]));
-			contentPanel.add(new JLabel(names[i+5]));
-			contentPanel.add(new JLabel(""
-					+ times[i+5]/1000.0));
-			contentPanel.add(new JLabel("" + deaths[i+5]));
+			contentPanel.add(new JLabel(names[i + 5]));
+			contentPanel.add(new JLabel("" + times[i + 5] / 1000.0));
+			contentPanel.add(new JLabel("" + deaths[i + 5]));
 		}
 
 	}
