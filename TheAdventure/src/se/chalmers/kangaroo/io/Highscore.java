@@ -84,6 +84,7 @@ public class Highscore {
 			if(tmp.equals("level"+level))
 				jumpToLevel = false;
 		}
+		//TODO: Level 0 highscore is written to level 1, change that plx
 		for(int i = 0; i < names.length; i++){
 			sb.append(names[i]+ " "+ times[i] + " "+ deaths[i]+ " ");
 		}
