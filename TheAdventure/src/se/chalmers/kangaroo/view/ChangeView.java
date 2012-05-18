@@ -14,6 +14,7 @@ import se.chalmers.kangaroo.model.GameModel;
  * changeview is a JFrame.
  * 
  * @author Arvid
+ * @modifiedby pavlov
  * 
  */
 public class ChangeView extends JFrame {
@@ -136,6 +137,9 @@ public class ChangeView extends JFrame {
 		cl.show(jp, "highscoreview");
 	}
 	
+	/**
+	 * A method to show the finnishedview.
+	 */
 	public void finishedView(){
 		CardLayout cl = (CardLayout) jp.getLayout();
 		cl.show(jp, "finishedview");
