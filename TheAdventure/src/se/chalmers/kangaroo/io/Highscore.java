@@ -1,6 +1,5 @@
 package se.chalmers.kangaroo.io;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Writer;
 import java.util.Scanner;
 
 /**
@@ -48,6 +48,7 @@ public class Highscore {
 	public void setHighscore(String playerName, int level, int time){
 		int[] times = getTimes(level);
 		String[] names = getNames(level);
+		int[] deaths = getDeaths(level);
 
 		if (times[nbrOfScores-1] > time) {
 			times[nbrOfScores-1] = time;
@@ -66,27 +67,40 @@ public class Highscore {
 				String tmpName = names[i];
 				names[i] = names[i - 1];
 				names[i - 1] = tmpName;
+				
+				int tmpDeath = deaths[i];
+				deaths[i] = deaths[i-1];
+				deaths[i-1] = tmpDeath;
 			}
 		}
 		StringBuilder sb = new StringBuilder();
 		try{
 		InputStream in = new FileInputStream(FILE_NAME);
 		Scanner sc = new Scanner(in);
-		while(sc.hasNext())
-			sb.append(sc.nextLine() +"\n");
-		sc.close();
-		
-		int start = sb.indexOf(names[0]+" "+times[0]);
-		int stop = sb.indexOf(names[nbrOfScores-1]+ " "+times[nbrOfScores-1-1])-names[nbrOfScores-1].length()-((Integer)times[nbrOfScores-1]).toString().length()-1;
-		StringBuilder str = new StringBuilder();
-		for(int i = 0; i < names.length; i++){
-			str.append(names[i]+" "+times[i]);
+		boolean jumpToLevel = true;
+		while(sc.hasNext() && jumpToLevel){
+			String tmp = sc.nextLine();
+			sb.append(tmp +"\n");
+			if(tmp.equals("level"+level))
+				jumpToLevel = false;
 		}
-		sb.replace(start, stop, str.toString());
+		for(int i = 0; i < names.length; i++){
+			sb.append(names[i]+ " "+ times[i] + " "+ deaths[i]+ " ");
+		}
+		jumpToLevel = true;
+		while(sc.hasNext() && jumpToLevel)
+			jumpToLevel = !sc.nextLine().equals("level"+(level+1));
+		sb.append("\nlevel"+(level+1));
+		while(sc.hasNext())
+			sb.append("\n"+sc.nextLine());
+		sc.close();
+		in.close();
+
 		/* Write the modified String to the file*/
-		FileWriter fw = new FileWriter(FILE_NAME);
-		BufferedWriter out = new BufferedWriter(fw);
-		out.write(sb.toString());
+		Writer w = new FileWriter(FILE_NAME);
+		System.out.println(sb.toString());
+		w.write(sb.toString());
+		w.close();
 		}catch(IOException io){
 			
 		}
@@ -114,10 +128,13 @@ public class Highscore {
 				sc.next(); // Will skip the time
 				sc.next(); // Will skip the deaths
 			}
+			sc.close();
+			in.close();
 		} catch (IOException e){
 			System.out.println("Something bad happened in io!");
 			e.printStackTrace();
 		}
+		
 		return names;
 	}
 
@@ -134,6 +151,8 @@ public class Highscore {
 				sc.next(); // Will skip the time
 				deaths[i] = Integer.parseInt(sc.next());
 			}
+			sc.close();
+			in.close();
 		} catch (IOException e){
 			System.out.println("Something bad happened in io!");
 			e.printStackTrace();
@@ -162,11 +181,16 @@ public class Highscore {
 				times[i] = Integer.parseInt(sc.next());
 				sc.next(); // Will skip the deaths
 			}
+			sc.close();
+			in.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Could't find the specific file.");
 		} catch (NumberFormatException e) {
 			System.out.println("The times are not numbers.");
-		} 
+		} catch (IOException e){
+			System.out.println("Something bad happened in io!");
+			e.printStackTrace();
+		}
 		return times;
 	}
 	/**
@@ -188,25 +212,16 @@ public class Highscore {
 				sc.next(); // Will skip the names
 				times[i] = Integer.parseInt(sc.next());
 			}
+			sc.close();
+			in.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Could't find the specific file.");
 		} catch (NumberFormatException e) {
 			System.out.println("The times are not numbers.");
-		} 
+		} catch (IOException e){
+			System.out.println("Something bad happened in io!");
+			e.printStackTrace();
+		}
 		return time < times[nbrOfScores-1];
 	}
-	
-	/**
-	 * Takes a byte array and converts it to a File and returns the file"
-	 * @param b
-	 * @return
-	 * @throws IOException
-	 */
-	public File byteArrayToFile(byte[] b) throws IOException {
-		OutputStream out = new FileOutputStream("temp");
-		out.write(b);
-		File f = new File("temp");
-		return f;
-	}
-	
 }

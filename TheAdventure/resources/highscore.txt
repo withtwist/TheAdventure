@@ -1,4 +1,10 @@
 level0
-Sean 10 2 Grubla 2000 1337 Loket 2500 32 Dolan 3500 9999 Sean 11000 20 Grubla 12000 51 Loket 12500 25 Dolan 13500 76 Loket 112500 666 Dolan 113500 843
+a 1 1 b 2 2 c 3 3 d 4 4 e 5 5 f 6 6 g 7 7 h 8 8 i 9 9 j 4325234 34
 level1
-NOLLFEM 10 2 Grubla 2000 1337 Loket 2500 32 Dolan 3500 9999 Sean 11000 20 Grubla 12000 51 Loket 12500 25 Dolan 13500 76 Loket 112500 666 Dolan 113500 843
+a 1 1 b 2 2 c 3 3 d 4 4 e 5 5 f 6 6 g 7 7 h 8 8 i 9 9 helo 37600 34 
+level2
+a 1 1 b 2 2 c 3 3 d 4 4 e 5 5 f 6 6 g 7 7 h 8 8 i 9 9 j 4325234 34
+level3
+a 1 1 b 2 2 c 3 3 d 4 4 e 5 5 f 6 6 g 7 7 h 8 8 i 9 9 j 4325234 34
+level4
+a 1 1 b 2 2 c 3 3 d 4 4 e 5 5 f 6 6 g 7 7 h 8 8 i 9 9 j 4325234 34
