@@ -110,11 +110,11 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 					"<html><body><h1><b>Deaths</b></h1></body></html>"));
 		}
 
-
 		this.level = level;
 		names = hs.getNames(level);
 		times = hs.getTimes(level);
 		deaths = hs.getDeaths(level);
+
 
 		contentPanel.add(topHead);
 		
@@ -136,6 +136,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 			row2.add(new JLabel("" + times[j-1] / 1000.0));
 			row2.add(new JLabel("" + deaths[j-1]));
 			j += 5;
+
 		}
 		contentPanel.add(row2);
 		
