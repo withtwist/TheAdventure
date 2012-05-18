@@ -147,6 +147,7 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		if (e.getSource() == resume) {
 			resume.setIcon(new ImageIcon("resources/images/resume.png"));
 			gv.togglePause();
+			gv.requestFocus();
 		}
 		if (e.getSource() == highScore) {
 			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
