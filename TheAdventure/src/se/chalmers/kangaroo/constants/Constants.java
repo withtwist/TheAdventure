@@ -18,16 +18,15 @@ public class Constants {
 	/*
 	 * Constant to get specific tiles.
 	 */
-	public static final int TILE_ITILE_RED = 199;
-	public static final int TILE_ITILE_BLUE = 197;
-	public static final int TILE_ITILE_ON = 196;
+
 	public static final int TILE_INVISIBLE = 42;
 	public static final String COLLIDE_IDS = " 1 2 3 4 5 6 7 8 9 10 ";
 	public static final String ITEM_IDS = " 51 52 53 54 55 56 ";
 	public static final String CREATURE_IDS = " 111 112 113 114 115 116 ";
-	public static final String IOBJECTS_IDS = " 71 72 ";
-	public static final String INTERACTIVE_TILES = " 91 92 93 94 ";
+	public static final String IOBJECTS_IDS = " 71 72 73 74";
+	public static final String INTERACTIVE_TILES = " 91 92 93 94 95 96 ";
 	public static final String INTERACTIVE_TILES_REDBLUE = " 91 92 93 94 ";
+	public static final String INTERACTIVE_TILES_ONOFF = " 95 96 ";
 	public static final String BACKGROUND_MISC_TILES = " 131 132 133 134 135 136 137 138 139 140 151 152 153 154 155 156 157 158 159 160 ";
 
 	/*

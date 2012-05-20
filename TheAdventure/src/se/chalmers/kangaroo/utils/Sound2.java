@@ -37,8 +37,12 @@ public class Sound2 {
 		soundMap.put("jump", TinySound.loadSound(new File("resources/sfx/kangaroo_jump.WAV")));
 		soundMap.put("doubleJump", TinySound.loadSound(new File("resources/sfx/kangaroo_doublejump.WAV")));
 		soundMap.put("death", TinySound.loadSound(new File("resources/sfx/kangaroo_death.WAV")));
+		
 		soundMap.put("red", TinySound.loadSound(new File("resources/sfx/redblue_red.WAV")));
 		soundMap.put("blue", TinySound.loadSound(new File("resources/sfx/redblue_blue.WAV")));
+		soundMap.put("on", TinySound.loadSound(new File("resources/sfx/onoff_on.WAV")));
+		soundMap.put("off", TinySound.loadSound(new File("resources/sfx/onoff_off.WAV")));
+		
 		soundMap.put("creaturedeath", TinySound.loadSound(new File("resources/sfx/creature_death.WAV")));
 		soundMap.put("victory", TinySound.loadSound(new File("resources/sfx/victory.WAV")));
 		

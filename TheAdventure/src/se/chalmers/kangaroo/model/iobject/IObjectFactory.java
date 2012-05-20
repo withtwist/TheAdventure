@@ -21,6 +21,10 @@ public class IObjectFactory {
 			return new RedBlueButton(new Position(x, y), i, gm);
 		case 72:
 			return new RedBlueButton(new Position(x, y), i, gm);
+		case 73:
+			return new OnOffButton(new Position(x, y), i, gm);
+		case 74:
+			return new OnOffButton(new Position(x, y), i, gm);
 		default:
 			return null;
 		}

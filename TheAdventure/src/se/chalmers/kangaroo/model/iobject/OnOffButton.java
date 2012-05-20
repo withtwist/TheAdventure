@@ -4,50 +4,83 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveTile;
 import se.chalmers.kangaroo.model.utils.Position;
+import se.chalmers.kangaroo.utils.Sound2;
 
+/**
+ * 
+ * A class for the interactive object Red/Blue-button. If the outer part of the
+ * button is red, all red tiles will be visible and collidable, while all blue
+ * tiles are not visible and not collidable. If Kangaroo collides with the
+ * button, it will become blue and all the blue tiles will be visible and
+ * collidable instead.
+ * 
+ * @author pavlov
+ * 
+ */
 public class OnOffButton implements InteractiveObject {
 	private GameMap gameMap;
 	private Position pos;
+	private boolean sleep;
 	private int id;
+	private Sound2 s;
 
 	public OnOffButton(Position p, int id, GameMap gameMap) {
 		this.gameMap = gameMap;
 		this.pos = p;
+		this.sleep = false;
 		this.id = id;
+		this.s = Sound2.getInstance();
 	}
 
 	@Override
 	public boolean isCollidable(int a) {
-		if (a == Constants.TILE_ITILE_ON) {
-			return true;
-		} else {
-			return false;
-		}
+		// TODO
+		return true;
 	}
 
 	@Override
 	public void onCollision() {
-		// TODO de fyra raderna under ska läggas in i GameModel för att slippa
-		// upprepning av kod och istället återanvända det.
-		int x = gameMap.getTileWidth();
-		int y = gameMap.getTileHeight();
-		for (int i = 0; i <= y; i++) {
-			for (int j = 0; j <= x; j++) {
-				if (gameMap.getTile(x, y).getId() == Constants.TILE_ITILE_ON
-						|| gameMap.getTile(x, y).getId() == Constants.TILE_INVISIBLE) {
-					((InteractiveTile) gameMap.getTile(x, y)).onTrigger();
+		if (!sleep) {
+			if (getId() % 2 == 0) {
+				s.playSfx("on");
+			} else {
+				s.playSfx("off");
+			}
+			int x = gameMap.getTileWidth();
+			int y = gameMap.getTileHeight();
+			for (int i = 0; i < y; i++) {
+				for (int j = 0; j < x; j++) {
+					if (Constants.INTERACTIVE_TILES_ONOFF.contains(" "
+							+ gameMap.getTile(j, i).getId() + " ")) {
+						((InteractiveTile) gameMap.getTile(j, i)).onTrigger();
+					}
+						InteractiveObject iobj = gameMap.getIObjectAt(j, i);
+						if(iobj != null)
+							iobj.changeId();
+					
 				}
 			}
-		}
+			sleep = true;
+			new Thread() {
+				@Override
+				public void run() {
+					try {
+						sleep(600);
+						sleep = false;
+					} catch (InterruptedException e) {
 
+					}
+				};
+			}.start();
+		}
 	}
 
 	@Override
 	public int getChangedId(int currentId) {
-		if (currentId == Constants.TILE_ITILE_ON) {
-			return Constants.TILE_INVISIBLE;
+		if (currentId % 2 == 0) {
+			return currentId - 1;
 		} else {
-			return Constants.TILE_ITILE_ON;
+			return currentId + 1;
 		}
 	}
 
@@ -63,7 +96,7 @@ public class OnOffButton implements InteractiveObject {
 	
 	@Override
 	public void changeId(){
-		id = id % 2 == 0 ? id-1 : id+1;
+		id = id == 73 ? id + 1 : id - 1;
 	}
 
 }
