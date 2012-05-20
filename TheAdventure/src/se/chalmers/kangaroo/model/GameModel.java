@@ -265,6 +265,10 @@ public class GameModel {
 		// setHighScore(currentLevel, time);
 		levelFinished = true;
 		currentLevel++;
+		
+//		s.playBgMusic("empty");
+		s.playSfx("victory");
+		
 		if (currentLevel == Constants.NUMBER_OF_LEVELS)
 			gameFinished = true;
 		// end of tmp

@@ -144,7 +144,7 @@ public class MenuView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == newGame) {
 			newGame.setIcon(new ImageIcon("resources/images/newgame.png"));
-			s.playBgMusic("gamemusic");
+			s.playBgMusic("level_1");
 			cv.gameView();
 
 		}

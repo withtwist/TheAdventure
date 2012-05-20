@@ -221,7 +221,7 @@ public class Kangaroo{
 			}.start();
 
 		} else if (enableDoubleJump) {
-			s.playSfx("jump");
+			s.playSfx("doubleJump");
 			this.verticalSpeed = -8.7f;
 			enableDoubleJump = false;
 		}

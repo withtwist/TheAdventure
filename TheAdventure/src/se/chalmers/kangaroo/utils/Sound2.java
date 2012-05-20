@@ -22,14 +22,18 @@ public class Sound2 {
 	public Sound2(){
 		TinySound.init();
 		musicMap = new HashMap<String, Music>();
-		musicMap.put("gamemusic", TinySound.loadMusic(new File("resources/music/gamemusic.WAV")));
-		musicMap.put("menumusic", TinySound.loadMusic(new File("resources/music/menumusic.wav")));
+		musicMap.put("empty", TinySound.loadMusic(new File("resources/music/empty.WAV")));
+		musicMap.put("menumusic", TinySound.loadMusic(new File("resources/music/menumusic.WAV")));
+		musicMap.put("level_1", TinySound.loadMusic(new File("resources/music/1_runner.WAV")));
+		
 		soundMap = new HashMap<String, Sound>();
 		soundMap.put("jump", TinySound.loadSound(new File("resources/sfx/kangaroo_jump.WAV")));
+		soundMap.put("doubleJump", TinySound.loadSound(new File("resources/sfx/kangaroo_doublejump.WAV")));
 		soundMap.put("death", TinySound.loadSound(new File("resources/sfx/kangaroo_death.WAV")));
 		soundMap.put("red", TinySound.loadSound(new File("resources/sfx/redblue_red.WAV")));
 		soundMap.put("blue", TinySound.loadSound(new File("resources/sfx/redblue_blue.WAV")));
 		soundMap.put("creaturedeath", TinySound.loadSound(new File("resources/sfx/creature_death.WAV")));
+		soundMap.put("victory", TinySound.loadSound(new File("resources/sfx/victory.WAV")));
 		
 		io = OptionsIO.getInstance();
 		loadFromFile();
