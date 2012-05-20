@@ -146,11 +146,11 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == nextlevel)
 			nextlevel.setIcon(new ImageIcon("resources/images/nextlevel.png"));
-		s.playBgMusic("level_" + (level+1));
+		s.playBgMusic("level_" + (level+2));
 		gameview.setNewLevel(true);
 		if (e.getSource() == submit) {
 			submit.setIcon(new ImageIcon("resources/images/submit.png"));
-			s.playBgMusic("level_" + (level+1));
+		s.playBgMusic("level_" + (level+2));
 			try {
 				name = removeSpaces(namefield.getText());
 				Highscore h = Highscore.getInstance();
