@@ -26,7 +26,7 @@ public class Sound2 {
 		musicMap.put("menumusic", TinySound.loadMusic(new File("resources/music/menumusic.WAV")));
 		musicMap.put("level_1", TinySound.loadMusic(new File("resources/music/1_runner.WAV")));
 		musicMap.put("level_2", TinySound.loadMusic(new File("resources/music/2_atributetoolimar.WAV")));
-		musicMap.put("level_3", TinySound.loadMusic(new File("resources/music/1_runner.WAV")));
+		musicMap.put("level_3", TinySound.loadMusic(new File("resources/music/3_arabicicemountain.WAV")));
 		musicMap.put("level_4", TinySound.loadMusic(new File("resources/music/1_runner.WAV")));
 		musicMap.put("level_5", TinySound.loadMusic(new File("resources/music/1_runner.WAV")));
 		musicMap.put("level_6", TinySound.loadMusic(new File("resources/music/1_runner.WAV")));
