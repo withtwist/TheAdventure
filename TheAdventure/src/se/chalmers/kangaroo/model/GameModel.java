@@ -266,7 +266,7 @@ public class GameModel {
 		levelFinished = true;
 		currentLevel++;
 		
-//		s.playBgMusic("empty");
+		s.playBgMusic("empty");
 		s.playSfx("victory");
 		
 		if (currentLevel == Constants.NUMBER_OF_LEVELS)

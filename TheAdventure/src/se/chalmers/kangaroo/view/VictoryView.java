@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import se.chalmers.kangaroo.io.Highscore;
+import se.chalmers.kangaroo.utils.Sound2;
 
 public class VictoryView extends JPanelWithBackground implements MouseListener {
 
@@ -24,13 +25,15 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	private String name;
 	private GameView gameview;
 	private int deathcount, time, level;
+	private Sound2 s;
 
 	public VictoryView(String imagepath, int deathcount, double time,
 			GameView gv, int level) {
 		super(imagepath);
 		this.deathcount = deathcount;
 		this.time = (int)(time*1000);
-		this.level = level; 
+		this.level = level;
+		this.s = s.getInstance();
 		int with = 130;
 		int height = 40;
 		Font stats = new Font("Verdana", Font.BOLD, 20);
@@ -143,9 +146,11 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == nextlevel)
 			nextlevel.setIcon(new ImageIcon("resources/images/nextlevel.png"));
+		s.playBgMusic("level_" + (level+1));
 		gameview.setNewLevel(true);
 		if (e.getSource() == submit) {
 			submit.setIcon(new ImageIcon("resources/images/submit.png"));
+			s.playBgMusic("level_" + (level+1));
 			try {
 				name = removeSpaces(namefield.getText());
 				Highscore h = Highscore.getInstance();
