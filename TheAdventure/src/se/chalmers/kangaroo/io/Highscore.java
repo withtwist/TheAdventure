@@ -1,13 +1,10 @@
 package se.chalmers.kangaroo.io;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Writer;
 import java.util.Scanner;
 
@@ -84,7 +81,6 @@ public class Highscore {
 			if(tmp.equals("level"+level))
 				jumpToLevel = false;
 		}
-		//TODO: Level 0 highscore is written to level 1, change that plx
 		for(int i = 0; i < names.length; i++){
 			sb.append(names[i]+ " "+ times[i] + " "+ deaths[i]+ " ");
 		}
@@ -99,7 +95,6 @@ public class Highscore {
 
 		/* Write the modified String to the file*/
 		Writer w = new FileWriter(FILE_NAME);
-		System.out.println(sb.toString());
 		w.write(sb.toString());
 		w.close();
 		}catch(IOException io){
