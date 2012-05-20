@@ -264,7 +264,7 @@ public class GameModel {
 	private void changeLevel() {
 		// setHighScore(currentLevel, time);
 		levelFinished = true;
-		currentLevel++;
+		
 		
 		s.playBgMusic("empty");
 		s.playSfx("victory");
@@ -298,6 +298,7 @@ public class GameModel {
 	 */
 	public void nextLevel() {
 		levelFinished = false;
+		currentLevel++;
 		gameMap = new GameMap("resources/maps/level" + currentLevel + ".tmx");
 		restartLevel();
 		deathCount = 0;
