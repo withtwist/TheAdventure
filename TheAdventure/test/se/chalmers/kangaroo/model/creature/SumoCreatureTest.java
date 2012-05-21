@@ -55,7 +55,7 @@ public class SumoCreatureTest {
 		SumoCreature s = new SumoCreature(new Position(1,1));
 		SumoCreature sc = new SumoCreature(new Position(1,1));
 		sc.changeDirection();
-		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
+		assertTrue(s.getDirection() == Direction.DIRECTION_WEST && sc.getDirection() == Direction.DIRECTION_EAST);
 	}
 	
 	@Test
@@ -63,7 +63,7 @@ public class SumoCreatureTest {
 		SumoCreature s = new SumoCreature(new Position(1,1));
 		SumoCreature sc = new SumoCreature(new Position(1,1));
 		sc.changeDirection();
-		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
+		assertTrue(s.getDirection() == Direction.DIRECTION_WEST && sc.getDirection() == Direction.DIRECTION_EAST);
 	}
 
 }
