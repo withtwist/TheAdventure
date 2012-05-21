@@ -25,7 +25,7 @@ public class EqualSumsMinigame {
 		this.size = size;
 		this.nbrArray = new int[size][size];
 		fillArray(size);
-		while (isSumsEqual() == true) {
+		while (isSumsEqual()) {
 			for (int i = 0; i < size; i++) {
 				pushColumnRandom(i);
 			}
