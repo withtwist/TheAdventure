@@ -49,7 +49,7 @@ public class SmurfCreatureTest {
 	public void testChangeDirection() {
 		SmurfCreature s = new SmurfCreature(new Position(1,1));
 		SmurfCreature sc = new SmurfCreature(new Position(1,1));
-		d.changeDirection();
+		sc.changeDirection();
 		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
 	}
 	
