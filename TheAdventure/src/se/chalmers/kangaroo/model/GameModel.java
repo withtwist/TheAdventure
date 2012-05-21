@@ -8,8 +8,8 @@ import se.chalmers.kangaroo.model.kangaroo.Item;
 import se.chalmers.kangaroo.model.kangaroo.Kangaroo;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.GameTimer;
 import se.chalmers.kangaroo.utils.GameSound;
+import se.chalmers.kangaroo.utils.GameTimer;
 
 /**
  * A class to represent the model of a platform game.
