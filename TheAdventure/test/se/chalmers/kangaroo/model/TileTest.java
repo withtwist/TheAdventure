@@ -1,5 +1,9 @@
+package se.chalmers.kangaroo.model;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+
+import java.awt.Polygon;
 
 import org.junit.Test;
 
@@ -25,16 +29,9 @@ public class TileTest {
 	}
 	
 	@Test
-	public void testSetId() {
-		Tile bla = new Tile(1,1,1);
-		bla.setId(42);
-		assertTrue(bla.getId() == 42);
-	}
-	
-	@Test
 	public void testGetPolygon() {
 		Tile hej = new Tile(42,13,37);
-		assertTrue(hej.getPolygon() instanceof polygon);
+		assertTrue(hej.getPolygon() instanceof Polygon);
 	}
 	
 	@Test

@@ -1,9 +1,9 @@
-import static org.junit.Assert.*;
+package se.chalmers.kangaroo.model;
+
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
-
-import se.chalmers.kangaroo.model.InteractiveTile;
 
 
 public class InteractiveTileTest {
