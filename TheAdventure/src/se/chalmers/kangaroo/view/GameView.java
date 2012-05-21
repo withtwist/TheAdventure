@@ -26,7 +26,6 @@ public class GameView extends JPanelWithBackground{
 	private boolean isRunning = false;
 	private PauseView pv;
 	private VictoryView vv;
-	private FinishedView fv;
 	private boolean newLevel = false;
 	private PropertyChangeSupport pcs;
 
@@ -50,7 +49,6 @@ public class GameView extends JPanelWithBackground{
 		initAnimations();
 		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
 		pv = new PauseView("resources/images/pausebackground.png", cv, this);
-		fv = new FinishedView(cv);
 		pv.setVisible(isRunning);
 		pv.setOpaque(isRunning);
 		this.add(pv);

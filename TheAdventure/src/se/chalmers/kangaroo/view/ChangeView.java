@@ -145,7 +145,6 @@ public class ChangeView extends JFrame {
 		cl.show(jp, "finishedview");
 	}
 	
-	//TODO: Fix crypt
 	public void showHighscoreView(int level) {
 		shv = new ShowHighscoreView("resources/images/background.gif", this, level);
 		CardLayout cl = (CardLayout) jp.getLayout();

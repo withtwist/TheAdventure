@@ -29,7 +29,6 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 	private int[] times;
 	private int[] deaths;
 	private Highscore hs;
-	private int level;
 
 	/**
 	 * Constructor that sets the design that is used.
@@ -94,7 +93,6 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 		// Content
 		JPanel contentPanel = new JPanel(new GridLayout(6, 1));
 
-		this.level = level;
 		names = hs.getNames(level);
 		times = hs.getTimes(level);
 		deaths = hs.getDeaths(level);
@@ -110,7 +108,6 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 					"<html><body><h1><b>Deaths</b></h1></body></html>"));
 		}
 
-		this.level = level;
 		names = hs.getNames(level);
 		times = hs.getTimes(level);
 		deaths = hs.getDeaths(level);
@@ -182,8 +179,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		//Nothing to do here..
 	}
 
 	@Override

@@ -24,16 +24,15 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	private JTextField namefield;
 	private String name;
 	private GameView gameview;
-	private int deathcount, time, level;
+	private int time, level;
 	private Sound2 s;
 
 	public VictoryView(String imagepath, int deathcount, double time,
 			GameView gv, int level) {
 		super(imagepath);
-		this.deathcount = deathcount;
 		this.time = (int)(time*1000);
 		this.level = level;
-		this.s = s.getInstance();
+		this.s = Sound2.getInstance();
 		int with = 130;
 		int height = 40;
 		Font stats = new Font("Verdana", Font.BOLD, 20);
@@ -165,7 +164,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < name.length(); i++) {
 			if (!((Character) name.charAt(i)).equals(' ')
-					|| !((Character) name.charAt(i)).equals(' '))
+					|| !((Character) name.charAt(i)).equals('ï¿½'))
 				sb.append(name.charAt(i));
 		}
 		return sb.toString();
