@@ -29,7 +29,7 @@ public class Constants {
 	public static final String INTERACTIVE_TILES = " 91 92 93 94 95 96 ";
 	public static final String INTERACTIVE_TILES_REDBLUE = " 91 92 93 94 ";
 	public static final String INTERACTIVE_TILES_ONOFF = " 95 96 ";
-	public static final String BACKGROUND_MISC_TILES = " 131 132 133 134 135 136 137 138 139 140 151 152 153 154 155 156 157 158 159 160 ";
+	public static final String BACKGROUND_MISC_TILES = " 131 132 133 134 135 136 137 138 139 140 151 152 153 154 155 156 157 158 159 160 161 162 163 164 ";
 
 	/*
 	 * Constants that is used normally.
@@ -43,22 +43,22 @@ public class Constants {
 	public static final int RESOLUTION_WIDTH = 1024;
 	public static final int RESOLUTION_HEIGHT = 576;
 	public static final Dimension RESOLUTION = new Dimension(1024, 576);
-	
+
 	/*
 	 * Constants for Custom Key-button dimension.
 	 */
 	public static final int BUTTON_RESOLUTION_WIDTH = 150;
 	public static final int BUTTON_RESOLUTION_HEIGHT = 50;
 	public static final Dimension BUTTON_RESOLUTION = new Dimension(150, 50);
-	
+
 	/*
 	 * Constants for title preferences.
 	 */
-	
+
 	public static final String TITLE_START = "<html><body><font size='45'>";
 	public static final String TITLE_END = "</font></body></html>";
-	
+
 	public static final int NUMBER_OF_LEVELS = 5;
-	
+
 	public static final int NUMBER_OF_HIGHSCORENAMES = 10;
 }
