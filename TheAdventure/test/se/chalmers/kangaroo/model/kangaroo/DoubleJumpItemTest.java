@@ -14,7 +14,7 @@ public class DoubleJumpItemTest {
 	public void testOnUse() {
 		Kangaroo k = new Kangaroo(new Position(0,0));
 		DoubleJumpItem dji = new DoubleJumpItem(1,1,1);
-		dji.onUse(k);
+		dji.onPickup(k);
 		assertTrue(k.isDoubleJumpEnabled());
 	}
 	
