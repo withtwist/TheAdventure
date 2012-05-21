@@ -34,7 +34,7 @@ public class SmurfAnimation implements Animation {
 			this.sc = (SmurfCreature)sc;
 		}
 		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/gfx/sheets/smurf_32x32_left.png");
-		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/smurf_32x32_right.png");
+		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/gfx/smurf_32x32_right.png");
 		this.width = 32;
 		this.height = 32;
 	}

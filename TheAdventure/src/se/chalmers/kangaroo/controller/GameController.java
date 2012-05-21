@@ -29,7 +29,7 @@ public class GameController implements KeyListener, PropertyChangeListener {
 		ck = CustomKeys.getInstance();
 		this.cv = cv;
 		gm = cv.getGameModel();
-		gv = new GameView("resources/images/background.png", gm, cv);
+		gv = new GameView("resources/gfx/misc/background.png", gm, cv);
 		cv.setGameView(gv);
 		gv.getObserver().addPropertyChangeListener(this);
 		gv.addKeyListener(this);
