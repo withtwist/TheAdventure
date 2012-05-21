@@ -9,10 +9,6 @@ import se.chalmers.kangaroo.model.utils.Position;
 
 public class DoubleJumpItemTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testOnUse() {
