@@ -1,4 +1,4 @@
-package se.chalmers.kangaroo.model;
+package se.chalmers.kangaroo.model.kangaroo;
 
 import static org.junit.Assert.assertTrue;
 
@@ -8,9 +8,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import se.chalmers.kangaroo.model.Kangaroo;
-import se.chalmers.kangaroo.model.item.DoubleJumpItem;
-import se.chalmers.kangaroo.model.item.Item;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.model.kangaroo.Kangaroo;
@@ -30,7 +27,7 @@ public class KangarooTest {
 	@Test
 	public void testGetItem() {
 		Kangaroo k = new Kangaroo(new Position(2, 2));
-		Item dj = new DoubleJumpItem();
+		Item dj = new DoubleJumpItem(51, 2, 2);
 		k.setItem(dj);
 		assertTrue(k.getItem().equals(dj));
 	}
@@ -41,28 +38,6 @@ public class KangarooTest {
 	}
 
 	@Before
-	public void beforeTestGetPolygon() {
-		System.out.println("before testGetPolygon");
-	}
-
-	@Test
-	public void testGetPolygon() {
-		Position p = new Position(0, 0);
-		Kangaroo k = new Kangaroo(p);
-		int[] x = { k.getPosition().getX(), k.getPosition().getX() + 31,
-				k.getPosition().getX(), k.getPosition().getX() + 31 };
-		int[] y = { k.getPosition().getY(), k.getPosition().getY(),
-				k.getPosition().getY() + 63, k.getPosition().getY() + 63 };
-		assertTrue();
-
-	}
-
-	@After
-	public void afterTestGetPolygon() {
-		System.out.println("After testGetPolygon");
-	}
-
-	@Before
 	public void beforeTestSetItem() {
 		System.out.println("Before testSetItem");
 	}
@@ -70,7 +45,7 @@ public class KangarooTest {
 	@Test
 	public void testSetItem() {
 		Kangaroo k = new Kangaroo(new Position(2, 2));
-		Item dj = new DoubleJumpItem();
+		Item dj = new DoubleJumpItem(51, 2, 2);
 		k.setItem(dj);
 		assertTrue(k.getItem() == dj);
 	}
@@ -126,8 +101,8 @@ public class KangarooTest {
 	@Test
 	public void testGetVerticalSpeed() {
 		Kangaroo k = new Kangaroo(new Position(1, 1));
-		k.jump();
-		assertTrue(k.getVerticalSpeed() == 1);
+		k.setVerticalSpeed(1.0f);
+		assertTrue(k.getVerticalSpeed() == 1.0f);
 	}
 
 	@After
@@ -171,39 +146,24 @@ public class KangarooTest {
 	}
 
 	@Before
-	public void beforeTestJump() {
-		System.out.println("Before testJump");
-	}
-
-	@Test
-	public void testJump() {
-		Kangaroo k = new Kangaroo(new Position(2, 2));
-		k.jump();
-		assertTrue(k.getVerticalSpeed() > 0);
-	}
-
-	@After
-	public void afterTestJump() {
-		System.out.println("Arfter testJump");
-	}
-
-	@Before
 	public void beforeTestMove() {
 		System.out.println("Before testMove");
 	}
 
 	@Test
 	public void testMove() {
-		Kangaroo k = new Kangaroo(new Position(2, 2));
+		Kangaroo k = new Kangaroo(new Position(10, 10));
 		k.setDirection(Direction.DIRECTION_EAST);
 		k.move();
-		final boolean dirEast = (k.getPosition().getY() == 3);
+		k.move();
+		final boolean dirEast = (k.getPosition().getX() == 11);
 		k.setDirection(Direction.DIRECTION_WEST);
 		k.move();
-		final boolean dirWest = (k.getPosition().getY() == 2);
-		k.jump();
 		k.move();
-		assertTrue(dirEast && dirWest && k.getPosition().getX() == 2);
+		k.move();
+		k.move();
+		final boolean dirWest = (k.getPosition().getX() == 10);
+		assertTrue(dirEast && dirWest);
 	}
 
 	@After
@@ -253,7 +213,7 @@ public class KangarooTest {
 	@Test
 	public void testGetPosition() {
 		Kangaroo k = new Kangaroo(new Position(2, 2));
-		assertTrue(k.getPosition() == new Position(2, 2));
+		assertTrue(k.getPosition().equals(new Position(2, 2)));
 	}
 
 	@After
@@ -262,36 +222,19 @@ public class KangarooTest {
 	}
 
 	@Before
-	public void beforeTestGetPosition() {
+	public void beforeTestGetSpawnPosition() {
 		System.out.println("Before testGetSpawnPosition");
 	}
 
 	@Test
 	public void testGetSpawnPosition() {
 		Kangaroo k = new Kangaroo(new Position(2, 2));
-		assertTrue(k.getSpawnPosition());
+		assertTrue(k.getSpawnPosition().equals(new Position(2, 2)));
 	}
 
 	@After
 	public void afterTestGetSpawnPosition() {
 		System.out.println("After testGetSpawnPosition");
-	}
-
-	@Before
-	public void beforeTestGetStillJumping() {
-		System.out.println("Before testGetStillJumping");
-	}
-
-	@Test
-	public void testGetStillJumping() {
-		Kangaroo k = new Kangaroo(2, 2);
-		k.jump();
-		assertTrue(k.getStillJumping());
-	}
-
-	@After
-	public void afterTestGetStillJumping() {
-		System.out.println("After testGetStillJumping");
 	}
 
 	@Before
@@ -301,7 +244,7 @@ public class KangarooTest {
 
 	@Test
 	public void testIsDoubleJumpEnabled() {
-		Kangaroo k = new Kangaroo(2, 2);
+		Kangaroo k = new Kangaroo(new Position(2, 2));
 		k.enableDoubleJump();
 		assertTrue(k.isDoubleJumpEnabled());
 	}
@@ -318,7 +261,7 @@ public class KangarooTest {
 	
 	@Test
 	public void isImmortal() {
-		Kangaroo k = new Kangaroo(2, 2);
+		Kangaroo k = new Kangaroo(new Position(2, 2));
 		k.setImmortal(true);
 		assertTrue(k.isImmortal());
 	}
@@ -335,7 +278,7 @@ public class KangarooTest {
 	
 	@Test
 	public void testReset() {
-		Kangaroo k = new Kangaroo(2, 2);
+		Kangaroo k = new Kangaroo(new Position(2, 2));
 		k.setDirection(Direction.DIRECTION_EAST);
 		k.move();
 		k.reset();
