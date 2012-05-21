@@ -29,7 +29,7 @@ public class ImmortalItem implements Item {
 	}
 
 	/**
-	 * Doesnt do anything if the item is dropped.
+	 * Doesn't do anything if the item is dropped.
 	 */
 	@Override
 	public void onDrop(Kangaroo k) {
