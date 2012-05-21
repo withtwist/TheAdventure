@@ -54,11 +54,11 @@ public class GameModel {
 		levelFinished = false;
 		gameFinished = false;
 		currentLevel = 0;
-		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
-		kangaroo = new Kangaroo(new Position(10, 168));
+//		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
+//		kangaroo = new Kangaroo(new Position(10, 168));
 		//For testing only
-//		gameMap = new GameMap("resources/maps/level0.tmx");
-//		kangaroo = new Kangaroo(new Position(3500, 168));
+		gameMap = new GameMap("resources/maps/extra_levels/level0.tmx");
+		kangaroo = new Kangaroo(new Position(50, 500));
 		
 
 		s = GameSound.getInstance();
@@ -261,7 +261,8 @@ public class GameModel {
 		kangaroo.reset();
 		gameMap.resetItems();
 		gameMap.resetCreatures();
-		kangaroo.setPosition(new Position(10, 186));
+		kangaroo.setPosition(new Position(10, 500));
+//		kangaroo.setPosition(new Position(10, 186));
 	}
 
 	/* When one level is finished this method should be invoked. */
