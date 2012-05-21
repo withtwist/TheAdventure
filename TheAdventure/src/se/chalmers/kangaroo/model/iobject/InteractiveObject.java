@@ -14,11 +14,6 @@ import se.chalmers.kangaroo.model.utils.Position;
 public interface InteractiveObject {
 
 	/**
-	 * Returns if the InteractiveTile is collidable or not with the input String
-	 */
-	public boolean isCollidable(int a);
-
-	/**
 	 * A method that will be called when Kangaroo collides with an interactive
 	 * object.
 	 */

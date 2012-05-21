@@ -29,7 +29,7 @@ public class TileFactory {
 		if (Constants.INTERACTIVE_TILES.contains(" " + i + " ")) {
 			return new InteractiveTile(i, x, y);
 		} else if (Constants.ITEM_IDS.contains(" " + i + " ")
-				|| Constants.IOBJECTS_IDS.contains(" " + i + " ")
+				|| Constants.IOBJECTS_IDS_REDBLUE.contains(" " + i + " ")
 				|| Constants.CREATURE_IDS.contains(" " + i + " ")) {
 			return new Tile(0, x, y);
 		} else {

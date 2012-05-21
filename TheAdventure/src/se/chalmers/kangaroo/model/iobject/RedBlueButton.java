@@ -33,12 +33,6 @@ public class RedBlueButton implements InteractiveObject {
 	}
 
 	@Override
-	public boolean isCollidable(int a) {
-		// TODO
-		return true;
-	}
-
-	@Override
 	public void onCollision() {
 		if (!sleep) {
 			if (getId() % 2 == 0) {

@@ -33,12 +33,6 @@ public class OnOffButton implements InteractiveObject {
 	}
 
 	@Override
-	public boolean isCollidable(int a) {
-		// TODO
-		return true;
-	}
-
-	@Override
 	public void onCollision() {
 		if (!sleep) {
 			if (getId() % 2 == 0) {
@@ -56,8 +50,8 @@ public class OnOffButton implements InteractiveObject {
 					}
 						InteractiveObject iobj = gameMap.getIObjectAt(j, i);
 						if(iobj != null)
-							iobj.changeId();
-					
+							if(Constants.IOBJECTS_IDS_ONOFF.contains(" "+iobj.getId()+" "))
+								iobj.changeId();					
 				}
 			}
 			sleep = true;

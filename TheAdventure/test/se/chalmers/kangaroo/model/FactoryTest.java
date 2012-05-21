@@ -53,7 +53,7 @@ public class FactoryTest {
 	public void iObjectTest(){
 		TileFactory f = new TileFactory();
 		for(int i = 0; i < 200; i++){
-			if( Constants.IOBJECTS_IDS.contains(" "+i+" ")){
+			if( Constants.IOBJECTS_IDS_REDBLUE.contains(" "+i+" ")){
 				assertTrue(f.createIObjects(i, 10, 10, null) != null);
 			}else{
 				assertTrue(f.createIObjects(i, 10, 10, null) == null);
