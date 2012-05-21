@@ -16,7 +16,6 @@ public class Main {
 	/**
 	 * Starts the game
 	 * @param args
-	 * @throws KeyczarException 
 	 */
 	public static void main(String[] args){
 
