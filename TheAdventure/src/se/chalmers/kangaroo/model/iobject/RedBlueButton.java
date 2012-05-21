@@ -50,7 +50,8 @@ public class RedBlueButton implements InteractiveObject {
 					}
 						InteractiveObject iobj = gameMap.getIObjectAt(j, i);
 						if(iobj != null)
-							iobj.changeId();
+							if(Constants.IOBJECTS_IDS_REDBLUE.contains(" "+iobj.getId()+" "))
+								iobj.changeId();
 					
 				}
 			}
