@@ -12,7 +12,7 @@ public class IObjecetFactoryTest {
 	@Test
 	public void iObjectTest(){
 		for(int i = 0; i < 200; i++){
-			if( Constants.IOBJECTS_IDS_REDBLUE.contains(" "+i+" ")){
+			if( Constants.IOBJECTS_IDS.contains(" "+i+" ")){
 				assertTrue(IObjectFactory.createIObjects(i, 10, 10, null) != null);
 			}else{
 				assertTrue(IObjectFactory.createIObjects(i, 10, 10, null) == null);

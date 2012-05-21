@@ -20,12 +20,12 @@ public class SmurfCreatureTest {
 	
 	@Test
 	public void testMove() {
-		SmurfCreature s = new SmurfCreature(new Position(1,1));
-		SmurfCreature sc = new SmurfCreature(new Position(1,1));
+		SmurfCreature s = new SmurfCreature(new Position(10,10));
+		SmurfCreature sc = new SmurfCreature(new Position(10,10));
 		sc.changeDirection();
 		s.move();
 		sc.move();
-		assertTrue(s.getPosition().getX() == 2 && s.getPosition().getY() == 1 && sc.getPosition().getX() == 0 && sc.getPosition().getY() == 1);
+		assertTrue(s.getPosition().getX() == 13 && s.getPosition().getY() == 10 && sc.getPosition().getX() == 7 && sc.getPosition().getY() == 10);
 	}
 	
 	@Test

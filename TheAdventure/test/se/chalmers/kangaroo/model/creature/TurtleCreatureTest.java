@@ -5,24 +5,12 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 import se.chalmers.kangaroo.model.creatures.TurtleCreature;
-import se.chalmers.kangaroo.model.creatures.TurtleCreature;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 
 
 public class TurtleCreatureTest {
 
-	
-	@Test
-	public void testUpdateCreature() {
-		TurtleCreature t = new TurtleCreature(new Position(1,1));
-		TurtleCreature c = new TurtleCreature(new Position(1,1));
-		c.changeState();
-		t.move();
-		c.move();
-		assertTrue(t.getPosition().getX() == 0 && c.getPosition().getX() == 1);
-		
-	}
 	
 	@Test
 	public void testChangeState() {
