@@ -59,12 +59,12 @@ public class KangarooAnimation implements Animation {
 				this.lastSheet = "leftSheet";
 			} else if (kangaroo.getDirection() == Direction.DIRECTION_NONE) {
 				if(lastSheet == "leftSheet") {
-					g.drawImage(leftSheet, x-5, y-height, x+widthPerFrame-5, y,
-							1, 1, widthPerFrame, height, null, null);
+					g.drawImage(leftSheet,(x-widthPerFrame/2)+15, y-height, (x+widthPerFrame/2)+15, y,
+							widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
 				}
 				if(lastSheet == "rightSheet") {
 					g.drawImage(rightSheet, (x-widthPerFrame/2)+10, y-height, (x+widthPerFrame/2)+10, y,
-							1, 1, widthPerFrame, height, null, null);
+							widthPerFrame*2, 1, widthPerFrame*3, height, null, null);
 				}
 			}
 		} else if(kangaroo.getDirection() == Direction.DIRECTION_EAST) {
