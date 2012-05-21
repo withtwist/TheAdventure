@@ -21,7 +21,7 @@ public class Constants {
 
 	public static final int TILE_INVISIBLE = 42;
 	public static final String COLLIDE_IDS = " 1 2 3 4 5 6 7 8 9 10 ";
-	public static final String ITEM_IDS = " 51 52 53 54 55 56 ";
+	public static final String ITEM_IDS = " 51 52 53 54 ";
 	public static final String CREATURE_IDS = " 111 112 113 114 115 116 ";
 	public static final String IOBJECTS_IDS = " 71 72 73 74 ";
 	public static final String IOBJECTS_IDS_REDBLUE = " 71 72 ";

@@ -17,10 +17,12 @@ public class ItemFactory {
 		switch (i) {
 		case 51:
 			return new DoubleJumpItem(i, x, y);
-		case 102:
+		case 52:
 			return new StopTimeItem(i, 5, x, y);
 		case 53:
 			return new ImmortalItem(i, x, y);
+		case 54:
+			return new IncSpeedItem(i, x, y);
 		default:
 			return null;
 		}
