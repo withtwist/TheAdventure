@@ -4,7 +4,7 @@ import java.awt.Polygon;
 
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.Sound2;
+import se.chalmers.kangaroo.utils.GameSound;
 
 /**
  * This class represents the Kangaroo controlled by the player.
@@ -34,7 +34,7 @@ public class Kangaroo{
 	private boolean isFalling = false;
 
 	private boolean immortal = false;
-	private Sound2 s;
+	private GameSound s;
 
 	/**
 	 * The constructor for Kangaroo.
@@ -46,7 +46,7 @@ public class Kangaroo{
 		this.direction = Direction.DIRECTION_NONE;
 		this.pos = spawnPos;
 		this.spawnPos = spawnPos;
-		this.s = Sound2.getInstance();
+		this.s = GameSound.getInstance();
 	}
 
 	/**

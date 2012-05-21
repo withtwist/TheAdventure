@@ -4,7 +4,7 @@ import se.chalmers.kangaroo.constants.Constants;
 import se.chalmers.kangaroo.model.GameMap;
 import se.chalmers.kangaroo.model.InteractiveTile;
 import se.chalmers.kangaroo.model.utils.Position;
-import se.chalmers.kangaroo.utils.Sound2;
+import se.chalmers.kangaroo.utils.GameSound;
 
 /**
  * 
@@ -22,14 +22,14 @@ public class OnOffButton implements InteractiveObject {
 	private Position pos;
 	private boolean sleep;
 	private int id;
-	private Sound2 s;
+	private GameSound s;
 
 	public OnOffButton(Position p, int id, GameMap gameMap) {
 		this.gameMap = gameMap;
 		this.pos = p;
 		this.sleep = false;
 		this.id = id;
-		this.s = Sound2.getInstance();
+		this.s = GameSound.getInstance();
 	}
 
 	@Override

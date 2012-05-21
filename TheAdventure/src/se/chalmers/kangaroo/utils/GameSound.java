@@ -9,7 +9,7 @@ import kuusisto.tinysound.TinySound;
 import se.chalmers.kangaroo.io.OptionsIO;
 
 
-public class Sound2 {
+public class GameSound {
 
 	private HashMap<String, Music> musicMap;
 	private HashMap<String, Sound> soundMap;
@@ -17,9 +17,9 @@ public class Sound2 {
 	private double bgDecibel;
 	private double sfxDecibel;
 	private OptionsIO io;
-	private static Sound2 soundInstance;
+	private static GameSound soundInstance;
 	
-	public Sound2(){
+	public GameSound(){
 		TinySound.init();
 		musicMap = new HashMap<String, Music>();
 		musicMap.put("empty", TinySound.loadMusic(new File("resources/music/empty.WAV")));
@@ -50,9 +50,9 @@ public class Sound2 {
 		loadFromFile();
 	}
 	
-	public static synchronized Sound2 getInstance(){
+	public static synchronized GameSound getInstance(){
 		if(soundInstance == null)
-			soundInstance = new Sound2();
+			soundInstance = new GameSound();
 		return soundInstance;
 	}
 	

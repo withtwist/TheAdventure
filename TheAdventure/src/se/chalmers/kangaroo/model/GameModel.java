@@ -9,7 +9,7 @@ import se.chalmers.kangaroo.model.kangaroo.Kangaroo;
 import se.chalmers.kangaroo.model.utils.Direction;
 import se.chalmers.kangaroo.model.utils.Position;
 import se.chalmers.kangaroo.utils.GameTimer;
-import se.chalmers.kangaroo.utils.Sound2;
+import se.chalmers.kangaroo.utils.GameSound;
 
 /**
  * A class to represent the model of a platform game.
@@ -47,7 +47,7 @@ public class GameModel {
 
 	private boolean gameFinished;
 
-	private Sound2 s;
+	private GameSound s;
 
 	public GameModel() {
 		super();
@@ -61,7 +61,7 @@ public class GameModel {
 //		kangaroo = new Kangaroo(new Position(3500, 168));
 		
 
-		s = Sound2.getInstance();
+		s = GameSound.getInstance();
 	}
 
 	/**
