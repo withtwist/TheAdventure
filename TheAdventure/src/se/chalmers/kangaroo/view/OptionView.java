@@ -63,7 +63,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 		this.setFocusable(true);
 		this.addKeyListener(this);
 		ck = CustomKeys.getInstance();
-		back = new Menubutton("resources/images/buttons/back.png");
+		back = new Menubutton("resources/gfx/buttons/back.png");
 		back.addMouseListener(this);
 		cv.addKeyListener(this);
 		this.setLayout(new BorderLayout());
@@ -375,14 +375,14 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == back)
 			back.setIcon(new ImageIcon(
-					"resources/images/buttons/back_onHover.png"));
+					"resources/gfx/buttons/back_onHover.png"));
 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == back) {
-			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+			back.setIcon(new ImageIcon("resources/gfx/buttons/back.png"));
 		}
 
 	}
@@ -391,7 +391,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon(
-					"resources/images/buttons/back_onSelect.png"));
+					"resources/gfx/buttons/back_onSelect.png"));
 		}
 
 	}
@@ -399,7 +399,7 @@ public class OptionView extends JPanelWithBackground implements ActionListener,
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == back) {
-			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+			back.setIcon(new ImageIcon("resources/gfx/buttons/back.png"));
 			cv.back();
 		}
 

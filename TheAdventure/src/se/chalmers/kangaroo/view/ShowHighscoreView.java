@@ -45,7 +45,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 		this.cv = cv;
 		hs = Highscore.getInstance();
 		this.setFocusable(true);
-		back = new Menubutton("resources/images/buttons/back.png");
+		back = new Menubutton("resources/gfx/buttons/back.png");
 		back.addMouseListener(this);
 		this.setLayout(new BorderLayout());
 
@@ -186,14 +186,14 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == back)
 			back.setIcon(new ImageIcon(
-					"resources/images/buttons/back_onHover.png"));
+					"resources/gfx/buttons/back_onHover.png"));
 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == back) {
-			back.setIcon(new ImageIcon("resources/images/buttons/back.png"));
+			back.setIcon(new ImageIcon("resources/gfx/buttons/back.png"));
 		}
 
 	}
@@ -202,7 +202,7 @@ public class ShowHighscoreView extends JPanelWithBackground implements
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == back) {
 			back.setIcon(new ImageIcon(
-					"resources/images/buttons/back_onSelect.png"));
+					"resources/gfx/buttons/back_onSelect.png"));
 		}
 
 	}

@@ -48,7 +48,7 @@ public class GameView extends JPanelWithBackground{
 		this.requestFocus();
 		initAnimations();
 		ka = new KangarooAnimation(gm.getKangaroo(), 58, 64);
-		pv = new PauseView("resources/images/pausebackground.png", cv, this);
+		pv = new PauseView("resources/gfx/misc/pausebackground.png", cv, this);
 		pv.setVisible(isRunning);
 		pv.setOpaque(isRunning);
 		this.add(pv);
@@ -163,7 +163,7 @@ public class GameView extends JPanelWithBackground{
 	}
 	
 	public void showVictoryView(){
-		vv = new VictoryView("resources/images/victory_background.png", gm.getDeathCount(), gm.getTime(), this, gm.getLevel());
+		vv = new VictoryView("resources/gfx/misc/victory_background.png", gm.getDeathCount(), gm.getTime(), this, gm.getLevel());
 		vv.setVisible(true); 
 		vv.setOpaque(true);
 		this.add(vv);

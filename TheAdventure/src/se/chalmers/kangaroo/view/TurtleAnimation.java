@@ -30,7 +30,7 @@ public class TurtleAnimation implements Animation {
 		currentSprite = 0;
 		// Fix the imagepath
 		this.sheet = Toolkit.getDefaultToolkit().getImage(
-				"resources/sheets/turtle_64x32.png");
+				"resources/gfx/sheets/turtle_64x32.png");
 		this.width = 64;
 		this.height = 32;
 		this.inShell = turtle.isKillable();

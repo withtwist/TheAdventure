@@ -28,8 +28,8 @@ public class KangarooAnimation implements Animation {
 	 * @param height
 	 */
 	public KangarooAnimation(Kangaroo k,int width, int height) {
-		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_right.png");
-		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/sheets/kangaroo_58x64_left.png");
+		rightSheet = Toolkit.getDefaultToolkit().getImage("resources/gfx/sheets/kangaroo_58x64_right.png");
+		leftSheet = Toolkit.getDefaultToolkit().getImage("resources/gfx/sheets/kangaroo_58x64_left.png");
 		lastSheet = "rightSheet";
 		currentFrame = 0;
 		this.widthPerFrame = width;

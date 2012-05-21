@@ -19,7 +19,7 @@ public class FinishedView extends JPanelWithBackground{
 	private JLabel exitButton;
 	
 	public FinishedView(final ChangeView cv) {
-		super("resources/images/victory_background.png");
+		super("resources/gfx/misc/victory_background.png");
 		setSize(new Dimension(1024,576));
 		setPreferredSize(new Dimension(1024,576));
 		setLayout(new BorderLayout(0, 0));
@@ -63,47 +63,47 @@ public class FinishedView extends JPanelWithBackground{
 		add(panel_1, BorderLayout.SOUTH);
 		
 		btnNewGame = new JLabel();
-		btnNewGame.setIcon(new ImageIcon("resources/images/newgame.png"));
+		btnNewGame.setIcon(new ImageIcon("resources/gfx/buttons/newgame.png"));
 		btnNewGame.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				btnNewGame.setIcon(new ImageIcon("resources/images/newgame_onSelect.png"));
+				btnNewGame.setIcon(new ImageIcon("resources/gfx/buttons/newgame_onSelect.png"));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				btnNewGame.setIcon(new ImageIcon("resources/images/newgame.png"));
+				btnNewGame.setIcon(new ImageIcon("resources/gfx/buttons/newgame.png"));
 				cv.gameView();
 			}
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				btnNewGame.setIcon(new ImageIcon("resources/images/newgame_onHover.png"));
+				btnNewGame.setIcon(new ImageIcon("resources/gfx/buttons/newgame_onHover.png"));
 			}
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				btnNewGame.setIcon(new ImageIcon("resources/images/newgame.png"));
+				btnNewGame.setIcon(new ImageIcon("resources/gfx/buttons/newgame.png"));
 			}
 		});
 		panel_1.add(btnNewGame);
 		
 		exitButton = new JLabel();
-		exitButton.setIcon(new ImageIcon("resources/images/exitgame.png"));
+		exitButton.setIcon(new ImageIcon("resources/gfx/buttons/exitgame.png"));
 		exitButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				exitButton.setIcon(new ImageIcon("resources/images/exitgame_onSelect.png"));
+				exitButton.setIcon(new ImageIcon("resources/gfx/buttons/exitgame_onSelect.png"));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				exitButton.setIcon(new ImageIcon("resources/images/exitgame.png"));
+				exitButton.setIcon(new ImageIcon("resources/gfx/buttons/exitgame.png"));
 				System.exit(0);
 			}
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				exitButton.setIcon(new ImageIcon("resources/images/exitgame_onHover.png"));
+				exitButton.setIcon(new ImageIcon("resources/gfx/buttons/exitgame_onHover.png"));
 			}
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				exitButton.setIcon(new ImageIcon("resources/images/exitgame.png"));
+				exitButton.setIcon(new ImageIcon("resources/gfx/buttons/exitgame.png"));
 			}
 		
 		});
