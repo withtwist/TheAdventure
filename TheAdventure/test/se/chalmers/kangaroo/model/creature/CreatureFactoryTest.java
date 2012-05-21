@@ -18,10 +18,6 @@ import se.chalmers.kangaroo.model.utils.Position;
 
 public class CreatureFactoryTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testCreateCreature() {

@@ -11,11 +11,6 @@ import org.junit.Test;
 public class TileTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
 	public void testIsCollidable() {
 		Tile notCollidable = new Tile(42, 1, 2);
 		Tile collidable = new Tile(1,4,2);

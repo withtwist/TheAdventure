@@ -9,7 +9,8 @@ import se.chalmers.kangaroo.model.utils.Position;
 public class ImmortalItemTest {
 
 	@Test
-	public void testOnUse(Kangaroo k){
+	public void testOnUse(){
+		Kangaroo k = new Kangaroo(new Position(1,1));
 		ImmortalItem ii = new ImmortalItem(1, 1, 1);
 		ii.onUse(k);
 		assertTrue(k.isImmortal());

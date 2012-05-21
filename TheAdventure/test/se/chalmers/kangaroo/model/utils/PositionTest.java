@@ -13,10 +13,6 @@ import se.chalmers.kangaroo.model.utils.Position;
  */
 public class PositionTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 	/**
 	 * Tests getY().
 	 */
