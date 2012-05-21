@@ -39,27 +39,27 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 		this.setLayout(layout);
 		this.setSize(1024, 576);
 		this.setBackground(Color.BLACK);
-		resume = new Menubutton("resources/images/resume.png");
-		highScore = new Menubutton("resources/images/highscore.png");
-		options = new Menubutton("resources/images/options.png");
-		exitGame = new Menubutton("resources/images/exitgame.png");
+		resume = new Menubutton("resources/gfx/buttons/resume.png");
+		highScore = new Menubutton("resources/gfx/buttons/highscore.png");
+		options = new Menubutton("resources/gfx/buttons/options.png");
+		exitGame = new Menubutton("resources/gfx/buttons/exitgame.png");
 		
-		this.add(new Menubutton("resources/images/menu_logo.gif"));
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/menu_logo.gif"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(resume);
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(highScore);
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(options);
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(exitGame);
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/stretchbar.png"));
+		this.add(new Menubutton("resources/gfx/misctransparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/stretchbar.png"));
 
 		resume.addMouseListener(this);
 		highScore.addMouseListener(this);
@@ -89,16 +89,16 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == resume)
-			resume.setIcon(new ImageIcon("resources/images/resume_onHover.png"));
+			resume.setIcon(new ImageIcon("resources/gfx/buttons/resume_onHover.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon(
-					"resources/images/highscore_onHover.png"));
+					"resources/gfx/buttons/highscore_onHover.png"));
 		if (e.getSource() == options)
 			options.setIcon(new ImageIcon(
-					"resources/images/options_onHover.png"));
+					"resources/gfx/buttons/options_onHover.png"));
 		if (e.getSource() == exitGame)
 			exitGame.setIcon(new ImageIcon(
-					"resources/images/exitgame_onHover.png"));
+					"resources/gfx/buttons/exitgame_onHover.png"));
 	}
 
 	/**
@@ -108,13 +108,13 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == resume)
-			resume.setIcon(new ImageIcon("resources/images/resume.png"));
+			resume.setIcon(new ImageIcon("resources/gfx/buttons/resume.png"));
 		if (e.getSource() == highScore)
-			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
+			highScore.setIcon(new ImageIcon("resources/gfx/buttons/highscore.png"));
 		if (e.getSource() == options)
-			options.setIcon(new ImageIcon("resources/images/options.png"));
+			options.setIcon(new ImageIcon("resources/gfx/buttons/options.png"));
 		if (e.getSource() == exitGame)
-			exitGame.setIcon(new ImageIcon("resources/images/exitgame.png"));
+			exitGame.setIcon(new ImageIcon("resources/gfx/buttons/exitgame.png"));
 
 	}
 
@@ -125,16 +125,16 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == resume)
-			resume.setIcon(new ImageIcon("resources/images/resume_onSelect.png"));
+			resume.setIcon(new ImageIcon("resources/gfx/buttons/resume_onSelect.png"));
 		if (e.getSource() == highScore)
 			highScore.setIcon(new ImageIcon(
-					"resources/images/highscore_onSelect.png"));
+					"resources/gfx/buttons/highscore_onSelect.png"));
 		if (e.getSource() == options)
 			options.setIcon(new ImageIcon(
-					"resources/images/options_onSelect.png"));
+					"resources/gfx/buttons/options_onSelect.png"));
 		if (e.getSource() == exitGame)
 			exitGame.setIcon(new ImageIcon(
-					"resources/images/exitgame_onSelect.png"));
+					"resources/gfx/buttons/exitgame_onSelect.png"));
 	}
 
 	/**
@@ -145,22 +145,22 @@ public class PauseView extends JPanelWithBackground implements MouseListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == resume) {
-			resume.setIcon(new ImageIcon("resources/images/resume.png"));
+			resume.setIcon(new ImageIcon("resources/gfx/buttons/resume.png"));
 			gv.togglePause();
 			gv.requestFocus();
 		}
 		if (e.getSource() == highScore) {
-			highScore.setIcon(new ImageIcon("resources/images/highscore.png"));
+			highScore.setIcon(new ImageIcon("resources/gfx/buttons/highscore.png"));
 			cv.highscoreView(viewName);
 		}
 
 		if (e.getSource() == options) {
-			options.setIcon(new ImageIcon("resources/images/options.png"));
+			options.setIcon(new ImageIcon("resources/gfx/buttons/options.png"));
 			cv.optionView(viewName);
 
 		}
 		if (e.getSource() == exitGame) {
-			exitGame.setIcon(new ImageIcon("resources/images/exitGame.png"));
+			exitGame.setIcon(new ImageIcon("resources/gfx/buttons/exitGame.png"));
 			System.exit(0);
 		}
 	}

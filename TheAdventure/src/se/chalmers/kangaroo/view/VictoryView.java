@@ -45,8 +45,8 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		deathLabel.setForeground(Color.red);
 
 		this.gameview = gv;
-		nextlevel = new Menubutton("resources/images/nextlevel.png");
-		submit = new Menubutton("resources/images/submit.png");
+		nextlevel = new Menubutton("resources/gfx/buttons/nextlevel.png");
+		submit = new Menubutton("resources/gfx/buttons/submit.png");
 		namefield = new JTextField();
 		namefield.setSize(with, height);
 		namefield.setMinimumSize(new Dimension(with, height));
@@ -84,26 +84,26 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		this.setLayout(layout);
 		this.setSize(1024, 576);
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/congratulations.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/congratulations.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(jp1);
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(jp2);
-		this.add(new Menubutton("resources/images/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
 		this.add(nextlevel);
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/transparent.png"));
-		this.add(new Menubutton("resources/images/stretchbar.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/transparent.png"));
+		this.add(new Menubutton("resources/gfx/misc/stretchbar.png"));
 		nextlevel.addMouseListener(this);
 		submit.addMouseListener(this);
 	}
@@ -117,18 +117,18 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public void mouseEntered(MouseEvent e) {
 		if (e.getSource() == nextlevel)
 			nextlevel.setIcon(new ImageIcon(
-					"resources/images/nextlevel_onHover.png"));
+					"resources/gfx/buttons/nextlevel_onHover.png"));
 		if (e.getSource() == submit)
-			submit.setIcon(new ImageIcon("resources/images/submit_onHover.png"));
+			submit.setIcon(new ImageIcon("resources/gfx/buttons/submit_onHover.png"));
 
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if (e.getSource() == nextlevel)
-			nextlevel.setIcon(new ImageIcon("resources/images/nextlevel.png"));
+			nextlevel.setIcon(new ImageIcon("resources/gfx/buttons/nextlevel.png"));
 		if (e.getSource() == submit)
-			submit.setIcon(new ImageIcon("resources/images/submit.png"));
+			submit.setIcon(new ImageIcon("resources/gfx/buttons/submit.png"));
 
 	}
 
@@ -136,19 +136,19 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		if (e.getSource() == nextlevel)
 			nextlevel.setIcon(new ImageIcon(
-					"resources/images/nextlevel_onSelect.png"));
+					"resources/gfx/buttons/nextlevel_onSelect.png"));
 		if (e.getSource() == submit)
-			submit.setIcon(new ImageIcon("resources/images/submit_onSelect.png"));
+			submit.setIcon(new ImageIcon("resources/gfx/buttons/submit_onSelect.png"));
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if (e.getSource() == nextlevel)
-			nextlevel.setIcon(new ImageIcon("resources/images/nextlevel.png"));
+			nextlevel.setIcon(new ImageIcon("resources/gfx/buttons/nextlevel.png"));
 		s.playBgMusic("level_" + (level+2));
 		gameview.setNewLevel(true);
 		if (e.getSource() == submit) {
-			submit.setIcon(new ImageIcon("resources/images/submit.png"));
+			submit.setIcon(new ImageIcon("resources/gfx/buttons/submit.png"));
 		s.playBgMusic("level_" + (level+2));
 			try {
 				name = removeSpaces(namefield.getText());
@@ -163,8 +163,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	public String removeSpaces(String name) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < name.length(); i++) {
-			if (!((Character) name.charAt(i)).equals(' ')
-					|| !((Character) name.charAt(i)).equals('�'))
+			if (!((Character) name.charAt(i)).equals(' '))
 				sb.append(name.charAt(i));
 		}
 		return sb.toString();
