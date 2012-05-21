@@ -24,8 +24,8 @@ public class ImmortalItemTest {
 	@Test
 	public void testGetId() {
 		ImmortalItem ii = new ImmortalItem(1,1,1);
-		ImmortalItem hej = new ImmortalItem(2,1,1);
-		assertTrue(ii.getId() == 1 && hej.getId() == 2);
+		ImmortalItem it = new ImmortalItem(2,1,1);
+		assertTrue(ii.getId() == 1 && it.getId() == 2);
 	}
 	
 	
