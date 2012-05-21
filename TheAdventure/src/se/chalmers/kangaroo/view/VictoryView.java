@@ -24,7 +24,9 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 	private JTextField namefield;
 	private String name;
 	private GameView gameview;
-	private int time, level;
+	private int time;
+	private int level;
+	private int deathcount;
 	private GameSound s;
 
 	public VictoryView(String imagepath, int deathcount, double time,
@@ -32,6 +34,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 		super(imagepath);
 		this.time = (int)(time*1000);
 		this.level = level;
+		this.deathcount = deathcount;
 		this.s = GameSound.getInstance();
 		int with = 130;
 		int height = 40;
@@ -153,7 +156,7 @@ public class VictoryView extends JPanelWithBackground implements MouseListener {
 			try {
 				name = removeSpaces(namefield.getText());
 				Highscore h = Highscore.getInstance();
-				h.setHighscore(name, level, time);
+				h.setHighscore(name, level, time, deathcount);
 			} catch (NullPointerException exc) {
 			}
 

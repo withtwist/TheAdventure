@@ -42,7 +42,7 @@ public class Highscore {
 	 * @param time
 	 *            , the time in millis
 	 */
-	public void setHighscore(String playerName, int level, int time){
+	public void setHighscore(String playerName, int level, int time, int nbrOfDeaths){
 		int[] times = getTimes(level);
 		String[] names = getNames(level);
 		int[] deaths = getDeaths(level);
@@ -50,6 +50,7 @@ public class Highscore {
 		if (times[nbrOfScores-1] > time) {
 			times[nbrOfScores-1] = time;
 			names[nbrOfScores-1] = playerName;
+			deaths[nbrOfScores-1] = nbrOfDeaths;
 		}
 		/*
 		 * Since it already should be sorted I only need to make one bubbleSort
