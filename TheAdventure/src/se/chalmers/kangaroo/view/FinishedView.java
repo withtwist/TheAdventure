@@ -13,8 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-import se.chalmers.kangaroo.utils.Sound2;
-
 public class FinishedView extends JPanelWithBackground{
 	
 	private JLabel btnNewGame;
