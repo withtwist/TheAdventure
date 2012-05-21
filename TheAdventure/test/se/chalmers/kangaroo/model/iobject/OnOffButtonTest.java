@@ -15,17 +15,6 @@ public class OnOffButtonTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
-	public void testIsCollidable() {
-		OnOffButton ob = new OnOffButton(new Position(1,1),73,new GameMap("resources/maps/level0.tmx"));
-		assertTrue(ob.isCollidable(1));
-	}
 	
 	@Test
 	public void testGetChangedId() {

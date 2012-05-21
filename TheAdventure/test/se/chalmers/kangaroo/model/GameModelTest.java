@@ -7,11 +7,6 @@ import org.junit.Test;
 public class GameModelTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	
-	@Test
 	public void deathCountTest(){
 		GameModel gm = new GameModel();
 		gm.start();

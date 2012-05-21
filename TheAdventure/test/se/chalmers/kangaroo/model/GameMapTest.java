@@ -11,11 +11,7 @@ import se.chalmers.kangaroo.model.kangaroo.Item;
 
 public class GameMapTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	
+
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void itemTest(){
 		GameMap gm = new GameMap("resources/maps/level0.tmx");
