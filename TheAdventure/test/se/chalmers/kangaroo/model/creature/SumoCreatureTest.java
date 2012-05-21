@@ -17,57 +17,57 @@ public class SumoCreatureTest {
 	}
 	@Test
 	public void testIsKillable() {
-		SumoCreature c = new SumoCreature(new Position(42,1337));
-		assertTrue(!c.isKillable());
+		SumoCreature s = new SumoCreature(new Position(42,1337));
+		assertTrue(!s.isKillable());
 	}
 	
 	@Test
 	public void testIsStomping() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		assertTrue(!c.isStomping());
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		assertTrue(!s.isStomping());
 	}
 	
 	@Test
 	public void testIsJumping() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		assertTrue(!c.isJumping());
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		assertTrue(!s.isJumping());
 		
 	}
 
 	@Test
 	public void testMove() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		c.move();
-		assertTrue(c.getPosition().getX() == 1 && c.getPosition().getY() == 1);
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		s.move();
+		assertTrue(s.getPosition().getX() == 1 && s.getPosition().getY() == 1);
 	}
 	
 	@Test
 	public void testGetId() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		assertTrue(c.getId() == 115);
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		assertTrue(s.getId() == 115);
 	}
 	
 	@Test
 	public void testGetPosition() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		SumoCreature d = new SumoCreature(new Position(42,1337));
-		assertTrue(c.getPosition().getX() == 1 && c.getPosition().getY() == 1 && d.getPosition().getX() == 42 && d.getPosition().getY() == 1337);
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		SumoCreature sc = new SumoCreature(new Position(42,1337));
+		assertTrue(s.getPosition().getX() == 1 && s.getPosition().getY() == 1 && sc.getPosition().getX() == 42 && sc.getPosition().getY() == 1337);
 	}
 	
 	@Test
 	public void testChangeDirection() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		SumoCreature d = new SumoCreature(new Position(1,1));
-		d.changeDirection();
-		assertTrue(c.getDirection() == Direction.DIRECTION_EAST && d.getDirection() == Direction.DIRECTION_WEST);
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		SumoCreature sc = new SumoCreature(new Position(1,1));
+		sc.changeDirection();
+		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
 	}
 	
 	@Test
 	public void testGetDirection() {
-		SumoCreature c = new SumoCreature(new Position(1,1));
-		SumoCreature d = new SumoCreature(new Position(1,1));
-		d.changeDirection();
-		assertTrue(c.getDirection() == Direction.DIRECTION_EAST && d.getDirection() == Direction.DIRECTION_WEST);
+		SumoCreature s = new SumoCreature(new Position(1,1));
+		SumoCreature sc = new SumoCreature(new Position(1,1));
+		sc.changeDirection();
+		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
 	}
 
 }

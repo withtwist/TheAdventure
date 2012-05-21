@@ -24,41 +24,41 @@ public class SmurfCreatureTest {
 	
 	@Test
 	public void testMove() {
-		SmurfCreature c = new SmurfCreature(new Position(1,1));
-		SmurfCreature d = new SmurfCreature(new Position(1,1));
-		d.changeDirection();
-		c.move();
-		d.move();
-		assertTrue(c.getPosition().getX() == 2 && c.getPosition().getY() == 1 && d.getPosition().getX() == 0 && d.getPosition().getY() == 1);
+		SmurfCreature s = new SmurfCreature(new Position(1,1));
+		SmurfCreature sc = new SmurfCreature(new Position(1,1));
+		sc.changeDirection();
+		s.move();
+		sc.move();
+		assertTrue(s.getPosition().getX() == 2 && s.getPosition().getY() == 1 && sc.getPosition().getX() == 0 && sc.getPosition().getY() == 1);
 	}
 	
 	@Test
 	public void testGetId() {
-		SmurfCreature c = new SmurfCreature(new Position(1,1));
-		assertTrue(c.getId() == 116);
+		SmurfCreature s = new SmurfCreature(new Position(1,1));
+		assertTrue(s.getId() == 116);
 	}
 	
 	@Test
 	public void testGetPosition() {
-		SmurfCreature c = new SmurfCreature(new Position(1,1));
-		SmurfCreature d = new SmurfCreature(new Position(42,1337));
-		assertTrue(c.getPosition().getX() == 1 && c.getPosition().getY() == 1 && d.getPosition().getX() == 42 && d.getPosition().getY() == 1337);
+		SmurfCreature s = new SmurfCreature(new Position(1,1));
+		SmurfCreature sc = new SmurfCreature(new Position(42,1337));
+		assertTrue(s.getPosition().getX() == 1 && s.getPosition().getY() == 1 && sc.getPosition().getX() == 42 && sc.getPosition().getY() == 1337);
 	}
 	
 	@Test
 	public void testChangeDirection() {
-		SmurfCreature c = new SmurfCreature(new Position(1,1));
-		SmurfCreature d = new SmurfCreature(new Position(1,1));
+		SmurfCreature s = new SmurfCreature(new Position(1,1));
+		SmurfCreature sc = new SmurfCreature(new Position(1,1));
 		d.changeDirection();
-		assertTrue(c.getDirection() == Direction.DIRECTION_EAST && d.getDirection() == Direction.DIRECTION_WEST);
+		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
 	}
 	
 	@Test
 	public void testGetDirection() {
-		SmurfCreature c = new SmurfCreature(new Position(1,1));
-		SmurfCreature d = new SmurfCreature(new Position(1,1));
-		d.changeDirection();
-		assertTrue(c.getDirection() == Direction.DIRECTION_EAST && d.getDirection() == Direction.DIRECTION_WEST);
+		SmurfCreature s = new SmurfCreature(new Position(1,1));
+		SmurfCreature sc = new SmurfCreature(new Position(1,1));
+		sc.changeDirection();
+		assertTrue(s.getDirection() == Direction.DIRECTION_EAST && sc.getDirection() == Direction.DIRECTION_WEST);
 	}
 
 }
