@@ -12,10 +12,6 @@ import se.chalmers.kangaroo.model.utils.Position;
 public class SumoCreatureTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-	@Test
 	public void testIsKillable() {
 		SumoCreature s = new SumoCreature(new Position(42,1337));
 		assertTrue(!s.isKillable());

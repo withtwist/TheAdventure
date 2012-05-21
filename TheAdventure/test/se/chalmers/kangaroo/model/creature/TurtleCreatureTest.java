@@ -12,10 +12,6 @@ import se.chalmers.kangaroo.model.utils.Position;
 
 public class TurtleCreatureTest {
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 	
 	@Test
 	public void testUpdateCreature() {
