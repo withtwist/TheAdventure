@@ -54,8 +54,7 @@ public class GameModel {
 		levelFinished = false;
 		gameFinished = false;
 		currentLevel = 0;
-		//gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
-		gameMap = new GameMap("resources/maps/level3.tmx");
+		gameMap = new GameMap("resources/maps/level"+currentLevel+".tmx");
 		kangaroo = new Kangaroo(new Position(10, 168));
 		s = GameSound.getInstance();
 	}
@@ -75,7 +74,6 @@ public class GameModel {
 		oldPos = kangaroo.getPosition();
 		kangaroo.move();
 		updateCreatures();
-		kangaroo.enableDoubleJump();
 		checkCollition();
 		if (gameMap.getTileWidth() - kangaroo.getPosition().getX()
 				/ Constants.TILE_SIZE < 3)
